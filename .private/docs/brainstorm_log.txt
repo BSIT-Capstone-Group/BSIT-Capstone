@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-Messenger: March 5, 2020 - 10:00 PM - 1:00 AM
+Messenger: March 5, 2020
 --------------------------------------------------------------------------------
 
 1.1 Background of the Study
@@ -32,5 +32,62 @@ THESIS TITLE: (POTENTIAL CAPSTONE TITLES)
 2. GANHS Portal: A Student Information System of Golden Acres National High School
 
 --------------------------------------------------------------------------------
-Messenger: March 6, 2020 - 10:00 PM - 1:00 AM
+Messenger: March 7, 2020
 --------------------------------------------------------------------------------
+
+Statement of the Problem
+
+	The general aim of the study is to identify the pros and cons of having an inventory system in a business, as well as the pros and cons of having an online ordering system that the customers can interact. Along with this general problem, the following questions are also expected to be answered by the end of the study:
+
+1. How can an inventory system expedite certain workflows around a business?
+2. How does an inventory system communicate well with an ordering system, and vice versa, when it comes to transactions around the business?
+3. How would the proposed system elevate the mastery of the beneficiaries in terms of inventory?
+4. What are the factors that must be considered in an inventory system?
+5. What are the factors that must be considered in an online ordering system?
+
+--------------------------------------------------------------------------------
+Messenger: March 9, 2020
+--------------------------------------------------------------------------------
+
+Statement of the Problem
+
+	The general aim of the study is to identify the pros and cons of an online ordering system. Along with this general problem, the following questions are also expected to be answered by the end of the study:
+
+1. How can an online ordering system expedite certain workflows around a business?
+2. How does an online ordering system facilitate well communication between the seller and the customer?
+3. ---
+4. ---
+5. What are the factors that must be considered in an online ordering system?
+
+How can an online ordering system serve as a platform to expand the marketplace of the business?
+What are the variables to be considered in creating an online ordering system?
+what will be the contribution of an online ordering system to the success of a business?
+
+	The general aim of the study is to identify how can an online ordering system help in contributing in one's business growth during a pandemic crisis. Along with this general problem, the following questions are also expected to be answered by the end of the study:
+
+1. How can an online ordering system expedite certain workflows around a business?
+2. How does an online ordering system facilitate well communication between the seller and the customer?
+3. How can an online ordering system serve as a platform to expand the marketplace of the business?
+4. What are the variables to be considered in creating an online ordering system?
+5. What are the factors that must be considered in an online ordering system?
+
+THESIS TITLE: (POTENTIAL CAPSTONE TITLES.)
+
+1. PEARL: AN INVENTORY SYSTEM AND FOOD SERVICE APPLICATION WITH SCHEDULED DELIVERY OF LINTEAK MILK TEA SHOP 
+Category: Application
+
+Statement of the Problem
+	The general aim of the study is to identify how can an online ordering system help in contributing in one's business growth during a pandemic crisis. Along with this general problem, the following questions are also expected to be answered by the end of the study:
+
+1. How can an online ordering system expedite certain workflows around a business?
+2. How does an online ordering system facilitate well communication between the seller and the customer?
+3. How can an online ordering system serve as a platform to expand the marketplace of the business?
+4. What are the variables to be considered in creating an online ordering system?
+5. What is the level of convenience that an online ordering system offers to both business owner and customers?
+
+--------------------------------------------------------------------------------
+Messenger: March 10, 2020
+--------------------------------------------------------------------------------
+
+Lin-TEAk: AN ONLINE ORDERING SYSTEM AND FOOD SERVICE APPLICATION WITH THERMAL PRINTED RECEIPT OF LIN-TEAK MILKTEA SHOP
+Lin-TEAk: An Online Ordering System and Food Service Application with Thermal-Printed Receipt of Lin-TEAk Milktea Shop
