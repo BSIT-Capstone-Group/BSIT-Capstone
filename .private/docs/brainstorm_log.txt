@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-Messenger: March 5, 2020
+Messenger: March 5, 2021
 --------------------------------------------------------------------------------
 
 1.1 Background of the Study
@@ -32,7 +32,7 @@ THESIS TITLE: (POTENTIAL CAPSTONE TITLES)
 2. GANHS Portal: A Student Information System of Golden Acres National High School
 
 --------------------------------------------------------------------------------
-Messenger: March 7, 2020
+Messenger: March 7, 2021
 --------------------------------------------------------------------------------
 
 Statement of the Problem
@@ -46,7 +46,7 @@ Statement of the Problem
 5. What are the factors that must be considered in an online ordering system?
 
 --------------------------------------------------------------------------------
-Messenger: March 9, 2020
+Messenger: March 9, 2021
 --------------------------------------------------------------------------------
 
 Statement of the Problem
@@ -86,8 +86,47 @@ Statement of the Problem
 5. What is the level of convenience that an online ordering system offers to both business owner and customers?
 
 --------------------------------------------------------------------------------
-Messenger: March 10, 2020
+Messenger: March 10, 2021
 --------------------------------------------------------------------------------
 
-Lin-TEAk: AN ONLINE ORDERING SYSTEM AND FOOD SERVICE APPLICATION WITH THERMAL PRINTED RECEIPT OF LIN-TEAK MILKTEA SHOP
-Lin-TEAk: An Online Ordering System and Food Service Application with Thermal-Printed Receipt of Lin-TEAk Milktea Shop
+Lin-TEAk: AN ONLINE ORDERING SYSTEM AND FOOD SERVICE APPLICATION WITH THERMAL-PRINTED RECEIPT OF LIN-TEAK MILK TEA SHOP
+Lin-TEAk: An Online Ordering System and Food Service Application with Thermal-Printed Receipt of Lin-TEAk Milk Tea Shop
+
+--------------------------------------------------------------------------------
+Messenger: March 15, 2021
+--------------------------------------------------------------------------------
+
+GANHS Portal: A Student Information System of Golden Acres National High School
+
+Statement of the Problem
+	Overall, the main objective of the study is to determine how can a student information system help in providing a better source of information and transparency for an educational institution.
+	Alongside this main problem, the following problems are expected to be given light throughout the study:
+
+1. How  does the  proposed online information system impose its uniqueness empowering  the schools integrity?
+2. In what way does an online Student Information System beneficial to both students and teachers?
+3. How does an online information system aid the discrepancy of traditional data management?
+4. How can a Student Information System be useful in terms of record management and data privacy?
+5. What issues appear to be substancial concern in having a Student Information System?
+
+--------------------------------------------------------------------------------
+Messenger: March 17, 2021
+--------------------------------------------------------------------------------
+
+Specific Problem
+	- Identify the existing ways related to the implementation.
+	- Difficulties before the implementation of the study.
+	- Compare what they are using and compare what we are trying to implement.
+	- 
+
+GANHS PORTAL: AN ONLINE STUDENT INFORMATION SYSTEM OF GOLDEN ACRES NATIONAL HIGHSCHOOL
+GANHS Portal: An Online Student Information System of Golden Acres National Highschool
+
+Statement of the Problem
+	Overall, the main objective of the study is to implement a Student Information System for Golden Acres National High School.
+	Alongside this main problem, the following problems are expected to be given light throughout the study:
+
+1. What are the existing ways of managing students' information are done by the school?
+2. What are the known problems of the traditional way of managing students' information?
+3. How does a Student Information System differ from the traditional way of managing students' information?
+4. How does a Student Information System facilitates communication between the students and instructors?
+5. How does a Student Information System aid in providing a better source of information and transparency for an educational institution?

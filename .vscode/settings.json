@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "api_sample\\Scripts\\python.exe",
+    "python.analysis.extraPaths": [
+        "./api_sample/"
+    ]
+}

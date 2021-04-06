@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Briefcase-Version: 0.3.5
+Name: testapplication
+Formal-Name: Test Application
+App-ID: testcorp.testdomain.testapplication
+Version: 0.0.1
+Home-page: https://testdomain.testcorp/testapplication
+Author: NI.L.A
+Author-email: nommel.isanar.lavapie.amolat@gmail.com
+Summary: My first application

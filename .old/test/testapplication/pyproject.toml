@@ -1,0 +1,49 @@
+[tool.briefcase]
+project_name = "Test Application"
+bundle = "testcorp.testdomain"
+version = "0.0.1"
+url = "https://testdomain.testcorp/testapplication"
+license = "Other"
+author = 'NI.L.A'
+author_email = "nommel.isanar.lavapie.amolat@gmail.com"
+
+[tool.briefcase.app.testapplication]
+formal_name = "Test Application"
+description = "My first application"
+icon = "src/testapplication/resources/testapplication"
+sources = ['src/testapplication']
+requires = []
+
+
+[tool.briefcase.app.testapplication.macOS]
+requires = [
+    'toga-cocoa>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.testapplication.linux]
+requires = [
+    'toga-gtk>=0.3.0.dev20',
+]
+system_requires = [
+    'libgirepository1.0-dev',
+    'libcairo2-dev',
+    'libpango1.0-dev',
+    'libwebkitgtk-3.0-0',
+    'gir1.2-webkit-3.0',
+]
+
+[tool.briefcase.app.testapplication.windows]
+requires = [
+    'toga-winforms>=0.3.0.dev20',
+]
+
+# Mobile deployments
+[tool.briefcase.app.testapplication.iOS]
+requires = [
+    'toga-iOS>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.testapplication.android]
+requires = [
+    'toga-android>=0.3.0.dev20',
+]
