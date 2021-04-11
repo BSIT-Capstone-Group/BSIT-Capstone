@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // [System.Serializable]
-public enum View {
+public enum ViewCameraMode {
     TOP, BOTTOM,
     FRONT, BACK,
     LEFT, RIGHT
@@ -11,7 +11,7 @@ public enum View {
 
 public class ViewCamera : MonoBehaviour {
     public Transform target;
-    public View view = View.TOP;
+    public ViewCameraMode view = ViewCameraMode.TOP;
     public float distance = 25.0f;
     public float smoothTime = 1.0f;
 
@@ -30,32 +30,32 @@ public class ViewCamera : MonoBehaviour {
         float tz = !this.lockZPosition ? this.target.position.z : 0.0f;
 
         switch(this.view) {
-            case(View.TOP): {
+            case(ViewCameraMode.TOP): {
                 position = new Vector3(tx, ty + this.distance, tz);
                 rotation = new Vector3(90.0f, 0.0f, 0.0f);
                 break;
 
-            } case(View.BOTTOM): {
+            } case(ViewCameraMode.BOTTOM): {
                 position = new Vector3(tx, ty + -this.distance, tz);
                 rotation = new Vector3(-90.0f, 0.0f, 0.0f);
                 break;
                 
-            } case(View.FRONT): {
+            } case(ViewCameraMode.FRONT): {
                 position = new Vector3(tx, ty, tz + this.distance);
                 rotation = new Vector3(180.0f, 0.0f, 180.0f);
                 break;
                 
-            } case(View.BACK): {
+            } case(ViewCameraMode.BACK): {
                 position = new Vector3(tx, ty, tz + -this.distance);
                 rotation = new Vector3(0.0f, 0.0f, 0.0f);
                 break;
                 
-            } case(View.LEFT): {
+            } case(ViewCameraMode.LEFT): {
                 position = new Vector3(tx + this.distance, ty, tz);
                 rotation = new Vector3(0.0f, -90.0f, 0.0f);
                 break;
                 
-            } case(View.RIGHT): {
+            } case(ViewCameraMode.RIGHT): {
                 position = new Vector3(tx + -this.distance, ty, tz);
                 rotation = new Vector3(0.0f, 90.0f, 0.0f);
                 break;

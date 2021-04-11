@@ -137,7 +137,7 @@ public class Vehicle : MonoBehaviour {
 
                 } else this.canRecordFuelDistanceCovered = false;
                 
-                Debug.Log($"Distance Covered: {this.fuelDistanceCovered}, Fuel: {this.fuel}");
+                // Debug.Log($"Distance Covered: {this.fuelDistanceCovered}, Fuel: {this.fuel}");
 
             } else {
                 this.canRecordFuelDistanceCovered = false;
