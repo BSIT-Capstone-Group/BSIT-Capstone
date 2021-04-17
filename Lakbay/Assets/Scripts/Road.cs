@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Road : MonoBehaviour {
+public class Road : Utilities.ExtendedMonoBehaviour {
     private int currentLength = 0;
 
     public Question.Set set;
@@ -23,7 +23,7 @@ public class Road : MonoBehaviour {
     }
     
     public void setUp() {
-        Utilities.destroyChildren(this.transform);
+        Utilities.Helper.destroyChildren(this.transform);
 
         Vector3 blockSize = this.block.GetComponent<MeshRenderer>().bounds.size;
     

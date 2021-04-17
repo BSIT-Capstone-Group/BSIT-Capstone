@@ -6,10 +6,11 @@ using TMPro;
 using System;
 
 namespace Question {
-    public class Display : MonoBehaviour {
+    public class Display : Utilities.ExtendedMonoBehaviour {
         [HideInInspector]
         public Question.Controller controller;
 
+        public TMP_Text timeText;
         public TMP_Text questionText;
         public Transform choiceGroup;
         public Button choiceButton;
@@ -58,7 +59,7 @@ namespace Question {
         public void unset() {
             this.questionText.SetText("");
             this.choiceButtons.Clear();
-            Utilities.destroyChildren(this.choiceGroup);
+            Utilities.Helper.destroyChildren(this.choiceGroup);
 
         }
 

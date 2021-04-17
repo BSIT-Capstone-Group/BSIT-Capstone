@@ -9,7 +9,7 @@ public enum ViewCameraMode {
     LEFT, RIGHT
 }
 
-public class ViewCamera : MonoBehaviour {
+public class ViewCamera : Utilities.ExtendedMonoBehaviour {
     public Transform target;
     public ViewCameraMode view = ViewCameraMode.TOP;
     public float distance = 25.0f;

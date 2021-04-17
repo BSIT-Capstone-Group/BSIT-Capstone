@@ -52,7 +52,7 @@ public class Wheel {
     }
 }
 
-public class Vehicle : MonoBehaviour {
+public class Vehicle : Utilities.ExtendedMonoBehaviour {
     private Vector3 lastPosition = Vector3.zero;
     private float distanceCovered = 0.0f;
     private bool canRecordDistanceCovered = true;
@@ -79,9 +79,8 @@ public class Vehicle : MonoBehaviour {
         float consumedFuel = this.distanceCovered * this.fuelPerDistance;
         float currentFuel = this.refilledFuel - consumedFuel;
 
-        if(currentFuel < 0.0f) currentFuel = 0.0f;
+        this.fuel = Mathf.Max(currentFuel, 0.0f);
 
-        this.fuel = currentFuel;
     }
 
     public void updateSlider() {
@@ -89,6 +88,7 @@ public class Vehicle : MonoBehaviour {
             Slider slider = this.fuelBar.GetComponent<Slider>();
             slider.maxValue = this.refilledFuel;
             slider.value = Mathf.SmoothStep(slider.value, this.fuel, 0.25f);
+
         }
     }
 
@@ -97,6 +97,7 @@ public class Vehicle : MonoBehaviour {
 
         if(this.canRecordDistanceCovered) {
             this.distanceCovered += distanceCovered;
+
         }
 
         return distanceCovered;
@@ -107,6 +108,7 @@ public class Vehicle : MonoBehaviour {
 
         if(this.canRecordFuelDistanceCovered) {
             this.fuelDistanceCovered += distanceCovered;
+
         }
 
         return distanceCovered;
@@ -116,6 +118,7 @@ public class Vehicle : MonoBehaviour {
         this.fuelDistanceCovered = 0.0f;
         this.fuel = value;
         this.refilledFuel = value;
+
     }
 
     public void updateWheels() {
@@ -129,24 +132,25 @@ public class Vehicle : MonoBehaviour {
             float maxBrakeTorque = this.shareWheelProperties ? this.properties.maxBrakeTorque : wheel.properties.maxBrakeTorque;
 
             if(this.fuel > 0.0f) {
-                wheel.accelerate(motorTorque * maxMotorTorque);
+                wheel.accelerate(motorTorque * maxMotorTorque * this.timeScale);
 
                 if(motorTorque != 0.0f) {
                     this.canRecordFuelDistanceCovered = true;
                     this.updateFuel();
 
                 } else this.canRecordFuelDistanceCovered = false;
-                
-                // Debug.Log($"Distance Covered: {this.fuelDistanceCovered}, Fuel: {this.fuel}");
 
             } else {
                 this.canRecordFuelDistanceCovered = false;
-                wheel.accelerate(0.0f);
+                wheel.accelerate(0.0f * this.timeScale);
             }
 
-            wheel.steer(steerAngle * maxSteerAngle);
-            wheel.brake(brakeTorque * maxBrakeTorque);
+            wheel.steer(steerAngle * maxSteerAngle * this.timeScale);
+            wheel.brake(brakeTorque * maxBrakeTorque * this.timeScale);
             wheel.positionVisual();
+
+            this.transform.position = this.transform.position * this.timeScale;
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.eulerAngles * this.timeScale);
 
         }
 
@@ -155,6 +159,7 @@ public class Vehicle : MonoBehaviour {
     public void Start() {
         this.refillFuel(this.initialFuel);
         this.lastPosition = transform.position;
+
     }
 
     public void FixedUpdate() {
@@ -164,5 +169,6 @@ public class Vehicle : MonoBehaviour {
         this.updateSlider();
             
         this.lastPosition = transform.position;
+
     }
 }
