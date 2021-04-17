@@ -9,7 +9,7 @@
     {
         "question": "The traffic signal light that means you can go if the intersection is clear is...",
         "choices": [
-            "Steady green Light. Steady yellow Light", "Steady red Light"
+            "Steady green Light", "Steady yellow Light", "Steady red Light"
         ],
         "correctChoiceIndex": 0
     },
