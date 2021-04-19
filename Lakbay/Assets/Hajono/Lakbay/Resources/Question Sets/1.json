@@ -1,0 +1,37 @@
+[
+    {
+        "question": "At an intersection with no traffic signals, two cars approach at right angles to each other, which driver has the right-of-way?",
+        "choices": [
+            "The car on the right", "The car on the left", "Both dont have a right-of-way"
+        ],
+        "correctChoiceIndex": 0
+    },
+    {
+        "question": "The traffic signal light that means you can go if the intersection is clear is...",
+        "choices": [
+            "Steady green Light", "Steady yellow Light", "Steady red Light"
+        ],
+        "correctChoiceIndex": 0
+    },
+    {
+        "question": "This traffic sign states directions and distances?",
+        "choices": [
+            "Informative Signs", "Regulatory Signs", "Caution or Warning Signs"
+        ],
+        "correctChoiceIndex": 0
+    },
+    {
+        "question": "Before entering any intersection and you can see traffic coming from your left and right, you should...",
+        "choices": [
+            "Pause and Go", "Stop", "Drive immediately"
+        ],
+        "correctChoiceIndex": 1
+    },
+    {
+        "question": "A flashing yellow light means...",
+        "choices": [
+            "Slowdown and proceed with caution", "Make a full stop", "Drive and Go"
+        ],
+        "correctChoiceIndex": 0
+    }
+]
