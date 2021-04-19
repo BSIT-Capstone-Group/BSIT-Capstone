@@ -128,14 +128,15 @@ namespace Hajono.Lakbay.Modules.Question {
 
                 this.playerController.setCoin(coinGain);
 
-                print($"Correct Answer! Coins got increased by {coinGain}.");
+                string cg = coinGain.ToString("N0");
+                // print($"Correct Answer! Coins got increased by {coinGain}.");
                 this.uiController.notification.show(
-                    $"Correct Answer! Coins got increased by {coinGain}.",
+                    $"Correct Answer! Coins got increased by {cg}.",
                     3.5f
                 );
 
             } else {
-                this.answeredCorrectly = true;
+                this.answeredCorrectly = false;
                 float maxFuelDeduction = this.vehicleController.maxFuel * 0.15f;
                 float minFuelDeduction = this.vehicleController.maxFuel * 0.05f;
                 float fuelDeduction = maxFuelDeduction * this.timer.progress;
@@ -143,9 +144,10 @@ namespace Hajono.Lakbay.Modules.Question {
                 this.vehicleController.fuel -= fuelDeduction;
                 this.vehicleController.updateFuel();
                 // this.vehicleController.fuelDeduction += 0.25f;
-                print($"Wrong Answer! Fuel got reduced by {fuelDeduction}.");
+                string fd = fuelDeduction.ToString("N0");
+                // print($"Wrong Answer! Fuel got reduced by {fd}.");
                 this.uiController.notification.show(
-                    $"Wrong Answer! Fuel got reduced by {fuelDeduction}.",
+                    $"Wrong Answer! Fuel got reduced by {fd}.",
                     3.5f
                 );
 

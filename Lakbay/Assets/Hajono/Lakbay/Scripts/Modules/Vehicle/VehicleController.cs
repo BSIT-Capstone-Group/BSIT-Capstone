@@ -42,7 +42,7 @@ namespace Hajono.Lakbay.Modules.Vehicle {
         public List<Wheel.WheelController> wheels = new List<Wheel.WheelController>();
 
         private void Start() {
-            this.refillFuel(this.fuel);
+            this.refillFuel(this.fuel, this.maxFuel);
             this.lastPosition = this.transform.position;
             // this.initialPosition = new Vector3(0.0f, 1.3f, -10.0f);
             this.initialPosition = this.transform.position;
@@ -192,19 +192,28 @@ namespace Hajono.Lakbay.Modules.Vehicle {
 
             return distanceCovered;
         }
-
+        
         public float getMotorTorqueFactor() {
-            return Input.GetAxis("Vertical");
+            float accelerate = Mathf.Min(SimpleInput.GetAxis("AccelerateAndBrake"), 0.0f) * -1;
+            float raccelerate = Mathf.Min(SimpleInput.GetAxis("ReverseAcceleration"), 0.0f);
+            float value = accelerate + raccelerate;
+
+            // print($"{accelerate}, {raccelerate}, {value}");
+
+            return value;
 
         }
 
         public float getSteerAngleFactor() {
-            return Input.GetAxis("Horizontal");
+            return SimpleInput.GetAxis("SteeringWheel");
 
         }
 
         public float getBrakeTorqueFactor() {
-            return Input.GetAxis("Jump");
+            float value = Mathf.Max(SimpleInput.GetAxis("AccelerateAndBrake"), 0.0f);
+
+            return value;
+            // return Input.GetAxis("Jump");
 
         }
 

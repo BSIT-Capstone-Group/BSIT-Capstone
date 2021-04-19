@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace Hajono.Lakbay.Modules.Player {
     public class PlayerController : Utilities.ExtendedMonoBehaviour {
+        private Coroutine coroutine = null;
+
+        [HideInInspector]
+        public bool canConvertCoinAsFuel = false;
+
         public float coin = 0.0f;
         public float point = 0.0f;
         public float firstAid = 0.0f;
@@ -21,6 +26,33 @@ namespace Hajono.Lakbay.Modules.Player {
 
         private void FixedUpdate() {
             this.update();
+
+        }
+
+        private void Update() {
+            this.canConvertCoinAsFuel = SimpleInput.GetAxis("RefillFuel") > 0.0f ? true : false;
+            // print(this.canConvertCoinAsFuel);
+            // Time.w
+            // this.convertCoinAsFuel();
+            if(this.canConvertCoinAsFuel && this.coroutine == null) {
+                this.coroutine = StartCoroutine(this.convertCoinAsFuel());
+
+            } else if(this.coroutine != null && !this.canConvertCoinAsFuel) {
+                StopCoroutine(this.coroutine);
+                this.coroutine = null;
+
+            }
+
+        }
+
+        public IEnumerator convertCoinAsFuel() {
+            while(this.coin != 0.0f && this.vehicleController.fuel != this.vehicleController.maxFuel) {
+                this.setCoin(Mathf.Max(this.coin - 1, 0.0f));
+                this.vehicleController.fuel = Mathf.Min(this.vehicleController.fuel + 1, this.vehicleController.maxFuel);
+
+                yield return new WaitForSeconds(0.07f);
+
+            }
 
         }
 
