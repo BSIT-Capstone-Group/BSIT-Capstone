@@ -78,7 +78,7 @@ namespace Hajono.Lakbay.Modules.Player {
 
                     }
 
-                    this.vehicleController.transform.position = resetPosition;
+                    this.vehicleController.transform.position = resetPosition + (Vector3.up * 1.2f);
                     // this.vehicleController.transform.position = Vector3.MoveTowards(
                     //     this.vehicleController.transform.position,
                     //     resetPosition,
