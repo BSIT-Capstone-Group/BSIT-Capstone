@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Modules.Player {
+namespace CoDeA.Lakbay.Modules.Player {
     public class PlayerController : Utilities.ExtendedMonoBehaviour {
         private Coroutine coroutine = null;
 

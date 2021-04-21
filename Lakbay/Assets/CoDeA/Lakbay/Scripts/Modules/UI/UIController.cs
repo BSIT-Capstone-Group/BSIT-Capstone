@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Modules.UI {
+namespace CoDeA.Lakbay.Modules.UI {
     public class UIController : Utilities.ExtendedMonoBehaviour {
         [Header("Indicators")]
         public TMP_Text coinText;

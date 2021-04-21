@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Modules.Question {
+namespace CoDeA.Lakbay.Modules.Question {
     public class SetController : Utilities.ExtendedMonoBehaviour {
         public bool shuffledItems = true;
         public bool shuffledItemChoices = true;

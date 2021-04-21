@@ -7,7 +7,7 @@ using TMPro;
 using System;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Modules.Question {
+namespace CoDeA.Lakbay.Modules.Question {
     [System.Serializable]
     public class Item {
         public string question;

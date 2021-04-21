@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-namespace Hajono.Lakbay {
+namespace CoDeA.Lakbay {
     public class Game : Utilities.ExtendedMonoBehaviour {
         private static float _lastTimeScale = 0.0f;
 

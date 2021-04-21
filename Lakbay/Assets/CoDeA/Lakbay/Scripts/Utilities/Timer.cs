@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Utilities {
+namespace CoDeA.Lakbay.Utilities {
     public class Timer : ExtendedMonoBehaviour {
         public enum RunningStatus {
             PAUSED, RUNNING

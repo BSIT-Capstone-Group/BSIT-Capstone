@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Modules.Wheel {
+namespace CoDeA.Lakbay.Modules.Wheel {
     public class WheelController : Utilities.ExtendedMonoBehaviour {
         [System.Serializable]
         public class Properties {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Modules.Vehicle {
+namespace CoDeA.Lakbay.Modules.Vehicle {
     public class VehicleController : Utilities.ExtendedMonoBehaviour {
         [HideInInspector]
         public Vector3 initialPosition = Vector3.zero;

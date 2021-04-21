@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Utilities {
+namespace CoDeA.Lakbay.Utilities {
     public class Notification : ExtendedMonoBehaviour {
         [HideInInspector]
         public CanvasGroup canvasGroup;

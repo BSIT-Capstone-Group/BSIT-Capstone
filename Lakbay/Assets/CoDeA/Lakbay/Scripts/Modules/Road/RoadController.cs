@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hajono.Lakbay.Modules.Road {
+namespace CoDeA.Lakbay.Modules.Road {
     public class RoadController : Utilities.ExtendedMonoBehaviour {
         private int _currentLength = 0;
 
