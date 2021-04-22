@@ -1,0 +1,7 @@
+fuelPerDistance: 0.15
+fuel: 100
+maxFuel: 100
+maxSpeed: 200
+maxSteerAngle: 30
+maxMotorTorque: 1500
+maxBrakeTorque: 1500

@@ -1,0 +1,66 @@
+-
+    question:
+        images: 
+            - 'Images/nameofimage.jpg'
+        text: 'At an intersection with no traffic signals, two cars approach at right angles to each other, which driver has the right-of-way?'
+    choices:
+        - 'The car on the right'
+        - 'The car on the left'
+        - 'Both dont have a right-of-way'
+    correctChoiceIndex: 0
+    minCoinGain: 5
+    maxCoinGain: 30
+    minFuelDeduction: 7
+    maxFuelDeduction: 15
+-
+    question:
+        images: []
+        text: 'At an intersection with no traffic signals, two cars approach at right angles to each other, which driver has the right-of-way?'
+    choices:
+        - 'Steady green Light'
+        - 'Steady yellow Light'
+        - 'Steady red Light'
+    correctChoiceIndex: 0
+    minCoinGain: 5
+    maxCoinGain: 30
+    minFuelDeduction: 7
+    maxFuelDeduction: 15
+-
+    question:
+        images: []
+        text: 'At an intersection with no traffic signals, two cars approach at right angles to each other, which driver has the right-of-way?'
+    choices:
+        - 'Informative Signs'
+        - 'Regulatory Signs'
+        - 'Caution or Warning Signs'
+    correctChoiceIndex: 0
+    minCoinGain: 5
+    maxCoinGain: 30
+    minFuelDeduction: 7
+    maxFuelDeduction: 15
+-
+    question:
+        images: []
+        text: 'At an intersection with no traffic signals, two cars approach at right angles to each other, which driver has the right-of-way?'
+    choices:
+        - 'Pause and Go'
+        - Stop
+        - 'Drive immediately'
+    correctChoiceIndex: 1
+    minCoinGain: 5
+    maxCoinGain: 30
+    minFuelDeduction: 7
+    maxFuelDeduction: 15
+-
+    question:
+        images: []
+        text: 'At an intersection with no traffic signals, two cars approach at right angles to each other, which driver has the right-of-way?'
+    choices:
+        - 'Slowdown and proceed with caution'
+        - 'Make a full stop'
+        - 'Drive and Go'
+    correctChoiceIndex: 0
+    minCoinGain: 5
+    maxCoinGain: 30
+    minFuelDeduction: 7
+    maxFuelDeduction: 15

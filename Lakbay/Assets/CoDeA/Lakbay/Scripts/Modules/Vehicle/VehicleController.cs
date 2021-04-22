@@ -32,6 +32,9 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
         // [HideInInspector]
         // public float speed = 0.0f;
 
+        public bool canSteer = true;
+        public bool canAccelerate = true;
+        public bool canBrake = true;
         public bool infiniteFuel = false;
         public float fuel = 100.0f;
         public float maxFuel = 100.0f;
@@ -44,8 +47,7 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
         private void Start() {
             this.refillFuel(this.fuel, this.maxFuel);
             this.lastPosition = this.transform.position;
-            // this.initialPosition = new Vector3(0.0f, 1.3f, -10.0f);
-            this.initialPosition = this.transform.position;
+            this.initialPosition = this.GetComponent<Rigidbody>().position;
 
         }
 
@@ -54,13 +56,14 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
             float distance = this.recordFuelDistanceCovered();
             this.fuelDistanceAccelerated = distance;
             this.update();
-                
-            // this._lastPosition = this.transform.position;
+
             this.lastPosition = this.GetComponent<Rigidbody>().position;
 
         }
 
         public void steer(float steerAngleFactor) {
+            if(!this.canSteer) return;
+
             this.steerAngleFactor = steerAngleFactor;
 
             foreach(Wheel.WheelController wheel in this.wheels) {
@@ -75,6 +78,8 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
         }
 
         public void accelerate(float motorTorqueFactor) {
+            if(!this.canAccelerate) return;
+
             this.canRecordFuelDistanceCovered = true;
 
             if((!this.infiniteFuel && this.fuel == 0.0f)) {
@@ -109,11 +114,12 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
 
             float speed = this.speed * 3.6f;
             float distance = this.fuelDistanceCovered / 1000.0f;
-            // print($"Speed: {speed}, {distance}");
 
         }
 
         public void brake(float brakeTorqueFactor) {
+            if(!this.canBrake) return;
+
             this.brakeTorqueFactor = brakeTorqueFactor;
 
             foreach(Wheel.WheelController wheel in this.wheels) {
@@ -166,7 +172,6 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
 
         public void updateSlider() {
             Slider slider = this.uiController.fuelBar;
-            // slider.maxValue = this.maxFuel;
             slider.value = Mathf.SmoothStep(slider.value, this.fuel / this.maxFuel, 0.5f);
 
         }
@@ -191,14 +196,13 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
             }
 
             return distanceCovered;
+
         }
         
         public float getMotorTorqueFactor() {
             float accelerate = Mathf.Min(SimpleInput.GetAxis("AccelerateAndBrake"), 0.0f) * -1;
             float raccelerate = Mathf.Min(SimpleInput.GetAxis("ReverseAcceleration"), 0.0f);
             float value = accelerate + raccelerate;
-
-            // print($"{accelerate}, {raccelerate}, {value}");
 
             return value;
 
@@ -213,7 +217,6 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
             float value = Mathf.Max(SimpleInput.GetAxis("AccelerateAndBrake"), 0.0f);
 
             return value;
-            // return Input.GetAxis("Jump");
 
         }
 
@@ -235,6 +238,7 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
             this.brake(brakeTorqueFactor);
 
             this.updateSlider();
+            
         }
 
     }

@@ -78,12 +78,8 @@ namespace CoDeA.Lakbay.Modules.Player {
 
                     }
 
-                    this.vehicleController.transform.position = resetPosition + (Vector3.up * 1.2f);
-                    // this.vehicleController.transform.position = Vector3.MoveTowards(
-                    //     this.vehicleController.transform.position,
-                    //     resetPosition,
-                    //     Time.fixedDeltaTime
-                    // );
+                    this.vehicleController.GetComponent<Rigidbody>().MovePosition(resetPosition + (Vector3.up * 1.2f));
+                    this.vehicleController.GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(Vector3.zero));
 
                     this.vehicleController.refillFuel(this.vehicleController.maxFuel * 0.5f, this.vehicleController.maxFuel);
                     this.vehicleController.canRecordDistanceCovered = true;
