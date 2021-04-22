@@ -5,6 +5,14 @@ using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.Vehicle {
     public class VehicleController : Utilities.ExtendedMonoBehaviour {
+        private bool _accelerating = false;
+        private bool _steering = false;
+        private bool _braking = false;
+
+        public bool accelerating { get => this._accelerating; }
+        public bool steering { get => this._steering; }
+        public bool braking { get => this._braking; }
+
         [HideInInspector]
         public Vector3 initialPosition = Vector3.zero;
         [HideInInspector]
@@ -64,6 +72,7 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
         public void steer(float steerAngleFactor) {
             if(!this.canSteer) return;
 
+            this._steering = steerAngleFactor != 0 ? true : false;
             this.steerAngleFactor = steerAngleFactor;
 
             foreach(Wheel.WheelController wheel in this.wheels) {
@@ -80,6 +89,7 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
         public void accelerate(float motorTorqueFactor) {
             if(!this.canAccelerate) return;
 
+            this._accelerating = motorTorqueFactor != 0 ? true : false;
             this.canRecordFuelDistanceCovered = true;
 
             if((!this.infiniteFuel && this.fuel == 0.0f)) {
@@ -120,6 +130,7 @@ namespace CoDeA.Lakbay.Modules.Vehicle {
         public void brake(float brakeTorqueFactor) {
             if(!this.canBrake) return;
 
+            this._braking = brakeTorqueFactor != 0 ? true : false;
             this.brakeTorqueFactor = brakeTorqueFactor;
 
             foreach(Wheel.WheelController wheel in this.wheels) {
