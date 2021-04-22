@@ -98,7 +98,7 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
             }
 
             if(this.vehicleController.transform.position.y < this.roadController.transform.position.y) {
-                // Game.loadScene(0);
+                Game.loadScene(0);
 
             }
 
