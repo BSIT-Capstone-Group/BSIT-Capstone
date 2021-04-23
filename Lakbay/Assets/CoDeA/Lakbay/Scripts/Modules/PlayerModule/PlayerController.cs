@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// using SimpleInput = UnityEngine.Input;
 
 namespace CoDeA.Lakbay.Modules.PlayerModule {
     public class PlayerController : Utilities.ExtendedMonoBehaviour {
@@ -78,17 +79,17 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
                     }
 
-<<<<<<< HEAD:Lakbay/Assets/CoDeA/Lakbay/Scripts/Modules/PlayerModule/PlayerController.cs
+
                     this.vehicleController.GetComponent<Rigidbody>().MovePosition(resetPosition + (Vector3.up * 1.2f));
                     this.vehicleController.GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(Vector3.zero));
-=======
+
                     this.vehicleController.transform.position = resetPosition;
                     // this.vehicleController.transform.position = Vector3.MoveTowards(
                     //     this.vehicleController.transform.position,
                     //     resetPosition,
                     //     Time.fixedDeltaTime
                     // );
->>>>>>> parent of 515ffc1 (Update PlayerController.cs):Lakbay/Assets/Hajono/Lakbay/Scripts/Modules/Player/PlayerController.cs
+
 
                     this.vehicleController.refillFuel(this.vehicleController.maxFuel * 0.5f, this.vehicleController.maxFuel);
                     this.vehicleController.canRecordDistanceCovered = true;

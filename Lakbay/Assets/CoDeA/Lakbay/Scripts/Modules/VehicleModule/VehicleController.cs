@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+// using SimpleInput = UnityEngine.Input;
 
 namespace CoDeA.Lakbay.Modules.VehicleModule {
     public class VehicleController : Utilities.ExtendedMonoBehaviour {

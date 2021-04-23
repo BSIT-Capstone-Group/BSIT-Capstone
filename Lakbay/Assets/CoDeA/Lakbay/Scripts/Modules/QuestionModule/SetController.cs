@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.QuestionModule {
@@ -58,7 +58,8 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         public GameObject[] populate(Transform parent) {
             this.itemControllers.Clear();
             List<GameObject> itemModels = new List<GameObject>();
-            List<Item> items = JsonConvert.DeserializeObject<List<Item>>(this.setFile.ToString());
+            //List<Item> items = JsonConvert.DeserializeObject<List<Item>>(this.setFile.ToString());
+            List<Item> items = new List<Item>();
 
             foreach(Item item in items) {
                 GameObject itemModel = Instantiate<GameObject>(this.itemModel);
