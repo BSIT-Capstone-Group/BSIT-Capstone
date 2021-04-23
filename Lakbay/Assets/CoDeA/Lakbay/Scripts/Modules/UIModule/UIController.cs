@@ -30,9 +30,6 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
         private void Start() {
             this.questionModal.SetActive(false);
-            this.coinText.SetText("0");
-            this.pointText.SetText("0");
-            this.firstAidText.SetText("0");
 
         }
 

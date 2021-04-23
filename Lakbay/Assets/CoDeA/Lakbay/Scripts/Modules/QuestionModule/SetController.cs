@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-//using Newtonsoft.Json;
+using Newtonsoft.Json;
+using YamlDotNet.Serialization;
 using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.QuestionModule {
@@ -36,12 +37,8 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         public void shuffleItems() {
             if(!this.shuffledItems) return;
 
-            System.Random random = new System.Random();
-            QuestionModule.ItemController[] aitems = Utilities.Helper.shuffle<QuestionModule.ItemController>(
-                random, this.itemControllers.ToArray()
-            );
-            this.itemControllers.Clear();
-            this.itemControllers.AddRange(new List<QuestionModule.ItemController>(aitems));
+            QuestionModule.ItemController[] aitems = Utilities.Helper.shuffle<QuestionModule.ItemController>(this.itemControllers.ToArray());
+            this.itemControllers = new List<QuestionModule.ItemController>(aitems);
 
         }
 
@@ -58,8 +55,8 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         public GameObject[] populate(Transform parent) {
             this.itemControllers.Clear();
             List<GameObject> itemModels = new List<GameObject>();
-            //List<Item> items = JsonConvert.DeserializeObject<List<Item>>(this.setFile.ToString());
-            List<Item> items = new List<Item>();
+            // List<Item> items = JsonConvert.DeserializeObject<List<Item>>(this.setFile.ToString());
+            List<Item> items = new Deserializer().Deserialize<List<Item>>(this.setFile.ToString());
 
             foreach(Item item in items) {
                 GameObject itemModel = Instantiate<GameObject>(this.itemModel);

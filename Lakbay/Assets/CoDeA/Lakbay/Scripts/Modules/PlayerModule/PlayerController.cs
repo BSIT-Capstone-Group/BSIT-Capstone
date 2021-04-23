@@ -47,11 +47,14 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         }
 
         public IEnumerator convertCoinAsFuel() {
+            float time = 0.25f;
             while(this.coin != 0.0f && this.vehicleController.fuel != this.vehicleController.maxFuel) {
                 this.setCoin(Mathf.Max(this.coin - 1, 0.0f));
                 this.vehicleController.fuel = Mathf.Min(this.vehicleController.fuel + 1, this.vehicleController.maxFuel);
 
-                yield return new WaitForSeconds(0.07f);
+                yield return new WaitForSeconds(time);
+
+                time = Mathf.Max(time - 0.05f, 0.05f);
 
             }
 

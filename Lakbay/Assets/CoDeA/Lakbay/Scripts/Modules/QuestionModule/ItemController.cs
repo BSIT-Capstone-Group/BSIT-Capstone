@@ -9,10 +9,21 @@ using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.QuestionModule {
     [System.Serializable]
+    public class Question {
+        public List<string> images = new List<string>();
+        public string text = "";
+
+    }
+
+    [System.Serializable]
     public class Item {
-        public string question;
+        public Question question;
         public List<string> choices;
         public int correctChoiceIndex;
+        public float minCoinGain = 5.0f;
+        public float maxCoinGain = 30.0f;
+        public float minFuelDeduction = 7.0f;
+        public float maxFuelDeduction = 15.0f;
 
     }
 
@@ -47,7 +58,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
             foreach(GameObject ta in this.triggerAgents) {
                 if(ta.transform == collider.transform) {
                     this.triggered = true;
-                    this.uiController.questionText.SetText(this.item.question);
+                    this.uiController.questionText.SetText(this.item.question.text);
                     Utilities.Helper.destroyChildren(this.uiController.choicesPanel.transform);
 
                     foreach(string choice in this.item.choices) {
@@ -64,7 +75,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
 
                     }
 
-                    float totalCharacters = this.item.question.Length;
+                    float totalCharacters = this.item.question.text.Length;
                     List<float> choicesCharacters = this.item.choices.ConvertAll(
                         new Converter<string, float>((string s) => s.Length)
                     );
@@ -103,8 +114,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         public void shuffleChoices() {
             string correctChoice = this.item.choices[this.item.correctChoiceIndex];
 
-            System.Random random = new System.Random();
-            string[] aitems = Utilities.Helper.shuffle<string>(random, this.item.choices.ToArray());
+            string[] aitems = Utilities.Helper.shuffle<string>(this.item.choices.ToArray());
             this.item.choices = new List<string>(aitems);
             this.item.correctChoiceIndex = this.item.choices.IndexOf(correctChoice);
 
@@ -120,13 +130,14 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                 this.playerController.setPoint(this.setController.point);
 
                 float maxCoinGain = 30.0f, minCoinGain = 5.0f;
-                float coinGain = this.playerController.coin + (
+                float coinGain = (
                     maxCoinGain * (1.0f - this.timer.progress)
                 );
                 coinGain = Mathf.Max(coinGain, minCoinGain);
                 coinGain = Convert.ToInt32(coinGain);
+                float currentCoin = this.playerController.coin + coinGain;
 
-                this.playerController.setCoin(coinGain);
+                this.playerController.setCoin(currentCoin);
 
                 string cg = coinGain.ToString("N0");
                 // print($"Correct Answer! Coins got increased by {coinGain}.");

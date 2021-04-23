@@ -27,7 +27,6 @@ namespace CoDeA.Lakbay.Utilities {
         public void show(string text, float duration) {
             this.timer.timeRemaining = duration;
             this.timer.timeDuration = duration;
-            print("show! " + duration);
             this.text.SetText(text);
             this.canvasGroup.alpha = 1.0f;
             this.timer.start();
