@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine;
@@ -49,17 +50,13 @@ namespace CoDeA.Lakbay.Modules.UIModule {
             this.updateFuelBar();
 
             float rf = SimpleInput.GetAxis("RefillFuel");
-            bool canTopUp = SimpleInput.GetAxis("RefillFuel") > 0.0f ? true : false;
-            if(canTopUp) {
-                this.onFuelTopUp.Invoke(this, rf);
-
-            }
+            this.onFuelTopUp.Invoke(this, rf);
             
         }
 
         public void updateFuelBar() {
             VehicleModule.VehicleController vc = this.vehicleController;
-            this.fuelBar.value = Mathf.SmoothStep(this.fuelBar.value, vc.fuel / vc.maxFuel, 0.5f);
+            this.fuelBar.value = Mathf.SmoothStep(this.fuelBar.value, vc.vehicle.fuel / vc.vehicle.maxFuel, 0.5f);
 
         }
 
@@ -78,19 +75,29 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
         }
 
-        public void setChoiceTexts(params string[] texts) {
+        public GameObject[] setChoiceTexts(params string[] texts) {
             Utilities.Helper.destroyChildren(this.choicesPanel.transform);
 
+            List<GameObject> gameObjects = new List<GameObject>();
             foreach(string text in texts) {
-                Transform cb = Instantiate<Transform>(this.choiceButton.transform, this.choicesPanel.transform);
-                TMP_Text t = cb.GetChild(0).GetComponent<TMP_Text>();
+                GameObject cb = Instantiate<GameObject>(this.choiceButton, this.choicesPanel.transform);
+                gameObjects.Add(cb);
+                TMP_Text t = cb.transform.GetChild(0).GetComponent<TMP_Text>();
 
                 t.SetText(text.Trim());
 
             }
 
+            return gameObjects.ToArray();
+
         }
+
+        public GameObject[] setChoiceTexts(List<string> texts) => this.setChoiceTexts(texts.ToArray());
         
+        public void setQuestionText(string text) {
+            this.questionText.SetText(text.Trim());
+
+        }
 
     }
 

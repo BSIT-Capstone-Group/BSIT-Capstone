@@ -55,17 +55,15 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         // [HideInInspector]
         // public float speed = 0.0f;
 
+        public TextAsset vehicleFile;
+
         public bool canSteer = true;
         public bool canAccelerate = true;
         public bool canBrake = true;
         public bool infiniteFuel = false;
-        public float fuel = 100.0f;
-        public float maxFuel = 100.0f;
-        public float fuelPerDistance = 0.15f;
-        [Tooltip("Maximum Speed in km/hr")]
-        public float maxSpeed = 200.0f;
         public UIModule.UIController uiController;
         public List<WheelModule.WheelController> wheels = new List<WheelModule.WheelController>();
+        public Vehicle vehicle;
 
         public UnityEvent<VehicleController, float> onAccelerate = new UnityEvent<VehicleController, float>();
         public UnityEvent<VehicleController, float> onBrake = new UnityEvent<VehicleController, float>();
@@ -73,7 +71,7 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         public UnityEvent<VehicleController, float> onFuelChange = new UnityEvent<VehicleController, float>();
 
         private void Start() {
-            this.refillFuel(this.fuel, this.maxFuel);
+            this.refillFuel(this.vehicle.fuel, this.vehicle.maxFuel);
             this.lastPosition = this.transform.position;
             this.initialPosition = this.GetComponent<Rigidbody>().position;
 
@@ -86,6 +84,23 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
             this.update();
 
             this.lastPosition = this.GetComponent<Rigidbody>().position;
+
+        }
+
+        public void setUpVehicle() {
+            if(this.vehicleFile) {
+                this.vehicle = Utilities.Helper.parseYAML<Vehicle>(this.vehicleFile.ToString());
+
+            }
+
+            this.vehicle = Game.modeData.vehicle;
+
+            foreach(WheelModule.WheelController wc in this.wheels) {
+                wc.properties.maxBrakeTorque = this.vehicle.maxBrakeTorque;
+                wc.properties.maxMotorTorque = this.vehicle.maxMotorTorque;
+                wc.properties.maxSteerAngle = this.vehicle.maxSteerAngle;
+
+            }
 
         }
 
@@ -122,7 +137,7 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
             this._accelerating = motorTorqueFactor != 0 ? true : false;
             this.canRecordFuelDistanceCovered = true;
 
-            if((!this.infiniteFuel && this.fuel == 0.0f)) {
+            if((!this.infiniteFuel && this.vehicle.fuel == 0.0f)) {
                 motorTorqueFactor = 0.0f;
                 this.canRecordDistanceCovered = false;
 
@@ -203,15 +218,15 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         public void refillFuel(float fuel, float maxFuel) {
             this.fuelDistanceCovered = 0.0f;
             this.setFuel(fuel);
-            this.maxFuel = maxFuel;
+            this.vehicle.maxFuel = maxFuel;
 
             this.updateFuel(0.0f);
 
         }
 
         public void capSpeed() {
-            if((this.speed * 3.6f) >= this.maxSpeed) {
-                this.speed = this.maxSpeed / 3.6f;
+            if((this.speed * 3.6f) >= this.vehicle.maxSpeed) {
+                this.speed = this.vehicle.maxSpeed / 3.6f;
 
             }
 
@@ -220,7 +235,7 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         public void setFuel(float value) {
             // if(value == this.fuel) return;
 
-            this.fuel = value;
+            this.vehicle.fuel = value;
             this.onFuelChange.Invoke(this, value);
 
         }
@@ -228,8 +243,8 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         public void updateFuel(float distance) {
             if(this.infiniteFuel) return;
 
-            float consumedFuel = distance * this.fuelPerDistance;
-            float currentFuel = this.fuel - consumedFuel;
+            float consumedFuel = distance * this.vehicle.fuelPerDistance;
+            float currentFuel = this.vehicle.fuel - consumedFuel;
 
             this.setFuel(Mathf.Max(currentFuel, 0.0f));
 

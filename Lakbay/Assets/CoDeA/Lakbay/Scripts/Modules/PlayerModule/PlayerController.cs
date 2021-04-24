@@ -16,6 +16,8 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
     public class PlayerController : Utilities.ExtendedMonoBehaviour {
         private Coroutine _coroutine = null;
 
+        public TextAsset playerFile;
+
         public float coin = 0.0f;
         public float point = 0.0f;
         public float firstAid = 0.0f;
@@ -23,6 +25,8 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         public UIModule.UIController uiController;
         public VehicleModule.VehicleController vehicleController;
         public RoadModule.RoadController roadController;
+        public QuestionModule.SetController setController;
+        public Player player;
 
         public UnityEvent<PlayerController, float> onCoinChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, float> onPointChange = new UnityEvent<PlayerController, float>();
@@ -30,6 +34,7 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         public UnityEvent<PlayerController, Vector3, Vector3> onRespawn = new UnityEvent<PlayerController, Vector3, Vector3>();
 
         private void Start() {
+            this.setUpPlayer();
             this.setCoin(this.coin);
             this.setPoint(this.point);
             this.setFirstAid(this.firstAid);
@@ -48,11 +53,21 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
         }
 
+        public void setUpPlayer() {
+            if(this.playerFile) {
+                this.player = Utilities.Helper.parseYAML<Player>(this.playerFile.ToString());
+
+            }
+
+            this.player = Game.modeData.player;
+
+        }
+
         public IEnumerator convertCoinAsFuel() {
             float time = 0.25f;
-            while(this.coin != 0.0f && this.vehicleController.fuel != this.vehicleController.maxFuel) {
+            while(this.coin != 0.0f && this.vehicleController.vehicle.fuel != this.vehicleController.vehicle.maxFuel) {
                 float coin = Mathf.Max(this.coin - 1, 0.0f);
-                float fuel = Mathf.Min(this.vehicleController.fuel + 1, this.vehicleController.maxFuel);
+                float fuel = Mathf.Min(this.vehicleController.vehicle.fuel + 1, this.vehicleController.vehicle.maxFuel);
                 this.setCoin(coin);
                 this.vehicleController.setFuel(fuel);
 
@@ -78,10 +93,10 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         }
 
         public void onVehicleFuelChange(VehicleModule.VehicleController vc, float value) {
-            if(vc.fuel == 0.0f) {
+            if(vc.vehicle.fuel == 0.0f) {
                 if(this.firstAid != 0.0f) {
                     this.respawnAt(this.getRespawnPosition());
-                    vc.setFuel(Convert.ToInt32(vc.maxFuel * 0.5f));
+                    vc.setFuel(Convert.ToInt32(vc.vehicle.maxFuel * 0.5f));
                     this.setFirstAid(this.firstAid - 1.0f);
 
                 } else {
@@ -98,7 +113,7 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         }
 
         public Vector3 getRespawnPosition() {
-            Transform[] children = Utilities.Helper.getChildren(this.roadController.transform);
+            Transform[] children = Utilities.Helper.getChildren(this.setController.transform);
             List<Transform> lchildren = new List<Transform>(children);
             lchildren.Reverse();
             Transform[] rchildren = new List<Transform>(lchildren).ToArray();

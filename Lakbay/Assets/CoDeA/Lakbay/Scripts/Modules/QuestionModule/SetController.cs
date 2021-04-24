@@ -5,6 +5,13 @@ using YamlDotNet.Serialization;
 using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.QuestionModule {
+    [System.Serializable]
+    public class Set {
+        public string name = "";
+        public List<Item> items = new List<Item>();
+
+    }
+
     public class SetController : Utilities.ExtendedMonoBehaviour {
         public bool shuffledItems = true;
         public bool shuffledItemChoices = true;
@@ -16,13 +23,13 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         public UIModule.UIController uIController;
         public List<GameObject> triggerAgents = new List<GameObject>();
         public List<ItemController> itemControllers = new List<ItemController>();
+        public Set set;
 
         public float point {
             get {
                 if(this.itemControllers.Count == 0.0f) return 0.0f;
 
                 float point = 0.0f;
-
                 foreach(ItemController ic in this.itemControllers) {
                     point += ic.answeredCorrectly ? 1 : 0;
 
@@ -31,6 +38,21 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                 return point;
 
             }
+
+        }
+
+        private void Awake() {
+            this.setUpSet();
+
+        }
+
+        public void setUpSet() {
+            if(this.setFile) {
+                this.set = Utilities.Helper.parseYAML<Set>(this.setFile.ToString());
+
+            }
+
+            this.set = Game.modeData.stage.Item2;
 
         }
 
@@ -55,21 +77,18 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         public GameObject[] populate(Transform parent) {
             this.itemControllers.Clear();
             List<GameObject> itemModels = new List<GameObject>();
-            // List<Item> items = JsonConvert.DeserializeObject<List<Item>>(this.setFile.ToString());
-            List<Item> items = Utilities.Helper.parseYAML<List<Item>>(this.setFile.ToString());
 
-            foreach(Item item in items) {
+            foreach(Item item in this.set.items) {
                 GameObject itemModel = Instantiate<GameObject>(this.itemModel);
                 ItemController itemController = itemModel.AddComponent<ItemController>();
+                Utilities.Timer timer = itemModel.AddComponent<Utilities.Timer>();
 
                 itemController.setController = this;
-                itemController.item = item;
                 itemController.uiController = this.uIController;
                 itemController.triggerAgents = this.triggerAgents;
                 itemController.playerController = this.playerController;
                 itemController.vehicleController = this.vehicleController;
-
-                Utilities.Timer timer = itemModel.AddComponent<Utilities.Timer>();
+                itemController.item = item;
                 itemController.timer = timer;
 
                 itemModels.Add(itemModel);

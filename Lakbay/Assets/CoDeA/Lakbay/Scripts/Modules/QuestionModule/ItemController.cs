@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.QuestionModule {
@@ -28,22 +29,28 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
     }
 
     public class ItemController : Utilities.ExtendedMonoBehaviour {
+        public static readonly float TIMER_ADDITIONAL_TIME = 2.0f;
+
         [HideInInspector]
         public GameObject triggerAgent;
         [HideInInspector]
         public bool answeredCorrectly = false;
-
+    
         public bool triggered = false;
+        public bool shuffledItems = false;
+
+        public TextAsset itemFile;
 
         public PlayerModule.PlayerController playerController;
         public VehicleModule.VehicleController vehicleController;
         public SetController setController;
-        public Item item;
         public UIModule.UIController uiController;
         public Utilities.Timer timer;
         public List<GameObject> triggerAgents = new List<GameObject>();
+        public Item item;
 
         private void Awake() {
+            this.setUpItem();
 
         }
 
@@ -52,62 +59,66 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
             
         }
 
+        public void setUpItem() {
+            if(this.itemFile) {
+                this.item = Utilities.Helper.parseYAML<Item>(this.itemFile.ToString());
+
+            }
+
+        }
+
         public void trigger(Collider collider) {
             if(this.triggered) return;
 
             foreach(GameObject ta in this.triggerAgents) {
                 if(ta.transform == collider.transform) {
                     this.triggered = true;
-                    this.uiController.questionText.SetText(this.item.question.text);
-                    Utilities.Helper.destroyChildren(this.uiController.choicesPanel.transform);
+                    this.uiController.setQuestionText(this.item.question.text);
 
-                    foreach(string choice in this.item.choices) {
-                        GameObject choiceButton = Instantiate<GameObject>(
-                            this.uiController.choiceButton, this.uiController.choicesPanel.transform
-                        );
-
-                        Button button = choiceButton.GetComponent<Button>();
+                    GameObject[] cbs = this.uiController.setChoiceTexts(this.item.choices);
+                    foreach(GameObject cb in cbs) {
+                        Button button = cb.GetComponent<Button>();
                         Func<int, UnityAction> listener = (int i) => () => this.answer(i);
-                        button.onClick.AddListener(listener(this.item.choices.IndexOf(choice)));
-
-                        TMP_Text text = button.transform.GetChild(0).GetComponent<TMP_Text>();
-                        text.SetText(choice);
+                        button.onClick.AddListener(listener(new List<GameObject>(cbs).IndexOf(cb)));
 
                     }
-
-                    float totalCharacters = this.item.question.text.Length;
-                    List<float> choicesCharacters = this.item.choices.ConvertAll(
-                        new Converter<string, float>((string s) => s.Length)
-                    );
-
-                    totalCharacters += Utilities.Helper.getSum(choicesCharacters.ToArray());
-                    float pTimeDuration = totalCharacters / Utilities.Helper.READING_CHARACTER_PER_SECOND;
-                    float additionalTime = 2.25f;
-                    float timeDuration = pTimeDuration + additionalTime;
-
-                    this.timer.startOnPlay = false;
-                    this.timer.timeDuration = timeDuration;
-                    
-                    Func<ItemController, UnityAction> trlistener = (ItemController ic) => () => {
-                        ic.uiController.timeText.SetText(ic.timer.timeRemaining.ToString("N1") + "s");
-                    };
-                    this.timer.onRun.AddListener(trlistener(this));
-                    
-                    Func<ItemController, UnityAction> tslistener = (ItemController ic) => () => {
-                        ic.answer(-1);
-                    };
-                    this.timer.onStop.AddListener(tslistener(this));
-
-                    this.timer.start();
                     
                     this.uiController.questionModal.SetActive(true);
                     ta.GetComponent<Rigidbody>().isKinematic = true;
 
                     this.triggerAgent = ta;
+                    this.setUpTimer();
 
                 }
 
             }
+
+        }
+
+        public void setUpTimer() {
+            float totalCharacters = this.item.question.text.Length;
+            List<float> choicesCharacters = this.item.choices.ConvertAll(
+                new Converter<string, float>((string s) => s.Length)
+            );
+
+            totalCharacters += Queryable.Sum(choicesCharacters.AsQueryable());
+            float pTimeDuration = totalCharacters / Utilities.Helper.READING_CHARACTER_PER_SECOND;
+            float timeDuration = pTimeDuration + ItemController.TIMER_ADDITIONAL_TIME;
+
+            this.timer.startOnPlay = false;
+            this.timer.timeDuration = timeDuration;
+                    
+            Func<ItemController, UnityAction> trlistener = (ItemController ic) => () => {
+                ic.uiController.timeText.SetText(ic.timer.timeRemaining.ToString("N1") + "s");
+            };
+            this.timer.onRun.AddListener(trlistener(this));
+            
+            Func<ItemController, UnityAction> tslistener = (ItemController ic) => () => {
+                ic.answer(-1);
+            };
+            this.timer.onStop.AddListener(tslistener(this));
+
+            this.timer.start();
 
         }
 
@@ -125,11 +136,20 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         public void answer(int choiceIndex) {
             if(!this.triggered) return;
 
+            string message = "";
+            string svalue = "";
+
+            if(choiceIndex == -1) {
+                message = "Time's Up! Fuel got reduced by {0}.";
+
+            }
+            
             if(this.checkAnswer(choiceIndex)) {
                 this.answeredCorrectly = true;
                 this.playerController.setPoint(this.setController.point);
 
-                float maxCoinGain = 30.0f, minCoinGain = 5.0f;
+                // float maxCoinGain = 30.0f, minCoinGain = 5.0f;
+                float maxCoinGain = this.item.maxCoinGain, minCoinGain = this.item.minCoinGain;
                 float coinGain = (
                     maxCoinGain * (1.0f - this.timer.progress)
                 );
@@ -140,29 +160,31 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                 this.playerController.setCoin(currentCoin);
 
                 string cg = coinGain.ToString("N0");
-                // print($"Correct Answer! Coins got increased by {coinGain}.");
-                this.uiController.notification.show(
-                    $"Correct Answer! Coins got increased by {cg}.",
-                    3.5f
-                );
+                message = "Correct Answer! Coins increased by {0}.";
+                svalue = cg;
 
             } else {
                 this.answeredCorrectly = false;
-                float maxFuelDeduction = this.vehicleController.maxFuel * 0.15f;
-                float minFuelDeduction = this.vehicleController.maxFuel * 0.05f;
+
+                // float maxFuelDeduction = this.vehicleController.maxFuel * 0.15f;
+                // float minFuelDeduction = this.vehicleController.maxFuel * 0.05f;
+                float maxFuelDeduction = this.item.maxFuelDeduction;
+                float minFuelDeduction = this.item.minFuelDeduction;
                 float fuelDeduction = maxFuelDeduction * this.timer.progress;
                 fuelDeduction = Mathf.Max(maxFuelDeduction * this.timer.progress, minFuelDeduction);
-                this.vehicleController.setFuel(this.vehicleController.fuel - fuelDeduction);
-                // this.vehicleController.updateFuel();
-                // this.vehicleController.fuelDeduction += 0.25f;
+
+                this.vehicleController.setFuel(this.vehicleController.vehicle.fuel - fuelDeduction);
+
                 string fd = fuelDeduction.ToString("N0");
-                // print($"Wrong Answer! Fuel got reduced by {fd}.");
-                this.uiController.notification.show(
-                    $"Wrong Answer! Fuel got reduced by {fd}.",
-                    3.5f
-                );
+                message = choiceIndex != -1 ? "Wrong Answer! Fuel got reduced by {0}." : message;
+                svalue = fd;
 
             }
+
+            this.uiController.notification.show(
+                String.Format(message, svalue),
+                3.5f
+            );
 
             this.hide();
 

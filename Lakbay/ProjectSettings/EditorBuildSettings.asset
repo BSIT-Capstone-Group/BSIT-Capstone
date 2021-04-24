@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/CoDeA/Lakbay/Scenes/MainMenu.unity
+    guid: bb30b828e535cec4c855fed47fc751fc
+  - enabled: 1
+    path: Assets/CoDeA/Lakbay/Scenes/LinearPlay.unity
+    guid: a193763b58a3dbc40886c6fa2f0ba80e
   m_configObjects: {}
