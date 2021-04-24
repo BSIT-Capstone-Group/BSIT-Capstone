@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using Newtonsoft.Json;
+using YamlDotNet.Serialization;
 using UnityEngine;
 using System;
 
@@ -81,6 +83,24 @@ namespace CoDeA.Lakbay.Utilities {
             System.Random random = new System.Random();
 
             return Helper.shuffle<T>(random, array);
+
+        }
+
+        public static T[] reverse<T>(T[] array) {
+            List<T> list = new List<T>(array);
+            list.Reverse();
+
+            return list.ToArray();
+
+        }
+
+        public static T parseJSON<T>(string str) {
+            return JsonConvert.DeserializeObject<T>(str);
+
+        }
+
+        public static T parseYAML<T>(string str) {
+            return new Deserializer().Deserialize<T>(str);
 
         }
 

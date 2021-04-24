@@ -4,8 +4,15 @@ using UnityEngine;
 // using SimpleInput = UnityEngine.Input;
 
 namespace CoDeA.Lakbay.Modules.PlayerModule {
+    [System.Serializable]
+    public class Player {
+        public float coins = 30.0f;
+        public float firstAid = 3.0f;
+
+    }
+
     public class PlayerController : Utilities.ExtendedMonoBehaviour {
-        private Coroutine coroutine = null;
+        private Coroutine _coroutine = null;
 
         [HideInInspector]
         public bool canConvertCoinAsFuel = false;
@@ -32,15 +39,13 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
         private void Update() {
             this.canConvertCoinAsFuel = SimpleInput.GetAxis("RefillFuel") > 0.0f ? true : false;
-            // print(this.canConvertCoinAsFuel);
-            // Time.w
-            // this.convertCoinAsFuel();
-            if(this.canConvertCoinAsFuel && this.coroutine == null) {
-                this.coroutine = StartCoroutine(this.convertCoinAsFuel());
 
-            } else if(this.coroutine != null && !this.canConvertCoinAsFuel) {
-                StopCoroutine(this.coroutine);
-                this.coroutine = null;
+            if(this.canConvertCoinAsFuel && this._coroutine == null) {
+                this._coroutine = StartCoroutine(this.convertCoinAsFuel());
+
+            } else if(this._coroutine != null && !this.canConvertCoinAsFuel) {
+                StopCoroutine(this._coroutine);
+                this._coroutine = null;
 
             }
 
@@ -68,10 +73,6 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
                     lchildren.Reverse();
                     Transform[] rchildren = new List<Transform>(lchildren).ToArray();
 
-                    this.vehicleController.canRecordDistanceCovered = false;
-                    this.vehicleController.canRecordFuelDistanceCovered = false;
-                    this.vehicleController.GetComponent<Rigidbody>().Sleep();
-
                     Vector3 resetPosition = this.vehicleController.initialPosition;
                     foreach(Transform qi in rchildren) {
                         if(qi.CompareTag("Question Item") && !qi.gameObject.activeSelf) {
@@ -82,24 +83,9 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
                     }
 
-
-                    this.vehicleController.GetComponent<Rigidbody>().MovePosition(resetPosition + (Vector3.up * 1.2f));
-                    this.vehicleController.GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(Vector3.zero));
-
-                    this.vehicleController.transform.position = resetPosition;
-                    // this.vehicleController.transform.position = Vector3.MoveTowards(
-                    //     this.vehicleController.transform.position,
-                    //     resetPosition,
-                    //     Time.fixedDeltaTime
-                    // );
-
-
                     this.vehicleController.refillFuel(this.vehicleController.maxFuel * 0.5f, this.vehicleController.maxFuel);
-                    this.vehicleController.canRecordDistanceCovered = true;
-                    this.vehicleController.canRecordFuelDistanceCovered = true;
-                    this.vehicleController.GetComponent<Rigidbody>().WakeUp();
-
                     this.setFirstAid(this.firstAid - 1.0f);
+                    this.respawnAt(resetPosition);
 
                 } else {
                     Game.loadScene(0);
@@ -114,6 +100,32 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
                 Game.loadScene(0);
 
             }
+
+        }
+
+        public void respawnAt(Vector3 position, Vector3 rotation, float yOffset) {
+            Rigidbody rigidbody = this.vehicleController.GetComponent<Rigidbody>();
+
+            this.vehicleController.canRecordDistanceCovered = false;
+            this.vehicleController.canRecordFuelDistanceCovered = false;
+            rigidbody.Sleep();
+
+            rigidbody.MovePosition(position + (Vector3.up * 1.2f));
+            rigidbody.MoveRotation(Quaternion.Euler(Vector3.zero));
+
+            this.vehicleController.canRecordDistanceCovered = true;
+            this.vehicleController.canRecordFuelDistanceCovered = true;
+            rigidbody.WakeUp();
+
+        }
+
+        public void respawnAt(Vector3 position, Vector3 rotation) {
+            this.respawnAt(position, rotation, 1.2f);
+
+        }
+
+        public void respawnAt(Vector3 position) {
+            this.respawnAt(position, Vector3.zero);
 
         }
 

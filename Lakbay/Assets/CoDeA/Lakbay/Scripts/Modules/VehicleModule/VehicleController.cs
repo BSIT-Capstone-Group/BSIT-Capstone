@@ -5,6 +5,18 @@ using UnityEngine;
 // using SimpleInput = UnityEngine.Input;
 
 namespace CoDeA.Lakbay.Modules.VehicleModule {
+    [System.Serializable]
+    public class Vehicle {
+        public float fuelPerDistance = 0.15f;
+        public float fuel = 100.0f;
+        public float maxFuel = 100.0f;
+        public float maxSpeed = 200.0f;
+        public float maxSteerAngle = 30.0f;
+        public float maxMotorTorque = 1500.0f;
+        public float maxBrakeTorque = 1500.0f;
+
+    }
+
     public class VehicleController : Utilities.ExtendedMonoBehaviour {
         private bool _accelerating = false;
         private bool _steering = false;

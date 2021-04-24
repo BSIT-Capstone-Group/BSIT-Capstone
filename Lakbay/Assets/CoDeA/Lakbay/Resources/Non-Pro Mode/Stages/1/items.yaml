@@ -118,7 +118,7 @@
 -
     question:
         images: 
-           - 'Images/no-parking.png'
+            - 'Images/no-parking.png'
         text: 'What road sign is shown?'
     choices:
         - 'No Smoking'

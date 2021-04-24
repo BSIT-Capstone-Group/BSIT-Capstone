@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.RoadModule {
+    [System.Serializable]
+    public class Road {
+        public float length = 30.0f;
+
+    }
+
     public class RoadController : Utilities.ExtendedMonoBehaviour {
         private int _currentLength = 0;
 

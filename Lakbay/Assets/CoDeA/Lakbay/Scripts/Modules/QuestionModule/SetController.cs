@@ -56,7 +56,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
             this.itemControllers.Clear();
             List<GameObject> itemModels = new List<GameObject>();
             // List<Item> items = JsonConvert.DeserializeObject<List<Item>>(this.setFile.ToString());
-            List<Item> items = new Deserializer().Deserialize<List<Item>>(this.setFile.ToString());
+            List<Item> items = Utilities.Helper.parseYAML<List<Item>>(this.setFile.ToString());
 
             foreach(Item item in items) {
                 GameObject itemModel = Instantiate<GameObject>(this.itemModel);
