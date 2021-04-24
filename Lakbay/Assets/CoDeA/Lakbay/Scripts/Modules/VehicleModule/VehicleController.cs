@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
 // using SimpleInput = UnityEngine.Input;
@@ -65,6 +67,11 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         public UIModule.UIController uiController;
         public List<WheelModule.WheelController> wheels = new List<WheelModule.WheelController>();
 
+        public UnityEvent<VehicleController, float> onAccelerate = new UnityEvent<VehicleController, float>();
+        public UnityEvent<VehicleController, float> onBrake = new UnityEvent<VehicleController, float>();
+        public UnityEvent<VehicleController, float> onSteer = new UnityEvent<VehicleController, float>();
+        public UnityEvent<VehicleController, float> onFuelChange = new UnityEvent<VehicleController, float>();
+
         private void Start() {
             this.refillFuel(this.fuel, this.maxFuel);
             this.lastPosition = this.transform.position;
@@ -88,15 +95,24 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
             this._steering = steerAngleFactor != 0 ? true : false;
             this.steerAngleFactor = steerAngleFactor;
 
+            List<float> steerAngles = new List<float>();
             foreach(WheelModule.WheelController wheel in this.wheels) {
                 float maxSteerAngle = wheel.properties.maxSteerAngle;
+                float steerAngle = this.steerAngleFactor * maxSteerAngle * this.timeScale;
 
-                wheel.steer(this.steerAngleFactor * maxSteerAngle * this.timeScale);
+                wheel.steer(steerAngle);
+                steerAngles.Add(steerAngle);
 
             }
 
             this.updateWheelModels();
             this._steering = false;
+
+            if(steerAngleFactor != 0.0f) {
+                float avg = Queryable.Average(steerAngles.AsQueryable());
+                this.onSteer.Invoke(this, avg);
+
+            }
 
         }
 
@@ -116,10 +132,13 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
             this.motorTorqueFactor = motorTorqueFactor;
 
+            List<float> motorTorques = new List<float>();
             foreach(WheelModule.WheelController wheel in this.wheels) {
                 float maxMotorTorque = wheel.properties.maxMotorTorque;
+                float motorTorque = this.motorTorqueFactor * maxMotorTorque * this.timeScale;
 
-                wheel.accelerate(this.motorTorqueFactor * maxMotorTorque * this.timeScale);
+                wheel.accelerate(motorTorque);
+                motorTorques.Add(motorTorque);
 
             }
 
@@ -141,6 +160,12 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
             this._accelerating = false;
 
+            if(motorTorqueFactor != 0.0f) {
+                float avg = Queryable.Average(motorTorques.AsQueryable());
+                this.onAccelerate.Invoke(this, avg);
+                
+            }
+
         }
 
         public void brake(float brakeTorqueFactor) {
@@ -149,15 +174,24 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
             this._braking = brakeTorqueFactor != 0 ? true : false;
             this.brakeTorqueFactor = brakeTorqueFactor;
 
+            List<float> brakeTorques = new List<float>();
             foreach(WheelModule.WheelController wheel in this.wheels) {
                 float maxBrakeTorque = wheel.properties.maxBrakeTorque;
+                float brakeTorque = this.brakeTorqueFactor * maxBrakeTorque * this.timeScale;
 
-                wheel.brake(this.brakeTorqueFactor * maxBrakeTorque * this.timeScale);
+                wheel.brake(brakeTorque);
+                brakeTorques.Add(brakeTorque);
 
             }
 
             this.updateWheelModels();
             this._braking = false;
+
+            if(brakeTorqueFactor != 0.0f) {
+                float avg = Queryable.Average(brakeTorques.AsQueryable());
+                this.onBrake.Invoke(this, avg);
+
+            }
 
         }
 
@@ -168,7 +202,7 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
         public void refillFuel(float fuel, float maxFuel) {
             this.fuelDistanceCovered = 0.0f;
-            this.fuel = fuel;
+            this.setFuel(fuel);
             this.maxFuel = maxFuel;
 
             this.updateFuel(0.0f);
@@ -183,24 +217,26 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
         }
 
+        public void setFuel(float value) {
+            // if(value == this.fuel) return;
+
+            this.fuel = value;
+            this.onFuelChange.Invoke(this, value);
+
+        }
+
         public void updateFuel(float distance) {
             if(this.infiniteFuel) return;
 
             float consumedFuel = distance * this.fuelPerDistance;
             float currentFuel = this.fuel - consumedFuel;
 
-            this.fuel = Mathf.Max(currentFuel, 0.0f);
+            this.setFuel(Mathf.Max(currentFuel, 0.0f));
 
         }
 
         public void updateFuel() {
             this.updateFuel(this.fuelDistanceAccelerated);
-
-        }
-
-        public void updateSlider() {
-            Slider slider = this.uiController.fuelBar;
-            slider.value = Mathf.SmoothStep(slider.value, this.fuel / this.maxFuel, 0.5f);
 
         }
 
@@ -269,8 +305,6 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
             this.accelerate(motorTorqueFactor);
             this.steer(steerAngleFactor);
             this.brake(brakeTorqueFactor);
-
-            this.updateSlider();
             
         }
 

@@ -152,8 +152,8 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                 float minFuelDeduction = this.vehicleController.maxFuel * 0.05f;
                 float fuelDeduction = maxFuelDeduction * this.timer.progress;
                 fuelDeduction = Mathf.Max(maxFuelDeduction * this.timer.progress, minFuelDeduction);
-                this.vehicleController.fuel -= fuelDeduction;
-                this.vehicleController.updateFuel();
+                this.vehicleController.setFuel(this.vehicleController.fuel - fuelDeduction);
+                // this.vehicleController.updateFuel();
                 // this.vehicleController.fuelDeduction += 0.25f;
                 string fd = fuelDeduction.ToString("N0");
                 // print($"Wrong Answer! Fuel got reduced by {fd}.");

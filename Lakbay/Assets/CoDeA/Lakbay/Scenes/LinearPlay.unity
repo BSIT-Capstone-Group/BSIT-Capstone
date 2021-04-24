@@ -4614,6 +4614,8 @@ MonoBehaviour:
   choicesPanel: {fileID: 1221676172}
   choiceButton: {fileID: 2737955315845784807, guid: b33edb6c959a6034cb6434d72fb59e5d, type: 3}
   notification: {fileID: 551333985}
+  vehicleController: {fileID: 635891562}
+  playerController: {fileID: 1646980656880776}
 --- !u!1 &1257071657
 GameObject:
   m_ObjectHideFlags: 0
@@ -7710,7 +7712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7569751899322444566, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.095
       objectReference: {fileID: 0}
     - target: {fileID: 7569751899322444567, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: model
@@ -7718,7 +7720,7 @@ PrefabInstance:
       objectReference: {fileID: 4451882572862229}
     - target: {fileID: 7569751899451289116, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.095
       objectReference: {fileID: 0}
     - target: {fileID: 7569751899451289117, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: model
@@ -7730,7 +7732,7 @@ PrefabInstance:
       objectReference: {fileID: 4026899080945381}
     - target: {fileID: 7569751900012489987, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.095
       objectReference: {fileID: 0}
     - target: {fileID: 7569751900267501696, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: model
@@ -7738,7 +7740,7 @@ PrefabInstance:
       objectReference: {fileID: 4700048897273679}
     - target: {fileID: 7569751900267501726, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.095
       objectReference: {fileID: 0}
     - target: {fileID: 7569751900361421700, guid: 139b4b0b52999e642a04453486f00a39, type: 3}
       propertyPath: fuel

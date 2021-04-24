@@ -30,10 +30,6 @@ namespace CoDeA.Lakbay {
 
         }
 
-        public static void sample(Modules.PlayerModule.PlayerController pc) {
-            print(pc);
-        }
-
     }
 
 }
