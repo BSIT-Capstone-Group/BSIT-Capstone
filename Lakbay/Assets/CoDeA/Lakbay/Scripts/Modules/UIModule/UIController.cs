@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 using UnityEngine.Events;
+using UnityEditor;
 using UnityEngine;
 
 namespace CoDeA.Lakbay.Modules.UIModule {
@@ -22,6 +23,8 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
         [Header("Question")]
         public TMP_Text timeText;
+        public GameObject imagesPanel;
+        public GameObject imageButton;
         public GameObject questionModal;
         public TMP_Text questionText;
         public GameObject choicesPanel;
@@ -75,7 +78,7 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
         }
 
-        public GameObject[] setChoiceTexts(params string[] texts) {
+        public GameObject[] setChoiceButtons(params string[] texts) {
             Utilities.Helper.destroyChildren(this.choicesPanel.transform);
 
             List<GameObject> gameObjects = new List<GameObject>();
@@ -92,10 +95,40 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
         }
 
-        public GameObject[] setChoiceTexts(List<string> texts) => this.setChoiceTexts(texts.ToArray());
+        public GameObject[] setChoiceTexts(List<string> texts) => this.setChoiceButtons(texts.ToArray());
         
         public void setQuestionText(string text) {
             this.questionText.SetText(text.Trim());
+
+        }
+
+        public GameObject[] setImageButtons(params Sprite[] sprites) {
+            this.imagesPanel.SetActive(false);
+            Utilities.Helper.destroyChildren(this.imagesPanel.transform);
+
+            if(sprites.Length > 0) this.imagesPanel.SetActive(true);
+
+            List<GameObject> gameObjects = new List<GameObject>();
+
+            foreach(Sprite sprite in sprites) {
+                GameObject go = UIController.Instantiate<GameObject>(this.imageButton, this.imagesPanel.transform);
+                gameObjects.Add(go);
+
+            }
+
+            return gameObjects.ToArray();
+
+        }
+
+        public GameObject[] setImageButtons(params string[] paths) {
+            List<Sprite> sprites = new List<Sprite>();
+
+            foreach(string path in paths) {
+                sprites.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
+
+            }
+
+            return this.setImageButtons(sprites.ToArray());
 
         }
 

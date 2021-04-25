@@ -1,0 +1,211 @@
+name: ""
+items:
+    -
+        question:
+            images: 
+                - 'Images/pedestrian-crossing.png'
+            text: 'What road sign is shown?'
+        choices:
+            - 'No U-Turn'
+            - 'Pedestrian crossing'
+            - 'No Parking'
+        correctChoiceIndex: 1
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'When negotiating a curve on a highway at a relatively high speed you should:'
+        choices:
+            - 'Steady green Light'
+            - 'Drive immediately'
+            - 'Decrease your speed further as you enter the curve'
+        correctChoiceIndex: 2
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A flashing red signal means:'
+        choices:
+            - 'Informative Signs'
+            - 'You must stop and then go only when it is safe to do so'
+            - 'Caution or Warning Signs'
+        correctChoiceIndex: 1
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'When an oncoming vehicle crosses the centerline in a straight road you should be:'
+        choices:
+            - 'Pause and Go'
+            - 'Slow down and keep to right'
+            - 'Drive immediately'
+        correctChoiceIndex: 1
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A single solid yellow or white line means:'
+        choices:
+            - 'Slowdown and proceed with caution'
+            - 'Make a full stop'
+            - 'Passing/overtaking is not allowed'
+        correctChoiceIndex: 2
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A single solid yellow or white line means:'
+        choices:
+            - 'Slowdown and proceed with caution'
+            - 'Make a full stop'
+            - 'Passing/overtaking is not allowed'
+        correctChoiceIndex: 2
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'In bad conditions, the 2-second rule should be increased to:'
+        choices:
+            - '4 seconds in changing lanes'
+            - 'Make a full stop'
+            - '8 seconds in changing lanes'
+        correctChoiceIndex: 0
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Having a drivers license is a:'
+        choices:
+            - 'Privilege'
+            - 'Authority'
+            - 'Mandatory'
+        correctChoiceIndex: 0
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'As per R.A 4136, the brakes on every vehicle (other than a motorcycle) must:'
+        choices:
+            - 'Brand New'
+            - 'Consist of a good foot and hand brake'
+            - 'Expensive'
+        correctChoiceIndex: 1
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'When are you permitted to double-park?'
+        choices:
+            - 'Often'
+            - 'Always'
+            - 'Never'
+        correctChoiceIndex: 2
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Chances of being hurt or killed while driving is reduced if one is wearing:'
+        choices:
+            - 'Expensive Perfume'
+            - 'Seat belts/helmets '
+            - 'High heels'
+        correctChoiceIndex: 1
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A flashing yellow light means:'
+        choices:
+            - 'Slowdown and proceed with caution'
+            - 'Make a full stop'
+            - 'Drive and Go'
+        correctChoiceIndex: 0
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'This traffic sign states directions and distances?'
+        choices:
+            - 'Slowdown and proceed with caution'
+            - 'Informative Signs'
+            - 'Passing/overtaking is not allowed'
+        correctChoiceIndex: 2
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'The Traffic light or signal that tells you to stop before the intersection is:'
+        choices:
+            - 'Steady red Light'
+            - 'Steady green light'
+            - 'Steady yellow light'
+        correctChoiceIndex: 0
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A traffic signal light that warns you that the red light is about to turn on:'
+        choices:
+            - 'Steady red Light'
+            - 'Steady green light'
+            - 'Steady yellow light'
+        correctChoiceIndex: 2
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A single solid yellow or white line means:'
+        choices:
+            - 'Steady red Light'
+            - 'Steady green Light'
+            - 'Steady yellow Light'
+        correctChoiceIndex: 1
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20

@@ -1,0 +1,200 @@
+name: ""
+items:
+    -
+        question:
+            images: []
+            text: 'When making a U-turn you should?'
+        choices:
+            - 'Pedestrian Crossing'
+            - 'Check for traffic behind you and indicate your intentions with a left turn signal'
+            - 'No U-turn'
+        correctChoiceIndex: 1
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Signs that are round, inverted triangle or octagonal with red borders are called:'
+        choices:
+            - 'Steady green Light'
+            - 'Steady yellow Light'
+            - 'Caution or Warning Signs'
+        correctChoiceIndex: 2
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Signs that are round, inverted triangle or octagonal and with red colored borders are called:'
+        choices:
+            - 'Regulatory Signs'
+            - 'Steady yellow Light'
+            - 'Caution or Warning Signs'
+        correctChoiceIndex: 0
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'What to do when you approach a crosswalk or pedestrian lane?'
+        choices:
+            - 'Pause and Go'
+            - 'Stop and yield to pedestrians'
+            - 'Drive immediately'
+        correctChoiceIndex: 1
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Signs that are round, rectangular with white and blue background are called:'
+        choices:
+            - 'Slowdown and proceed with caution'
+            - 'Informative Signs'
+            - 'Drive and Go'
+        correctChoiceIndex: 1
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'A driver while on highway shall yield the right of way to:'
+        choices:
+            - 'Pedestrians within a crosswalk '
+            - 'Make a full stop'
+            - 'Drive and Go'
+        correctChoiceIndex: 0
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Steady red Light at an intersection means:'
+        choices:
+            - 'Slowdown and proceed with caution'
+            - 'Make a full stop'
+            - 'Stop at the designated line '
+        correctChoiceIndex: 2
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'When do you have a complete/full stop?'
+        choices:
+            - 'In front of the pedestrian lane'
+            - 'At a red traffic light'
+            - 'Stop at the designated line '
+        correctChoiceIndex: 1
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'At an intersection, if two (2) vehicles arrived at the same time, which vehicle has the right of way?'
+        choices:
+            - 'Vehicle on the left'
+            - 'Both vehicle must cross'
+            - 'Vehicle on the right  '
+        correctChoiceIndex: 2
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: 
+               - 'Images/no-parking.png'
+            text: 'What road sign is shown?'
+        choices:
+            - 'No Smoking'
+            - 'No U-Turn'
+            - 'No Parking'
+        correctChoiceIndex: 2
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'A pre-trip inspection should be completed:'
+        choices:
+            - 'Before operating the motor vehicle'
+            - 'While operating the motor vehicle'
+            - 'After operating the motor vehicle'
+        correctChoiceIndex: 0
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'lt is illegal to park:'
+        choices:
+            - 'Within 9 meters of a fire hydrant and within 6 meters from the intersection'
+            - 'Within 5 meters of a fire hydrant and within 6 meters from the intersection'
+            - 'Within 4 meters of a fire hydrant and within 6 meters from the intersection'
+        correctChoiceIndex: 2
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Before making a turn, the driver should use the turn signal at what distance?'
+        choices:
+            - '10 meters'
+            - '30 meters'
+            - '50 meters'
+        correctChoiceIndex: 1
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: 
+               - 'Images/noovertaking.png'
+            text: 'What road sign is shown?'
+        choices:
+            - 'No Overtaking'
+            - 'No Entry for Pedestrians'
+            - 'No Parking'
+        correctChoiceIndex: 0
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: 
+               - 'Images/noentryforpedestrians.png'
+            text: 'What road sign is shown?'
+        choices:
+            - 'No Overtaking'
+            - 'No Entry for Pedestrians'
+            - 'No Parking'
+        correctChoiceIndex: 1
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
