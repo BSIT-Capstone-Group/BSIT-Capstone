@@ -83,7 +83,17 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
 
                     }
 
-                    this.uiController.setImageButtons(this.item.question.images.ToArray());
+                    this.uiController.maximizedImagePanel.SetActive(false);
+                    GameObject[] imbs = this.uiController.setImageButtons(this.item.question.images.ToArray());
+
+                    foreach(GameObject imb in imbs) {
+                        Button btn = imb.GetComponent<Button>();
+                        btn.onClick.AddListener(this.maximizeImage(
+                            imb.gameObject.GetComponent<Image>().sprite
+                        ));
+                        
+
+                    }
                     
                     this.uiController.questionModal.SetActive(true);
                     ta.GetComponent<Rigidbody>().isKinematic = true;
@@ -94,6 +104,13 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                 }
 
             }
+
+        }
+
+        public UnityAction maximizeImage(Sprite sprite) {
+            return () => {
+                this.uiController.setMaximizedImage(sprite);
+            };
 
         }
 

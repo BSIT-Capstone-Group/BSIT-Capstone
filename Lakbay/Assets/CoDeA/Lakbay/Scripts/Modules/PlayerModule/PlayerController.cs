@@ -53,6 +53,40 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
         }
 
+        private void OnCollisionEnter(Collision collision) {
+            Transform parent = collision.transform.parent;
+            Transform child = collision.transform;
+            if(child && child.name.Equals("Front")) {
+                Tuple<TextAsset, TextAsset> nextStage = Game.modeData.forwardStage();
+
+                if(nextStage != null) {
+                    Rigidbody rigidbody = this.vehicleController.GetComponent<Rigidbody>();
+
+                    this.vehicleController.canRecordDistanceCovered = false;
+                    this.vehicleController.canRecordFuelDistanceCovered = false;
+                    rigidbody.Sleep();
+
+                    this.setController.setUpSet();
+                    this.roadController.setUp();
+
+                    this.respawnAt(this.vehicleController.initialPosition);
+
+                    this.vehicleController.canRecordDistanceCovered = true;
+                    this.vehicleController.canRecordFuelDistanceCovered = true;
+                    rigidbody.WakeUp();
+
+                    return;
+
+                } else {
+                    Game.loadScene(1);
+
+                }
+
+
+            }
+
+        }
+
         public void setUpPlayer() {
             TextAsset playerFile = Game.modeData.playerFile ? Game.modeData.playerFile : this.playerFile;
             this.player = Utilities.Helper.parseYAML<Player>(playerFile.ToString());
@@ -96,7 +130,7 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
                     this.setFirstAid(this.firstAid - 1.0f);
 
                 } else {
-                    Game.loadScene(0);
+                    Game.loadScene(1);
 
                 }
 

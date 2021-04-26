@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace CoDeA.Lakbay.Utilities {
     public class Notification : ExtendedMonoBehaviour {
-        [HideInInspector]
         public CanvasGroup canvasGroup;
 
         public static readonly float NORMAL_DURATION = 2.0f;
@@ -16,7 +15,6 @@ namespace CoDeA.Lakbay.Utilities {
         public Timer timer;
 
         private void Awake() {
-            this.canvasGroup = this.GetComponent<CanvasGroup>();
             this.timer.startOnPlay = false;
             this.timer.onStop.AddListener(this.hide);
 

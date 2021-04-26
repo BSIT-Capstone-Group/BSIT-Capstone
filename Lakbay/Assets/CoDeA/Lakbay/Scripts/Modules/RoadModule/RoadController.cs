@@ -23,7 +23,10 @@ namespace CoDeA.Lakbay.Modules.RoadModule {
         }
 
         private void FixedUpdate() {
-            this.setUp();
+            if(this.road.length != this._currentLength) {
+                this.updateSet();
+
+            }
 
         }
         
@@ -31,15 +34,17 @@ namespace CoDeA.Lakbay.Modules.RoadModule {
             TextAsset roadFile = Game.modeData.stage.Item1 ? Game.modeData.stage.Item1 : this.roadFile;
             this.road = Utilities.Helper.parseYAML<Road>(roadFile.ToString());
 
-            if(this.road.length != this._currentLength) {
-                Utilities.Helper.destroyChildren(this.transform);
+            this.updateSet();
 
-                this.setUpModel();
-                this.setUpSet();
+        }
 
-                this._currentLength = this.road.length;
+        public void updateSet() {
+            Utilities.Helper.destroyChildren(this.transform);
 
-            }
+            this.setUpModel();
+            this.setUpSet();
+
+            this._currentLength = this.road.length;
 
         }
 
@@ -49,6 +54,12 @@ namespace CoDeA.Lakbay.Modules.RoadModule {
             for(int i = 0; i < this.road.length; i++) {
                 GameObject model = Instantiate<GameObject>(this.model);
                 model.transform.position += new Vector3(0.0f, 0.0f, modelSize.z * i);
+
+                Transform back = model.transform.GetChild(3);
+                Transform front = model.transform.GetChild(2);
+
+                if(i == 0) back.gameObject.SetActive(true);
+                if(i == this.road.length - 1) front.gameObject.SetActive(true);
 
                 model.transform.SetParent(this.transform);
 

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8718937791888518638}
   - component: {fileID: 8718937791888518635}
   - component: {fileID: 8718937791888518636}
+  - component: {fileID: 4602584947472740990}
   - component: {fileID: 6179860275497455683}
   - component: {fileID: 8718937791888518637}
-  - component: {fileID: 4602584947472740990}
   m_Layer: 5
   m_Name: Notification
   m_TagString: Untagged
@@ -79,6 +79,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4602584947472740990
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718937791888518639}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &6179860275497455683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,20 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   timeScale: 1
+  canvasGroup: {fileID: 4602584947472740990}
   text: {fileID: 8718937793615415736}
   timer: {fileID: 6179860275497455683}
---- !u!225 &4602584947472740990
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718937791888518639}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &8718937793615415738
 GameObject:
   m_ObjectHideFlags: 0

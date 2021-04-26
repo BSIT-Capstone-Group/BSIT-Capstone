@@ -4,12 +4,15 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 using UnityEngine.Events;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace CoDeA.Lakbay.Modules.UIModule {
     public class UIController : Utilities.ExtendedMonoBehaviour {
         [Header("Indicators")]
+        public TMP_Text modeText;
+        public TMP_Text stageText;
         public TMP_Text coinText;
         public TMP_Text pointText;
         public TMP_Text firstAidText;
@@ -25,6 +28,8 @@ namespace CoDeA.Lakbay.Modules.UIModule {
         public TMP_Text timeText;
         public GameObject imagesPanel;
         public GameObject imageButton;
+        public GameObject maximizedImagePanel;
+        public Image maximizedImage;
         public GameObject questionModal;
         public TMP_Text questionText;
         public GameObject choicesPanel;
@@ -54,6 +59,18 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
             float rf = SimpleInput.GetAxis("RefillFuel");
             this.onFuelTopUp.Invoke(this, rf);
+
+            if(Game.modeData != null) {
+                this.modeText.SetText(Game.mode == Game.Mode.NON_PRO ? "Non-Pro" : "Pro");
+
+                if(Game.modeData.stage != null) {
+                    int i = Game.modeData.stages.IndexOf(Game.modeData.stage);
+                    int l = Game.modeData.stages.Count;
+                    this.stageText.SetText($"{i + 1} / {l}");
+
+                }
+            
+            }
             
         }
 
@@ -113,9 +130,8 @@ namespace CoDeA.Lakbay.Modules.UIModule {
             foreach(Sprite sprite in sprites) {
                 GameObject go = UIController.Instantiate<GameObject>(this.imageButton, this.imagesPanel.transform);
                 gameObjects.Add(go);
-
-                Image image = go.GetComponent<Image>();
-                image.sprite = sprite;
+                
+                go.GetComponent<Image>().sprite = sprite;
 
             }
 
@@ -128,10 +144,30 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
             foreach(string path in paths) {
                 sprites.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
+                // Addressables.LoadAssetAsync<Sprite>(path).Completed += (h) => {
+                //     if(h.Status == AsyncOperationStatus.Succeeded) {
+                //         sprites.Add(h.Result);
+
+                //     }
+                // };
 
             }
 
             return this.setImageButtons(sprites.ToArray());
+
+        }
+
+        public void setMaximizedImage(Sprite sprite) {
+            this.maximizedImagePanel.SetActive(false);
+
+            if(sprite) this.maximizedImagePanel.SetActive(true);
+
+            this.maximizedImage.sprite = sprite;
+
+        }
+
+        public void setMaximizedImage(string path) {
+            this.setMaximizedImage(AssetDatabase.LoadAssetAtPath<Sprite>(path));
 
         }
 

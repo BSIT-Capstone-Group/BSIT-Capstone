@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 using UnityEngine;
 using CoDeA.Lakbay.Modules.RoadModule;
 using CoDeA.Lakbay.Modules.QuestionModule;
@@ -75,6 +74,7 @@ namespace CoDeA.Lakbay {
 
         public Tuple<TextAsset, TextAsset> forwardStage() {
             int ci = this.stages.IndexOf(this.stage);
+
             if(ci != this.stages.Count - 1) {
                 this.stage = this.stages[ci + 1];
 
@@ -91,7 +91,7 @@ namespace CoDeA.Lakbay {
 
     public class Game : Utilities.ExtendedMonoBehaviour {
         public enum Mode {
-            PRO, NON_PRO
+            NON_PRO, PRO
 
         }
 
@@ -116,12 +116,19 @@ namespace CoDeA.Lakbay {
         public static ModeData modeData;
 
         private void Awake() {
-            Game.DontDestroyOnLoad(this.gameObject);
+
+            if(SceneManager.GetActiveScene().buildIndex == 0) {
+                Game.DontDestroyOnLoad(this.gameObject);
+                Game.loadScene(1);
+
+            } else {
+
+            }
 
         }
 
-        private void Start() {
-            Game.setMode(Mode.NON_PRO);
+        public static void setMode(int mode) {
+            Game.setMode((Mode) mode);
 
         }
 
@@ -147,7 +154,7 @@ namespace CoDeA.Lakbay {
         }
 
         public static void loadScene(int sceneBuildIndex) {
-            SceneManager.LoadScene(sceneBuildIndex);
+            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
 
         }
 

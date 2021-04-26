@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7a7215c7a4f4e854ea29bf84e00262d3
+  m_SerializeEntries:
+  - m_GUID: b130bd448affc704aba8db30e4b28bd4
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/1/Images/no-parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 072eeec11300e474f91ba2000a2cd5ad
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/2/Images/pedestrian-crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a21dd805002021849abf6cca794247cc
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/Images/two-ways.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d8050bb37921439499d35180b726b2d9
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/Images/u-turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b579f568da4b243479634fe72cdc075a
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryfor bigtrucks.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 2f21cac211823ce4fbeabe27a25607d2
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforbusses.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 83ebf1729400cd04dbc6e0197c48d3c9
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforjeepneys.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c22d054eb5f8b434983c13c569cc0aed
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/two-ways.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d1c6db91f645cb14481784fcb0c14a9b
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/u-turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 58e17f9172e4bcd43b088c569d4e2f26
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/noleftturn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 7690d8815ebf5ea4191fba5e9f10d631
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/norightturn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 47cda57b349540f4ba78d51b6ec0c25c
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/pedestrian-crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 86b59e25c97da664e92d7b3ab62b30ba
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/no-parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: e05e161c6225ad94fbe7b60f5b6e1040
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noentryforpedestrians.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4ee100acba2168b4185a1f9a57b8d598
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noovertaking.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: dfa14dd5ce0ffb34387b6e9d1a4c8388, type: 2}
+    - {fileID: 11400000, guid: 72bd5fb2d71168f44bbbdd198e240c4c, type: 2}
