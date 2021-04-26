@@ -114,6 +114,9 @@ namespace CoDeA.Lakbay.Modules.UIModule {
                 GameObject go = UIController.Instantiate<GameObject>(this.imageButton, this.imagesPanel.transform);
                 gameObjects.Add(go);
 
+                Image image = go.GetComponent<Image>();
+                image.sprite = sprite;
+
             }
 
             return gameObjects.ToArray();

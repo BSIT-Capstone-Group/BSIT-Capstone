@@ -28,12 +28,8 @@ namespace CoDeA.Lakbay.Modules.RoadModule {
         }
         
         public void setUp() {
-            if(this.roadFile) {
-                this.road = Utilities.Helper.parseYAML<Road>(this.roadFile.ToString());
-
-            }
-
-            this.road = Game.modeData.stage.Item1;
+            TextAsset roadFile = Game.modeData.stage.Item1 ? Game.modeData.stage.Item1 : this.roadFile;
+            this.road = Utilities.Helper.parseYAML<Road>(roadFile.ToString());
 
             if(this.road.length != this._currentLength) {
                 Utilities.Helper.destroyChildren(this.transform);

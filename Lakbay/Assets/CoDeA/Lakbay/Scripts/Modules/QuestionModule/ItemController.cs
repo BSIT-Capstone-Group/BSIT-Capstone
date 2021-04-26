@@ -82,6 +82,8 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                         button.onClick.AddListener(listener(new List<GameObject>(cbs).IndexOf(cb)));
 
                     }
+
+                    this.uiController.setImageButtons(this.item.question.images.ToArray());
                     
                     this.uiController.questionModal.SetActive(true);
                     ta.GetComponent<Rigidbody>().isKinematic = true;

@@ -88,12 +88,8 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         }
 
         public void setUpVehicle() {
-            if(this.vehicleFile) {
-                this.vehicle = Utilities.Helper.parseYAML<Vehicle>(this.vehicleFile.ToString());
-
-            }
-
-            this.vehicle = Game.modeData.vehicle;
+            TextAsset vehicleFile = Game.modeData.vehicleFile ? Game.modeData.vehicleFile : this.vehicleFile;
+            this.vehicle = Utilities.Helper.parseYAML<Vehicle>(vehicleFile.ToString());
 
             foreach(WheelModule.WheelController wc in this.wheels) {
                 wc.properties.maxBrakeTorque = this.vehicle.maxBrakeTorque;

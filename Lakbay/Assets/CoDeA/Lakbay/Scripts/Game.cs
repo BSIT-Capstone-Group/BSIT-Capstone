@@ -14,35 +14,29 @@ using CoDeA.Lakbay.Modules.VehicleModule;
 namespace CoDeA.Lakbay {
     [System.Serializable]
     public class ModeData {
-        public Player player;
-        public Vehicle vehicle;
+        public TextAsset playerFile;
+        public TextAsset vehicleFile;
 
-        public List<Tuple<Road, Set>> stages = new List<Tuple<Road, Set>>();
+        public List<Tuple<TextAsset, TextAsset>> stages = new List<Tuple<TextAsset, TextAsset>>();
 
-        public Tuple<Road, Set> stage = null;
+        public Tuple<TextAsset, TextAsset> stage = null;
 
         public ModeData(Game.Mode mode) {
             string path = (mode == Game.Mode.PRO) ? Game.MODE_PRO_PATH : Game.MODE_NON_PRO_PATH;
-            string fpath = String.Join(Game.DIR_SEP, new string[]{
-                Game.MODES_PATH, path
-            });
+            string fpath = String.Join(Game.DIR_SEP, Game.MODES_PATH, path);
+            string spath = String.Join(Game.DIR_SEP, fpath, "Stages");
+            string ipath = String.Join(Game.DIR_SEP, spath, "Images");
 
-            string splayer = AssetDatabase.LoadAssetAtPath<TextAsset>(
-                String.Join(Game.DIR_SEP, new string[] {
-                    fpath, "player.yaml"
-                })
-            ).ToString();
+            this.playerFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
+                String.Join(Game.DIR_SEP, fpath, "player.yaml")
+            );
 
-            string svehicle = AssetDatabase.LoadAssetAtPath<TextAsset>(
-                String.Join(Game.DIR_SEP, new string[] {
-                    fpath, "vehicle.yaml"
-                })
-            ).ToString();
+            this.vehicleFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
+                String.Join(Game.DIR_SEP, fpath, "vehicle.yaml")
+            );
 
             List<string> stage_paths = new List<string>(AssetDatabase.GetSubFolders(
-                    String.Join(Game.DIR_SEP, new string[] {
-                        fpath, "Stages"
-                    })
+                    spath
                 ).OrderBy<string, int>((string stage) => {
                     string[] parts = stage.Split(Game.DIR_SEP.ToCharArray()[0]);
                     string fn = parts[parts.Count() - 1];
@@ -55,24 +49,22 @@ namespace CoDeA.Lakbay {
 
             foreach(string sp in stage_paths) {
                 this.stages.Add(
-                    new Tuple<Road, Set>(
-                        Utilities.Helper.parseYAML<Road>(AssetDatabase.LoadAssetAtPath<TextAsset>(
+                    new Tuple<TextAsset, TextAsset>(
+                        AssetDatabase.LoadAssetAtPath<TextAsset>(
                             String.Join(Game.DIR_SEP, new string[] {
                                 sp, "road.yaml"
                             })
-                        ).ToString()),
-                        Utilities.Helper.parseYAML<Set>(AssetDatabase.LoadAssetAtPath<TextAsset>(
+                        ),
+                        AssetDatabase.LoadAssetAtPath<TextAsset>(
                             String.Join(Game.DIR_SEP, new string[] {
                                 sp, "set.yaml"
                             })
-                        ).ToString())
+                        )
+                        
                     )
                 );
 
             }
-
-            this.player = Utilities.Helper.parseYAML<Player>(splayer);
-            this.vehicle = Utilities.Helper.parseYAML<Vehicle>(svehicle);
 
             if(this.stages.Count > 0) {
                 this.stage = this.stages[0];
@@ -81,7 +73,7 @@ namespace CoDeA.Lakbay {
 
         }
 
-        public Tuple<Road, Set> forwardStage() {
+        public Tuple<TextAsset, TextAsset> forwardStage() {
             int ci = this.stages.IndexOf(this.stage);
             if(ci != this.stages.Count - 1) {
                 this.stage = this.stages[ci + 1];

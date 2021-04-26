@@ -54,12 +54,8 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         }
 
         public void setUpPlayer() {
-            if(this.playerFile) {
-                this.player = Utilities.Helper.parseYAML<Player>(this.playerFile.ToString());
-
-            }
-
-            this.player = Game.modeData.player;
+            TextAsset playerFile = Game.modeData.playerFile ? Game.modeData.playerFile : this.playerFile;
+            this.player = Utilities.Helper.parseYAML<Player>(playerFile.ToString());
 
         }
 

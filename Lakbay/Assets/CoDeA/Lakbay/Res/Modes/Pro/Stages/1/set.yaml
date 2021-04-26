@@ -120,7 +120,7 @@ items:
     -
         question:
             images: 
-               - 'Images/no-parking.png'
+               - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/no-parking.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Smoking'
@@ -173,7 +173,7 @@ items:
     -
         question:
             images: 
-               - 'Images/noovertaking.png'
+               - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noovertaking.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Overtaking'
@@ -187,7 +187,7 @@ items:
     -
         question:
             images: 
-               - 'Images/noentryforpedestrians.png'
+               - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noentryforpedestrians.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Overtaking'

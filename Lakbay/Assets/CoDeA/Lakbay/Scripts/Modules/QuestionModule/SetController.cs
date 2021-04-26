@@ -47,12 +47,11 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         }
 
         public void setUpSet() {
-            if(this.setFile) {
-                this.set = Utilities.Helper.parseYAML<Set>(this.setFile.ToString());
+            TextAsset setFile = Game.modeData.stage.Item2 ? Game.modeData.stage.Item2 : this.setFile;
+            this.set = Utilities.Helper.parseYAML<Set>(setFile.ToString());
 
-            }
-
-            this.set = Game.modeData.stage.Item2;
+            this.shuffleItems();
+            this.shuffleItemChoices();
 
         }
 

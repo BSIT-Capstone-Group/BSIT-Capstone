@@ -4690,8 +4690,8 @@ MonoBehaviour:
   accelerate: {fileID: 512711334}
   brake: {fileID: 1877855050}
   timeText: {fileID: 1911489681}
-  imagesPanel: {fileID: 0}
-  imageButton: {fileID: 0}
+  imagesPanel: {fileID: 1030615844}
+  imageButton: {fileID: 7797736776220689295, guid: 3885d369ee536c24795f114890212538, type: 3}
   questionModal: {fileID: 249179970}
   questionText: {fileID: 304890901}
   choicesPanel: {fileID: 1221676172}

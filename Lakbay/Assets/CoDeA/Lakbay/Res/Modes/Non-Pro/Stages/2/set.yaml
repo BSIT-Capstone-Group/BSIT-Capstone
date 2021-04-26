@@ -3,7 +3,7 @@ items:
     -
         question:
             images: 
-                - 'Images/pedestrian-crossing.png'
+                - 'Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/2/Images/pedestrian-crossing.png'
             text: 'What road sign is shown?'
         choices:
             - 'No U-Turn'
