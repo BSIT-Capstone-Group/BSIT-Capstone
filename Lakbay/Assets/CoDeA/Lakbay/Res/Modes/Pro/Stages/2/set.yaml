@@ -3,7 +3,7 @@ items:
     -
         question:
             images: 
-                - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/pedestrian-crossing.png'
+                - 'pedestrian-crossing.png'
             text: 'What road sign is shown?'
         choices:
             - 'No U-Turn'
@@ -238,7 +238,7 @@ items:
     -
         question:
             images:
-                - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/noleftturn.png'
+                - 'noleftturn.png'
             text: 'What sign is shown?'
         choices:
             - 'No U-Turn'
@@ -252,7 +252,7 @@ items:
     -
         question:
             images:
-                - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/norightturn.png'
+                - 'norightturn.png'
             text: 'What sign is shown?'
         choices:
             - 'No U-Turn'

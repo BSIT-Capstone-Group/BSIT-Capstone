@@ -3,7 +3,7 @@ items:
     -
         question:
             images: 
-                - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/u-turn.png'
+                - 'u-turn.png'
             text: 'What road sign is shown?'
         choices:
             - 'Pedestrian crossing'
@@ -186,7 +186,7 @@ items:
     -
         question:
             images: 
-            - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/two-ways.png'
+            - 'two-ways.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Jaywalking'
@@ -291,7 +291,7 @@ items:
     -
         question:
             images: 
-            - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryfoebigtrucks.png'
+            - 'noentryfoebigtrucks.png'
             text: 'What sign is shown? '
         choices:
             - 'No Entry for Jeepneys'
@@ -305,7 +305,7 @@ items:
     -
         question:
             images: 
-            - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforbusses.png'
+            - 'noentryforbusses.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Entry for Jeepneys'
@@ -319,7 +319,7 @@ items:
     -
         question:
             images: 
-            - 'Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforjeepneys.png'
+            - 'noentryforjeepneys.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Entry for Jeepneys'

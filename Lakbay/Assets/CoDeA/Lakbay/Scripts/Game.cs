@@ -9,16 +9,26 @@ using CoDeA.Lakbay.Modules.RoadModule;
 using CoDeA.Lakbay.Modules.QuestionModule;
 using CoDeA.Lakbay.Modules.PlayerModule;
 using CoDeA.Lakbay.Modules.VehicleModule;
+using UnityEngine.AddressableAssets;
+// using UnityEditor;
 
 namespace CoDeA.Lakbay {
+    [System.Serializable]
+    public class Stage {
+        public TextAsset road;
+        public TextAsset set;
+        public List<Sprite> images;
+
+    }
+
     [System.Serializable]
     public class ModeData {
         public TextAsset playerFile;
         public TextAsset vehicleFile;
 
-        public List<Tuple<TextAsset, TextAsset>> stages = new List<Tuple<TextAsset, TextAsset>>();
+        public List<Stage> stages;
 
-        public Tuple<TextAsset, TextAsset> stage = null;
+        public Stage stage = null;
 
         public ModeData(Game.Mode mode) {
             string path = (mode == Game.Mode.PRO) ? Game.MODE_PRO_PATH : Game.MODE_NON_PRO_PATH;
@@ -26,53 +36,106 @@ namespace CoDeA.Lakbay {
             string spath = String.Join(Game.DIR_SEP, fpath, "Stages");
             string ipath = String.Join(Game.DIR_SEP, spath, "Images");
 
-            this.playerFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
-                String.Join(Game.DIR_SEP, fpath, "player.yaml")
-            );
+            // Addressables.LoadAssetAsync<TextAsset>(
+            //     String.Join(Game.DIR_SEP, fpath, "player.yaml")
+            // ).Completed += (h) => {
+            //     this.playerFile = h.Result;
 
-            this.vehicleFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
-                String.Join(Game.DIR_SEP, fpath, "vehicle.yaml")
-            );
+            // };
 
-            List<string> stage_paths = new List<string>(AssetDatabase.GetSubFolders(
-                    spath
-                ).OrderBy<string, int>((string stage) => {
-                    string[] parts = stage.Split(Game.DIR_SEP.ToCharArray()[0]);
-                    string fn = parts[parts.Count() - 1];
+            // this.playerFile = Resources.Load<TextAsset>(String.Join(Game.DIR_SEP, "player"));
+            // this.vehicleFile = Resources.Load<TextAsset>(String.Join(Game.DIR_SEP, "vehicle"));
 
-                    return Convert.ToInt32(fn);
-                })
-            );
+            // Addressables.LoadAssetAsync<TextAsset>(
+            //     String.Join(Game.DIR_SEP, fpath, "vehicle.yaml")
+            // ).Completed += (h) => {
+            //     this.vehicleFile = h.Result;
 
-            this.stages.Clear();
+            // };
 
-            foreach(string sp in stage_paths) {
-                this.stages.Add(
-                    new Tuple<TextAsset, TextAsset>(
-                        AssetDatabase.LoadAssetAtPath<TextAsset>(
-                            String.Join(Game.DIR_SEP, new string[] {
-                                sp, "road.yaml"
-                            })
-                        ),
-                        AssetDatabase.LoadAssetAtPath<TextAsset>(
-                            String.Join(Game.DIR_SEP, new string[] {
-                                sp, "set.yaml"
-                            })
-                        )
+            // List<string> stage_paths = new List<string>(AssetDatabase.GetSubFolders(
+            //         spath
+            //     ).OrderBy<string, int>((string stage) => {
+            //         string[] parts = stage.Split(Game.DIR_SEP.ToCharArray()[0]);
+            //         string fn = parts[parts.Count() - 1];
+
+            //         return Convert.ToInt32(fn);
+            //     })
+            // );
+
+            // this.stages.Clear();
+
+            // foreach(string sp in stage_paths) {
+            //     this.stages.Add(
+            //         new Tuple<TextAsset, TextAsset>(
+            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
+            //                 String.Join(Game.DIR_SEP, new string[] {
+            //                     sp, "road.yaml"
+            //                 })
+            //             ),
+            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
+            //                 String.Join(Game.DIR_SEP, new string[] {
+            //                     sp, "set.yaml"
+            //                 })
+            //             )
                         
-                    )
-                );
+            //         )
+            //     );
 
-            }
+            // }
 
             if(this.stages.Count > 0) {
                 this.stage = this.stages[0];
 
             }
 
+            // this.playerFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
+            //     String.Join(Game.DIR_SEP, fpath, "player.yaml")
+            // );
+
+            // this.vehicleFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
+            //     String.Join(Game.DIR_SEP, fpath, "vehicle.yaml")
+            // );
+
+            // List<string> stage_paths = new List<string>(AssetDatabase.GetSubFolders(
+            //         spath
+            //     ).OrderBy<string, int>((string stage) => {
+            //         string[] parts = stage.Split(Game.DIR_SEP.ToCharArray()[0]);
+            //         string fn = parts[parts.Count() - 1];
+
+            //         return Convert.ToInt32(fn);
+            //     })
+            // );
+
+            // this.stages.Clear();
+
+            // foreach(string sp in stage_paths) {
+            //     this.stages.Add(
+            //         new Tuple<TextAsset, TextAsset>(
+            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
+            //                 String.Join(Game.DIR_SEP, new string[] {
+            //                     sp, "road.yaml"
+            //                 })
+            //             ),
+            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
+            //                 String.Join(Game.DIR_SEP, new string[] {
+            //                     sp, "set.yaml"
+            //                 })
+            //             )
+                        
+            //         )
+            //     );
+
+            // }
+
+            // if(this.stages.Count > 0) {
+            //     this.stage = this.stages[0];
+
+            // }
+
         }
 
-        public Tuple<TextAsset, TextAsset> forwardStage() {
+        public Stage forwardStage() {
             int ci = this.stages.IndexOf(this.stage);
 
             if(ci != this.stages.Count - 1) {
@@ -114,8 +177,11 @@ namespace CoDeA.Lakbay {
 
         public static Mode mode = Mode.NON_PRO;
         public static ModeData modeData;
+        public static List<ModeData> modeDatas = null;
+        public List<ModeData> _modeDatas;
 
         private void Awake() {
+
 
             if(SceneManager.GetActiveScene().buildIndex == 0) {
                 Game.DontDestroyOnLoad(this.gameObject);
@@ -127,14 +193,31 @@ namespace CoDeA.Lakbay {
 
         }
 
+        private void Start() {
+            if(Game.modeDatas == null) {
+                Game.modeDatas = this._modeDatas;
+                
+
+            }
+            // print(this._modeDatas.Count + " hhehe");
+
+        }
+
+        private void Update() {
+            // Game.modeDatas = this._modeDatas;
+
+        }
+
         public static void setMode(int mode) {
             Game.setMode((Mode) mode);
 
         }
 
         public static void setMode(Mode mode) {
-            Game.modeData = new Lakbay.ModeData(mode);
+            // Game.modeData = new Lakbay.ModeData(mode);
+            Game.modeData = Game.modeDatas[(int) mode];
             Game.mode = mode;
+            Game.modeData.stage = Game.modeData.stages[0];
 
         }
 

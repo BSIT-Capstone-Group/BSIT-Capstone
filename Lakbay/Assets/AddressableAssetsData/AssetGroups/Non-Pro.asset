@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Non-Pro
+  m_EditorClassIdentifier: 
+  m_GroupName: Non-Pro
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 91c9b924083fef24d9f31c8742563a36
+  m_SerializeEntries:
+  - m_GUID: 809f937b2a7e26545822f1851cf739b9
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/player.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d58fb18bb06f1524b9bebe6b9aaae2c4
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/vehicle.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4900000, guid: d58fb18bb06f1524b9bebe6b9aaae2c4, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: d58fb18bb06f1524b9bebe6b9aaae2c4, type: 3}
+  - m_GUID: ef76e0c01bf737a48b52733600185a03
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/1/road.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4900000, guid: ef76e0c01bf737a48b52733600185a03, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: ef76e0c01bf737a48b52733600185a03, type: 3}
+  - m_GUID: 3dcbdb7156489a8469151f583743c017
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/1/set.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4900000, guid: 3dcbdb7156489a8469151f583743c017, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: 3dcbdb7156489a8469151f583743c017, type: 3}
+  - m_GUID: fbc2bd47e2290544dba04482f2107658
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/2/road.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a9f33452e39d2b64dac61ad0a02cd989
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/2/set.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4900000, guid: a9f33452e39d2b64dac61ad0a02cd989, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: a9f33452e39d2b64dac61ad0a02cd989, type: 3}
+  - m_GUID: 9ad92afaa4fe1df4e9ddd5cccb23708a
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/road.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4900000, guid: 9ad92afaa4fe1df4e9ddd5cccb23708a, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: 9ad92afaa4fe1df4e9ddd5cccb23708a, type: 3}
+  - m_GUID: 39e1353d4250e504e949cdbc7d29695e
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/set.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b130bd448affc704aba8db30e4b28bd4
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/1/Images/no-parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: b130bd448affc704aba8db30e4b28bd4, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: b130bd448affc704aba8db30e4b28bd4, type: 3}
+  - m_GUID: 072eeec11300e474f91ba2000a2cd5ad
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/2/Images/pedestrian-crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a21dd805002021849abf6cca794247cc
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/Images/two-ways.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: a21dd805002021849abf6cca794247cc, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: a21dd805002021849abf6cca794247cc, type: 3}
+  - m_GUID: d8050bb37921439499d35180b726b2d9
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/Images/u-turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d2bf648d10993734fb0ad9400f2bb7e1, type: 2}
+    - {fileID: 11400000, guid: 02186abaa531a914ba9a95991d012bdc, type: 2}

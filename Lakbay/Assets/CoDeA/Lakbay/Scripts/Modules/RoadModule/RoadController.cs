@@ -31,7 +31,7 @@ namespace CoDeA.Lakbay.Modules.RoadModule {
         }
         
         public void setUp() {
-            TextAsset roadFile = Game.modeData.stage.Item1 ? Game.modeData.stage.Item1 : this.roadFile;
+            TextAsset roadFile = Game.modeData.stage.road ? Game.modeData.stage.road : this.roadFile;
             this.road = Utilities.Helper.parseYAML<Road>(roadFile.ToString());
 
             this.updateSet();

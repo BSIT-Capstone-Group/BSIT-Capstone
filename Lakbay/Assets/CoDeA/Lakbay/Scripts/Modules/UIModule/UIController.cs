@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+// using UnityEditor;
 
 namespace CoDeA.Lakbay.Modules.UIModule {
     public class UIController : Utilities.ExtendedMonoBehaviour {
@@ -143,7 +144,10 @@ namespace CoDeA.Lakbay.Modules.UIModule {
             List<Sprite> sprites = new List<Sprite>();
 
             foreach(string path in paths) {
-                sprites.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
+                string fn = path.Split('.')[0];
+                print(fn);
+                sprites.Add(Resources.Load<Sprite>(fn));
+                // sprites.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
                 // Addressables.LoadAssetAsync<Sprite>(path).Completed += (h) => {
                 //     if(h.Status == AsyncOperationStatus.Succeeded) {
                 //         sprites.Add(h.Result);
@@ -167,7 +171,7 @@ namespace CoDeA.Lakbay.Modules.UIModule {
         }
 
         public void setMaximizedImage(string path) {
-            this.setMaximizedImage(AssetDatabase.LoadAssetAtPath<Sprite>(path));
+            // this.setMaximizedImage(AssetDatabase.LoadAssetAtPath<Sprite>(path));
 
         }
 

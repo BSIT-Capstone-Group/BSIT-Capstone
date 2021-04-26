@@ -57,7 +57,7 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
             Transform parent = collision.transform.parent;
             Transform child = collision.transform;
             if(child && child.name.Equals("Front")) {
-                Tuple<TextAsset, TextAsset> nextStage = Game.modeData.forwardStage();
+                Stage nextStage = Game.modeData.forwardStage();
 
                 if(nextStage != null) {
                     Rigidbody rigidbody = this.vehicleController.GetComponent<Rigidbody>();
