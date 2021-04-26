@@ -629,11 +629,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Lakbay
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\NILA\Documents\BSIT-Capstone\Lakbay\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: CoDeA
+  metroCertificateIssuer: CoDeA
+  metroCertificateNotAfter: 80081204ab59d801
   metroApplicationDescription: Lakbay
   wsaImages: {}
   metroTileShortName: Lakbay
