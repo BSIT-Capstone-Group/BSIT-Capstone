@@ -15,8 +15,8 @@ namespace CoDeA.Lakbay.Modules.UIModule {
         public TMP_Text modeText;
         public TMP_Text stageText;
         public TMP_Text coinText;
-        public TMP_Text pointText;
-        public TMP_Text firstAidText;
+        public TMP_Text hintText;
+        public TMP_Text lifeText;
         public Slider fuelBar;
 
         [Header("Controls")]
@@ -35,6 +35,7 @@ namespace CoDeA.Lakbay.Modules.UIModule {
         public TMP_Text questionText;
         public GameObject choicesPanel;
         public GameObject choiceButton;
+        public Button hintButton;
 
         [Header("Notification")]
         public Utilities.Notification notification;
@@ -50,8 +51,8 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
             // this.vehicleController.onFuelChange.AddListener(this.onVehicleFuelChange);
             this.playerController.onCoinChange.AddListener(this.onPlayerCoinChange);
-            this.playerController.onFirstAidChange.AddListener(this.onPlayerFirstAidChange);
-            this.playerController.onPointChange.AddListener(this.onPlayerPointChange);
+            this.playerController.onLifeChange.AddListener(this.onPlayerLifeChange);
+            this.playerController.onPointChange.AddListener(this.onPlayerHintChange);
 
         }
 
@@ -82,17 +83,17 @@ namespace CoDeA.Lakbay.Modules.UIModule {
         }
 
         public void onPlayerCoinChange(PlayerModule.PlayerController pc, float value) {
-            this.coinText.SetText(pc.coin.ToString("N0"));
+            this.coinText.SetText(pc.player.coin.ToString("N0"));
 
         }
 
-        public void onPlayerPointChange(PlayerModule.PlayerController pc, float value) {
-            this.pointText.SetText(pc.point.ToString("N0"));
+        public void onPlayerHintChange(PlayerModule.PlayerController pc, float value) {
+            this.hintText.SetText(pc.player.hint.ToString("N0"));
 
         }
 
-        public void onPlayerFirstAidChange(PlayerModule.PlayerController pc, float value) {
-            this.firstAidText.SetText(pc.firstAid.ToString("N0"));
+        public void onPlayerLifeChange(PlayerModule.PlayerController pc, float value) {
+            this.lifeText.SetText(pc.player.life.ToString("N0"));
 
         }
 
@@ -113,7 +114,20 @@ namespace CoDeA.Lakbay.Modules.UIModule {
 
         }
 
-        public GameObject[] setChoiceTexts(List<string> texts) => this.setChoiceButtons(texts.ToArray());
+        public GameObject[] setChoiceButtons(List<string> texts) => this.setChoiceButtons(texts.ToArray());
+
+        public GameObject[] setChoiceButtons(QuestionModule.Item item) {
+            GameObject[] gos = this.setChoiceButtons(item.choices);
+
+            if(Game.debugMode) {
+                TMP_Text t = gos[item.correctChoiceIndex].transform.GetChild(0).GetComponent<TMP_Text>();
+                t.color = new Color(0, 255, 0);
+
+            }
+
+            return gos;
+
+        }
         
         public void setQuestionText(string text) {
             this.questionText.SetText(text.Trim());
@@ -144,16 +158,7 @@ namespace CoDeA.Lakbay.Modules.UIModule {
             List<Sprite> sprites = new List<Sprite>();
 
             foreach(string path in paths) {
-                string fn = path.Split('.')[0];
-                print(fn);
-                sprites.Add(Resources.Load<Sprite>(fn));
-                // sprites.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
-                // Addressables.LoadAssetAsync<Sprite>(path).Completed += (h) => {
-                //     if(h.Status == AsyncOperationStatus.Succeeded) {
-                //         sprites.Add(h.Result);
-
-                //     }
-                // };
+                sprites.Add(Game.modeData.stage.images[path]);
 
             }
 

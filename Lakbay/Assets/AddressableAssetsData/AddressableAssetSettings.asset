@@ -30,6 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 837f52cc1d214a248a4723aa73fb34cb, type: 2}
   - {fileID: 11400000, guid: 5ccce35c9bf35ac4ebfda458dfea11f4, type: 2}
   - {fileID: 11400000, guid: 180d2da95038b7347822e00fc9b87714, type: 2}
+  - {fileID: 11400000, guid: 620252a05bb29c849bbe09d543f50fda, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -71,6 +72,12 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/1/Images
+    - Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/2/Images
+    - Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/Images
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 010a4b3874ff01045abad0942e499df4, type: 2}

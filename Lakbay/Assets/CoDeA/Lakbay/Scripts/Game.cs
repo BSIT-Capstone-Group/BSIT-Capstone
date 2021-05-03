@@ -10,182 +10,184 @@ using CoDeA.Lakbay.Modules.QuestionModule;
 using CoDeA.Lakbay.Modules.PlayerModule;
 using CoDeA.Lakbay.Modules.VehicleModule;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
 // using UnityEditor;
 
 namespace CoDeA.Lakbay {
-    [System.Serializable]
-    public class Stage {
-        public TextAsset road;
-        public TextAsset set;
-        public List<Sprite> images;
-
-    }
-
-    [System.Serializable]
-    public class ModeData {
-        public TextAsset playerFile;
-        public TextAsset vehicleFile;
-
-        public List<Stage> stages;
-
-        public Stage stage = null;
-
-        public ModeData(Game.Mode mode) {
-            string path = (mode == Game.Mode.PRO) ? Game.MODE_PRO_PATH : Game.MODE_NON_PRO_PATH;
-            string fpath = String.Join(Game.DIR_SEP, Game.MODES_PATH, path);
-            string spath = String.Join(Game.DIR_SEP, fpath, "Stages");
-            string ipath = String.Join(Game.DIR_SEP, spath, "Images");
-
-            // Addressables.LoadAssetAsync<TextAsset>(
-            //     String.Join(Game.DIR_SEP, fpath, "player.yaml")
-            // ).Completed += (h) => {
-            //     this.playerFile = h.Result;
-
-            // };
-
-            // this.playerFile = Resources.Load<TextAsset>(String.Join(Game.DIR_SEP, "player"));
-            // this.vehicleFile = Resources.Load<TextAsset>(String.Join(Game.DIR_SEP, "vehicle"));
-
-            // Addressables.LoadAssetAsync<TextAsset>(
-            //     String.Join(Game.DIR_SEP, fpath, "vehicle.yaml")
-            // ).Completed += (h) => {
-            //     this.vehicleFile = h.Result;
-
-            // };
-
-            // List<string> stage_paths = new List<string>(AssetDatabase.GetSubFolders(
-            //         spath
-            //     ).OrderBy<string, int>((string stage) => {
-            //         string[] parts = stage.Split(Game.DIR_SEP.ToCharArray()[0]);
-            //         string fn = parts[parts.Count() - 1];
-
-            //         return Convert.ToInt32(fn);
-            //     })
-            // );
-
-            // this.stages.Clear();
-
-            // foreach(string sp in stage_paths) {
-            //     this.stages.Add(
-            //         new Tuple<TextAsset, TextAsset>(
-            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
-            //                 String.Join(Game.DIR_SEP, new string[] {
-            //                     sp, "road.yaml"
-            //                 })
-            //             ),
-            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
-            //                 String.Join(Game.DIR_SEP, new string[] {
-            //                     sp, "set.yaml"
-            //                 })
-            //             )
-                        
-            //         )
-            //     );
-
-            // }
-
-            if(this.stages.Count > 0) {
-                this.stage = this.stages[0];
-
-            }
-
-            // this.playerFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
-            //     String.Join(Game.DIR_SEP, fpath, "player.yaml")
-            // );
-
-            // this.vehicleFile = AssetDatabase.LoadAssetAtPath<TextAsset>(
-            //     String.Join(Game.DIR_SEP, fpath, "vehicle.yaml")
-            // );
-
-            // List<string> stage_paths = new List<string>(AssetDatabase.GetSubFolders(
-            //         spath
-            //     ).OrderBy<string, int>((string stage) => {
-            //         string[] parts = stage.Split(Game.DIR_SEP.ToCharArray()[0]);
-            //         string fn = parts[parts.Count() - 1];
-
-            //         return Convert.ToInt32(fn);
-            //     })
-            // );
-
-            // this.stages.Clear();
-
-            // foreach(string sp in stage_paths) {
-            //     this.stages.Add(
-            //         new Tuple<TextAsset, TextAsset>(
-            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
-            //                 String.Join(Game.DIR_SEP, new string[] {
-            //                     sp, "road.yaml"
-            //                 })
-            //             ),
-            //             AssetDatabase.LoadAssetAtPath<TextAsset>(
-            //                 String.Join(Game.DIR_SEP, new string[] {
-            //                     sp, "set.yaml"
-            //                 })
-            //             )
-                        
-            //         )
-            //     );
-
-            // }
-
-            // if(this.stages.Count > 0) {
-            //     this.stage = this.stages[0];
-
-            // }
+    public class Game : Utilities.ExtendedMonoBehaviour {
+        [System.Serializable]
+        public class Stage {
+            public TextAsset roadFile;
+            public TextAsset setFile;
+            // public List<Sprite> images = new List<Sprite>();
+            public Dictionary<string, Sprite> images = new Dictionary<string, Sprite>();
 
         }
 
-        public Stage forwardStage() {
-            int ci = this.stages.IndexOf(this.stage);
+        [System.Serializable]
+        public class ModeData {
+            public TextAsset playerFile;
+            public TextAsset vehicleFile;
 
-            if(ci != this.stages.Count - 1) {
-                this.stage = this.stages[ci + 1];
+            public List<Stage> stages = new List<Stage>();
 
-            } else {
+            public Stage stage = null;
+
+            public Stage forwardStage() {
+                if(this.stages.Count <= 0) return null;
+
+                if(this.stage == null) this.stage = this.stages[0];
+
+                int ci = this.stages.IndexOf(this.stage);
+
+                if(ci != this.stages.Count - 1) {
+                    this.stage = this.stages[ci + 1];
+
+                } else {
+                    this.stage = null;
+
+                }
+
+                return this.stage;
+
+            }
+
+            public void resetStage() {
                 this.stage = null;
 
             }
 
-            return this.stage;
-
         }
 
-    }
-
-    public class Game : Utilities.ExtendedMonoBehaviour {
         public enum Mode {
             NON_PRO, PRO
 
         }
 
-        public static readonly string DIR_SEP = "/";
-        public static readonly string DEVELOPER = "CoDeA";
+        public static class Loader {
+            public static readonly string PATH_SEPARATOR = Utilities.FileManager.PATH_SEPARATOR;
+            public static readonly string MODE_NON_PRO_PATH = "Non-Pro";
+            public static readonly string MODE_PRO_PATH = "Pro";
+            public static readonly string MODES_PATH = String.Join(
+                PATH_SEPARATOR, "Assets", "CoDeA", "Lakbay", "Res", "Modes"
+            );
 
-        public static readonly string MODE_NON_PRO_PATH = "Non-Pro";
-        public static readonly string MODE_PRO_PATH = "Pro";
-        public static readonly string MODES_PATH = String.Join(
-            "/",
-            new string[] {
-                "Assets", "CoDeA", "Lakbay", "Res", "Modes"
+            private static bool _loadedModes = false;
+            public static bool loadedModes { get => Loader._loadedModes; }
+
+            public static void loadScene(int sceneBuildIndex) {
+                SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+
             }
-        );
+
+            public static string[] getPaths(Game.Mode mode) {
+                string path = (mode == Game.Mode.PRO) ? Loader.MODE_PRO_PATH : Loader.MODE_NON_PRO_PATH;
+                string fullPath = String.Join(Loader.PATH_SEPARATOR, Loader.MODES_PATH, path);
+                string stagesPath = String.Join(Loader.PATH_SEPARATOR, fullPath, "Stages");
+                string playerPath = String.Join(Loader.PATH_SEPARATOR, fullPath, "player.yaml");
+                string vehiclePath = String.Join(Loader.PATH_SEPARATOR, fullPath, "vehicle.yaml");
+
+                return new string[] {playerPath, vehiclePath, stagesPath};
+
+            }
+
+            public static async Task loadPaths(
+                ModeData modeData,
+                string playerPath, string vehiclePath, string stagesPath
+            ) {
+                var handle = Addressables.LoadAssetAsync<TextAsset>(playerPath);
+                handle.Completed += (h) => { modeData.playerFile = h.Result; };
+                await handle.Task;
+                // yield return handle;
+                
+                handle = Addressables.LoadAssetAsync<TextAsset>(vehiclePath);
+                handle.Completed += (h) => { modeData.vehicleFile = h.Result; };
+                await handle.Task;
+                // yield return handle;
+                
+                int i = 1;
+                while(i != 4) {
+                    string roadPath = String.Join(Loader.PATH_SEPARATOR, stagesPath, i, "road.yaml");
+                    string setPath = String.Join(Loader.PATH_SEPARATOR, stagesPath, i, "set.yaml");
+                    string imagesPath = String.Join(Loader.PATH_SEPARATOR, stagesPath, i, "Images");
+
+                    Stage stage = new Stage();
+
+                    handle = Addressables.LoadAssetAsync<TextAsset>(roadPath);
+                    handle.Completed += (h) => { stage.roadFile = h.Result; };
+                    await handle.Task;
+                    // yield return handle;
+
+                    handle = Addressables.LoadAssetAsync<TextAsset>(setPath);
+                    handle.Completed += (h) => { stage.setFile = h.Result; };
+                    await handle.Task;
+
+                    foreach(string imgpath in Utilities.FileManager.getImagesFromProject(imagesPath)) {
+                        string[] paths = imgpath.Split(Utilities.FileManager.PATH_SEPARATOR[0]);
+                        string fn = paths[paths.Length - 1];
+                        string rimgpath = String.Join(Utilities.FileManager.PATH_SEPARATOR, imagesPath, fn);
+
+                        var shandle = Addressables.LoadAssetAsync<Sprite>(rimgpath);
+                        shandle.Completed += (h) => { stage.images.Add(rimgpath, h.Result); };
+                        await shandle.Task;
+
+                    }
+
+                    modeData.stages.Add(stage);
+
+                    i++;
+
+                }
+
+            }
+
+            public static async Task loadPaths(ModeData modeData, params string[] paths) {
+                await Loader.loadPaths(modeData, paths[0], paths[1], paths[2]);
+
+            }
+
+            public static async Task loadModes() {
+                if(Loader._loadedModes) return;
+
+                Game.modeDatas.Clear();
+                ModeData np = new ModeData();
+                ModeData p = new ModeData();
+
+                string[] nppaths = Loader.getPaths(Mode.NON_PRO);
+                string[] ppaths = Loader.getPaths(Mode.PRO);
+
+                await Loader.loadPaths(np, nppaths);
+                await Loader.loadPaths(p, nppaths);
+
+                Game.modeDatas.Add(np);
+                Game.modeDatas.Add(p);
+                
+                Loader._loadedModes = true;
+
+            }
+
+        }
+
+        public static readonly string DEVELOPER = "CoDeA";
 
         private static float _lastTimeScale = 0.0f;
         public static new bool paused {
             get => Time.timeScale == 0.0f;
         }
+        public static bool debugMode = true;
 
         public static Mode mode = Mode.NON_PRO;
         public static ModeData modeData;
-        public static List<ModeData> modeDatas = null;
+        public static List<ModeData> modeDatas = new List<ModeData>();
         public List<ModeData> _modeDatas;
 
-        private void Awake() {
-
+        private async Task Awake() {
+            await Game.Loader.loadModes();
 
             if(SceneManager.GetActiveScene().buildIndex == 0) {
                 Game.DontDestroyOnLoad(this.gameObject);
-                Game.loadScene(1);
+                Game.Loader.loadScene(1);
 
             } else {
 
@@ -194,19 +196,18 @@ namespace CoDeA.Lakbay {
         }
 
         private void Start() {
-            if(Game.modeDatas == null) {
-                Game.modeDatas = this._modeDatas;
-                
-
-            }
-            // print(this._modeDatas.Count + " hhehe");
 
         }
+
+        // private async Task Start() {
+        //     await Game.Loader.loadModes();
+
+        // }
 
         private void Update() {
-            // Game.modeDatas = this._modeDatas;
 
         }
+        
 
         public static void setMode(int mode) {
             Game.setMode((Mode) mode);
@@ -214,10 +215,11 @@ namespace CoDeA.Lakbay {
         }
 
         public static void setMode(Mode mode) {
-            // Game.modeData = new Lakbay.ModeData(mode);
-            Game.modeData = Game.modeDatas[(int) mode];
+            ModeData modeData = Game.modeDatas[(int) mode];
+            Game.modeData = modeData;
             Game.mode = mode;
-            Game.modeData.stage = Game.modeData.stages[0];
+            Game.modeData.resetStage();
+            Game.modeData.forwardStage();
 
         }
 
@@ -237,7 +239,7 @@ namespace CoDeA.Lakbay {
         }
 
         public static void loadScene(int sceneBuildIndex) {
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            Loader.loadScene(sceneBuildIndex);
 
         }
 

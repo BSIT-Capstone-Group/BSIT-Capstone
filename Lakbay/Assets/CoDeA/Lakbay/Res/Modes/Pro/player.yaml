@@ -1,2 +1,3 @@
-coins: 30
-firstAid: 3
+coin: 30
+hint: 3
+life: 3

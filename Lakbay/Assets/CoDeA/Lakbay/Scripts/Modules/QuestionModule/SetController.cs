@@ -47,7 +47,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
         }
 
         public void setUpSet() {
-            TextAsset setFile = Game.modeData.stage.set ? Game.modeData.stage.set : this.setFile;
+            TextAsset setFile = Game.modeData.stage.setFile ? Game.modeData.stage.setFile : this.setFile;
             this.set = Utilities.Helper.parseYAML<Set>(setFile.ToString());
 
             this.shuffleItems();

@@ -2215,7 +2215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Points
+  m_text: Hints
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3155,8 +3155,8 @@ MonoBehaviour:
   modeText: {fileID: 1460051000}
   stageText: {fileID: 1508746752}
   coinText: {fileID: 1544050276}
-  pointText: {fileID: 1143483154}
-  firstAidText: {fileID: 60789730}
+  hintText: {fileID: 1143483154}
+  lifeText: {fileID: 60789730}
   fuelBar: {fileID: 143503431}
   leftSteer: {fileID: 1632912305}
   rightSteer: {fileID: 1314231896}
@@ -3171,6 +3171,7 @@ MonoBehaviour:
   questionText: {fileID: 304890901}
   choicesPanel: {fileID: 1221676172}
   choiceButton: {fileID: 2737955315845784807, guid: b33edb6c959a6034cb6434d72fb59e5d, type: 3}
+  hintButton: {fileID: 9187888228114246796}
   notification: {fileID: 1612231548}
   vehicleController: {fileID: 635891562}
   playerController: {fileID: 1646980656880776}
@@ -3272,7 +3273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1291241446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4073,7 +4074,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: First Aid
+  m_text: Lives
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4977,7 +4978,7 @@ GameObject:
   - component: {fileID: 1697084060}
   - component: {fileID: 1697084059}
   m_Layer: 5
-  m_Name: Points
+  m_Name: Hints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5614,7 +5615,7 @@ GameObject:
   - component: {fileID: 2004365279}
   - component: {fileID: 2004365278}
   m_Layer: 5
-  m_Name: First Aid
+  m_Name: Lives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6477,3 +6478,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf303490936b0c41930f1128f9c43ed, type: 3}
+--- !u!114 &9187888228114246796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6520865311528907114, guid: 9bf303490936b0c41930f1128f9c43ed, type: 3}
+  m_PrefabInstance: {fileID: 9187888228114246795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

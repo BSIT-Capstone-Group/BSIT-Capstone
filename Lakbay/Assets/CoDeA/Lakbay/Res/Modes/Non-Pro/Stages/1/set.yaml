@@ -120,7 +120,7 @@ items:
     -
         question:
             images: 
-                - 'no-parking.png'
+                - 'Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/1/Images/no-parking.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Smoking'

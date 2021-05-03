@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Pro
+  m_EditorClassIdentifier: 
+  m_GroupName: Pro
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 14e2260f2c46f0845a57d1eac4d5d728
+  m_SerializeEntries:
+  - m_GUID: 9beb90571305c4f4c90358cdd88a2ff8
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/player.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ab4dd1658c684c54e9d8b8f7b68be1a0
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/vehicle.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 086e0731222f03c44bbfa94c39fdeea1
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/road.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f4a1c2fc624ccc54eb2fe232283fb6a0
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/set.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 86b59e25c97da664e92d7b3ab62b30ba
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/no-parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images
+    m_MainAsset: {fileID: 2800000, guid: 86b59e25c97da664e92d7b3ab62b30ba, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 86b59e25c97da664e92d7b3ab62b30ba, type: 3}
+  - m_GUID: e05e161c6225ad94fbe7b60f5b6e1040
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noentryforpedestrians.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images
+    m_MainAsset: {fileID: 2800000, guid: e05e161c6225ad94fbe7b60f5b6e1040, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: e05e161c6225ad94fbe7b60f5b6e1040, type: 3}
+  - m_GUID: 4ee100acba2168b4185a1f9a57b8d598
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noovertaking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images
+    m_MainAsset: {fileID: 2800000, guid: 4ee100acba2168b4185a1f9a57b8d598, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 4ee100acba2168b4185a1f9a57b8d598, type: 3}
+  - m_GUID: 0db4fc4ef0c5c9945af9aad7ea131a7b
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/road.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 9b446d63ac98c594aac5ffb4162031d8
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/set.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 58e17f9172e4bcd43b088c569d4e2f26
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/noleftturn.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images
+    m_MainAsset: {fileID: 2800000, guid: 58e17f9172e4bcd43b088c569d4e2f26, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 58e17f9172e4bcd43b088c569d4e2f26, type: 3}
+  - m_GUID: 7690d8815ebf5ea4191fba5e9f10d631
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/norightturn.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images
+    m_MainAsset: {fileID: 2800000, guid: 7690d8815ebf5ea4191fba5e9f10d631, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 7690d8815ebf5ea4191fba5e9f10d631, type: 3}
+  - m_GUID: 47cda57b349540f4ba78d51b6ec0c25c
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/pedestrian-crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images
+    m_MainAsset: {fileID: 2800000, guid: 47cda57b349540f4ba78d51b6ec0c25c, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 47cda57b349540f4ba78d51b6ec0c25c, type: 3}
+  - m_GUID: df5c465e133cea443b420033a87c9559
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/road.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f65d200322007f7459238f7d92ffff20
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/set.yaml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4900000, guid: f65d200322007f7459238f7d92ffff20, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: f65d200322007f7459238f7d92ffff20, type: 3}
+  - m_GUID: b579f568da4b243479634fe72cdc075a
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryfor bigtrucks.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
+    m_MainAsset: {fileID: 2800000, guid: b579f568da4b243479634fe72cdc075a, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: b579f568da4b243479634fe72cdc075a, type: 3}
+  - m_GUID: 2f21cac211823ce4fbeabe27a25607d2
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforbusses.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
+    m_MainAsset: {fileID: 2800000, guid: 2f21cac211823ce4fbeabe27a25607d2, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 2f21cac211823ce4fbeabe27a25607d2, type: 3}
+  - m_GUID: 83ebf1729400cd04dbc6e0197c48d3c9
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforjeepneys.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
+    m_MainAsset: {fileID: 2800000, guid: 83ebf1729400cd04dbc6e0197c48d3c9, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 83ebf1729400cd04dbc6e0197c48d3c9, type: 3}
+  - m_GUID: c22d054eb5f8b434983c13c569cc0aed
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/two-ways.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
+    m_MainAsset: {fileID: 2800000, guid: c22d054eb5f8b434983c13c569cc0aed, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: c22d054eb5f8b434983c13c569cc0aed, type: 3}
+  - m_GUID: d1c6db91f645cb14481784fcb0c14a9b
+    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/u-turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
+    m_MainAsset: {fileID: 2800000, guid: d1c6db91f645cb14481784fcb0c14a9b, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: d1c6db91f645cb14481784fcb0c14a9b, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4bcd887af5d7e5e49932bd106297890c, type: 2}
+    - {fileID: 11400000, guid: 58dec4da802f898489b8953519a2bb5b, type: 2}

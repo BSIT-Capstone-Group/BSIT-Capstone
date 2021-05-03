@@ -8,8 +8,9 @@ using System;
 namespace CoDeA.Lakbay.Modules.PlayerModule {
     [System.Serializable]
     public class Player {
-        public float coins = 30.0f;
-        public float firstAid = 3.0f;
+        public float coin = 30.0f;
+        public float hint = 3.0f;
+        public float life = 3.0f;
 
     }
 
@@ -17,10 +18,6 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         private Coroutine _coroutine = null;
 
         public TextAsset playerFile;
-
-        public float coin = 0.0f;
-        public float point = 0.0f;
-        public float firstAid = 0.0f;
 
         public UIModule.UIController uiController;
         public VehicleModule.VehicleController vehicleController;
@@ -30,14 +27,14 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
         public UnityEvent<PlayerController, float> onCoinChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, float> onPointChange = new UnityEvent<PlayerController, float>();
-        public UnityEvent<PlayerController, float> onFirstAidChange = new UnityEvent<PlayerController, float>();
+        public UnityEvent<PlayerController, float> onLifeChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, Vector3, Vector3> onRespawn = new UnityEvent<PlayerController, Vector3, Vector3>();
 
         private void Start() {
             this.setUpPlayer();
-            this.setCoin(this.coin);
-            this.setPoint(this.point);
-            this.setFirstAid(this.firstAid);
+            this.setCoin(this.player.coin);
+            this.setHint(this.player.hint);
+            this.setLife(this.player.life);
 
             this.vehicleController.onFuelChange.AddListener(this.onVehicleFuelChange);
             this.uiController.onFuelTopUp.AddListener(this.onUIFuelTopUp);
@@ -57,7 +54,7 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
             Transform parent = collision.transform.parent;
             Transform child = collision.transform;
             if(child && child.name.Equals("Front")) {
-                Stage nextStage = Game.modeData.forwardStage();
+                Game.Stage nextStage = Game.modeData.forwardStage();
 
                 if(nextStage != null) {
                     Rigidbody rigidbody = this.vehicleController.GetComponent<Rigidbody>();
@@ -78,7 +75,7 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
                     return;
 
                 } else {
-                    Game.loadScene(1);
+                    Game.Loader.loadScene(1);
 
                 }
 
@@ -95,8 +92,8 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
         public IEnumerator convertCoinAsFuel() {
             float time = 0.25f;
-            while(this.coin != 0.0f && this.vehicleController.vehicle.fuel != this.vehicleController.vehicle.maxFuel) {
-                float coin = Mathf.Max(this.coin - 1, 0.0f);
+            while(this.player.coin != 0.0f && this.vehicleController.vehicle.fuel != this.vehicleController.vehicle.maxFuel) {
+                float coin = Mathf.Max(this.player.coin - 1, 0.0f);
                 float fuel = Mathf.Min(this.vehicleController.vehicle.fuel + 1, this.vehicleController.vehicle.maxFuel);
                 this.setCoin(coin);
                 this.vehicleController.setFuel(fuel);
@@ -124,13 +121,13 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
 
         public void onVehicleFuelChange(VehicleModule.VehicleController vc, float value) {
             if(vc.vehicle.fuel == 0.0f) {
-                if(this.firstAid != 0.0f) {
+                if(this.player.life != 0.0f) {
                     this.respawnAt(this.getRespawnPosition());
                     vc.setFuel(Convert.ToInt32(vc.vehicle.maxFuel * 0.5f));
-                    this.setFirstAid(this.firstAid - 1.0f);
+                    this.setLife(this.player.life - 1.0f);
 
                 } else {
-                    Game.loadScene(1);
+                    Game.Loader.loadScene(1);
 
                 }
 
@@ -193,20 +190,20 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         }
 
         public void setCoin(float value) {
-            this.coin = value;
+            this.player.coin = value;
             this.onCoinChange.Invoke(this, value);
 
         }
 
-        public void setPoint(float value) {
-            this.point = value;
+        public void setHint(float value) {
+            this.player.hint = value;
             this.onPointChange.Invoke(this, value);
 
         }
 
-        public void setFirstAid(float value) {
-            this.firstAid = value;
-            this.onFirstAidChange.Invoke(this, value);
+        public void setLife(float value) {
+            this.player.life = value;
+            this.onLifeChange.Invoke(this, value);
 
         }
 

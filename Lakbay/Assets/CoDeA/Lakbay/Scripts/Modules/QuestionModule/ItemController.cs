@@ -29,7 +29,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
     }
 
     public class ItemController : Utilities.ExtendedMonoBehaviour {
-        public static readonly float TIMER_ADDITIONAL_TIME = 2.0f;
+        public static readonly float TIMER_ADDITIONAL_TIME = 3.0f;
 
         [HideInInspector]
         public GameObject triggerAgent;
@@ -75,7 +75,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                     this.triggered = true;
                     this.uiController.setQuestionText(this.item.question.text);
 
-                    GameObject[] cbs = this.uiController.setChoiceTexts(this.item.choices);
+                    GameObject[] cbs = this.uiController.setChoiceButtons(this.item);
                     foreach(GameObject cb in cbs) {
                         Button button = cb.GetComponent<Button>();
                         Func<int, UnityAction> listener = (int i) => () => this.answer(i);
@@ -94,6 +94,17 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                         
 
                     }
+
+                    this.uiController.hintButton.onClick.RemoveAllListeners();
+                    this.uiController.hintButton.onClick.AddListener(this.useHint);
+
+                    if(this.playerController.player.hint <= 0) {
+                        this.uiController.hintButton.GetComponent<Button>().interactable = false;
+
+                    } else {
+                        this.uiController.hintButton.GetComponent<Button>().interactable = true;
+
+                    }
                     
                     this.uiController.questionModal.SetActive(true);
                     ta.GetComponent<Rigidbody>().isKinematic = true;
@@ -104,6 +115,32 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                 }
 
             }
+
+        }
+
+        public void useHint() {
+            Transform[] ch = Utilities.Helper.getChildren(this.uiController.choicesPanel.transform);
+
+            System.Random rand = new System.Random();
+            List<int> inds = new List<int>();
+            int half = (ch.Length / 2) % 2 == 0 ? ch.Length / 2 : (ch.Length / 2) - 1;
+            half = Mathf.Max(half, 1);
+
+            while(inds.Count != half) {
+                int ri = rand.Next(0, ch.Length - 1);
+                if(ri == this.item.correctChoiceIndex) continue;
+
+                inds.Add(ri);
+
+            }
+
+            foreach(int i in inds) {
+                ch[i].GetComponent<Button>().interactable = false;;
+
+            }
+
+            this.playerController.setHint(this.playerController.player.hint - 1);
+            this.uiController.hintButton.GetComponent<Button>().interactable = false;
 
         }
 
@@ -165,7 +202,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
             
             if(this.checkAnswer(choiceIndex)) {
                 this.answeredCorrectly = true;
-                this.playerController.setPoint(this.setController.point);
+                // this.playerController.setHint(this.setController.point);
 
                 // float maxCoinGain = 30.0f, minCoinGain = 5.0f;
                 float maxCoinGain = this.item.maxCoinGain, minCoinGain = this.item.minCoinGain;
@@ -174,7 +211,7 @@ namespace CoDeA.Lakbay.Modules.QuestionModule {
                 );
                 coinGain = Mathf.Max(coinGain, minCoinGain);
                 coinGain = Convert.ToInt32(coinGain);
-                float currentCoin = this.playerController.coin + coinGain;
+                float currentCoin = this.playerController.player.coin + coinGain;
 
                 this.playerController.setCoin(currentCoin);
 

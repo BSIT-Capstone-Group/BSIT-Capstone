@@ -186,7 +186,7 @@ items:
     -
         question:
             images: 
-                - 'two-ways.png'
+                - 'Assets/CoDeA/Lakbay/Res/Modes/Non-Pro/Stages/3/Images/two-ways.png'
             text: 'What road sign is shown?'
         choices:
             - 'No Jaywalking'
