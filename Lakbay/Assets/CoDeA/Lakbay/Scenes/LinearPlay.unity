@@ -1473,7 +1473,7 @@ MonoBehaviour:
   timeScale: 1
   shuffledItems: 1
   shuffledItemChoices: 1
-  setFile: {fileID: 4900000, guid: 3dcbdb7156489a8469151f583743c017, type: 3}
+  setFile: {fileID: 0}
   itemModel: {fileID: 7217099643368943955, guid: a36b4f5f504c33447994e96e22fede9d, type: 3}
   playerController: {fileID: 1646980656880776}
   vehicleController: {fileID: 635891562}

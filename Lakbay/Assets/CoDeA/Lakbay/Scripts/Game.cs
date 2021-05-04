@@ -37,7 +37,11 @@ namespace CoDeA.Lakbay {
             public Stage forwardStage() {
                 if(this.stages.Count <= 0) return null;
 
-                if(this.stage == null) this.stage = this.stages[0];
+                if(this.stage == null) {
+                    this.stage = this.stages[0];
+                    return this.stage;
+
+                }
 
                 int ci = this.stages.IndexOf(this.stage);
 
@@ -73,8 +77,7 @@ namespace CoDeA.Lakbay {
                 PATH_SEPARATOR, "Assets", "CoDeA", "Lakbay", "Res", "Modes"
             );
 
-            private static bool _loadedModes = false;
-            public static bool loadedModes { get => Loader._loadedModes; }
+            public static bool loadedModes = false;
 
             public static void loadScene(int sceneBuildIndex) {
                 SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
@@ -148,7 +151,7 @@ namespace CoDeA.Lakbay {
             }
 
             public static async Task loadModes() {
-                if(Loader._loadedModes) return;
+                if(Loader.loadedModes) return;
 
                 Game.modeDatas.Clear();
                 ModeData np = new ModeData();
@@ -163,7 +166,7 @@ namespace CoDeA.Lakbay {
                 Game.modeDatas.Add(np);
                 Game.modeDatas.Add(p);
                 
-                Loader._loadedModes = true;
+                Loader.loadedModes = true;
 
             }
 

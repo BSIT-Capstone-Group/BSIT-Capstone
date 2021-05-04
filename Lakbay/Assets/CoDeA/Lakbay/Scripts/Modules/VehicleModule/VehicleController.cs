@@ -73,7 +73,9 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         private void Start() {
             this.refillFuel(this.vehicle.fuel, this.vehicle.maxFuel);
             this.lastPosition = this.transform.position;
-            this.initialPosition = this.GetComponent<Rigidbody>().position;
+            this.initialPosition = this.transform.position;
+
+            print("INITAL POSITION: " + this.initialPosition);
 
         }
 

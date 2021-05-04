@@ -30,7 +30,14 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
         public UnityEvent<PlayerController, float> onLifeChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, Vector3, Vector3> onRespawn = new UnityEvent<PlayerController, Vector3, Vector3>();
 
-        private void Start() {
+        private void Awake() {
+            // Vector3 rposition = this.roadController.transform.position;
+            // Vector3 modelSize = this.roadController.model.GetComponent<MeshRenderer>().bounds.size;
+            // rposition.z -= (modelSize.z / 2);
+            // Vector3 nposition = rposition - (modelSize / 2);
+            // this.vehicleController.GetComponent<Rigidbody>().MovePosition(rposition);
+            // print("First");
+
             this.setUpPlayer();
             this.setCoin(this.player.coin);
             this.setHint(this.player.hint);
@@ -57,20 +64,14 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
                 Game.Stage nextStage = Game.modeData.forwardStage();
 
                 if(nextStage != null) {
-                    Rigidbody rigidbody = this.vehicleController.GetComponent<Rigidbody>();
-
-                    this.vehicleController.canRecordDistanceCovered = false;
-                    this.vehicleController.canRecordFuelDistanceCovered = false;
-                    rigidbody.Sleep();
+                    print("COLLISION: " + this.vehicleController.initialPosition);
+                    this.respawnAt(this.vehicleController.initialPosition);
 
                     this.setController.setUpSet();
                     this.roadController.setUp();
+                    // Transform fchild = this.roadController.transform.GetChild(0);
+                    // this.respawnAt(fchild.position);
 
-                    this.respawnAt(this.vehicleController.initialPosition);
-
-                    this.vehicleController.canRecordDistanceCovered = true;
-                    this.vehicleController.canRecordFuelDistanceCovered = true;
-                    rigidbody.WakeUp();
 
                     return;
 
@@ -167,13 +168,17 @@ namespace CoDeA.Lakbay.Modules.PlayerModule {
             this.vehicleController.canRecordDistanceCovered = false;
             this.vehicleController.canRecordFuelDistanceCovered = false;
             rigidbody.Sleep();
+            // rigidbody.isKinematic = false;
 
             rigidbody.MovePosition(rposition);
             rigidbody.MoveRotation(Quaternion.Euler(rrotation));
+            // this.vehicleController.transform.position = rposition;
+            // this.vehicleController.transform.rotation = Quaternion.Euler(rrotation);
+            rigidbody.WakeUp();
+            // rigidbody.isKinematic = true;
 
             this.vehicleController.canRecordDistanceCovered = true;
             this.vehicleController.canRecordFuelDistanceCovered = true;
-            rigidbody.WakeUp();
 
             this.onRespawn.Invoke(this, rposition, rrotation);
 
