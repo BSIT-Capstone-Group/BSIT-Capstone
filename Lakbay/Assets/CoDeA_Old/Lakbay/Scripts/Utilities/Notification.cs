@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Utilities {
+namespace CoDeA_Old.Lakbay.Utilities {
     public class Notification : ExtendedMonoBehaviour {
         public CanvasGroup canvasGroup;
 

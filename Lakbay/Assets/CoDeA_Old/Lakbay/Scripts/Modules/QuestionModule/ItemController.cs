@@ -8,7 +8,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.QuestionModule {
+namespace CoDeA_Old.Lakbay.Modules.QuestionModule {
     [System.Serializable]
     public class Question {
         public List<string> images = new List<string>();

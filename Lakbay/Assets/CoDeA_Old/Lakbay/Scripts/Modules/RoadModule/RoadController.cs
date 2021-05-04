@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.RoadModule {
+namespace CoDeA_Old.Lakbay.Modules.RoadModule {
     [System.Serializable]
     public class Road {
         public int length = 30;

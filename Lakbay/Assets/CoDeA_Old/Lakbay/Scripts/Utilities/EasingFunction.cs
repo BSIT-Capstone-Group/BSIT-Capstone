@@ -57,7 +57,7 @@
 
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Utilities {
+namespace CoDeA_Old.Lakbay.Utilities {
     public static class EasingFunction
     {
         public enum Ease

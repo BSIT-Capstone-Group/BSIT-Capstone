@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine;
 // using SimpleInput = UnityEngine.Input;
 
-namespace CoDeA.Lakbay.Modules.VehicleModule {
+namespace CoDeA_Old.Lakbay.Modules.VehicleModule {
     [System.Serializable]
     public class Vehicle {
         public float fuelPerDistance = 0.15f;

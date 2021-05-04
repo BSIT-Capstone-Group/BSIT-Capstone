@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.ViewCameraModule {
+namespace CoDeA_Old.Lakbay.Modules.ViewCameraModule {
 
     public class ViewCameraController : Utilities.ExtendedMonoBehaviour {
         public enum Mode {

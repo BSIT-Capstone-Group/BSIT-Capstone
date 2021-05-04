@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using YamlDotNet.Serialization;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.QuestionModule {
+namespace CoDeA_Old.Lakbay.Modules.QuestionModule {
     [System.Serializable]
     public class Set {
         public string name = "";

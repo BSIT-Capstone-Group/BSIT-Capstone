@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Utilities {
+namespace CoDeA_Old.Lakbay.Utilities {
     public class Timer : ExtendedMonoBehaviour {
         public enum RunningStatus {
             PAUSED, RUNNING

@@ -1,7 +1,7 @@
 using UnityEditor;
 using System.IO;
 
-namespace CoDeA.Lakbay.Utilities {
+namespace CoDeA_Old.Lakbay.Utilities {
     // Source: https://docs.unity3d.com/Manual/AssetBundles-Workflow.html
     public class CreateAssetBundles {
         public static string confirmBuildSettings() {

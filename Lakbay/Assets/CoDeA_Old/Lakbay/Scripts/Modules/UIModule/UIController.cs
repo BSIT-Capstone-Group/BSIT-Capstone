@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 // using UnityEditor;
 
-namespace CoDeA.Lakbay.Modules.UIModule {
+namespace CoDeA_Old.Lakbay.Modules.UIModule {
     public class UIController : Utilities.ExtendedMonoBehaviour {
         [Header("Indicators")]
         public TMP_Text modeText;

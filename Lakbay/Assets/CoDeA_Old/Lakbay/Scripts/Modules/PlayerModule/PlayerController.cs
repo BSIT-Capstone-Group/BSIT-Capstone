@@ -5,7 +5,7 @@ using UnityEngine;
 using System;
 // using SimpleInput = UnityEngine.Input;
 
-namespace CoDeA.Lakbay.Modules.PlayerModule {
+namespace CoDeA_Old.Lakbay.Modules.PlayerModule {
     [System.Serializable]
     public class Player {
         public float coin = 30.0f;
