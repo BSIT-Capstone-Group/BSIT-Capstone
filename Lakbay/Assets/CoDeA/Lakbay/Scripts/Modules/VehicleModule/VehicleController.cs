@@ -2,29 +2,24 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Events;
+using System.Linq;
 
 namespace CoDeA.Lakbay.Modules.VehicleModule {
-	[Serializable]
-	public enum DriveType
-	{
-		RearWheelDrive,
-		FrontWheelDrive,
-		AllWheelDrive
-	}
-
-	public class VehicleController : MonoBehaviour {
-        private Coroutine _unflipCoroutine = null;
-        private bool _flipped = false;
-        public bool flipped { get { return this._flipped; } }
-
+    [System.Serializable]
+    public class Vehicle {
+		public bool hasInfiniteFuel = false;
+        public float fuelDeduction = 0.04f;
+        public float fuel = 100.0f;
+        public float maxFuel = 100.0f;
+        public float maxSpeed = 160.0f;
+        
 		[Tooltip("Maximum steering angle of the wheels")]
-		public float maxSteerAngle = 35.0f;
+		public float maxSteerAngle = 30.0f;
 		[Tooltip("Maximum torque applied to the driving wheels")]
-		public float maxMotorTorque = 15000.0f;
+		public float maxMotorTorque = 700.0f;
 		[Tooltip("Maximum brake torque applied to the driving wheels")]
 		public float maxBrakeTorque = 30000.0f;
-		[Tooltip("If you need the visual wheels to be attached automatically, drag the wheel shape here.")]
-		public GameObject wheelModel;
 
 		[Tooltip("The vehicle's speed when the physics engine can use different amount of sub-steps (in m/s).")]
 		public float criticalSpeed = 5f;
@@ -33,19 +28,40 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 		[Tooltip("Simulation sub-steps when the speed is below critical.")]
 		public int stepsAbove = 1;
 
-		[Tooltip("The vehicle's drive type: rear-wheels drive, front-wheels drive or all-wheels drive.")]
-		public DriveType driveType;
+    }
+
+	public class VehicleController : MonoBehaviour {
+        private Coroutine _unflipCoroutine = null;
+        private bool _flipped = false;
+        public bool flipped { get { return this._flipped; } }
+		
+		public TextAsset vehicleFile;
+		public Vehicle vehicle;
+
+		[Tooltip("If you need the visual wheels to be attached automatically, drag the wheel shape here.")]
+		public GameObject wheelModel;
 
 		public List<WheelController> wheelControllers = new List<WheelController>();
+
+
+		public UnityEvent<VehicleController, float> onSteer = new UnityEvent<VehicleController, float>();
+        public UnityEvent<VehicleController, float> onAccelerate = new UnityEvent<VehicleController, float>();
+        public UnityEvent<VehicleController, float> onBrake = new UnityEvent<VehicleController, float>();
+        public UnityEvent<VehicleController, float> onFuelChange = new UnityEvent<VehicleController, float>();
+
+		private void Awake() {
+			this.setUpVehicle();
+
+		}
 
 		// Find all the WheelColliders down in the hierarchy.
 		private void Start() {
             foreach(WheelController wc in wheelControllers) {
                 if(this.wheelModel) wc.model = this.wheelModel;
 
-                wc.maxSteerAngle = this.maxSteerAngle;
-                wc.maxMotorTorque = this.maxMotorTorque;
-                wc.maxBrakeTorque = this.maxBrakeTorque;
+                wc.maxSteerAngle = this.vehicle.maxSteerAngle;
+                wc.maxMotorTorque = this.vehicle.maxMotorTorque;
+                wc.maxBrakeTorque = this.vehicle.maxBrakeTorque;
                 wc.vehicleController = this;
                 wc.setUp();
 
@@ -62,29 +78,160 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
             }
 
+			this.configureVehicleSubsteps();
+			this.steer();
+			this.accelerate();
+			this.brake();
+			this.updateWheelModel();
+			this.updateFuel();
+
         }
 
-		// This is a really simple approach to updating wheels.
-		// We simulate a rear wheel drive car and assume that the car is perfectly symmetric at local zero.
-		// This helps us to figure our which wheels are front ones and which are rear.
-		private void Update() {
-			// wheelControllers[0].collider.ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
+		public void configureVehicleSubsteps(
+			WheelController wc,
+			float speedThreshold,
+			int stepsBelowThreshold,
+			int stepsAboveThreshold
+		) {
+			wc.collider.ConfigureVehicleSubsteps(
+				speedThreshold, 
+				stepsBelowThreshold, 
+				stepsAboveThreshold
+			);
 
-			foreach (WheelController wc in wheelControllers) {
-                wc.collider.ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
+		}
 
-                float steerAngleFactor = wc.getSteerAxisFactor();
-                float motorTorqueFactor = wc.getAccelerateAxisFactor();
-                float brakeTorqueFactor = wc.getBrakeAxisFactor();
-
-				// A simple car where front wheels steer while rear ones drive.
-				wc.steer(steerAngleFactor);
-				wc.accelerate(motorTorqueFactor);
-				wc.brake(brakeTorqueFactor);
-
-                wc.updateModel();
+		public void configureVehicleSubsteps() {
+			foreach(WheelController wc in this.wheelControllers) {
+				this.configureVehicleSubsteps(
+					wc,
+					this.vehicle.criticalSpeed, 
+					this.vehicle.stepsBelow, 
+					this.vehicle.stepsAbove
+				);
 
 			}
+
+		}
+
+		public void steer(WheelController wc, float factor) {
+			wc.steer(factor);
+
+		}
+
+		public void steer() {
+			float[] factors = this.wheelControllers.Select<WheelController, float>(
+				(wc) => wc.getSteerAngleFactor()
+			).ToArray();
+			float factor = factors.Average();
+
+			foreach(WheelController wc in this.wheelControllers) {
+				// float factor = wc.getSteerAngleFactor();
+
+				this.steer(
+					wc,
+					factor
+				);
+
+			}
+
+			if(factor != 0.0f) this.onSteer.Invoke(this, factor);
+
+		}
+
+		public void accelerate(WheelController wc, float factor) {
+			wc.accelerate(factor);
+
+		}
+
+		public void accelerate() {
+			float[] factors = this.wheelControllers.Select<WheelController, float>(
+				(wc) => wc.getMotorTorqueFactor()
+			).ToArray();
+			float factor = factors.Average();
+
+			if(!this.vehicle.hasInfiniteFuel) {
+				if(factor != 0) {
+					float ffactor = factor;
+
+					if(ffactor < 0.0f) ffactor *= -1;
+
+					if(this.vehicle.fuel != 0.0f) {
+						this.vehicle.fuel = Mathf.Max(
+							this.vehicle.fuel - (this.vehicle.fuelDeduction * ffactor),
+							0.0f
+						);
+
+					} else {
+						factor = 0.0f;
+
+					}
+
+				}
+
+			}
+
+			foreach(WheelController wc in this.wheelControllers) {
+                // float factor = wc.getMotorTorqueFactor();
+
+				this.accelerate(
+					wc,
+					factor
+				);
+
+			}
+
+			if(factor != 0.0f) this.onAccelerate.Invoke(this, factor);
+
+		}
+
+		public void brake(WheelController wc, float factor) {
+			wc.brake(factor);
+
+		}
+
+		public void brake() {
+			float[] factors = this.wheelControllers.Select<WheelController, float>(
+				(wc) => wc.getBrakeTorqueFactor()
+			).ToArray();
+			float factor = factors.Average();
+
+			foreach(WheelController wc in this.wheelControllers) {
+                // float factor = wc.getBrakeTorqueFactor();
+
+				this.brake(
+					wc,
+					factor
+				);
+
+			}
+
+			if(factor != 0.0f) this.onBrake.Invoke(this, factor);
+
+		}
+
+		public void updateWheelModel(WheelController wc) {
+			wc.updateModel();
+
+		}
+
+		public void updateWheelModel() {
+			foreach(WheelController wc in this.wheelControllers) {
+				this.updateWheelModel(wc);
+
+			}
+
+		}
+
+		public void updateFuel() {
+			this.onFuelChange.Invoke(this, this.vehicle.fuel);
+
+		}
+
+		public void setFuel(float value) {
+			this.vehicle.fuel = value;
+			this.onFuelChange.Invoke(this, this.vehicle.fuel);
+
 		}
 
         public IEnumerator unflip() {
@@ -108,10 +255,34 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         }
 
         public void respawn() {
-            Vector3 position = Vector3.zero + this.transform.forward + (Vector3.up * 2.0f);
+			Vector3 position = this.transform.position;
+            position = position + (Vector3.up * 2.0f);
             this.respawn(position);
 
         }
+
+		public void sleep() {
+			Rigidbody rigidbody = this.GetComponent<Rigidbody>();
+			if(!rigidbody.IsSleeping()) {
+				this.GetComponent<Rigidbody>().Sleep();
+
+			}
+
+		}
+
+		public void wakeUp() {
+			Rigidbody rigidbody = this.GetComponent<Rigidbody>();
+			if(rigidbody.IsSleeping()) {
+				this.GetComponent<Rigidbody>().WakeUp();
+
+			}
+
+		}
+
+		public void setUpVehicle() {
+			this.vehicle = GameModule.GameController.currentMode.linearPlay.vehicle;
+
+		}
 
 	}
 

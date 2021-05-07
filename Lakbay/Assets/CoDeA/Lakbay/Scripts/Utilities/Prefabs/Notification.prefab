@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8718937791888518635}
   - component: {fileID: 8718937791888518636}
   - component: {fileID: 4602584947472740990}
-  - component: {fileID: 6179860275497455683}
-  - component: {fileID: 8718937791888518637}
+  - component: {fileID: 7513717624306080288}
+  - component: {fileID: 4528411521447258068}
   m_Layer: 5
   m_Name: Notification
   m_TagString: Untagged
@@ -91,7 +91,7 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &6179860275497455683
+--- !u!114 &7513717624306080288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,14 +100,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8718937791888518639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0da35be5bc9124d9f84648ba3b85ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 1762e5eb1ff5c38429119634d4ea205d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
   timeScale: 1
   startOnPlay: 0
   timeRemaining: 0
-  timeDuration: 3.5
+  timeDuration: 5
   onRun:
     m_PersistentCalls:
       m_Calls: []
@@ -123,7 +123,7 @@ MonoBehaviour:
   onStop:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8718937791888518637
+--- !u!114 &4528411521447258068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,14 +132,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8718937791888518639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fe0fe7537ee38444ad17111a1caf7b8, type: 3}
+  m_Script: {fileID: 11500000, guid: c338cc3807628f44e87e2cde548e788e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
   timeScale: 1
   canvasGroup: {fileID: 4602584947472740990}
   text: {fileID: 8718937793615415736}
-  timer: {fileID: 6179860275497455683}
+  timer: {fileID: 7513717624306080288}
 --- !u!1 &8718937793615415738
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,365 @@
+name: ""
+items:
+    -
+        question:
+            images: 
+                - 'pedestrian-crossing.png'
+            text: 'What road sign is shown?'
+        choices:
+            -
+                text: 'No U-Turn'
+                correct: false
+            -
+                text: 'Pedestrian crossing'
+                correct: true
+            -
+                text: 'No Parking'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'When negotiating a curve on a highway at a relatively high speed you should:'
+        choices:
+            -
+                text: 'Steady green Light'
+                correct: false
+            -
+                text: 'Drive immediately'
+                correct: false
+            -
+                text: 'Decrease your speed further as you enter the curve'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A flashing red signal means:'
+        choices:
+            -
+                text: 'Informative Signs'
+                correct: false
+            -
+                text: 'You must stop and then go only when it is safe to do so'
+                correct: true
+            -
+                text: 'Caution or Warning Signs'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'When an oncoming vehicle crosses the centerline in a straight road you should be:'
+        choices:
+            -
+                text: 'Pause and Go'
+                correct: false
+            -
+                text: 'Slow down and keep to right'
+                correct: true
+            -
+                text: 'Drive immediately'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A single solid yellow or white line means:'
+        choices:
+            -
+                text: 'Slowdown and proceed with caution'
+                correct: false
+            -
+                text: 'Make a full stop'
+                correct: false
+            -
+                text: 'Passing/overtaking is not allowed'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'In bad conditions, the 2-second rule should be increased to:'
+        choices:
+            -
+                text: '4 seconds in changing lanes'
+                correct: true
+            -
+                text: 'Make a full stop'
+                correct: false
+            -
+                text: '8 seconds in changing lanes'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Having a drivers license is a:'
+        choices:
+            -
+                text: 'Privilege'
+                correct: true
+            -
+                text: 'Authority'
+                correct: false
+            -
+                text: 'Mandatory'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'As per R.A 4136, the brakes on every vehicle (other than a motorcycle) must:'
+        choices:
+            -
+                text: 'Brand New'
+                correct: false
+            -
+                text: 'Consist of a good foot and hand brake'
+                correct: true
+            -
+                text: 'Expensive'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'When are you permitted to double-park?'
+        choices:
+            -
+                text: 'Often'
+                correct: false
+            -
+                text: 'Always'
+                correct: false
+            -
+                text: 'Never'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Chances of being hurt or killed while driving is reduced if one is wearing:'
+        choices:
+            -
+                text: 'Expensive Perfume'
+                correct: false
+            -
+                text: 'Seat belts/helmets '
+                correct: true
+            -
+                text: 'High Heels'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A flashing yellow Light means:'
+        choices:
+            -
+                text: 'Slowdown and proceed with caution'
+                correct: true
+            -
+                text: 'Make a full stop'
+                correct: false
+            -
+                text: 'Drive and Go'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'This traffic sign states directions and distances?'
+        choices:
+            -
+                text: 'Slowdown and proceed with caution'
+                correct: false
+            -
+                text: 'Informative Signs'
+                correct: true
+            -
+                text: 'Passing/overtaking is not allowed'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'The Traffic light or signal that tells you to stop before the intersection is:'
+        choices:
+            -
+                text: 'Steady red Light'
+                correct: true
+            -
+                text: 'Steady green Light'
+                correct: false
+            -
+                text: 'Steady yellow Light'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'A traffic signal light that warns you that the red light is about to turn on:'
+        choices:
+            -
+                text: 'Steady red Light'
+                correct: false
+            -
+                text: 'Steady green Light'
+                correct: false
+            -
+                text: 'Steady yellow Light'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'The traffic signal light that means you can go if the intersection is clear:'
+        choices:
+            -
+                text: 'Steady red Light'
+                correct: false
+            -
+                text: 'Steady green Light'
+                correct: true
+            -
+                text: 'Steady yellow Light'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'When taking any medicine, you should:'
+        choices:
+            -
+                text: 'Just take it without any prescriptions'
+                correct: false
+            -
+                text: 'Ignore and go'
+                correct: false
+            -
+                text: 'Consult your doctor about the effects before driving'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'It is not considered safe driving on an expressway when a driver of a motor vehicle: '
+        choices:
+            -
+                text: 'Driving when drunk'
+                correct: false
+            -
+                text: 'Change lanes without signalling'
+                correct: true
+            -
+                text: 'Using phone while driving'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'What is not a good trait of a driver? '
+        choices:
+            -
+                text: 'Driving recklessly and under the influence of alcohol or drug'
+                correct: true
+            -
+                text: 'Follows the Rules and Regulations'
+                correct: false
+            -
+                text: 'Driving carefully'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images:
+                - 'noleftturn.png'
+            text: 'What sign is shown?'
+        choices:
+            -
+                text: 'No U-Turn'
+                correct: false
+            -
+                text: 'No Right Turn'
+                correct: false
+            -
+                text: 'No Left Turn'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images:
+                - 'norightturn.png'
+            text: 'What sign is shown?'
+        choices:
+            -
+                text: 'No U-Turn'
+                correct: false
+            -
+                text: 'No Right Turn'
+                correct: true
+            -
+                text: 'No Left Turn'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20

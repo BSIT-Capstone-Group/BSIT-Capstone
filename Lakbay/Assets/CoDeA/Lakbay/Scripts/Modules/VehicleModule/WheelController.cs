@@ -7,9 +7,10 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         [HideInInspector]
         public new WheelCollider collider;
 
-        public string steerAxis = "Wheel Controller - Horizontal";
-        public string accelerateAxis = "Wheel Controller - Vertical";
-        public string brakeAxis = "Wheel Controller - Jump";
+        public string steerAxis = "SteeringWheel";
+        public string accelerateAxis = "AccelerationAndBrake";
+        public string reverseAxis = "ReverseAcceleration";
+        public string brakeAxis = "AccelerationAndBrake";
 
         public bool canSteer = false;
         public bool canAccelerate = false;
@@ -31,9 +32,9 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         private void FixedUpdate() {
             if(this.vehicleController) return;
 
-            this.steer(this.getSteerAxisFactor());
-            this.accelerate(this.getAccelerateAxisFactor());
-            this.brake(this.getBrakeAxisFactor());
+            this.steer(this.getSteerAngleFactor());
+            this.accelerate(this.getMotorTorqueFactor());
+            this.brake(this.getBrakeTorqueFactor());
 
             this.updateModel();
 
@@ -81,27 +82,30 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
         }
 
-        public float getSteerAxisFactor() {
-            float factor = SimpleInput.GetAxis(this.steerAxis);
-            factor = factor == 0.0f ? SimpleInput.GetAxis("Horizontal") : factor;
+        public float getSteerAngleFactor() {
+            float value = SimpleInput.GetAxis(this.steerAxis);
+            value = value == 0.0f ? SimpleInput.GetAxis("Horizontal") : value;
 
-            return factor;
 
-        }
-
-        public float getAccelerateAxisFactor() {
-            float factor = SimpleInput.GetAxis(this.accelerateAxis);
-            factor = factor == 0.0f ? SimpleInput.GetAxis("Vertical") : factor;
-
-            return factor;
+            return value;
 
         }
 
-        public float getBrakeAxisFactor() {
-            float factor = SimpleInput.GetAxis(this.brakeAxis);
-            factor = factor == 0.0f ? SimpleInput.GetAxis("Jump") : factor;
+        public float getMotorTorqueFactor() {
+            float accelerate = Mathf.Min(SimpleInput.GetAxis(this.accelerateAxis), 0.0f) * -1;
+            float raccelerate = Mathf.Min(SimpleInput.GetAxis(this.reverseAxis), 0.0f);
+            float value = accelerate + raccelerate;
+            value = value == 0.0f ? SimpleInput.GetAxis("Vertical") : value;
 
-            return factor;
+            return value;
+
+        }
+
+        public float getBrakeTorqueFactor() {
+            float value = Mathf.Max(SimpleInput.GetAxis(this.brakeAxis), 0.0f);
+            value = value == 0.0f ? SimpleInput.GetAxis("Jump") : value;
+
+            return value;
 
         }
 

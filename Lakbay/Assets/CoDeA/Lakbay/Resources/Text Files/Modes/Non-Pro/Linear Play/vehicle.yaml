@@ -1,0 +1,14 @@
+hasInfiniteFuel: false
+
+fuelDeduction: 0.05
+fuel: 100.0
+maxFuel: 100.0
+maxSpeed: 160.0
+    
+maxSteerAngle: 30.0
+maxMotorTorque: 700.0
+maxBrakeTorque: 30000.0
+
+criticalSpeed: 5
+stepsBelow: 5
+stepsAbove: 1
