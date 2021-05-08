@@ -283,9 +283,6 @@ MonoBehaviour:
   viewCameraController: {fileID: 1571799435}
   roadController: {fileID: 2089295669}
   vehicleController: {fileID: 16754018}
-  startPositionOffset: {x: 0, y: -7, z: -24}
-  middlePositionOffset: {x: 0, y: -7, z: -30}
-  endPositionOffset: {x: 0, y: -7, z: -87}
   onCoinChange:
     m_PersistentCalls:
       m_Calls: []
@@ -5357,6 +5354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758576100}
+  - component: {fileID: 1758576101}
   m_Layer: 0
   m_Name: Question Checkpoints
   m_TagString: Untagged
@@ -5378,6 +5376,27 @@ Transform:
   m_Father: {fileID: 611790199}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1758576101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758576099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ed2936507bd4c4c9d8e5878b8dc852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setFile: {fileID: 0}
+  set:
+    name: 
+    items: []
+  itemModel: {fileID: 1000014124467848, guid: fe2b3febe58746b43a0f1333b2d0beb3, type: 3}
+  triggerAgents: []
+  uIController: {fileID: 663807049}
+  roadController: {fileID: 2089295669}
+  itemControllers: []
 --- !u!1 &1823229557
 GameObject:
   m_ObjectHideFlags: 0

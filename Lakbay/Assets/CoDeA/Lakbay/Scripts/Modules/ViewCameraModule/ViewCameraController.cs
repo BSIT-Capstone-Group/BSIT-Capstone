@@ -39,16 +39,13 @@ namespace CoDeA.Lakbay.Modules.ViewCameraModule {
             Vector3 position = Vector3.zero;
             Vector3 rotation = Vector3.zero;
 
-            float tx = !this.lockXPosition ? this.target.position.x : this._lastXPosition;
-            float ty = !this.lockYPosition ? this.target.position.y : this._lastYPosition;
-            float tz = !this.lockZPosition ? this.target.position.z : this._lastZPosition;
+            float tx = this.target.position.x;
+            float ty = this.target.position.y;
+            float tz = this.target.position.z;
 
             if(!this.lockXPosition) this._lastXPosition = this.transform.position.x;
             if(!this.lockYPosition) this._lastYPosition = this.transform.position.y;
-            if(!this.lockZPosition) {
-                this._lastZPosition = this.transform.position.z;
-                
-            }
+            if(!this.lockZPosition) this._lastZPosition = this.transform.position.z;
 
             switch(this.view) {
                 case(Mode.TOP): {
@@ -94,10 +91,25 @@ namespace CoDeA.Lakbay.Modules.ViewCameraModule {
             // this.transform.position = position;
             // this.transform.position = Vector3.Lerp(this.transform.position, position, this.smoothTime * Time.deltaTime);
 
-            this.transform.position = Vector3.SmoothDamp(this.transform.position, position, ref pos, this.smoothTime * Time.fixedDeltaTime);
+            if(this.lockXPosition) position.x = this._lastXPosition;
+            if(this.lockYPosition) position.y = this._lastYPosition;
+            if(this.lockZPosition) position.z = this._lastZPosition;
+
+            this.move(position);
             this.transform.rotation = Quaternion.Euler(rotation);
 
             this.onUpdate.Invoke(this, this.transform.position, rotation);
+
+        }
+
+        public void move(Vector3 position, float smoothTime) {
+            Vector3 pos = Vector3.zero;
+            this.transform.position = Vector3.SmoothDamp(this.transform.position, position, ref pos, smoothTime);
+
+        }
+
+        public void move(Vector3 position) {
+            this.move(position, this.smoothTime * Time.fixedDeltaTime);
 
         }
 

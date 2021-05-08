@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
 using System.Linq;
+using CoDeA.Lakbay.Modules.GameModule;
 
 namespace CoDeA.Lakbay.Modules.VehicleModule {
     [System.Serializable]
@@ -49,23 +50,12 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         public UnityEvent<VehicleController, float> onBrake = new UnityEvent<VehicleController, float>();
         public UnityEvent<VehicleController, float> onFuelChange = new UnityEvent<VehicleController, float>();
 
-		private void Awake() {
-			this.setUpVehicle();
-
-		}
-
 		// Find all the WheelColliders down in the hierarchy.
 		private void Start() {
-            foreach(WheelController wc in wheelControllers) {
-                if(this.wheelModel) wc.model = this.wheelModel;
-
-                wc.maxSteerAngle = this.vehicle.maxSteerAngle;
-                wc.maxMotorTorque = this.vehicle.maxMotorTorque;
-                wc.maxBrakeTorque = this.vehicle.maxBrakeTorque;
-                wc.vehicleController = this;
-                wc.setUp();
-
-            }
+			if(GameController.currentMode != null) this.setUpVehicle(
+				GameController.currentMode.linearPlay.vehicle
+			);
+			else if(this.vehicleFile) this.setUpVehicle(this.vehicleFile);
 
 		}
 
@@ -86,6 +76,20 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 			this.updateFuel();
 
         }
+
+		public void setUpWheelControllers() {
+            foreach(WheelController wc in wheelControllers) {
+                if(this.wheelModel) wc.model = this.wheelModel;
+
+                wc.maxSteerAngle = this.vehicle.maxSteerAngle;
+                wc.maxMotorTorque = this.vehicle.maxMotorTorque;
+                wc.maxBrakeTorque = this.vehicle.maxBrakeTorque;
+                wc.vehicleController = this;
+                wc.setUp();
+
+            }
+
+		}
 
 		public void configureVehicleSubsteps(
 			WheelController wc,
@@ -279,8 +283,14 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
 		}
 
-		public void setUpVehicle() {
-			this.vehicle = GameModule.GameController.currentMode.linearPlay.vehicle;
+		public void setUpVehicle(TextAsset vehicleFile) {
+			this.setUpVehicle(Utilities.Helper.parseYAML<Vehicle>(vehicleFile.text));
+
+		}
+
+		public void setUpVehicle(Vehicle vehicle) {
+			this.vehicle = vehicle;
+			this.setUpWheelControllers();
 
 		}
 

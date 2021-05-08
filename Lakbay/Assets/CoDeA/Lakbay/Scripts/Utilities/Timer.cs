@@ -35,11 +35,11 @@ namespace CoDeA.Lakbay.Utilities {
 
         }
         
-        public UnityEvent onRun = new UnityEvent();
-        public UnityEvent onPause = new UnityEvent();
-        public UnityEvent onResume = new UnityEvent();
-        public UnityEvent onStart = new UnityEvent();
-        public UnityEvent onStop = new UnityEvent();
+        public UnityEvent<Timer> onRun = new UnityEvent<Timer>();
+        public UnityEvent<Timer> onPause = new UnityEvent<Timer>();
+        public UnityEvent<Timer> onResume = new UnityEvent<Timer>();
+        public UnityEvent<Timer> onStart = new UnityEvent<Timer>();
+        public UnityEvent<Timer> onStop = new UnityEvent<Timer>();
 
         private void Awake() {
             this._defaultTimeScale = this.timeScale;
@@ -62,7 +62,7 @@ namespace CoDeA.Lakbay.Utilities {
 
             }
 
-            if(this.initialStatus != InitialStatus.STOPPED) this.onRun.Invoke();
+            if(this.initialStatus != InitialStatus.STOPPED) this.onRun.Invoke(this);
 
         }
 
@@ -72,7 +72,7 @@ namespace CoDeA.Lakbay.Utilities {
 
             this._initialStatus = InitialStatus.STARTED;
 
-            this.onStart.Invoke();
+            this.onStart.Invoke(this);
 
         }
 
@@ -81,7 +81,7 @@ namespace CoDeA.Lakbay.Utilities {
 
             this._initialStatus = InitialStatus.STOPPED;
 
-            this.onStop.Invoke();
+            this.onStop.Invoke(this);
 
         }
 
@@ -91,7 +91,7 @@ namespace CoDeA.Lakbay.Utilities {
             this.timeScale = 0.0f;
             this._runningStatus = RunningStatus.PAUSED;
 
-            this.onPause.Invoke();
+            this.onPause.Invoke(this);
 
         }
 
@@ -101,7 +101,7 @@ namespace CoDeA.Lakbay.Utilities {
             this.timeScale = this._defaultTimeScale;
             this._runningStatus = RunningStatus.RUNNING;
 
-            this.onResume.Invoke();
+            this.onResume.Invoke(this);
 
         }
 

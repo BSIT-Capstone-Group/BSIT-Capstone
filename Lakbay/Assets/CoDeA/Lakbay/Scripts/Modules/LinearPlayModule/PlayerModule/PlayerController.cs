@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using CoDeA.Lakbay.Modules.GameModule;
 
 namespace CoDeA.Lakbay.Modules.LinearPlayModule.PlayerModule {
     [System.Serializable]
@@ -23,26 +24,22 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.PlayerModule {
         public LinearPlayModule.RoadModule.RoadController roadController;
         public VehicleModule.VehicleController vehicleController;
 
-        public Vector3 startPositionOffset = Vector3.zero;
-        public Vector3 middlePositionOffset = Vector3.zero;
-        public Vector3 endPositionOffset = Vector3.zero;
-
         public UnityEvent<PlayerController, float> onCoinChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, float> onHintChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, float> onLifeChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, Vector3, Vector3> onRespawn = new UnityEvent<PlayerController, Vector3, Vector3>();
 
         private void Awake() {
-            this.setUpPlayer();
+            this.uiController.onFuelTopUp.AddListener(this.onUIFuelTopUp);
+            this.viewCameraController.onUpdate.AddListener(this.onViewCameraControllerUpdate);
 
         }
 
         private void Start() {
-            this.uiController.onFuelTopUp.AddListener(this.onUIFuelTopUp);
-            this.viewCameraController.onUpdate.AddListener(this.onViewCameraControllerUpdate);
-            this.setCoin(this.player.coin);
-            this.setHint(this.player.hint);
-            this.setLife(this.player.life);
+            if(GameController.currentMode != null) this.setUpPlayer(
+                GameController.currentMode.linearPlay.player
+            );
+            else if(this.playerFile) this.setUpPlayer(this.playerFile);
 
         }
 
@@ -59,22 +56,25 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.PlayerModule {
             if(sizeModel) {
                 MeshRenderer renderer = sizeModel.GetComponent<MeshRenderer>();
                 Transform lmodel = roadController.transform.GetChild(
-                    roadController.transform.childCount - 4
+                    roadController.transform.childCount - 1
                 );
                 Transform fmodel = roadController.transform.GetChild(0);
-                float lbound = lmodel.position.z - (renderer.bounds.size.z / 2);
-                float fbound = fmodel.position.z;
+                float lbound = lmodel.position.z - (renderer.bounds.size.z * 7);
+                float fbound = fmodel.position.z - (renderer.bounds.size.z * 2.25f);
 
-                // print(this.transform.position.z + " >= " + lbound);
+                if(vc.transform.position.z <= fbound) {
+                    vc.move(new Vector3(
+                        vc.transform.position.x,
+                        vc.transform.position.y,
+                        fbound
+                    ), 0.0f);
 
-                if(this.transform.position.z <= fbound) {
-                    vc.positionOffset = this.startPositionOffset;
-
-                } else if(this.transform.position.z >= lbound) {
-                    vc.positionOffset = this.endPositionOffset;
-
-                } else {
-                    vc.positionOffset = this.middlePositionOffset;
+                } else if(vc.transform.position.z >= lbound) {
+                    vc.move(new Vector3(
+                        vc.transform.position.x,
+                        vc.transform.position.y,
+                        lbound
+                    ), 0.0f);
 
                 }
 
@@ -129,8 +129,16 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.PlayerModule {
 
         }
 
-        public void setUpPlayer() {
-			this.player = GameModule.GameController.currentMode.linearPlay.player;
+        public void setUpPlayer(TextAsset playerFile) {
+            this.setUpPlayer(Utilities.Helper.parseYAML<Player>(playerFile.text));
+
+        }
+
+        public void setUpPlayer(Player player) {
+            this.player = player;
+            this.setCoin(this.player.coin);
+            this.setHint(this.player.hint);
+            this.setLife(this.player.life);
 
         }
 

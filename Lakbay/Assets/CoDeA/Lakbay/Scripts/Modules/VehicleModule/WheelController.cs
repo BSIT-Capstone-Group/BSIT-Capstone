@@ -24,7 +24,7 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         public GameObject model;
         public Vector3 modelRotation = Vector3.zero;
 
-        private void Awake() {
+        private void Start() {
             this.setUp();
 
         }

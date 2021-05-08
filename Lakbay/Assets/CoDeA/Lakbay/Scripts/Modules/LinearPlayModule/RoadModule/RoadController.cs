@@ -24,13 +24,15 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
         public Road road;
 
         private void Start() {
-            this.setUp();
+            // this.sizeModel = this.model.transform.Find("Road").gameObject;
+
+            if(this.roadFile) this.setUpRoad(this.roadFile);
 
         }
 
-        private void FixedUpdate() {
+        private void Update() {
             if(this.road.length != this._currentLength) {
-                this.updateSet();
+                this.setUpRoad(this.road);
 
             }
 
@@ -50,19 +52,15 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
         public void updateSet() {
             Utilities.Helper.destroyChildren(this.transform);
 
-            this.setUpModel();
-            this.setUpSet();
+            this.populate();
+            // this.setUpSet();
 
             this._currentLength = this.road.length;
 
         }
 
-        public void setUpModel() {
-            // Vector3 modelSize = this.sizeModel.GetComponent<MeshRenderer>().bounds.size;
-
-            // this.sizeModel = this.transform.Find("Road").gameObject;
-            // this.startingLineModel = this.sizeModel.transform.Find("Back").gameObject;
-            // this.finishLineModel = this.sizeModel.transform.Find("Front").gameObject;
+        public void populate() {
+            Utilities.Helper.destroyChildren(this.transform);
 
             Vector3 modelSize = Vector3.zero;
             List<GameObject> models = new List<GameObject>();
@@ -87,6 +85,19 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
 
             front.SetActive(true);
             back.SetActive(true);
+
+            this._currentLength = this.road.length;
+
+        }
+
+        public void setUpRoad(TextAsset roadFile) {
+            this.setUpRoad(Utilities.Helper.parseYAML<Road>(roadFile.text));
+
+        }
+
+        public void setUpRoad(Road road) {
+            this.road = road;
+            this.populate();
 
         }
 

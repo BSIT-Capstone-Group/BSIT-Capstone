@@ -16,7 +16,7 @@ namespace CoDeA.Lakbay.Utilities {
 
         private void Awake() {
             this.timer.startOnPlay = false;
-            this.timer.onStop.AddListener(this.hide);
+            this.timer.onStop.AddListener(this.onTimerStop);
 
             this.hide();
 
@@ -41,6 +41,11 @@ namespace CoDeA.Lakbay.Utilities {
         public void hide() {
             this.text.SetText("");
             this.canvasGroup.alpha = 0.0f;
+
+        }
+
+        public void onTimerStop(Timer timer) {
+            this.hide();
 
         }
 
