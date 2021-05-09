@@ -180,7 +180,7 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
             this.playerController.vehicleController.wakeUp();
 
             this.gameObject.SetActive(false);
-            if(this.setController) this.setController.currentItemController = null;
+            // if(this.setController) this.setController.currentItemController = null;
 
         }
 

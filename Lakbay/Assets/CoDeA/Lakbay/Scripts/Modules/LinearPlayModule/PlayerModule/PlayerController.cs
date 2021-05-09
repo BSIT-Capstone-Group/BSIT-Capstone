@@ -42,6 +42,8 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.PlayerModule {
                 hintText.SetText($"Hint ({pc.player.hint})");
             });
 
+            this.vehicleController.onFuelChange.AddListener(this.onVehicleControllerFuelChange);
+
         }
 
         private void Start() {
@@ -88,6 +90,30 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.PlayerModule {
                         this.timer.stop();
 
                     }
+
+                }
+
+            }
+
+        }
+
+        public void onVehicleControllerFuelChange(VehicleModule.VehicleController vc, float value) {
+            if(value == 0.0f) {
+                if(this.player.life > 0.0f) {
+                    QuestionModule.ItemController ic = this.setController.currentItemController;
+                    if(ic == null) {
+                        vc.respawn(vc.initialPosition + (Vector3.up * 2.0f), vc.initialRotation);
+
+                    } else {
+                        vc.respawn(ic.transform.position + (Vector3.up * 2.0f), vc.initialRotation);
+
+                    }
+
+                    this.setLife(this.player.life - 1.0f);
+                    this.vehicleController.setFuel(this.vehicleController.vehicle.maxFuel * 0.5f);
+
+                } else {
+                    GameController.loadScene(1);
 
                 }
 
