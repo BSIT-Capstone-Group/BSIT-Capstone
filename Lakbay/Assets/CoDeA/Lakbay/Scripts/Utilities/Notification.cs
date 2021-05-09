@@ -23,10 +23,11 @@ namespace CoDeA.Lakbay.Utilities {
         }
 
         public void show(string text, float duration) {
-            this.timer.timeRemaining = duration;
+            this.timer.time = duration;
             this.timer.timeDuration = duration;
             this.text.SetText(text);
             this.canvasGroup.alpha = 1.0f;
+            this.gameObject.SetActive(true);
             this.timer.start();
 
         }
@@ -41,6 +42,7 @@ namespace CoDeA.Lakbay.Utilities {
         public void hide() {
             this.text.SetText("");
             this.canvasGroup.alpha = 0.0f;
+            this.gameObject.SetActive(false);
 
         }
 

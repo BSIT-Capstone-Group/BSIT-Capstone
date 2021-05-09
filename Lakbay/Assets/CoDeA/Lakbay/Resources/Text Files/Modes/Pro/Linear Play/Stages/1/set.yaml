@@ -165,7 +165,7 @@ items:
     -
         question:
             images: 
-               - 'no-parking.png'
+               - 'no-parking'
             text: 'What road sign is shown?'
         choices:
             -
@@ -238,7 +238,7 @@ items:
     -
         question:
             images: 
-               - 'noovertaking.png'
+               - 'noovertaking'
             text: 'What road sign is shown?'
         choices:
             -
@@ -257,7 +257,7 @@ items:
     -
         question:
             images: 
-               - 'noentryforpedestrians.png'
+               - 'noentryforpedestrians'
             text: 'What road sign is shown?'
         choices:
             -

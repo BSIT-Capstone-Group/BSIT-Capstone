@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using CoDeA.Lakbay.Modules.GameModule;
 
 namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
     [System.Serializable]
     public class Road {
         public int length = 30;
+        public int additionalStartingLength = 5;
+        public int additionalEndingLength = 5;
 
     }
 
@@ -25,8 +29,10 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
 
         private void Start() {
             // this.sizeModel = this.model.transform.Find("Road").gameObject;
-
-            if(this.roadFile) this.setUpRoad(this.roadFile);
+            if(GameController.currentMode != null) this.setUpRoad(
+                GameController.linearPlayStage.road
+            );
+            else if(this.roadFile) this.setUpRoad(this.roadFile);
 
         }
 
@@ -64,7 +70,10 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
 
             Vector3 modelSize = Vector3.zero;
             List<GameObject> models = new List<GameObject>();
-            for(int i = 0; i < this.road.length; i++) {
+
+            int additionalRoadLength = this.road.additionalStartingLength + this.road.additionalEndingLength;
+
+            for(int i = 0; i < this.road.length + additionalRoadLength; i++) {
                 GameObject model = Instantiate<GameObject>(this.model);
 
                 if(i == 0) {
@@ -82,6 +91,9 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
 
             GameObject front = models[models.Count - 1].transform.Find("Road").Find("Front").gameObject;
             GameObject back = models[0].transform.Find("Road").Find("Back").gameObject;
+
+            this.finishLineModel = front;
+            this.startingLineModel = back;
 
             front.SetActive(true);
             back.SetActive(true);

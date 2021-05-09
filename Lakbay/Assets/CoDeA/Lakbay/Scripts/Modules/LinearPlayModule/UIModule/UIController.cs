@@ -33,6 +33,15 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.UIModule {
         public GameObject choiceButton;
         public Button hintButton;
 
+        [Header("Post Stage")]
+        public GameObject postStagePanel;
+        public Button nextStageButton;
+
+        [Header("Post Linear Play")]
+        public GameObject postLinearPlayPanel;
+        public TMP_Text totalTimeText;
+        public Button freeRoamButton;
+
         [Header("Notifications")]
         public Utilities.Notification notification;
         public Utilities.Notification pointNotification;
@@ -90,6 +99,77 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.UIModule {
             this.fuelBar.maxValue = 1.0f;
             this.fuelBar.minValue = 0.0f;
             this.fuelBar.value = vc.vehicle.fuel / vc.vehicle.maxFuel;
+
+        }
+
+        public void setQuestionText(QuestionModule.Question question) {
+            this.questionText.SetText(question.text.Trim());
+
+        }
+
+        public GameObject[] setChoiceButtons(params QuestionModule.Choice[] choices) {
+            Utilities.Helper.destroyChildren(this.choicesPanel.transform);
+
+            List<GameObject> gameObjects = new List<GameObject>();
+            foreach(QuestionModule.Choice choice in choices) {
+                GameObject cb = Instantiate<GameObject>(this.choiceButton, this.choicesPanel.transform);
+                gameObjects.Add(cb);
+                TMP_Text t = cb.transform.GetChild(0).GetComponent<TMP_Text>();
+
+                t.SetText(choice.text.Trim());
+
+                if(Debug.isDebugBuild && choice.correct) {
+                    t.color = new Color(0, 255, 0);
+
+                }
+
+            }
+
+            return gameObjects.ToArray();
+
+        }
+
+        public GameObject[] setImageButtons(params Sprite[] sprites) {
+            this.imagesPanel.SetActive(false);
+            Utilities.Helper.destroyChildren(this.imagesPanel.transform);
+
+            if(sprites.Length > 0) this.imagesPanel.SetActive(true);
+
+            List<GameObject> gameObjects = new List<GameObject>();
+
+            foreach(Sprite sprite in sprites) {
+                GameObject go = UIController.Instantiate<GameObject>(this.imageButton, this.imagesPanel.transform);
+                gameObjects.Add(go);
+                
+                go.GetComponent<Image>().sprite = sprite;
+
+            }
+
+            return gameObjects.ToArray();
+
+        }
+
+        public GameObject[] setImageButtons(params string[] paths) {
+            List<Sprite> sprites = new List<Sprite>();
+
+            foreach(string path in paths) {
+                string npath = $"Images/{path}";
+                sprites.Add(
+                    Resources.Load<Sprite>(npath)
+                );
+
+            }
+
+            return this.setImageButtons(sprites.ToArray());
+
+        }
+
+        public void setMaximizedImage(Sprite sprite) {
+            this.maximizedImagePanel.SetActive(false);
+
+            if(sprite) this.maximizedImagePanel.SetActive(true);
+
+            this.maximizedImage.sprite = sprite;
 
         }
 

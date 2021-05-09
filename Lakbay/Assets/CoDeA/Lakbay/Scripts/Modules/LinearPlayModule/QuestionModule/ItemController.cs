@@ -5,7 +5,9 @@ using System;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Linq;
 using CoDeA.Lakbay.Modules.GameModule;
+using TMPro;
 
 namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
     [System.Serializable]
@@ -43,13 +45,17 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
             get => this.answeredChoice != null && this.answeredChoice.correct;
         }
 
+        [HideInInspector]
+        public bool triggered = false;
+
         public TextAsset itemFile;
         public SetController setController;
         public Item item;
         
         public UIModule.UIController uiController;
         public Utilities.Timer timer;
-        public List<GameObject> triggerAgents = new List<GameObject>();
+        // public List<GameObject> triggerAgents = new List<GameObject>();
+        public PlayerModule.PlayerController playerController;
 
         public UnityEvent<ItemController, Choice> onAnswer = new UnityEvent<ItemController, Choice>();
 
@@ -60,15 +66,121 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
         }
 
+        private void OnTriggerEnter(Collider collider) {
+            this.trigger(collider);
+
+        }
+
+        public void trigger(Collider collider) {
+            if(this.triggered) return;
+
+            if(this.playerController.transform == collider.transform) {
+                if(this.setController) this.setController.currentItemController = this;
+                this.triggered = true;
+                
+                this.uiController.setQuestionText(this.item.question);
+
+                GameObject[] cbs = this.uiController.setChoiceButtons(this.item.choices.ToArray());
+                int i = 0;
+                foreach(GameObject cb in cbs) {
+                    Button button = cb.GetComponent<Button>();
+                    Func<Choice, UnityAction> listener = (Choice c) => () => this.answer(c);
+                    button.onClick.AddListener(listener(this.item.choices[i]));
+
+                    i++;
+
+                }
+
+                this.uiController.maximizedImagePanel.SetActive(false);
+
+                GameObject[] imbs = this.uiController.setImageButtons(this.item.question.images.ToArray());
+                foreach(GameObject imb in imbs) {
+                    Button btn = imb.GetComponent<Button>();
+                    btn.onClick.AddListener(this.maximizeImage(
+                        imb.gameObject.GetComponent<Image>().sprite
+                    ));
+
+                }
+
+                this.uiController.hintButton.onClick.RemoveAllListeners();
+                this.uiController.hintButton.onClick.AddListener(this.useHint);
+
+                if(this.playerController.player.hint <= 0) {
+                    this.uiController.hintButton.GetComponent<Button>().interactable = false;
+
+                } else {
+                    this.uiController.hintButton.GetComponent<Button>().interactable = true;
+
+                }
+                
+                this.uiController.questionPanel.SetActive(true);
+                // this.playerController.GetComponent<Rigidbody>().isKinematic = true;
+                this.playerController.vehicleController.sleep();
+
+                this.setUpTimer();
+
+            }
+
+        }
+
+        public void useHint() {
+            Transform[] ch = Utilities.Helper.getChildren(this.uiController.choicesPanel.transform);
+
+            System.Random rand = new System.Random();
+            List<int> inds = new List<int>();
+            int half = (ch.Length / 2) % 2 == 0 ? ch.Length / 2 : (ch.Length / 2) - 1;
+            half = Mathf.Max(half, 1);
+
+            while(inds.Count != half) {
+                int ri = rand.Next(0, ch.Length - 1);
+                if(this.item.choices[ri].correct) continue;
+
+                inds.Add(ri);
+
+            }
+
+            foreach(int i in inds) {
+                ch[i].GetComponent<Button>().interactable = false;;
+
+            }
+
+            this.playerController.setHint(this.playerController.player.hint - 1);
+
+            this.uiController.hintButton.GetComponent<Button>().interactable = false;
+
+        }
+
+        public UnityAction maximizeImage(Sprite sprite) {
+            return () => {
+                this.uiController.setMaximizedImage(sprite);
+            };
+
+        }
+
         public void answer(Choice choice) {
+            if(!this.triggered) return;
+            this.answeredChoice = choice;
+
             this.onAnswer.Invoke(this, choice);
-            // if(this.checkAnswer(choice)) {
+            this.hide();
+
+        }
+
+        public void show() {
 
 
-            // } else {
+        }
 
+        public void hide() {
+            this.uiController.questionPanel.SetActive(false);
+            this.uiController.questionText.SetText("");
+            Utilities.Helper.destroyChildren(this.uiController.choicesPanel.transform);
 
-            // }
+            // this.playerController.GetComponent<Rigidbody>().isKinematic = false;
+            this.playerController.vehicleController.wakeUp();
+
+            this.gameObject.SetActive(false);
+            if(this.setController) this.setController.currentItemController = null;
 
         }
 
@@ -97,7 +209,7 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
         }
 
         public void onTimerRun(Utilities.Timer timer) {
-            this.uiController.timeText.SetText(this.timer.timeRemaining.ToString("N1") + "s");
+            this.uiController.timeText.SetText(this.timer.time.ToString("N1") + "s");
             
         }
 

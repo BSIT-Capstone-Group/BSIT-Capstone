@@ -165,7 +165,7 @@ items:
     -
         question:
             images: 
-                - 'no-parking.png'
+                - 'no-parking'
             text: 'What road sign is shown?'
         choices:
             -

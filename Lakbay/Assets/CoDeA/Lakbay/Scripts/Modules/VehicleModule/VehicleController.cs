@@ -35,6 +35,18 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
         private Coroutine _unflipCoroutine = null;
         private bool _flipped = false;
         public bool flipped { get { return this._flipped; } }
+		public bool sleeping {
+			get {
+				Rigidbody rb = this.GetComponent<Rigidbody>();
+				return rb && rb.isKinematic;
+
+			}
+
+		}
+
+		[HideInInspector]
+		public Vector3 initialPosition = Vector3.zero;
+		public Vector3 initialRotation = Vector3.zero;
 		
 		public TextAsset vehicleFile;
 		public Vehicle vehicle;
@@ -52,6 +64,9 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
 		// Find all the WheelColliders down in the hierarchy.
 		private void Start() {
+			this.initialPosition = this.transform.position;
+			this.initialRotation = this.transform.rotation.eulerAngles;
+
 			if(GameController.currentMode != null) this.setUpVehicle(
 				GameController.currentMode.linearPlay.vehicle
 			);
@@ -154,7 +169,7 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 			).ToArray();
 			float factor = factors.Average();
 
-			if(!this.vehicle.hasInfiniteFuel) {
+			if(!this.vehicle.hasInfiniteFuel && !this.sleeping) {
 				if(factor != 0) {
 					float ffactor = factor;
 
@@ -267,19 +282,13 @@ namespace CoDeA.Lakbay.Modules.VehicleModule {
 
 		public void sleep() {
 			Rigidbody rigidbody = this.GetComponent<Rigidbody>();
-			if(!rigidbody.IsSleeping()) {
-				this.GetComponent<Rigidbody>().Sleep();
-
-			}
+			this.GetComponent<Rigidbody>().isKinematic = true;
 
 		}
 
 		public void wakeUp() {
 			Rigidbody rigidbody = this.GetComponent<Rigidbody>();
-			if(rigidbody.IsSleeping()) {
-				this.GetComponent<Rigidbody>().WakeUp();
-
-			}
+			this.GetComponent<Rigidbody>().isKinematic = false;
 
 		}
 

@@ -26,12 +26,13 @@ namespace CoDeA.Lakbay.Utilities {
             get => this._initialStatus;
         }
 
+        public bool stopWatch = false;
         public bool startOnPlay = true;
-        public float timeRemaining = 0.0f;
+        public float time = 0.0f;
         public float timeDuration = 5.0f;
 
         public float progress {
-            get => 1.0f - (this.timeRemaining / this.timeDuration);
+            get => 1.0f - (this.time / this.timeDuration);
 
         }
         
@@ -56,9 +57,12 @@ namespace CoDeA.Lakbay.Utilities {
         public void run() {
             if(this.initialStatus == InitialStatus.STARTED) {
                 // print("running...");
-                this.timeRemaining = Mathf.Max(this.timeRemaining - (Time.deltaTime * this.timeScale), 0.0f);
+                if(!this.stopWatch) {
+                    this.time = Mathf.Max(this.time - (Time.deltaTime * this.timeScale), 0.0f);
 
-                if(this.timeRemaining == 0.0f) this.stop();
+                    if(this.time == 0.0f) this.stop();
+
+                } else this.time = this.time + (Time.deltaTime * this.timeScale);
 
             }
 
@@ -68,7 +72,8 @@ namespace CoDeA.Lakbay.Utilities {
 
         public void start() {
             this.timeScale = this._defaultTimeScale;
-            this.timeRemaining = this.timeDuration;
+            if(!this.stopWatch) this.time = this.timeDuration;
+            else this.time = 0.0f;
 
             this._initialStatus = InitialStatus.STARTED;
 
@@ -77,7 +82,7 @@ namespace CoDeA.Lakbay.Utilities {
         }
 
         public void stop() {
-            this.timeRemaining = 0.0f;
+            if(!this.stopWatch) this.time = 0.0f;
 
             this._initialStatus = InitialStatus.STOPPED;
 

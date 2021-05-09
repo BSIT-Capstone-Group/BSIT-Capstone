@@ -3,7 +3,7 @@ items:
     -
         question:
             images: 
-                - 'pedestrian-crossing.png'
+                - 'pedestrian-crossing'
             text: 'What road sign is shown?'
         choices:
             -
@@ -328,7 +328,7 @@ items:
     -
         question:
             images:
-                - 'noleftturn.png'
+                - 'noleftturn'
             text: 'What sign is shown?'
         choices:
             -
@@ -347,7 +347,7 @@ items:
     -
         question:
             images:
-                - 'norightturn.png'
+                - 'norightturn'
             text: 'What sign is shown?'
         choices:
             -

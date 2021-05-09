@@ -3,7 +3,7 @@ items:
     -
         question:
             images: 
-                - 'pedestrian-crossing.png'
+                - 'pedestrian-crossing'
             text: 'What road sign is shown?'
         choices:
             -

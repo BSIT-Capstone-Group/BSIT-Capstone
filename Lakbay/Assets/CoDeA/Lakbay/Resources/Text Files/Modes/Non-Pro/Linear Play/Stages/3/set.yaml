@@ -3,7 +3,7 @@ items:
     -
         question:
             images: 
-                - 'u-turn.png'
+                - 'u-turn'
             text: 'What road sign is shown?'
         choices:
             -
@@ -256,7 +256,7 @@ items:
     -
         question:
             images: 
-                - 'two-ways.png'
+                - 'two-ways'
             text: 'What road sign is shown?'
         choices:
             -

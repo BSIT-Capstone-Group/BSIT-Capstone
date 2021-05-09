@@ -16,12 +16,16 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
     public class SetController : MonoBehaviour {
         private int _currentItemsCount = 0;
 
+        [HideInInspector]
+        public ItemController currentItemController = null;
+
         public TextAsset setFile;
         public Set set;
 
         public GameObject itemModel;
 
-        public List<GameObject> triggerAgents = new List<GameObject>();
+        // public List<GameObject> triggerAgents = new List<GameObject>();
+        public PlayerModule.PlayerController playerController;
 
         public UIModule.UIController uIController;
         public RoadModule.RoadController roadController;
@@ -62,16 +66,22 @@ namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
             // GameObject[] itemModels = this.setController.populate(this.setController.transform);
             float roadSize = modelSize.z * rc.road.length;
             float spacing = roadSize / (this.set.items.Count + 1);
+            float offsetSpacing = modelSize.z * this.roadController.road.additionalStartingLength;
 
             for(int i = 0; i < this.set.items.Count; i++) {
                 Item item = this.set.items[i];
                 GameObject itemModel = Instantiate<GameObject>(this.itemModel, this.transform);
                 // itemModel.transform.position = Vector3.zero;
 
-                itemModel.transform.position += new Vector3(0.0f, 0.0f, (spacing * (i + 1)) - modelSize.z);
+                itemModel.transform.position += new Vector3(0.0f, 0.0f, ((spacing * (i + 1)) - modelSize.z) + offsetSpacing);
 
                 ItemController ic = itemModel.AddComponent<ItemController>();
-                ic.triggerAgents = this.triggerAgents;
+
+                ic.onAnswer.AddListener(this.playerController.onItemAnswer);
+
+                ic.setController = this;
+                ic.playerController = this.playerController;
+                ic.uiController = this.uIController;
                 ic.setUpItem(item);
 
             }
