@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.VehicleModule {
+namespace CoDe_A.Lakbay.Modules.VehicleModule {
     public class WheelController : MonoBehaviour {
         [HideInInspector]
         public new WheelCollider collider;

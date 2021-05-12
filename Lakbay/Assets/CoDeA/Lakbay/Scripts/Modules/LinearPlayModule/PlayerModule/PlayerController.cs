@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
-using CoDeA.Lakbay.Modules.GameModule;
-using CoDeA.Lakbay.Modules.DatabaseModule;
+using CoDe_A.Lakbay.Modules.GameModule;
+using CoDe_A.Lakbay.Modules.DatabaseModule;
 using System;
 using TMPro;
 
-namespace CoDeA.Lakbay.Modules.LinearPlayModule.PlayerModule {
+namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
     [System.Serializable]
     public class Player {
         public float coin = 30.0f;

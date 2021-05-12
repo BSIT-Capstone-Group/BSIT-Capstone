@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.LinearPlayModule.UIModule {
+namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
     public class UIController : MonoBehaviour {
         [Header("Indicators")]
         public TMP_Text modeText;

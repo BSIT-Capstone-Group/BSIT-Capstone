@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Utilities.ObserverDesignPattern {
+namespace CoDe_A.Lakbay.Utilities.ObserverDesignPattern {
     public interface ISubscriber {
         public void updateWithSource(Source source);
 

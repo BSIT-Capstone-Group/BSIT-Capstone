@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Linq;
 
-namespace CoDeA.Lakbay.Utilities {
+namespace CoDe_A.Lakbay.Utilities {
     public static class FileManager {
         public static readonly string[] IMAGE_EXTENSIONS = new string[] {
             "jpg", "jpeg", "png", "gif", "webp"

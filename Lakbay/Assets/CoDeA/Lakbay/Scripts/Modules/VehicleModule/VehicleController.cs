@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
 using System.Linq;
-using CoDeA.Lakbay.Modules.GameModule;
+using CoDe_A.Lakbay.Modules.GameModule;
 
-namespace CoDeA.Lakbay.Modules.VehicleModule {
+namespace CoDe_A.Lakbay.Modules.VehicleModule {
     [System.Serializable]
     public class Vehicle {
 		public bool hasInfiniteFuel = false;

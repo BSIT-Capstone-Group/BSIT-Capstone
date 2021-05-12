@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using CoDeA.Lakbay.Modules.GameModule;
+using CoDe_A.Lakbay.Modules.GameModule;
 
-namespace CoDeA.Lakbay.Modules.LinearPlayModule.RoadModule {
+namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
     [System.Serializable]
     public class Road {
         public int length = 30;

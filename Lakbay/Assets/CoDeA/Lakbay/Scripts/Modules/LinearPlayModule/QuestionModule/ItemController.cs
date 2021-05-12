@@ -6,10 +6,10 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Linq;
-using CoDeA.Lakbay.Modules.GameModule;
+using CoDe_A.Lakbay.Modules.GameModule;
 using TMPro;
 
-namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
+namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
     [System.Serializable]
     public class Question {
         public List<string> images = new List<string>();

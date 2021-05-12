@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using System.Linq;
 using UnityEngine;
-using CoDeA.Lakbay.Modules.LinearPlayModule;
+using CoDe_A.Lakbay.Modules.LinearPlayModule;
 
-namespace CoDeA.Lakbay.Modules.DatabaseModule {
+namespace CoDe_A.Lakbay.Modules.DatabaseModule {
     [System.Serializable]
     public class Mode {
         public string name = "";

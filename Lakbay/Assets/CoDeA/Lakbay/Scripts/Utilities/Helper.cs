@@ -6,7 +6,7 @@ using YamlDotNet.Serialization;
 using UnityEngine;
 using System;
 
-namespace CoDeA.Lakbay.Utilities {
+namespace CoDe_A.Lakbay.Utilities {
     public static class Helper {
         public static readonly float READING_CHARACTER_PER_SECOND = 25.0f;
 

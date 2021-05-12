@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using CoDeA.Lakbay.Modules.GameModule;
+using CoDe_A.Lakbay.Modules.GameModule;
 
-namespace CoDeA.Lakbay.Modules.LinearPlayModule.QuestionModule {
+namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
     [System.Serializable]
     public class Set {
         public string name = "";

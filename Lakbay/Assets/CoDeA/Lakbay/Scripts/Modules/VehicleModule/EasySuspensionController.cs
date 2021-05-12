@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.VehicleModule {
+namespace CoDe_A.Lakbay.Modules.VehicleModule {
     [ExecuteInEditMode]
     public class EasySuspensionController : MonoBehaviour
     {

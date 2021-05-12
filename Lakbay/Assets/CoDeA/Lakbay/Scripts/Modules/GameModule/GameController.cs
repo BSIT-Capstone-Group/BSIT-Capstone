@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-namespace CoDeA.Lakbay.Modules.GameModule {
+namespace CoDe_A.Lakbay.Modules.GameModule {
     public class GameController : MonoBehaviour {
         public enum Mode { NON_PRO, PRO }
 
