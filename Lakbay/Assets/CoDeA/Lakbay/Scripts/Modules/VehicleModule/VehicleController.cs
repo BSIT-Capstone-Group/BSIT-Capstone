@@ -21,6 +21,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 		public float maxMotorTorque = 700.0f;
 		[Tooltip("Maximum brake torque applied to the driving wheels")]
 		public float maxBrakeTorque = 30000.0f;
+		[Tooltip("Maximum deceleration applied to the driving wheels")]
+		public float maxDeceleration = 1000.0f;
 
 		[Tooltip("The vehicle's speed when the physics engine can use different amount of sub-steps (in m/s).")]
 		public float criticalSpeed = 5f;
@@ -87,6 +89,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 			this.steer();
 			this.accelerate();
 			this.brake();
+			this.decelerate();
 			this.updateWheelModel();
 			this.updateFuel();
 
@@ -99,6 +102,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
                 wc.maxSteerAngle = this.vehicle.maxSteerAngle;
                 wc.maxMotorTorque = this.vehicle.maxMotorTorque;
                 wc.maxBrakeTorque = this.vehicle.maxBrakeTorque;
+                wc.maxDeceleration = this.vehicle.maxDeceleration;
                 wc.vehicleController = this;
                 wc.setUp();
 
@@ -201,6 +205,31 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 			}
 
 			if(factor != 0.0f) this.onAccelerate.Invoke(this, factor);
+
+		}
+
+		public void decelerate(WheelController wc, float factor) {
+            wc.decelerate(factor == 0.0f ? 1.0f : 0.0f);
+
+		}
+
+		public void decelerate() {
+			float[] factors = this.wheelControllers.Select<WheelController, float>(
+				(wc) => wc.getMotorTorqueFactor()
+			).ToArray();
+			float factor = factors.Average();
+
+			foreach(WheelController wc in this.wheelControllers) {
+                // float factor = wc.getMotorTorqueFactor();
+
+				this.decelerate(
+					wc,
+					factor
+				);
+
+			}
+
+			// if(factor != 0.0f) this.onAccelerate.Invoke(this, factor);
 
 		}
 

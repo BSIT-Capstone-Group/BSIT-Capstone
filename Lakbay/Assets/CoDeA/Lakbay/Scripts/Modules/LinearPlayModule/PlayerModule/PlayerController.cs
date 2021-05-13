@@ -57,7 +57,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         }
 
         private void Update() {
-            print(this.timer.time);
+            // print(this.timer.time);
 
         }
 

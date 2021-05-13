@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine;
 
 namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
     public class UIController : MonoBehaviour {
@@ -99,6 +100,23 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
             this.fuelBar.maxValue = 1.0f;
             this.fuelBar.minValue = 0.0f;
             this.fuelBar.value = vc.vehicle.fuel / vc.vehicle.maxFuel;
+
+            Image img = this.fuelBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
+            
+            Color c = new Color();
+            if(this.fuelBar.value <= 0.25f) {
+                c = new Color(255, 0, 0);
+
+            } else if(this.fuelBar.value <= 0.5f) {
+                ColorUtility.TryParseHtmlString("#DAA40A", out c);
+
+            } else if(this.fuelBar.value <= 1.0f) {
+                c = new Color(0, 255, 0);
+
+            }
+
+            img.color = c;
+            // 
 
         }
 

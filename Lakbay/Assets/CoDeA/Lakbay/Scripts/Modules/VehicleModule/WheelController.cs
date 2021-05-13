@@ -19,6 +19,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
         public float maxSteerAngle = 35.0f;
         public float maxMotorTorque = 15000.0f;
         public float maxBrakeTorque = 30000.0f;
+        public float maxDeceleration = 10000.0f;
 
         public VehicleController vehicleController;
         public GameObject model;
@@ -32,9 +33,14 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
         private void FixedUpdate() {
             if(this.vehicleController) return;
 
-            this.steer(this.getSteerAngleFactor());
-            this.accelerate(this.getMotorTorqueFactor());
-            this.brake(this.getBrakeTorqueFactor());
+            float sf = this.getSteerAngleFactor(), bf = this.getBrakeTorqueFactor(),
+            af = this.getMotorTorqueFactor(), df = sf;
+
+            this.steer(sf);
+            this.brake(bf);
+            this.accelerate(af);
+
+            if(bf == 0.0f) this.decelerate(af == 0.0f ? 1.0f : 0.0f);
 
             this.updateModel();
 
@@ -74,6 +80,13 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
             this.collider.motorTorque = this.maxMotorTorque * factor;
 
         }
+
+        public void decelerate(float factor) {
+            if(!this.canAccelerate) return;
+
+            this.collider.brakeTorque = this.maxDeceleration * factor;
+
+        }
         
         public void brake(float factor) {
             if(!this.canBrake) return;
@@ -83,6 +96,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
         }
 
         public float getSteerAngleFactor() {
+            if(!this.canSteer) return 0.0f;
+
             float value = SimpleInput.GetAxis(this.steerAxis);
             value = value == 0.0f ? SimpleInput.GetAxis("Horizontal") : value;
 
@@ -92,6 +107,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
         }
 
         public float getMotorTorqueFactor() {
+            if(!this.canAccelerate) return 0.0f;
+
             float accelerate = Mathf.Min(SimpleInput.GetAxis(this.accelerateAxis), 0.0f) * -1;
             float raccelerate = Mathf.Min(SimpleInput.GetAxis(this.reverseAxis), 0.0f);
             float value = accelerate + raccelerate;
@@ -102,6 +119,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
         }
 
         public float getBrakeTorqueFactor() {
+            if(!this.canBrake) return 0.0f;
+
             float value = Mathf.Max(SimpleInput.GetAxis(this.brakeAxis), 0.0f);
             value = value == 0.0f ? SimpleInput.GetAxis("Jump") : value;
 
