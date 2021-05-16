@@ -339,11 +339,12 @@ namespace CoDe_A.Lakbay.Modules.DatabaseModule {
             await handle.Task;
             level.set = Utilities.Helper.parseYAML<LinearPlayModule.QuestionModule.Set>(handle.Result.text);
 
-            level.localizedSetFile.SetReference("Asset Table", $"{modeName} - Linear Play - Level {levelNumber} - Set File");
-            level.localizedSetFile.AssetChanged += (ta) => {
-                level.set = Utilities.Helper.parseYAML<LinearPlayModule.QuestionModule.Set>(ta.text);
+            level.localizedSetFile.SetReference("Localized Assets Table", $"{modeName} - Linear Play - Level {levelNumber} - Set File");
+            // level.localizedSetFile.AssetChanged += (ta) => {
+            //     level.set = Utilities.Helper.parseYAML<LinearPlayModule.QuestionModule.Set>(ta.text);
 
-            };
+            // };
+            level.localizedSetFile.AssetChanged += DatabaseController._parseSetFile(level);
 
             return level;
 
@@ -359,9 +360,10 @@ namespace CoDe_A.Lakbay.Modules.DatabaseModule {
 
         // }
 
-        private UnityAction<TextAsset> _parseSetFile(LinearPlay.Level stage) {
+        private static LocalizedAsset<UnityEngine.TextAsset>.ChangeHandler _parseSetFile(LinearPlay.Level level) {
             return (ta) => {
-                stage.set = Utilities.Helper.parseYAML<LinearPlayModule.QuestionModule.Set>(ta.text);
+                print(ta.text);
+                level.set = Utilities.Helper.parseYAML<LinearPlayModule.QuestionModule.Set>(ta.text);
             };
 
         }

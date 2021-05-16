@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: Asset Table Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Asset Table
+  m_TableCollectionName: Localized Assets Table
   m_TableCollectionNameGuidString: 63d961c0217ae064db1675dd6a402e85
   m_Entries:
   - m_Id: 21687660544

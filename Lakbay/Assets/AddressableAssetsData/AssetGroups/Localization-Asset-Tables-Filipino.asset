@@ -18,11 +18,10 @@ MonoBehaviour:
   m_GUID: 1200abec2167ac4438b71426ea8ebdaa
   m_SerializeEntries:
   - m_GUID: 3100c7b2847f3c9469e94a953ffdf60e
-    m_Address: Asset Table_fil-PH
+    m_Address: Localized Assets Table_fil-PH
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fil-PH
-    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

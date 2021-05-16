@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 760b2e42aba2d74428707cd8e0491180
   m_SerializeEntries:
   - m_GUID: 503fb84b5ddf45c48861e33d0008ad62
-    m_Address: String Table_fil-PH
+    m_Address: Localized Strings Table_fil-PH
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fil-PH
