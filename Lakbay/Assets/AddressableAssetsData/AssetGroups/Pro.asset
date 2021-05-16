@@ -15,136 +15,61 @@ MonoBehaviour:
   m_GroupName: Pro
   m_Data:
     m_SerializedData: []
-  m_GUID: 14e2260f2c46f0845a57d1eac4d5d728
+  m_GUID: eb73371b4bfac944f82e74e3f8d62252
   m_SerializeEntries:
-  - m_GUID: 9beb90571305c4f4c90358cdd88a2ff8
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/player.yaml
+  - m_GUID: 14faa688f7e58014795f7515757332e5
+    m_Address: Text Files/Modes/Pro/Linear Play/player.yaml
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: ab4dd1658c684c54e9d8b8f7b68be1a0
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/vehicle.yaml
+  - m_GUID: 8a901fd0c1882f8459a348672a7e26a7
+    m_Address: Text Files/Modes/Pro/Linear Play/vehicle.yaml
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 086e0731222f03c44bbfa94c39fdeea1
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/road.yaml
+  - m_GUID: 01bf6f2dd3b7154418abfe5a0f842752
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/1/road.yaml
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: f4a1c2fc624ccc54eb2fe232283fb6a0
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/set.yaml
+  - m_GUID: 04da091086a7cf14cb7682c1f7698011
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/2/road.yaml
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 86b59e25c97da664e92d7b3ab62b30ba
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/no-parking.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images
-    m_MainAsset: {fileID: 2800000, guid: 86b59e25c97da664e92d7b3ab62b30ba, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: 86b59e25c97da664e92d7b3ab62b30ba, type: 3}
-  - m_GUID: e05e161c6225ad94fbe7b60f5b6e1040
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noentryforpedestrians.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images
-    m_MainAsset: {fileID: 2800000, guid: e05e161c6225ad94fbe7b60f5b6e1040, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: e05e161c6225ad94fbe7b60f5b6e1040, type: 3}
-  - m_GUID: 4ee100acba2168b4185a1f9a57b8d598
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images/noovertaking.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/1/Images
-    m_MainAsset: {fileID: 2800000, guid: 4ee100acba2168b4185a1f9a57b8d598, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: 4ee100acba2168b4185a1f9a57b8d598, type: 3}
-  - m_GUID: 0db4fc4ef0c5c9945af9aad7ea131a7b
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/road.yaml
+  - m_GUID: ec1741e445d691b45b4793426ca69274
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/3/road.yaml
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 9b446d63ac98c594aac5ffb4162031d8
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/set.yaml
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 58e17f9172e4bcd43b088c569d4e2f26
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/noleftturn.png
+  - m_GUID: a590033ab23c21b47a4e030cb69e158f
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/1/set_eng.yaml
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images
-    m_MainAsset: {fileID: 2800000, guid: 58e17f9172e4bcd43b088c569d4e2f26, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: 58e17f9172e4bcd43b088c569d4e2f26, type: 3}
-  - m_GUID: 7690d8815ebf5ea4191fba5e9f10d631
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/norightturn.png
+    - Locale-en-PH
+  - m_GUID: 8018cb3ae20596f4a857f1b6de8eadf7
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/1/set_fil.yaml
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images
-    m_MainAsset: {fileID: 2800000, guid: 7690d8815ebf5ea4191fba5e9f10d631, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: 7690d8815ebf5ea4191fba5e9f10d631, type: 3}
-  - m_GUID: 47cda57b349540f4ba78d51b6ec0c25c
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images/pedestrian-crossing.png
+    - Locale-fil-PH
+  - m_GUID: de56c146a6639784f92b8ff2f3b3fbe6
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/2/set_eng.yaml
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/2/Images
-    m_MainAsset: {fileID: 2800000, guid: 47cda57b349540f4ba78d51b6ec0c25c, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: 47cda57b349540f4ba78d51b6ec0c25c, type: 3}
-  - m_GUID: df5c465e133cea443b420033a87c9559
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/road.yaml
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: f65d200322007f7459238f7d92ffff20
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/set.yaml
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 4900000, guid: f65d200322007f7459238f7d92ffff20, type: 3}
-    m_TargetAsset: {fileID: 4900000, guid: f65d200322007f7459238f7d92ffff20, type: 3}
-  - m_GUID: b579f568da4b243479634fe72cdc075a
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryfor bigtrucks.png
+    - Locale-en-PH
+  - m_GUID: 5d881c095297fe142a6f2a18b8a501ec
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/2/set_fil.yaml
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
-    m_MainAsset: {fileID: 2800000, guid: b579f568da4b243479634fe72cdc075a, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: b579f568da4b243479634fe72cdc075a, type: 3}
-  - m_GUID: 2f21cac211823ce4fbeabe27a25607d2
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforbusses.png
+    - Locale-fil-PH
+  - m_GUID: 18f8e8a96632b544f9bae32229dedc19
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/3/set_eng.yaml
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
-    m_MainAsset: {fileID: 2800000, guid: 2f21cac211823ce4fbeabe27a25607d2, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: 2f21cac211823ce4fbeabe27a25607d2, type: 3}
-  - m_GUID: 83ebf1729400cd04dbc6e0197c48d3c9
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/noentryforjeepneys.png
+    - Locale-en-PH
+  - m_GUID: 27474ba78939ebf48b58c5c8c3ddc1b0
+    m_Address: Text Files/Modes/Pro/Linear Play/Levels/3/set_fil.yaml
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
-    m_MainAsset: {fileID: 2800000, guid: 83ebf1729400cd04dbc6e0197c48d3c9, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: 83ebf1729400cd04dbc6e0197c48d3c9, type: 3}
-  - m_GUID: c22d054eb5f8b434983c13c569cc0aed
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/two-ways.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
-    m_MainAsset: {fileID: 2800000, guid: c22d054eb5f8b434983c13c569cc0aed, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: c22d054eb5f8b434983c13c569cc0aed, type: 3}
-  - m_GUID: d1c6db91f645cb14481784fcb0c14a9b
-    m_Address: Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images/u-turn.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Assets/CoDeA/Lakbay/Res/Modes/Pro/Stages/3/Images
-    m_MainAsset: {fileID: 2800000, guid: d1c6db91f645cb14481784fcb0c14a9b, type: 3}
-    m_TargetAsset: {fileID: 2800000, guid: d1c6db91f645cb14481784fcb0c14a9b, type: 3}
+    - Locale-fil-PH
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 4bcd887af5d7e5e49932bd106297890c, type: 2}
-    - {fileID: 11400000, guid: 58dec4da802f898489b8953519a2bb5b, type: 2}
+    - {fileID: 11400000, guid: 78968d0602aa1284ea6f8e184c888704, type: 2}
+    - {fileID: 11400000, guid: 8e4e2dd4c6a3d0042b6c86364d385680, type: 2}

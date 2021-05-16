@@ -1,0 +1,183 @@
+name: ""
+items:
+    -
+        question:
+            images: []
+            text: 'When making a U-turn you should?'
+        choices:
+            -
+                text: 'Pedestrian Crossing'
+                correct: false
+            -
+                text: 'Check for traffic behind you and indicate your intentions with a left turn signal'
+                correct: true
+            -
+                text: 'No U-turn'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Signs that are round, inverted triangle or octagonal with red borders are called:'
+        choices:
+            -
+                text: 'Steady green Light'
+                correct: false
+            -
+                text: 'Steady yellow Light'
+                correct: false
+            -
+                text: 'Caution or Warning Signs'
+                correct: true
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Signs that are round, inverted triangle or octagonal and with red colored borders are called:'
+        choices:
+            -
+                text: 'Regulatory signs'
+                correct: true
+            -
+                text: 'Steady yellow Light'
+                correct: false
+            -
+                text: 'Caution or Warning Signs'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'What to do when you approach a crosswalk or pedestrian lane?'
+        choices:
+            -
+                text: 'Pause and Go'
+                correct: false
+            -
+                text: 'Stop and yield to pedestrians'
+                correct: true
+            -
+                text: 'Drive immediately'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Signs that are round, rectangular with white and blue background are called:'
+        choices:
+            -
+                text: 'Slowdown and proceed with caution'
+                correct: false
+            -
+                text: 'Informative Signs'
+                correct: true
+            -
+                text: 'Drive and Go'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'A driver while on highway shall yield the right of way to:'
+        choices:
+            -
+                text: 'Pedestrians within a crosswalk '
+                correct: true
+            -
+                text: 'Make a full stop'
+                correct: false
+            -
+                text: 'Drive and Go'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Steady red light at an intersection means:'
+        choices:
+            -
+                text: 'Slowdown and proceed with caution'
+                correct: false
+            -
+                text: 'Make a full stop'
+                correct: false
+            -
+                text: 'Stop at the designated line '
+                correct: true
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'When do you have a complete/full stop?'
+        choices:
+            -
+                text: 'In front of the pedestrian lane'
+                correct: false
+            -
+                text: 'At a red traffic light'
+                correct: true
+            -
+                text: 'Stop at the designated line '
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'At an intersection, if two (2) vehicles arrived at the same time, which vehicle has the right of way?'
+        choices:
+            -
+                text: 'Vehicle on the left'
+                correct: false
+            -
+                text: 'Both vehicle must cross'
+                correct: false
+            -
+                text: 'Vehicle on the right  '
+                correct: true
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: 
+                - 'no_parking.png'
+            text: 'What road sign is shown?'
+        choices:
+            -
+                text: 'No Smoking'
+                correct: false
+            -
+                text: 'No U-Turn'
+                correct: false
+            -
+                text: 'No Parking'
+                correct: true
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15

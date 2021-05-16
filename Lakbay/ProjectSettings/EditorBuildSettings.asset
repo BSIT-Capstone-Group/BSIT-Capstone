@@ -14,14 +14,24 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/CoDeA_Old/Lakbay/Scenes/LinearPlay.unity
     guid: a193763b58a3dbc40886c6fa2f0ba80e
-  - enabled: 1
-    path: Assets/CoDeA/Lakbay/Resources/Scenes/Splash Screen.unity
+  - enabled: 0
+    path: Assets/CoDe_A/Lakbay/Resources Hidden/Scenes/Splash Screen.unity
     guid: 17753fba2e4579e4289b47ec51e494da
-  - enabled: 1
-    path: Assets/CoDeA/Lakbay/Resources/Scenes/Main Menu.unity
+  - enabled: 0
+    path: Assets/CoDe_A/Lakbay/Resources Hidden/Scenes/Main Menu.unity
     guid: 9aeac9717375620469e118e2d53a30c1
-  - enabled: 1
-    path: Assets/CoDeA/Lakbay/Resources/Scenes/Linear Play.unity
+  - enabled: 0
+    path: Assets/CoDe_A/Lakbay/Resources Hidden/Scenes/Linear Play.unity
     guid: 19502a5164f52d84189ab2bf30759d22
+  - enabled: 1
+    path: Assets/CoDe_A/Lakbay/Addressable Resources/Scenes/Splash Screen.unity
+    guid: 782374cd9887c3c40ba6237c515516c2
+  - enabled: 1
+    path: Assets/CoDe_A/Lakbay/Addressable Resources/Scenes/Main Menu.unity
+    guid: c963be1846498054cabb9d4f5ebe30d4
+  - enabled: 1
+    path: Assets/CoDe_A/Lakbay/Addressable Resources/Scenes/Linear Play.unity
+    guid: df6fb00f27fd0674e8996af6edf6bb04
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 1f8bb8b99087a8e458b65926c369fe70, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: e3684f0c9a8e5f44882926db681042e9, type: 2}

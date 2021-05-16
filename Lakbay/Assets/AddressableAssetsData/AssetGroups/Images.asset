@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Images
+  m_EditorClassIdentifier: 
+  m_GroupName: Images
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6dcfa94398a199e42b6b669aedee2b44
+  m_SerializeEntries:
+  - m_GUID: 74a3e836a2ce79d41a3fc003d62795aa
+    m_Address: Images/no_u_turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1baef1c4eb53e9c4c8d1010d810ab18b
+    m_Address: Images/no_entry_for_trucks.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8030b93bbea7fca41b50911ae8e5a599
+    m_Address: Images/no_left_turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9398647cbf5ab6242b1a95b8b628bf7d
+    m_Address: Images/no_entry_for_jeepneys.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71f738fedf944ab4a8fd577393d3695b
+    m_Address: Images/no_parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 034b386d150856c49a6cbd4d5a450ecf
+    m_Address: Images/pedestrian_crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3d9d740579272d34d8a639ecd0a7ef0d
+    m_Address: Images/two_way_traffic.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d739db12d66f39a468b35f1bef623ba2
+    m_Address: Images/no_entry_for_buses.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 280ada0ae38d714439b1fa2a222b4b45
+    m_Address: Images/no_right_turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 68fa86b6dfd91954ab9e6d5bad10d390
+    m_Address: Images/no_overtaking.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5924daf710854f4296347cf786a581d
+    m_Address: Images/no_pedestrian_crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1988f1bc36ddb654d8c24d4e6f92225a
+    m_Address: Images/UI/accelerate.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 22e321f2c6d95ab4385ab41c93233f48
+    m_Address: Images/UI/book.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 15140ec18764ba44faa192a3d3fc7343
+    m_Address: Images/UI/brake.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 151a9ec9bd8b1634a8cceae8c89c9aac
+    m_Address: Images/UI/coin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 979adb39740305748acd9298fe3479b0
+    m_Address: Images/UI/flash.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 35aba0b1d068309489da07ad6418f53c
+    m_Address: Images/UI/heart.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6eed6c938f22f14448240e04ced5a815
+    m_Address: Images/UI/icon_bg_circle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf694a9727bad054e98020504bf7eda0
+    m_Address: Images/UI/lightning (1).png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0b6041a447c702d4f9737d7213d9bf3e
+    m_Address: Images/UI/lightning.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 31cbbc3d40590b642b9e41c70144b2d5
+    m_Address: Images/UI/logo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4fb4d823f6eb41a45bede840be510d53
+    m_Address: Images/UI/logo_alt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0bbeab79ec1ca0b4eaa63580a76e2fd0
+    m_Address: Images/UI/money.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ffc9a76efb0ba524cb4a0fe38b7cdd8b
+    m_Address: Images/UI/reverse.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61005c67ac1af8b4daaa14cd63d22357
+    m_Address: Images/UI/steering-wheel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e57abcd3d21222e46b50c8009bf0b674
+    m_Address: Images/UI/steering-wheel_alt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 088676aaf04114e4695f3a882b4c9763, type: 2}
+    - {fileID: 11400000, guid: 105b5f8a82af4cd4cbcefe6b07aec9a8, type: 2}

@@ -1,0 +1,457 @@
+name: ""
+items:
+    -
+        question:
+            images: 
+                - 'no_u_turn.png'
+            text: 'What road sign is shown?'
+        choices:
+            -
+                text: 'Pedestrian crossing'
+                correct: false
+            -
+                text: 'No U-Turn'
+                correct: true
+            -
+                text: 'No Parking'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: "Keeping one's distance lessens the risk of accident. One good Rule is to leave a car length or:"
+        choices:
+            -
+                text: '8-second rule'
+                correct: false
+            -
+                text: '4-second rule'
+                correct: false
+            -
+                text: '2-second rule'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'When driving at night, you should:'
+        choices:
+            -
+                text: 'Always press the horn'
+                correct: false
+            -
+                text: 'Always turn your headlights on'
+                correct: true
+            -
+                text: 'Never turn your headlights on'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'A driver on a highway shall yield the right of way to:'
+        choices:
+            -
+                text: 'Pedestrians'
+                correct: false
+            -
+                text: 'Police/Fire Department vehicles and ambulances when such vehicles are on official business'
+                correct: true
+            -
+                text: 'Big Trucks and Busses'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: "To obtain a Driver's License, one must be at least:"
+        choices:
+            -
+                text: '13 years old'
+                correct: false
+            -
+                text: '16 years old'
+                correct: false
+            -
+                text: '18 years old'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'In changing lanes, what should be done first?'
+        choices:
+            -
+                text: 'Wait for the other vehicles'
+                correct: false
+            -
+                text: 'Make a full stop'
+                correct: false
+            -
+                text: 'Make a signal'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'It is not considered safe driving on an expressway when:'
+        choices:
+            -
+                text: 'Driver keep changing lanes without signaling'
+                correct: true
+            -
+                text: 'Driver focuses on the road'
+                correct: false
+            -
+                text: 'Driver apply safety protocols'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'When do you have to make a full stop?'
+        choices:
+            -
+                text: 'At a red traffic light'
+                correct: true
+            -
+                text: 'Anytime'
+                correct: false
+            -
+                text: 'Only when you want'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: "When can you lend your driver's license?"
+        choices:
+            -
+                text: 'Anytime'
+                correct: false
+            -
+                text: 'Under no circumstances'
+                correct: true
+            -
+                text: 'Only when you want'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'If you are the first to arrive at the scene of an accident, which of the following should you do?'
+        choices:
+            -
+                text: 'Drive and go'
+                correct: false
+            -
+                text: 'Turn a blind eye'
+                correct: false
+            -
+                text: 'Offer all reasonable assistance'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'You were apprehended because you were engaged in car racing while driving in a super highway, what traffic violation did you commit?'
+        choices:
+            -
+                text: 'Drunkenness'
+                correct: false
+            -
+                text: 'Reckless Driving '
+                correct: true
+            -
+                text: 'Safe Driving'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Steady green Light at an intersection means:'
+        choices:
+            -
+                text: 'Slowdown and proceed with caution'
+                correct: false
+            -
+                text: 'Informative Signs'
+                correct: false
+            -
+                text: 'Pedestrians are not allowed to cross the pedestrian lanes'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Traffic jam can be prevented if you :'
+        choices:
+            -
+                text: 'Keep opposing lanes open'
+                correct: true
+            -
+                text: 'Keep opposing lanes close'
+                correct: false
+            -
+                text: 'Drive recklessly'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'The most effective way to deal with a tailgater is to:'
+        choices:
+            -
+                text: 'Ignore'
+                correct: false
+            -
+                text: 'Hit the pedestrian'
+                correct: false
+            -
+                text: 'Slow down and let him pass'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'two_way_traffic.png'
+            text: 'What road sign is shown?'
+        choices:
+            -
+                text: 'No Jaywalking'
+                correct: false
+            -
+                text: 'Two-way Traffic'
+                correct: true
+            -
+                text: 'No Parking'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Road crash can be avoided and minimized if the driver: '
+        choices:
+            -
+                text: 'Is a Dancer'
+                correct: false
+            -
+                text: 'Knows and obeys traffic signals, rules and regulations'
+                correct: true
+            -
+                text: 'Knows how to cook'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'The proper hand signal for a left turn is: ?'
+        choices:
+            -
+                text: ' Left arm straight in horizontal position'
+                correct: true
+            -
+                text: 'Left Side'
+                correct: false
+            -
+                text: 'Riht arm verticallly'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'What affects your visibility while driving at night? '
+        choices:
+            -
+                text: 'Moonlight'
+                correct: false
+            -
+                text: 'Sunglasses'
+                correct: false
+            -
+                text: 'Defective and dirty headlights'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Ignoring traffic lights could:'
+        choices:
+            -
+                text: 'Involve you in fatal accident'
+                correct: true
+            -
+                text: 'Improve your eyesight'
+                correct: false
+            -
+                text: 'Help you arrive at your destination safely'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'It is considered as one of intentional violation? '
+        choices:
+            -
+                text: 'Using phone while driving'
+                correct: false
+            -
+                text: 'Driving with the flow of the traffic and overtaking in the shoulder or sidewalks'
+                correct: false
+            -
+                text: 'Driving against the flow of the traffic and overtaking in the shoulder or sidewalks'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'This traffic sign warns you that school children may be present in the vicinity:'
+        choices:
+            -
+                text: 'Triangle'
+                correct: false
+            -
+                text: 'Pentagon'
+                correct: true
+            -
+                text: 'Circle'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'A driver must not park or stop at the side of the road with a "STOP SIGN" or a traffic control signal because it reduces visibility for other drivers, especially when it is within :'
+        choices:
+            -
+                text: '6m'
+                correct: true
+            -
+                text: '1m'
+                correct: false
+            -
+                text: '7m'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'no_entry_for_trucks.png'
+            text: 'What sign is shown? '
+        choices:
+            -
+                text: 'No Entry for Jeepneys'
+                correct: false
+            -
+                text: 'No Entry for Big Trucks'
+                correct: true
+            -
+                text: 'No Entry for Busses'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'no_entry_for_busses.png'
+            text: 'What road sign is shown?'
+        choices:
+            -
+                text: 'No Entry for Jeepneys'
+                correct: false
+            -
+                text: 'No Entry for Big Trucks'
+                correct: false
+            -
+                text: 'No Entry for Busses'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'no_entry_for_jeepneys.png'
+            text: 'What road sign is shown?'
+        choices:
+            -
+                text: 'No Entry for Jeepneys'
+                correct: true
+            -
+                text: 'No Entry for Big Trucks'
+                correct: false
+            -
+                text: 'No Entry for Busses'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
