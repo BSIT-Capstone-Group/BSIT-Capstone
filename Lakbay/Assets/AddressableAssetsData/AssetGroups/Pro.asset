@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Pro
   m_Data:
     m_SerializedData: []
-  m_GUID: eb73371b4bfac944f82e74e3f8d62252
+  m_GUID: f7be7cc0f84e5574a9a1915894e143a4
   m_SerializeEntries:
   - m_GUID: 14faa688f7e58014795f7515757332e5
     m_Address: Text Files/Modes/Pro/Linear Play/player.yaml
@@ -40,36 +40,30 @@ MonoBehaviour:
   - m_GUID: a590033ab23c21b47a4e030cb69e158f
     m_Address: Text Files/Modes/Pro/Linear Play/Levels/1/set_eng.yaml
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Locale-en-PH
+    m_SerializedLabels: []
   - m_GUID: 8018cb3ae20596f4a857f1b6de8eadf7
     m_Address: Text Files/Modes/Pro/Linear Play/Levels/1/set_fil.yaml
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Locale-fil-PH
+    m_SerializedLabels: []
   - m_GUID: de56c146a6639784f92b8ff2f3b3fbe6
     m_Address: Text Files/Modes/Pro/Linear Play/Levels/2/set_eng.yaml
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Locale-en-PH
+    m_SerializedLabels: []
   - m_GUID: 5d881c095297fe142a6f2a18b8a501ec
     m_Address: Text Files/Modes/Pro/Linear Play/Levels/2/set_fil.yaml
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Locale-fil-PH
+    m_SerializedLabels: []
   - m_GUID: 18f8e8a96632b544f9bae32229dedc19
     m_Address: Text Files/Modes/Pro/Linear Play/Levels/3/set_eng.yaml
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Locale-en-PH
+    m_SerializedLabels: []
   - m_GUID: 27474ba78939ebf48b58c5c8c3ddc1b0
     m_Address: Text Files/Modes/Pro/Linear Play/Levels/3/set_fil.yaml
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Locale-fil-PH
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 78968d0602aa1284ea6f8e184c888704, type: 2}
-    - {fileID: 11400000, guid: 8e4e2dd4c6a3d0042b6c86364d385680, type: 2}
+    - {fileID: 11400000, guid: 6a2bafb2dd7114c4bb63cabd762ac212, type: 2}
+    - {fileID: 11400000, guid: 8ed62b4f407b1114cb076ce000750d74, type: 2}

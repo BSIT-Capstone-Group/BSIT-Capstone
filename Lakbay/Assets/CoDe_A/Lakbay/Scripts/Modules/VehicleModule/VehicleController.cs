@@ -69,8 +69,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 			this.initialPosition = this.transform.position;
 			this.initialRotation = this.transform.rotation.eulerAngles;
 
-			if(GameController.currentMode != null) this.setUpVehicle(
-				GameController.currentMode.linearPlay.vehicle
+			if(GameController.currentModeData != null) this.setUpVehicle(
+				GameController.currentModeData.linearPlayData.vehicleFile
 			);
 			else if(this.vehicleFile) this.setUpVehicle(this.vehicleFile);
 

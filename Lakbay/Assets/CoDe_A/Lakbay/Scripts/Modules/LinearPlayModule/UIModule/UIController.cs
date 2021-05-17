@@ -78,12 +78,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
             float rf = SimpleInput.GetAxis("RefillFuel");
             this.onFuelTopUp.Invoke(this, rf);
 
-            if(GameModule.GameController.currentMode != null) {
+            if(GameModule.GameController.currentModeData != null) {
                 this.modeText.SetText(GameModule.GameController.currentModeType == GameModule.GameController.Mode.NON_PRO ? "Non-Pro" : "Pro");
 
                 if(GameModule.GameController.currentLinearPlayLevel != null) {
-                    int i = GameModule.GameController.currentMode.linearPlay.levels.IndexOf(GameModule.GameController.currentLinearPlayLevel);
-                    int l = GameModule.GameController.currentMode.linearPlay.levels.Count;
+                    int i = GameModule.GameController.currentModeData.linearPlayData.levels.IndexOf(GameModule.GameController.currentLinearPlayLevel);
+                    int l = GameModule.GameController.currentModeData.linearPlayData.levels.Count;
                     this.stageText.SetText($"{i + 1} / {l}");
 
                 }
@@ -183,7 +183,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
 
             foreach(string path in paths) {
                 string npath = $"Images/{path}";
-                AsyncOperationHandle<Sprite> h = Addressables.LoadAssetAsync<Sprite>(npath);
+                AsyncOperationHandle<Sprite> h = DatabaseModule.DatabaseController.loadAsset<Sprite>(npath);
                 await h.Task;
                 sprites.Add(
                     h.Result

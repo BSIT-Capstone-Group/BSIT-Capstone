@@ -19,6 +19,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         [HideInInspector]
         public ItemController currentItemController = null;
 
+        public bool shuffledItems = true;
+        public bool shuffledItemChoices = true;
+
         public TextAsset setFile;
         public Set set;
 
@@ -41,8 +44,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         public float maxScore { get => this.itemControllers.Count; }
 
         private void Start() {
-            if(GameController.currentMode != null) this.setUpSet(
-                GameController.currentLinearPlayLevel.set
+            if(GameController.currentModeData != null) this.setUpSet(
+                GameController.currentLinearPlayLevel.setFile
             );
             else if(this.setFile) this.setUpSet(this.setFile);
 
@@ -82,6 +85,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
                 ic.setController = this;
                 ic.playerController = this.playerController;
                 ic.uiController = this.uIController;
+                ic.shuffledChoices = this.shuffledItemChoices;
                 ic.setUpItem(item);
 
             }
@@ -96,6 +100,11 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         }
 
         public void setUpSet(Set set) {
+            if(this.shuffledItems) {
+                set.items = Utilities.Helper.shuffle<Item>(set.items.ToArray()).ToList();
+
+            }
+
             this.set = set;
             this.populate();
 

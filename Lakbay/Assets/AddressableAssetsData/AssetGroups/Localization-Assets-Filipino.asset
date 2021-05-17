@@ -15,11 +15,11 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Filipino
   m_Data:
     m_SerializedData: []
-  m_GUID: 80f9d68e5f69153438621eaada638932
+  m_GUID: 4880799f38b3bf24c95cbd77fe146332
   m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: ee553e63603a02148bebf576a8552875, type: 2}
-    - {fileID: 11400000, guid: b9b7a525c603b3e4e8322d1aecb8e57a, type: 2}
+    - {fileID: 11400000, guid: 844d9304e410b9640b06c50297acccd1, type: 2}
+    - {fileID: 11400000, guid: 43403a3f090b2024fa1907bc0ca9fd36, type: 2}

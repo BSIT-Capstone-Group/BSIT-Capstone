@@ -156,7 +156,7 @@ items:
                 text: 'Both vehicle must cross'
                 correct: false
             -
-                text: 'Vehicle on the right  '
+                text: 'Vehicle on the right'
                 correct: true
         minCoinGain: 1
         maxCoinGain: 10

@@ -15,11 +15,11 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-English
   m_Data:
     m_SerializedData: []
-  m_GUID: ec8001a17c916584fb859c4b9fff392f
+  m_GUID: 683f8ee84392c2f4b8d9fe3330cdc53e
   m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: c2e59f9da5d99ed4693f18482478a622, type: 2}
-    - {fileID: 11400000, guid: 5d85e2a5f9e3a9f42bfcf97238b67f6e, type: 2}
+    - {fileID: 11400000, guid: f15b015ab7756ca4689c9efa700ca135, type: 2}
+    - {fileID: 11400000, guid: e2ab5e54db6e99847bcfca7172e21e49, type: 2}

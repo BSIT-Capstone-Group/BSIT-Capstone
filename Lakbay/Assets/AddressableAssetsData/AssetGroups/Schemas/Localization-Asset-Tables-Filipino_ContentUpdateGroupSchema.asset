@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
   m_Name: Localization-Asset-Tables-Filipino_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 831eddf125cb37241968bb6f45a9242c, type: 2}
+  m_Group: {fileID: 11400000, guid: 13db0f8ed21a58c4ca0dcdd25dc88f73, type: 2}
   m_StaticContent: 0

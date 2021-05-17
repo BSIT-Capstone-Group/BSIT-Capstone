@@ -15,14 +15,14 @@ MonoBehaviour:
   m_GroupName: Localization-Locales
   m_Data:
     m_SerializedData: []
-  m_GUID: 4cc0c0d0e5beadb468a72a1bc8a53511
+  m_GUID: e4ad2c7f83c78994b85bfa2c3b469d29
   m_SerializeEntries:
-  - m_GUID: f826caa6e5028f1459ef466c76e844ce
+  - m_GUID: af6af2885f691bb4c8d880e452a3c3ef
     m_Address: English
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-  - m_GUID: 6789e191c4e7c4543915b56d56c38dc2
+  - m_GUID: 4547c9e668fc68e4fb9c99b334dd1643
     m_Address: Filipino
     m_ReadOnly: 1
     m_SerializedLabels:
@@ -31,5 +31,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 4d5a6f3e17af3224b94013b86b20568b, type: 2}
-    - {fileID: 11400000, guid: 12c7aac8f74d380409871957e9bf7187, type: 2}
+    - {fileID: 11400000, guid: 40076563f920b5b40ae4d4a7fb4555d8, type: 2}
+    - {fileID: 11400000, guid: 4c9d7300f259fa64b93e50bf807d791a, type: 2}

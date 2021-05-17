@@ -15,16 +15,16 @@ MonoBehaviour:
   m_GroupName: Localization-Asset-Tables-English
   m_Data:
     m_SerializedData: []
-  m_GUID: 83925d99194137a4d92454869fc7f7fe
+  m_GUID: 2377254b58ed5f84aad086c2ab9f9a4b
   m_SerializeEntries:
-  - m_GUID: 7d99df9ae72d52c418486784b1649369
-    m_Address: Localized Assets Table_en-PH
+  - m_GUID: 17cc112a14d1d6b4faf4f08945ed639a
+    m_Address: Localized Assets Table_en
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-en-PH
+    - Locale-en
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 50cd0ce88ba482f4a9414085a034d73f, type: 2}
-    - {fileID: 11400000, guid: 179c0d3140023d540a64357b95b5b3fd, type: 2}
+    - {fileID: 11400000, guid: e1de2007107670144aa0a681e77e89a2, type: 2}
+    - {fileID: 11400000, guid: 9653fdd8ddf73094bb0f277046ed762d, type: 2}

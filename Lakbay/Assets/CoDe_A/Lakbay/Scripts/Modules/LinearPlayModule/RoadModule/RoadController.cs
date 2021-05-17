@@ -29,9 +29,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
 
         private void Start() {
             // this.sizeModel = this.model.transform.Find("Road").gameObject;
-            if(GameController.currentMode != null) this.setUpRoad(
+            if(GameController.currentModeData != null) this.setUpRoad(
                 // GameController.linearPlayStage.roadFile
-                GameController.currentLinearPlayLevel.road
+                GameController.currentLinearPlayLevel.roadFile
             );
             else if(this.roadFile) this.setUpRoad(this.roadFile);
 

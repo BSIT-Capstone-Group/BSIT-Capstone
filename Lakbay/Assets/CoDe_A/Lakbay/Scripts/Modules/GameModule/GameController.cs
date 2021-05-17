@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Threading.Tasks;
-using UnityEngine.Localization.Settings;
+// using UnityEngine.Localization.Settings;
 
 namespace CoDe_A.Lakbay.Modules.GameModule {
     public class GameController : MonoBehaviour {
         public enum Mode { NON_PRO, PRO }
 
-        public static DatabaseModule.Mode currentMode = null;
+        public static DatabaseModule.ModeData currentModeData = null;
         public static Mode currentModeType;
-        public static DatabaseModule.LinearPlay.Level currentLinearPlayLevel = null;
+        public static DatabaseModule.LinearPlayData.Level currentLinearPlayLevel = null;
 
         private async Task Awake() {
-            Task<DatabaseModule.Mode> t = null;
-            if(DatabaseModule.DatabaseController.nonProMode == null) {
-                t = DatabaseModule.DatabaseController.loadNonProMode();
-                await t;
-                print("Result: " + t.Result);
-                DatabaseModule.DatabaseController.nonProMode = t.Result;
+            // Task<DatabaseModule.Mode> t = null;
+            // if(DatabaseModule.DatabaseController.nonProMode == null) {
+            //     t = DatabaseModule.DatabaseController.loadNonProMode();
+            //     await t;
+            //     DatabaseModule.DatabaseController.nonProMode = t.Result;
 
-            }
+            // }
 
             // Task<string> s = Task<string>.Factory.StartNew(() => "heheh");
             // await s;
@@ -32,8 +31,6 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             //     DatabaseModule.DatabaseController.nonProMode = t.Result;
 
             // }
-
-            print("loading is finished! ");
 
             if(SceneManager.GetActiveScene().buildIndex == 0) {
                 GameController.DontDestroyOnLoad(this.gameObject);
@@ -48,11 +45,11 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static void setMode(Mode mode) {
             switch(mode) {
                 case(Mode.NON_PRO): {
-                    GameController.currentMode = DatabaseModule.DatabaseController.nonProMode;
+                    GameController.currentModeData = DatabaseModule.DatabaseController.nonProModeData;
                     break;
 
                 } case(Mode.PRO): {
-                    GameController.currentMode = DatabaseModule.DatabaseController.nonProMode;
+                    GameController.currentModeData = DatabaseModule.DatabaseController.nonProModeData;
                     break;
 
                 }
@@ -61,7 +58,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
             GameController.currentModeType = mode;
             GameController.currentLinearPlayLevel = null;
-            GameController.forwardLinearPlayStage();
+            GameController.forwardLinearPlayLevel();
 
         }
 
@@ -75,15 +72,15 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         }
 
-        public static DatabaseModule.LinearPlay.Level forwardLinearPlayStage() {
+        public static DatabaseModule.LinearPlayData.Level forwardLinearPlayLevel() {
             if(GameController.currentLinearPlayLevel == null) {
-                GameController.currentLinearPlayLevel = GameController.currentMode.linearPlay.levels[0];
+                GameController.currentLinearPlayLevel = GameController.currentModeData.linearPlayData.levels[0];
                 return GameController.currentLinearPlayLevel;
 
             }
 
-            int ci = GameController.currentMode.linearPlay.levels.IndexOf(GameController.currentLinearPlayLevel);
-            int tl = GameController.currentMode.linearPlay.levels.Count;
+            int ci = GameController.currentModeData.linearPlayData.levels.IndexOf(GameController.currentLinearPlayLevel);
+            int tl = GameController.currentModeData.linearPlayData.levels.Count;
 
             if(ci == tl - 1) {
                 GameController.currentLinearPlayLevel = null;
@@ -91,14 +88,9 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
             }
 
-            GameController.currentLinearPlayLevel = GameController.currentMode.linearPlay.levels[ci + 1];
+            GameController.currentLinearPlayLevel = GameController.currentModeData.linearPlayData.levels[ci + 1];
 
             return GameController.currentLinearPlayLevel;
-
-        }
-
-        public static void setLocale(int index) {
-            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
 
         }
 

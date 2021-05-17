@@ -49,8 +49,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         private void Start() {
             this.timer.start();
 
-            if(GameController.currentMode != null) this.setUpPlayer(
-                GameController.currentMode.linearPlay.player
+            if(GameController.currentModeData != null) this.setUpPlayer(
+                GameController.currentModeData.linearPlayData.playerFile
             );
             else if(this.playerFile) this.setUpPlayer(this.playerFile);
 
@@ -70,7 +70,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             if(this.roadController) {
                 GameObject fm = this.roadController.finishLineModel;
                 if(fm && fm.transform == collider.transform) {
-                    DatabaseModule.LinearPlay.Level l = GameController.forwardLinearPlayStage();
+                    DatabaseModule.LinearPlayData.Level l = GameController.forwardLinearPlayLevel();
 
                     if(l != null) {
                         this.vehicleController.sleep();
@@ -122,13 +122,13 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         }
 
         public void onNextStage() {
-            DatabaseModule.LinearPlay.Level l = GameController.currentLinearPlayLevel;
+            DatabaseModule.LinearPlayData.Level l = GameController.currentLinearPlayLevel;
             this.vehicleController.respawn(
                 this.vehicleController.initialPosition + (Vector3.up * 2.0f),
                 this.vehicleController.initialRotation
             );
-            this.roadController.setUpRoad(l.road);
-            this.setController.setUpSet(l.set);
+            this.roadController.setUpRoad(l.roadFile);
+            this.setController.setUpSet(l.setFile);
             this.vehicleController.wakeUp();
             this.uiController.postStagePanel.SetActive(false);
             this.timer.resume();

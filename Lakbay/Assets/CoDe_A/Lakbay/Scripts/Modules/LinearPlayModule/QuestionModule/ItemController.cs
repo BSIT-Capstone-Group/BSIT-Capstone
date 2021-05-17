@@ -48,6 +48,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         [HideInInspector]
         public bool triggered = false;
 
+        public bool shuffledChoices = true;
+
         public TextAsset itemFile;
         public SetController setController;
         public Item item;
@@ -225,6 +227,11 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         }
 
         public void setUpItem(Item item) {
+            if(this.shuffledChoices) {
+                item.choices = Utilities.Helper.shuffle<Choice>(item.choices.ToArray()).ToList();
+
+            }
+            
             this.item = item;
 
         }

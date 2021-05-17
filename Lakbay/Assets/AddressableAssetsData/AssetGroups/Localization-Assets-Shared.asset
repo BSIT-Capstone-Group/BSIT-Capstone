@@ -15,21 +15,21 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
-  m_GUID: feaf4526f8634144e8be3e38867f3c8f
+  m_GUID: 57a3011ed0a55504c9696a987e0283c7
   m_SerializeEntries:
-  - m_GUID: 63d961c0217ae064db1675dd6a402e85
-    m_Address: Assets/CoDe_A/Lakbay/Addressable Resources/Localizations/Tables/Asset
-      Table Shared Data.asset
+  - m_GUID: 047faf10a13929546a64a5b39bf49d4e
+    m_Address: Assets/CoDe_A/Lakbay/Addressable Resources/Localizations/Tables/Localized
+      Strings Table Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
-  - m_GUID: 7855695db60b325418fe4e049e70e635
-    m_Address: Assets/CoDe_A/Lakbay/Addressable Resources/Localizations/Tables/String
-      Table Shared Data.asset
+  - m_GUID: 4cb334cef97eb2541b88da9beceef458
+    m_Address: Assets/CoDe_A/Lakbay/Addressable Resources/Localizations/Tables/Localized
+      Assets Table Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: f3cdd706bbfbcb74f865772176351890, type: 2}
-    - {fileID: 11400000, guid: d2590456acf7821449c6a77f479c2645, type: 2}
+    - {fileID: 11400000, guid: 1e34143eaef03044399e99e03217753e, type: 2}
+    - {fileID: 11400000, guid: 7a3cabeb8a925224bbae362eee1709d4, type: 2}

@@ -15,16 +15,16 @@ MonoBehaviour:
   m_GroupName: Localization-Asset-Tables-Filipino
   m_Data:
     m_SerializedData: []
-  m_GUID: 1200abec2167ac4438b71426ea8ebdaa
+  m_GUID: 21556dbdf592251499d43da4eb754846
   m_SerializeEntries:
-  - m_GUID: 3100c7b2847f3c9469e94a953ffdf60e
-    m_Address: Localized Assets Table_fil-PH
+  - m_GUID: 103a4db7fc92ffb478ec65fadc89ea4b
+    m_Address: Localized Assets Table_fil
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-fil-PH
+    - Locale-fil
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 1f68879d624c17e4d8535b509ffc72bb, type: 2}
-    - {fileID: 11400000, guid: b75281580ccae2547846244dd589c310, type: 2}
+    - {fileID: 11400000, guid: 964940919b8cfb44fa7a4f6c2056ea44, type: 2}
+    - {fileID: 11400000, guid: 546e5f14de809b242a749f5e12b8742f, type: 2}
