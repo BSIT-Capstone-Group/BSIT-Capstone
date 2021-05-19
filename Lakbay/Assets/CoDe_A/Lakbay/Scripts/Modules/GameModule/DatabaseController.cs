@@ -10,7 +10,7 @@ using CoDe_A.Lakbay.Modules.LinearPlayModule;
 using UnityEngine.Localization;
 using System;
 
-namespace CoDe_A.Lakbay.Modules.DatabaseModule {
+namespace CoDe_A.Lakbay.Modules.GameModule {
     [System.Serializable]
     public class Data {
         public static T parseYAML<T>(TextAsset textAsset) {

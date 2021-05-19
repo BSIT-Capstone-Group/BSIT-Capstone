@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using CoDe_A.Lakbay.Modules.GameModule;
-using CoDe_A.Lakbay.Modules.DatabaseModule;
+using CoDe_A.Lakbay.Modules.GameModule;
 using System;
 using TMPro;
 
@@ -70,7 +70,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             if(this.roadController) {
                 GameObject fm = this.roadController.finishLineModel;
                 if(fm && fm.transform == collider.transform) {
-                    DatabaseModule.LinearPlayData.Level l = GameController.forwardLinearPlayLevel();
+                    GameModule.LinearPlayData.Level l = GameController.forwardLinearPlayLevel();
 
                     if(l != null) {
                         this.vehicleController.sleep();
@@ -122,7 +122,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         }
 
         public void onNextStage() {
-            DatabaseModule.LinearPlayData.Level l = GameController.currentLinearPlayLevel;
+            GameModule.LinearPlayData.Level l = GameController.currentLinearPlayLevel;
             this.vehicleController.respawn(
                 this.vehicleController.initialPosition + (Vector3.up * 2.0f),
                 this.vehicleController.initialRotation

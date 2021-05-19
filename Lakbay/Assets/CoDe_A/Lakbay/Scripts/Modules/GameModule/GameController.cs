@@ -11,9 +11,9 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
     public class GameController : MonoBehaviour {
         public enum Mode { NON_PRO, PRO }
 
-        public static DatabaseModule.ModeData currentModeData = null;
+        public static GameModule.ModeData currentModeData = null;
         public static Mode currentModeType;
-        public static DatabaseModule.LinearPlayData.Level currentLinearPlayLevel = null;
+        public static GameModule.LinearPlayData.Level currentLinearPlayLevel = null;
 
         public Slider loadingSlider;
         public TMP_Text loadingText;
@@ -39,7 +39,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
             if(SceneManager.GetActiveScene().buildIndex == 0) {
                 try {
-                    await DatabaseModule.DatabaseController.setUp();
+                    await GameModule.DatabaseController.setUp();
                     if(this.loadingSlider) this.loadingSlider.value = 1 / 3.0f;
                     await AudioController.setUp();
                     if(this.loadingSlider) this.loadingSlider.value = 1 / 2.0f;
@@ -66,11 +66,11 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static void setMode(Mode mode) {
             switch(mode) {
                 case(Mode.NON_PRO): {
-                    GameController.currentModeData = DatabaseModule.DatabaseController.nonProModeData;
+                    GameController.currentModeData = GameModule.DatabaseController.nonProModeData;
                     break;
 
                 } case(Mode.PRO): {
-                    GameController.currentModeData = DatabaseModule.DatabaseController.nonProModeData;
+                    GameController.currentModeData = GameModule.DatabaseController.nonProModeData;
                     break;
 
                 }
@@ -93,7 +93,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         }
 
-        public static DatabaseModule.LinearPlayData.Level forwardLinearPlayLevel() {
+        public static GameModule.LinearPlayData.Level forwardLinearPlayLevel() {
             if(GameController.currentLinearPlayLevel == null) {
                 GameController.currentLinearPlayLevel = GameController.currentModeData.linearPlayData.levels[0];
                 return GameController.currentLinearPlayLevel;

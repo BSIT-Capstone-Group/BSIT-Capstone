@@ -29,7 +29,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         public static async Task setUp() {
             if(!gameMixer) {
-                AsyncOperationHandle<AudioMixer> h = DatabaseModule.DatabaseController.loadAsset<AudioMixer>("Audio Mixers/Game.mixer");
+                AsyncOperationHandle<AudioMixer> h = GameModule.DatabaseController.loadAsset<AudioMixer>("Audio Mixers/Game.mixer");
                 await h.Task;
 
                 gameMixer = h.Result;

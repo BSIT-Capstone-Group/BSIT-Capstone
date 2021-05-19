@@ -183,7 +183,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
 
             foreach(string path in paths) {
                 string npath = $"Images/{path}";
-                AsyncOperationHandle<Sprite> h = DatabaseModule.DatabaseController.loadAsset<Sprite>(npath);
+                AsyncOperationHandle<Sprite> h = GameModule.DatabaseController.loadAsset<Sprite>(npath);
                 await h.Task;
                 sprites.Add(
                     h.Result

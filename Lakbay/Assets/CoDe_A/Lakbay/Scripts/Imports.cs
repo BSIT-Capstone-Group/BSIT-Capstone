@@ -14,7 +14,7 @@ namespace CoDe_A.Lakbay.Imports {
     using TMPro;
 
     using CoDe_A.Lakbay.Modules;
-    using CoDe_A.Lakbay.Modules.DatabaseModule;
+    using CoDe_A.Lakbay.Modules.GameModule;
     using CoDe_A.Lakbay.Modules.GameModule;
 
 }
