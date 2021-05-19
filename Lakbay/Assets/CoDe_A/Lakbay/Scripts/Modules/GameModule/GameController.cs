@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.UI;
+using TMPro;
 // using UnityEngine.Localization.Settings;
 
 namespace CoDe_A.Lakbay.Modules.GameModule {
@@ -12,6 +14,9 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static DatabaseModule.ModeData currentModeData = null;
         public static Mode currentModeType;
         public static DatabaseModule.LinearPlayData.Level currentLinearPlayLevel = null;
+
+        public Slider loadingSlider;
+        public TMP_Text loadingText;
 
         private async Task Awake() {
             // Task<DatabaseModule.Mode> t = null;
@@ -33,12 +38,28 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             // }
 
             if(SceneManager.GetActiveScene().buildIndex == 0) {
+                try {
+                    await DatabaseModule.DatabaseController.setUp();
+                    if(this.loadingSlider) this.loadingSlider.value = 1 / 3.0f;
+                    await AudioController.setUp();
+                    if(this.loadingSlider) this.loadingSlider.value = 1 / 2.0f;
+                    await PreferencesController.setUp();
+                    if(this.loadingSlider) this.loadingSlider.value = 1 / 1.0f;
+
+                } catch (System.Exception e) {
+                    if(this.loadingText) this.loadingText.SetText(e.ToString());
+                    throw e;
+
+                }
+
                 GameController.DontDestroyOnLoad(this.gameObject);
                 GameController.loadScene(1);
 
             } else {
 
             }
+            
+            return;
 
         }
 

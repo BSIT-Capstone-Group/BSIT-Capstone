@@ -13,11 +13,20 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
         public Toggle leftAutoRotationToggle;
         public Toggle rightAutoRotationToggle;
 
+        public Slider masterVolumeSlider;
+        public Slider musicVolumeSlider;
+        public Slider soundVolumeSlider;
+
+        public TMP_Text masterVolumeText;
+        public TMP_Text musicVolumeText;
+        public TMP_Text soundVolumeText;
+
         private IEnumerator Start() {
             yield return this.setUpLanguageDropdown();
 
             this.setUpQualityDropdown();
             this.setUpAutoRotationToggles();
+            this.setUpVolumeSliders();
             
         }
 
@@ -68,7 +77,6 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
         }
 
         public void setUpAutoRotationToggles() {
-            print("setting up");
             int ar = GameModule.PreferencesController.getLandscapeAutoRotation();
             this.leftAutoRotationToggle.isOn = true;
             this.rightAutoRotationToggle.isOn = true;
@@ -83,6 +91,34 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
 
             this.leftAutoRotationToggle.onValueChanged.AddListener(this.setLeftAutoRotation);
             this.rightAutoRotationToggle.onValueChanged.AddListener(this.setRightAutoRotation);
+
+        }
+
+        public void setUpVolumeSliders() {
+            this.masterVolumeSlider.onValueChanged.AddListener(
+                GameModule.PreferencesController.setMasterVolume
+            );
+            this.musicVolumeSlider.onValueChanged.AddListener(
+                GameModule.PreferencesController.setMusicVolume
+            );
+            this.soundVolumeSlider.onValueChanged.AddListener(
+                GameModule.PreferencesController.setSoundVolume
+            );
+
+            this.masterVolumeSlider.onValueChanged.AddListener(
+                (v) => { this.masterVolumeText.SetText((v * 100.0f).ToString("N0") + "%"); }
+                // (v) => { this.masterVolumeText.SetText(v.ToString()); }
+            );
+            this.musicVolumeSlider.onValueChanged.AddListener(
+                (v) => { this.musicVolumeText.SetText((v * 100.0f).ToString("N0") + "%"); }
+            );
+            this.soundVolumeSlider.onValueChanged.AddListener(
+                (v) => { this.soundVolumeText.SetText((v * 100.0f).ToString("N0") + "%"); }
+            );
+
+            this.masterVolumeSlider.value = GameModule.AudioController.getMasterVolume();
+            this.musicVolumeSlider.value = GameModule.AudioController.getMusicVolume();
+            this.soundVolumeSlider.value = GameModule.AudioController.getSoundVolume();
 
         }
 

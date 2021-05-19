@@ -4,6 +4,8 @@ using UnityEngine.Localization.Settings;
 using UnityEngine.Localization;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
 using SharpConfig;
 
 namespace CoDe_A.Lakbay.Modules.GameModule {
@@ -36,8 +38,34 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         // public static Preferences preferences = new Preferences();
         public static Configuration preferences = new Configuration();
 
-        private IEnumerator Start() {
-            yield return LocalizationSettings.InitializationOperation;
+        // private IEnumerator Start() {
+        //     yield return LocalizationSettings.InitializationOperation;
+
+        //     PreferencesController._DEFAULT_PATH = Application.persistentDataPath + $"/{DEFAULT_FILENAME}";
+        //     PreferencesController.setDefault();
+            
+        //     try {
+        //         print($"[PREFERENCES] Finding `{DEFAULT_FILENAME}`...");
+        //         PreferencesController.load();
+        //         print($"[PREFERENCES] Loaded `{DEFAULT_FILENAME}`.");
+                
+        //     } catch {
+        //         print($"[PREFERENCES] Failed to find `{DEFAULT_FILENAME}`.");
+        //         print($"[PREFERENCES] Creating `{DEFAULT_FILENAME}`.");
+        //         PreferencesController.save();
+        //         print($"[PREFERENCES] Created `{DEFAULT_FILENAME}`.");
+
+        //     }
+
+        // }
+
+        // private async Task Awake() {
+
+
+        // }
+
+        public static async Task setUp() {
+            await LocalizationSettings.InitializationOperation.Task;
 
             PreferencesController._DEFAULT_PATH = Application.persistentDataPath + $"/{DEFAULT_FILENAME}";
             PreferencesController.setDefault();
@@ -51,6 +79,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
                 print($"[PREFERENCES] Failed to find `{DEFAULT_FILENAME}`.");
                 print($"[PREFERENCES] Creating `{DEFAULT_FILENAME}`.");
                 PreferencesController.save();
+                PreferencesController.load();
                 print($"[PREFERENCES] Created `{DEFAULT_FILENAME}`.");
 
             }
@@ -58,6 +87,10 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         }
 
         public static void setDefault() {
+            PreferencesController.preferences["Audio"]["MasterVolume"].FloatValue = 0.5f;
+            PreferencesController.preferences["Audio"]["MusicVolume"].FloatValue = 1.0f;
+            PreferencesController.preferences["Audio"]["SoundVolume"].FloatValue = 1.0f;
+
             PreferencesController.preferences["Video"]["QualityLevel"].IntValue = 2;
             PreferencesController.preferences["Video"]["LandscapeAutoRotation"].IntValue = 2;
 
@@ -154,6 +187,29 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         }
 
+        public static void setVolume(string name, float value) {
+            AudioController.setVolume(name, value);
+
+            preferences["Audio"][name[0].ToString().ToUpper() + name.Substring(1)].FloatValue = value;
+            save();
+
+        }
+
+        public static void setMasterVolume(float value) {
+            setVolume(AudioController.MASTER_VOLUME_PARAMETER, value);
+
+        }
+
+        public static void setMusicVolume(float value) {
+            setVolume(AudioController.MUSIC_VOLUME_PARAMETER, value);
+
+        }
+
+        public static void setSoundVolume(float value) {
+            setVolume(AudioController.SOUND_VOLUME_PARAMETER, value);
+
+        }
+
         public static void save(string path) {
             PreferencesController.preferences.SaveToFile(path);
 
@@ -168,6 +224,11 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static void load(string path) {
             PreferencesController.preferences = Configuration.LoadFromFile(path);
             Configuration c = PreferencesController.preferences;
+
+            // print("mastervolume: " + c["Audio"]["MasterVolume"].FloatValue);
+            PreferencesController.setMasterVolume(c["Audio"]["MasterVolume"].FloatValue);
+            PreferencesController.setMusicVolume(c["Audio"]["MusicVolume"].FloatValue);
+            PreferencesController.setSoundVolume(c["Audio"]["SoundVolume"].FloatValue);
 
             PreferencesController.setQualityLevel(c["Video"]["QualityLevel"].IntValue);
             PreferencesController.setLandscapeAutoRotation(c["Video"]["LandscapeAutoRotation"].IntValue);

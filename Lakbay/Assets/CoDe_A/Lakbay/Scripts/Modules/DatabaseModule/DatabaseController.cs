@@ -72,7 +72,11 @@ namespace CoDe_A.Lakbay.Modules.DatabaseModule {
         public static ModeData nonProModeData;
         public static ModeData proModeData;
 
-        private async Task Start() {
+        // private async Task Start() {
+
+        // }
+
+        public static async Task setUp() {
             Task<ModeData> md = DatabaseController.loadNonProMode();
             await md;
             DatabaseController.nonProModeData = md.Result;
