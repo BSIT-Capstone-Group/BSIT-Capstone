@@ -41,8 +41,6 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
             PreferencesController._DEFAULT_PATH = Application.persistentDataPath + $"/{DEFAULT_FILENAME}";
             PreferencesController.setDefault();
-
-            print(QualitySettings.names[0]);
             
             try {
                 print($"[PREFERENCES] Finding `{DEFAULT_FILENAME}`...");
@@ -61,6 +59,8 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         public static void setDefault() {
             PreferencesController.preferences["Video"]["QualityLevel"].IntValue = 2;
+            PreferencesController.preferences["Video"]["LandscapeAutoRotation"].IntValue = 2;
+
             PreferencesController.preferences["Accessibility"]["LocaleName"].StringValue = "English";
 
         }
@@ -87,7 +87,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         }
 
         public static string getLocale() {
-            return PreferencesController.preferences["Accessibility"]["LocaleName"].StringValue;
+            return LocalizationSettings.SelectedLocale.LocaleName;
 
         }
 
@@ -115,6 +115,45 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         }
 
+        public static void setLandscapeAutoRotation(int index) {
+            bool left = true, right = true;
+
+            if(index == 0) right = false;
+            else if(index == 1) left = false;
+
+            setLandscapeAutoRotation(left, right);
+
+        }
+
+        public static void setLandscapeAutoRotation(bool left, bool right) {
+            Screen.orientation = ScreenOrientation.AutoRotation;
+            Screen.autorotateToPortrait = false;
+            Screen.autorotateToPortraitUpsideDown = false;
+
+            Screen.autorotateToLandscapeLeft = left;
+            Screen.autorotateToLandscapeRight = right;
+
+            // print(Screen.autorotateToLandscapeLeft + " " + Screen.autorotateToLandscapeRight + " " + getLandscapeAutoRotation());
+
+            preferences["Video"]["LandscapeAutoRotation"].IntValue = getLandscapeAutoRotation();
+            save();
+
+        }
+
+        public static int getLandscapeAutoRotation() {
+            bool left = Screen.autorotateToLandscapeLeft, right = Screen.autorotateToLandscapeRight;
+            int index = 2;
+
+            if(left && !right) index = 0;
+            if(!left && right) index = 1;
+            else if(left && right) index = 2;
+
+            // print($"index: {index}");
+
+            return index;
+
+        }
+
         public static void save(string path) {
             PreferencesController.preferences.SaveToFile(path);
 
@@ -131,6 +170,8 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             Configuration c = PreferencesController.preferences;
 
             PreferencesController.setQualityLevel(c["Video"]["QualityLevel"].IntValue);
+            PreferencesController.setLandscapeAutoRotation(c["Video"]["LandscapeAutoRotation"].IntValue);
+
             PreferencesController.setLocale(c["Accessibility"]["LocaleName"].StringValue);
             
         }

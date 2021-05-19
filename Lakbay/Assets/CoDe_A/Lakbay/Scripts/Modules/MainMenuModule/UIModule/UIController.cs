@@ -10,11 +10,14 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
         // Source: https://docs.unity3d.com/Packages/com.unity.localization@1.0/manual/Scripting.html
         public TMP_Dropdown languageDropdown;
         public TMP_Dropdown qualityDropdown;
+        public Toggle leftAutoRotationToggle;
+        public Toggle rightAutoRotationToggle;
 
         private IEnumerator Start() {
             yield return this.setUpLanguageDropdown();
 
             this.setUpQualityDropdown();
+            this.setUpAutoRotationToggles();
             
         }
 
@@ -61,6 +64,49 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
 
             this.qualityDropdown.value = selected;
             this.qualityDropdown.onValueChanged.AddListener(GameModule.PreferencesController.setQualityLevel);
+
+        }
+
+        public void setUpAutoRotationToggles() {
+            print("setting up");
+            int ar = GameModule.PreferencesController.getLandscapeAutoRotation();
+            this.leftAutoRotationToggle.isOn = true;
+            this.rightAutoRotationToggle.isOn = true;
+
+            if(ar == 0) {
+                this.rightAutoRotationToggle.isOn = false;
+
+            } else if(ar == 1) {
+                this.leftAutoRotationToggle.isOn = false;
+
+            }
+
+            this.leftAutoRotationToggle.onValueChanged.AddListener(this.setLeftAutoRotation);
+            this.rightAutoRotationToggle.onValueChanged.AddListener(this.setRightAutoRotation);
+
+        }
+
+        public void setLeftAutoRotation(bool value) {
+            if(!value && !this.rightAutoRotationToggle.isOn) this.leftAutoRotationToggle.isOn = true;
+
+            // this.rightAutoRotationToggle.isOn = false;
+            GameModule.PreferencesController.setLandscapeAutoRotation(
+                this.leftAutoRotationToggle.isOn, this.rightAutoRotationToggle.isOn
+            );
+
+            print(this.leftAutoRotationToggle.isOn + " " + this.rightAutoRotationToggle.isOn);
+
+        }
+
+        public void setRightAutoRotation(bool value) {
+            if(!value && !this.leftAutoRotationToggle.isOn) this.rightAutoRotationToggle.isOn = true;
+
+            // this.leftAutoRotationToggle.isOn = false;
+            GameModule.PreferencesController.setLandscapeAutoRotation(
+                this.leftAutoRotationToggle.isOn, this.rightAutoRotationToggle.isOn
+            );
+
+            // print(this.leftAutoRotationToggle.isOn + " " + this.rightAutoRotationToggle.isOn);
 
         }
 
