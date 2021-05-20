@@ -110,7 +110,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public void onVehicleControllerFuelChange(VehicleModule.VehicleController vc, float value) {
             this.fuelBar.maxValue = 1.0f;
             this.fuelBar.minValue = 0.0f;
-            this.fuelBar.value = vc.vehicle.fuel / vc.vehicle.maxFuel;
+            this.fuelBar.value = Mathf.Lerp(this.fuelBar.value, vc.vehicle.fuel / vc.vehicle.maxFuel, 1.0f);
 
             Image img = this.fuelBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
             

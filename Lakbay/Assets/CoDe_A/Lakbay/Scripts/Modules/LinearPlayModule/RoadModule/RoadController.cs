@@ -73,6 +73,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
             List<GameObject> models = new List<GameObject>();
 
             int additionalRoadLength = this.road.additionalStartingLength + this.road.additionalEndingLength;
+            int levelNumber = GameController.currentModeData.linearPlayData.levels.IndexOf(GameController.currentLinearPlayLevel) + 1;
 
             for(int i = 0; i < this.road.length + additionalRoadLength; i++) {
                 GameObject model = Instantiate<GameObject>(this.model);
@@ -85,6 +86,14 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
 
                 model.transform.position += new Vector3(0.0f, 0.0f, modelSize.z * i);
                 model.transform.SetParent(this.transform);
+                
+                foreach(Transform c in Utilities.Helper.getChildren(model.transform)) {
+                    if(!c.name.StartsWith("Terrain")) continue;
+
+                    if(c.name.Equals($"Terrain {levelNumber}")) c.gameObject.SetActive(true);
+                    else c.gameObject.SetActive(false);
+
+                }
 
                 models.Add(model);
 

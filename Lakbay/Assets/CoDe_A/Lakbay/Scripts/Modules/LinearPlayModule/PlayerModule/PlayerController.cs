@@ -190,6 +190,13 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                 3.5f
             );
 
+            // print(ic.answeredCorrectly + " " + this.setController.score);
+            // foreach(var icc in this.setController.itemControllers) {
+            //     print(icc.answeredCorrectly);
+
+            // }
+            // print("===========================");
+
         }
 
         public void onViewCameraControllerUpdate(

@@ -34,5 +34,29 @@ MonoBehaviour:
     m_Localized: About
     m_Metadata:
       m_Items: []
+  - m_Id: 1215400413982720
+    m_Localized: Tumuloy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1216414357614592
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1217656710459392
+    m_Localized: Nakahinto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1252643224645632
+    m_Localized: 'Hindi Propesyonal
+
+      <size=50%>Driver''s License'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1252843066454016
+    m_Localized: 'Propesyonal
+
+      <size=50%>Driver''s License'
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -31,6 +31,26 @@ MonoBehaviour:
     m_Key: aboutString
     m_Metadata:
       m_Items: []
+  - m_Id: 1215400413982720
+    m_Key: resumeString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1216414357614592
+    m_Key: mainMenuString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1217656710459392
+    m_Key: pausedString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1252643224645632
+    m_Key: nonProDLString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1252843066454016
+    m_Key: proDLString
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

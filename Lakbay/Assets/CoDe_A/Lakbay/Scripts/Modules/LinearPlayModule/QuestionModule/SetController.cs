@@ -63,6 +63,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
             RoadModule.RoadController rc = this.roadController;
             if(!rc.sizeModel) return;
 
+            this.itemControllers.Clear();
             Utilities.Helper.destroyChildren(this.transform);
             Vector3 modelSize = rc.sizeModel.GetComponent<MeshRenderer>().bounds.size;
 
@@ -87,6 +88,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
                 ic.uiController = this.uIController;
                 ic.shuffledChoices = this.shuffledItemChoices;
                 ic.setUpItem(item);
+
+                this.itemControllers.Add(ic);
 
             }
 

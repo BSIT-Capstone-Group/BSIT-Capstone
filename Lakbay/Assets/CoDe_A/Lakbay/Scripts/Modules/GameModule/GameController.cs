@@ -11,6 +11,8 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
     public class GameController : MonoBehaviour {
         public enum Mode { NON_PRO, PRO }
 
+        public static float lastTimeScale = 0.0f;
+        public static bool paused => Time.timeScale == 0.0f;
         public static GameModule.ModeData currentModeData = null;
         public static Mode currentModeType;
         public static GameModule.LinearPlayData.Level currentLinearPlayLevel = null;
@@ -112,6 +114,21 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             GameController.currentLinearPlayLevel = GameController.currentModeData.linearPlayData.levels[ci + 1];
 
             return GameController.currentLinearPlayLevel;
+
+        }
+
+        public static void pause() {
+            if(paused) return;
+
+            lastTimeScale = Time.timeScale;
+            Time.timeScale = 0.0f;
+
+        }
+
+        public static void resume() {
+            if(!paused) return;
+
+            Time.timeScale = lastTimeScale;
 
         }
 

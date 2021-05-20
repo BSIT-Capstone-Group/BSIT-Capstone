@@ -109,7 +109,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             await handle.Task;
             linearPlayData.vehicleFile = handle.Result;
 
-            for(int i = 1; i <= 1; i++) {
+            for(int i = 1; i <= 3; i++) {
                 Task<LinearPlayData.Level> t = DatabaseController.loadLinearPlayLevel(modeName, i);
                 await t;
                 levels.Add(
