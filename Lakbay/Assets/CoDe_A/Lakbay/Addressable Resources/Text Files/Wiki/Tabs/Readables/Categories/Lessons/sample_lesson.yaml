@@ -1,0 +1,35 @@
+name: "Sample Lesson"
+thumbnail: "thumbnail.png"
+entries:
+  -
+    text: "Sample Text"
+  -
+    images:
+      - "no_parking.png"
+      - "no_pedestrian_crossing.png"
+  -
+    text: "Description of the images...ababab abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab"
+  -
+    text: "Sample Text"
+  -
+    images:
+      - "no_parking.png"
+      - "no_pedestrian_crossing.png"
+  -
+    text: "Description of the images...ababab abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab"
+  -
+    text: "Sample Text"
+  -
+    images:
+      - "no_parking.png"
+      - "no_pedestrian_crossing.png"
+  -
+    text: "Description of the images...ababab abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab"
+  -
+    text: "Sample Text"
+  -
+    images:
+      - "no_parking.png"
+      - "no_pedestrian_crossing.png"
+  -
+    text: "Description of the images...ababab abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab"

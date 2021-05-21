@@ -1,14 +1,14 @@
-﻿Key,Id,English(en),Filipino(fil)
-"playString",8865673216,"Play","Maglaro"
-"settingsString",146866663424,"Settings","Settings"
-"helpString",174347743232,"Help","Tulong"
-"aboutString",221026152448,"About","About"
-"resumeString",1215400413982720,"Resume","Tumuloy"
-"mainMenuString",1216414357614592,"Main Menu","Main Menu"
-"pausedString",1217656710459392,"Paused","Nakahinto"
-"nonProDLString",1252643224645632,"Non-Professional
-<size=50%>Driver's License","Hindi Propesyonal
+Key	Id	English(en)	Filipino(fil)
+playString	8865673216	Play	Maglaro
+settingsString	1.46867E+11	Settings	Settings
+helpString	1.74348E+11	Help	Tulong
+aboutString	2.21026E+11	About	About
+resumeString	1.2154E+15	Resume	Tumuloy
+mainMenuString	1.21641E+15	Main Menu	Main Menu
+pausedString	1.21766E+15	Paused	Nakahinto
+nonProDLString	1.25264E+15	"Non-Professional
+<size=50%>Driver's License"	"Hindi Propesyonal
 <size=50%>Driver's License"
-"proDLString",1252843066454016,"Professional
-<size=50%>Driver's License","Propesyonal
+proDLString	1.25284E+15	"Professional
+<size=50%>Driver's License"	"Propesyonal
 <size=50%>Driver's License"
