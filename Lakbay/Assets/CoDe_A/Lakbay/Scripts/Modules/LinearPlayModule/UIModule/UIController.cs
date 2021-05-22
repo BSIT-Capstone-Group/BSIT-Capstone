@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 using CoDe_A.Lakbay.Modules.GameModule;
+using Coffee.UIExtensions;
 
 namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
     public class UIController : MonoBehaviour {
@@ -54,6 +55,16 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public VehicleModule.VehicleController vehicleController;
         public PlayerModule.PlayerController playerController;
 
+        [Header("Particles")]
+        public UIParticle coinParticle;
+        public UIParticle hintParticle;
+        public UIParticle lifeParticle;
+
+        [Header("Audios")]
+        public AudioSource coinSound;
+        public AudioSource hintSound;
+        public AudioSource lifeSound;
+
         [Header("Events")]
         public UnityEvent<UIController, float> onFuelTopUp = new UnityEvent<UIController, float>();
 
@@ -94,16 +105,22 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         
         public void onPlayerControllerCoinChange(PlayerModule.PlayerController pc, float value) {
             this.coinText.SetText(pc.player.coin.ToString("N0"));
+            this.coinParticle.Play();
+            this.coinSound.Play();
 
         }
 
         public void onPlayerControllerHintChange(PlayerModule.PlayerController pc, float value) {
             this.hintText.SetText(pc.player.hint.ToString("N0"));
+            this.hintParticle.Play();
+            this.hintSound.Play();
 
         }
 
         public void onPlayerControllerLifeChange(PlayerModule.PlayerController pc, float value) {
             this.lifeText.SetText(pc.player.life.ToString("N0"));
+            this.lifeParticle.Play();
+            this.lifeSound.Play();
 
         }
 

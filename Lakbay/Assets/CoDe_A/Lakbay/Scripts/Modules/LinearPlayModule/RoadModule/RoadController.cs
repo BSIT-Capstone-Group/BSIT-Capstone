@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using CoDe_A.Lakbay.Modules.GameModule;
+using System.Linq;
 
 namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
     [System.Serializable]
@@ -25,6 +26,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
         public GameObject startingLineModel;
         [HideInInspector]
         public GameObject finishLineModel;
+        [HideInInspector]
+        public List<GameObject> spawners = new List<GameObject>();
+
         public Road road;
 
         private void Start() {
@@ -104,9 +108,14 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
 
             this.finishLineModel = front;
             this.startingLineModel = back;
+            this.spawners = Utilities.Helper.getChildren(
+                models[models.Count - 1].transform.Find("Road").Find("Spawners").gameObject
+            ).ToList();
 
             front.SetActive(true);
             back.SetActive(true);
+
+            if(this.spawners.Count != 0) this.spawners[0].transform.parent.gameObject.SetActive(true);
 
             this._currentLength = this.road.length;
 

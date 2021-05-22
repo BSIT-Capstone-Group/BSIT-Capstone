@@ -77,11 +77,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.16
   m_SuspensionSpring:
-    spring: 138307.19
-    damper: 11064.575
+    spring: 138307.16
+    damper: 11064.573
     targetPosition: 0.5
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.3249518
+  m_ForceAppPointDistance: 0.67298365
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -168,10 +168,10 @@ WheelCollider:
   m_Radius: 0.16
   m_SuspensionSpring:
     spring: 161692.88
-    damper: 12935.43
+    damper: 12935.431
     targetPosition: 0.5
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.32495177
+  m_ForceAppPointDistance: 0.67298365
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -257,11 +257,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.16
   m_SuspensionSpring:
-    spring: 161690.11
-    damper: 12935.209
+    spring: 161690.14
+    damper: 12935.211
     targetPosition: 0.5
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.32495177
+  m_ForceAppPointDistance: 0.67298365
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -317,6 +317,8 @@ GameObject:
   - component: {fileID: 4205412330456998644}
   - component: {fileID: 970897507778446968}
   - component: {fileID: 16754016}
+  - component: {fileID: 1858742427}
+  - component: {fileID: 1858742426}
   m_Layer: 0
   m_Name: Player Vehicle
   m_TagString: Untagged
@@ -435,12 +437,13 @@ MonoBehaviour:
     coin: 30
     hint: 3
     life: 3
+    lifeIntegrity: 3
   uiController: {fileID: 0}
   viewCameraController: {fileID: 0}
   roadController: {fileID: 0}
   vehicleController: {fileID: 4205412330456998644}
   setController: {fileID: 0}
-  timer: {fileID: 0}
+  timer: {fileID: 1858742426}
   onCoinChange:
     m_PersistentCalls:
       m_Calls: []
@@ -451,6 +454,52 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onRespawn:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &1858742427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078627175656779596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.67279613, z: 2.3291771}
+  m_Center: {x: 0, y: 0.32210165, z: -0.00000011920929}
+--- !u!114 &1858742426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078627175656779596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1762e5eb1ff5c38429119634d4ea205d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paused: 0
+  timeScale: 1
+  stopWatch: 1
+  startOnPlay: 0
+  time: 0
+  timeDuration: 5
+  onRun:
+    m_PersistentCalls:
+      m_Calls: []
+  onPause:
+    m_PersistentCalls:
+      m_Calls: []
+  onResume:
+    m_PersistentCalls:
+      m_Calls: []
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onStop:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5079215876119917516
@@ -593,10 +642,10 @@ WheelCollider:
   m_Radius: 0.16
   m_SuspensionSpring:
     spring: 138309.86
-    damper: 11064.789
+    damper: 11064.788
     targetPosition: 0.5
   m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0.3249518
+  m_ForceAppPointDistance: 0.67298365
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:

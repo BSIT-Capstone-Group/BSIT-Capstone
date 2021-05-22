@@ -14,6 +14,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         public float hint = 3.0f;
         public float life = 3.0f;
 
+        public float lifeIntegrity = 3.0f;
+
     }
 
     public class PlayerController : MonoBehaviour {
@@ -35,6 +37,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         public UnityEvent<PlayerController, Vector3, Vector3> onRespawn = new UnityEvent<PlayerController, Vector3, Vector3>();
 
         private void Awake() {
+            GameController.setDayPhase();
+            if(GameController.dayPhase == GameController.DayPhase.EVENING) {
+                this.vehicleController.turnOnHeadlights();
+
+            } else this.vehicleController.turnOffHeadlights();
+
             this.uiController.onFuelTopUp.AddListener(this.onUIFuelTopUp);
             this.viewCameraController.onUpdate.AddListener(this.onViewCameraControllerUpdate);
             this.onHintChange.AddListener((pc, f) => {
@@ -129,6 +137,13 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             );
             this.roadController.setUpRoad(l.roadFile);
             this.setController.setUpSet(l.setFile);
+
+            GameController.setDayPhase();
+            if(GameController.dayPhase == GameController.DayPhase.EVENING) {
+                this.vehicleController.turnOnHeadlights();
+
+            } else this.vehicleController.turnOffHeadlights();
+
             this.vehicleController.wakeUp();
             this.uiController.postStagePanel.SetActive(false);
             this.timer.resume();

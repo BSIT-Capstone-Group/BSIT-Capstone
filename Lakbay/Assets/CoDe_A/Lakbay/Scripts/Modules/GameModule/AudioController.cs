@@ -11,8 +11,9 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static readonly string MUSIC_VOLUME_PARAMETER = "musicVolume";
         public static readonly string SOUND_VOLUME_PARAMETER = "soundVolume";
         // public static readonly float MULTIPLIER = 30.0f;
-        public static readonly float MIN_VOLUME = -80.0f;
-        public static readonly float MAX_VOLUME = 20.0f;
+        public static readonly float MIN_VOLUME = -60.0f;
+        public static readonly float MAX_VOLUME = 0.0f;
+        public static readonly float VOLUME_LENGTH = MAX_VOLUME - MIN_VOLUME;
 
         public static Dictionary<string, float> lastVolumes = new Dictionary<string, float>{
             {MASTER_VOLUME_PARAMETER, 0.0f},
@@ -38,17 +39,28 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         }
 
+        public static void setLastVolume(string name) => lastVolumes[name] = getVolume(name);
+        public static void setMasterLastVolume() => setLastVolume(MASTER_VOLUME_PARAMETER);
+        public static void setMusicLastVolume() => setLastVolume(MUSIC_VOLUME_PARAMETER);
+        public static void setSoundLastVolume() => setLastVolume(SOUND_VOLUME_PARAMETER);
+
         public static void setVolume(string name, float value) {
-            float rvalue = (value * 100.0f) - (100.0f - MAX_VOLUME);
+            setVolume(name, value, true);
+
+        }
+
+        public static void setVolume(string name, float value, bool setLastVolume) {
+            float rvalue = (VOLUME_LENGTH * value) - VOLUME_LENGTH;
             gameMixer.SetFloat(name, rvalue);
+            if(setLastVolume) AudioController.setLastVolume(name);
 
         }
 
         public static void mute(string name) {
             if(isMuted(name)) return;
-            lastVolumes[name] = getVolume(name);
+            setLastVolume(name);
             
-            setVolume(name, 0.0f);
+            setVolume(name, 0.0f, false);
 
         }
 
@@ -68,7 +80,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             float lastVolume = 0.0f;
             gameMixer.GetFloat(name, out lastVolume);
 
-            return (lastVolume + (100 - MAX_VOLUME)) / 100.0f;
+            return (lastVolume + VOLUME_LENGTH) / VOLUME_LENGTH;
 
         }
 

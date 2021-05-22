@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using Newtonsoft.Json;
 using YamlDotNet.Serialization;
 using UnityEngine;
+using System.Linq;
 using System;
 
 namespace CoDe_A.Lakbay.Utilities {
@@ -36,6 +37,12 @@ namespace CoDe_A.Lakbay.Utilities {
 
             return children.ToArray();
 
+        }
+
+        public static GameObject[] getChildren(GameObject parent) {
+            return getChildren(parent.transform).Select<Transform, GameObject>(
+                (t) => t.gameObject
+            ).ToArray();
         }
 
         public static void destroyChildren(Transform parent) {

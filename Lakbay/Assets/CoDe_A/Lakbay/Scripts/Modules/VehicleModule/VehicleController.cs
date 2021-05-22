@@ -55,9 +55,10 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
 		[Tooltip("If you need the visual wheels to be attached automatically, drag the wheel shape here.")]
 		public GameObject wheelModel;
+		public Light leftHeadlight;
+		public Light rightHeadlight;
 
 		public List<WheelController> wheelControllers = new List<WheelController>();
-
 
 		public UnityEvent<VehicleController, float> onSteer = new UnityEvent<VehicleController, float>();
         public UnityEvent<VehicleController, float> onAccelerate = new UnityEvent<VehicleController, float>();
@@ -329,6 +330,22 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 		public void setUpVehicle(Vehicle vehicle) {
 			this.vehicle = vehicle;
 			this.setUpWheelControllers();
+
+		}
+
+		public void setHeadlights(float left, float right) {
+			if(this.leftHeadlight) this.leftHeadlight.intensity = left;
+			if(this.rightHeadlight) this.rightHeadlight.intensity = right;
+
+		}
+
+		public void turnOnHeadlights() {
+			setHeadlights(1.0f, 1.0f);
+
+		}
+
+		public void turnOffHeadlights() {
+			setHeadlights(0.0f, 0.0f);
 
 		}
 
