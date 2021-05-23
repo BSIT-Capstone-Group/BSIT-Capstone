@@ -19,7 +19,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
         public float maxSteerAngle = 35.0f;
         public float maxMotorTorque = 15000.0f;
         public float maxBrakeTorque = 30000.0f;
-        public float maxDeceleration = 10000.0f;
+        public float maxDeceleration = 500.0f;
 
         public VehicleController vehicleController;
         public GameObject model;

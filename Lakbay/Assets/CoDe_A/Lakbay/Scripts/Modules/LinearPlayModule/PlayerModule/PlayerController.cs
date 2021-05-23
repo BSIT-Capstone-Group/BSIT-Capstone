@@ -34,6 +34,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         public UnityEvent<PlayerController, float> onCoinChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, float> onHintChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, float> onLifeChange = new UnityEvent<PlayerController, float>();
+        public UnityEvent<PlayerController, float> onLifeIntegrityChange = new UnityEvent<PlayerController, float>();
         public UnityEvent<PlayerController, Vector3, Vector3> onRespawn = new UnityEvent<PlayerController, Vector3, Vector3>();
 
         private void Awake() {
@@ -108,17 +109,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         public void onVehicleControllerFuelChange(VehicleModule.VehicleController vc, float value) {
             if(value == 0.0f) {
                 if(this.player.life > 0.0f) {
-                    QuestionModule.ItemController ic = this.setController.currentItemController;
-                    if(ic == null) {
-                        vc.respawn(vc.initialPosition + (Vector3.up * 2.0f), vc.initialRotation);
-
-                    } else {
-                        vc.respawn(ic.transform.position + (Vector3.up * 2.0f), vc.initialRotation);
-
-                    }
-
-                    this.setLife(this.player.life - 1.0f);
-                    this.vehicleController.setFuel(this.vehicleController.vehicle.maxFuel * 0.5f);
+                    this.respawn();
+                    this.useLife();
 
                 } else {
                     GameController.loadScene(1);
@@ -130,6 +122,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         }
 
         public void onNextStage() {
+            this.setLifeIntegrity(3.0f);
+
             GameModule.LinearPlayData.Level l = GameController.currentLinearPlayLevel;
             this.vehicleController.respawn(
                 this.vehicleController.initialPosition + (Vector3.up * 2.0f),
@@ -218,16 +212,14 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             ViewCameraModule.ViewCameraController vc,
             Vector3 position, Vector3 rotation
         ) {
-            GameObject sizeModel = roadController.sizeModel;
 
-            if(sizeModel) {
-                MeshRenderer renderer = sizeModel.GetComponent<MeshRenderer>();
+            if(roadController.road != null) {
                 Transform lmodel = roadController.transform.GetChild(
                     roadController.transform.childCount - 1
                 );
                 Transform fmodel = roadController.transform.GetChild(0);
-                float lbound = lmodel.position.z - (renderer.bounds.size.z * 7);
-                float fbound = fmodel.position.z - (renderer.bounds.size.z * 2.25f);
+                float lbound = lmodel.position.z - (roadController.modelSize * 7);
+                float fbound = fmodel.position.z - (roadController.modelSize * 2.25f);
 
                 if(vc.transform.position.z <= fbound) {
                     vc.move(new Vector3(
@@ -296,6 +288,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
 
         }
 
+        public void setLifeIntegrity(float value) {
+            this.player.lifeIntegrity = value;
+            this.onLifeIntegrityChange.Invoke(this, value);
+
+        }
+
         public void setUpPlayer(TextAsset playerFile) {
             this.setUpPlayer(Utilities.Helper.parseYAML<Player>(playerFile.text));
 
@@ -306,6 +304,29 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             this.setCoin(this.player.coin);
             this.setHint(this.player.hint);
             this.setLife(this.player.life);
+
+        }
+
+        public void respawn() {
+            VehicleModule.VehicleController vc = this.vehicleController;
+            QuestionModule.ItemController ic = this.setController.currentItemController;
+
+            if(ic == null) {
+                vc.respawn(vc.initialPosition + (Vector3.up * 2.0f), vc.initialRotation);
+
+            } else {
+                vc.respawn(ic.transform.position + (Vector3.up * 2.0f), vc.initialRotation);
+
+            }
+
+        }
+
+        public void useLife() {
+            this.setLife(this.player.life - 1.0f);
+            this.vehicleController.setFuel(
+                (this.vehicleController.vehicle.fuel / this.vehicleController.vehicle.maxFuel) +
+                this.vehicleController.vehicle.maxFuel * 0.5f
+            );
 
         }
 

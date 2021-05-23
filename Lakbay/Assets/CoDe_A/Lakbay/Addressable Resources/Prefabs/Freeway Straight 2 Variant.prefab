@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4148122323847252321}
   - component: {fileID: 6209420917209344501}
   - component: {fileID: 7943996181903090007}
+  - component: {fileID: 9011040186329481585}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -96,6 +97,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &9011040186329481585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283357490733317345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b21b958ed39f74fadf22471d417bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  particleHolder: {fileID: 0}
+  despawnParticle: {fileID: 198460282990120726, guid: 151b49b11ab5924429acc76ead6435fa, type: 3}
+  timeDifferences:
+  - 2
+  spawns:
+  - {fileID: 4354709449807250750, guid: 151a71963613d364c80847f725f98daa, type: 3}
+  currentSpawns: []
 --- !u!1 &1911774841915306552
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +452,7 @@ GameObject:
   - component: {fileID: 4972948557899371424}
   - component: {fileID: 8146805362405649165}
   - component: {fileID: 2197911389878150048}
+  - component: {fileID: 339753371111799242}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -514,6 +537,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &339753371111799242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751300970382575107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b21b958ed39f74fadf22471d417bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  particleHolder: {fileID: 0}
+  despawnParticle: {fileID: 198460282990120726, guid: 151b49b11ab5924429acc76ead6435fa, type: 3}
+  timeDifferences:
+  - 2
+  spawns:
+  - {fileID: 4354709449807250750, guid: 151a71963613d364c80847f725f98daa, type: 3}
+  currentSpawns: []
 --- !u!1 &6088385279478523836
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +570,7 @@ GameObject:
   - component: {fileID: 3734590258236279500}
   - component: {fileID: 4890988998030638130}
   - component: {fileID: 3421198355841134158}
+  - component: {fileID: 6100408025292536815}
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
@@ -610,6 +655,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6100408025292536815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088385279478523836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b21b958ed39f74fadf22471d417bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  particleHolder: {fileID: 0}
+  despawnParticle: {fileID: 198460282990120726, guid: 151b49b11ab5924429acc76ead6435fa, type: 3}
+  timeDifferences:
+  - 2
+  spawns:
+  - {fileID: 4354709449807250750, guid: 151a71963613d364c80847f725f98daa, type: 3}
+  currentSpawns: []
 --- !u!1 &8587012037900622204
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +688,7 @@ GameObject:
   - component: {fileID: 3157264801787096484}
   - component: {fileID: 1800617509855393910}
   - component: {fileID: 7378706565379084259}
+  - component: {fileID: 5365063299658055589}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -706,6 +773,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5365063299658055589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587012037900622204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b21b958ed39f74fadf22471d417bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  particleHolder: {fileID: 0}
+  despawnParticle: {fileID: 198460282990120726, guid: 151b49b11ab5924429acc76ead6435fa, type: 3}
+  timeDifferences:
+  - 2
+  spawns:
+  - {fileID: 4354709449807250750, guid: 151a71963613d364c80847f725f98daa, type: 3}
+  currentSpawns: []
 --- !u!1 &9091573438078257238
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +899,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 110814, guid: ea8ec36c7f9b40f4faa40bf80afec5a3, type: 3}
       propertyPath: m_Name
-      value: Freeway Straight 2 Variant
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 494338, guid: ea8ec36c7f9b40f4faa40bf80afec5a3, type: 3}
       propertyPath: m_RootOrder
@@ -819,11 +907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 494338, guid: ea8ec36c7f9b40f4faa40bf80afec5a3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 494338, guid: ea8ec36c7f9b40f4faa40bf80afec5a3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 494338, guid: ea8ec36c7f9b40f4faa40bf80afec5a3, type: 3}
       propertyPath: m_LocalPosition.x

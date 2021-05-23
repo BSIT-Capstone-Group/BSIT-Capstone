@@ -119,8 +119,13 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
                 this.uiController.questionPanel.SetActive(true);
                 // this.playerController.GetComponent<Rigidbody>().isKinematic = true;
                 this.playerController.vehicleController.sleep();
-
+                
                 this.setUpTimer();
+
+                foreach(var sc in this.playerController.roadController.spawnerControllers) {
+                    sc.pauseSpawning();
+
+                }
 
             }
 
@@ -166,6 +171,11 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
             this.onAnswer.Invoke(this, choice);
             this.hide();
+
+            foreach(var sc in this.playerController.roadController.spawnerControllers) {
+                sc.resumeSpawning();
+
+            }
 
         }
 

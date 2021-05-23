@@ -21,13 +21,16 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
         // public QuestionModule.SetController setController;
         public GameObject model;
         [HideInInspector]
-        public GameObject sizeModel;
+        public float modelSize = 0.0f;
         [HideInInspector]
         public GameObject startingLineModel;
         [HideInInspector]
         public GameObject finishLineModel;
-        [HideInInspector]
-        public List<GameObject> spawners = new List<GameObject>();
+
+        public GameObject particleHolder;
+
+        public PlayerModule.PlayerController playerController;
+        public List<SpawnerModule.SpawnerController> spawnerControllers = new List<SpawnerModule.SpawnerController>();
 
         public Road road;
 
@@ -79,22 +82,20 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
             int additionalRoadLength = this.road.additionalStartingLength + this.road.additionalEndingLength;
             int levelNumber = GameController.currentModeData.linearPlayData.levels.IndexOf(GameController.currentLinearPlayLevel) + 1;
 
+            this.modelSize = Utilities.Helper.getChildren(
+                this.model.transform.Find("Roads").transform
+            ).Select<Transform, float>(
+                (t) => t.GetComponent<MeshRenderer>().bounds.size.z
+            ).Sum();
+
             for(int i = 0; i < this.road.length + additionalRoadLength; i++) {
                 GameObject model = Instantiate<GameObject>(this.model);
 
-                if(i == 0) {
-                    this.sizeModel = model.transform.Find("Road").gameObject;
-                    modelSize = this.sizeModel.GetComponent<MeshRenderer>().bounds.size;
-                    
-                }
-
-                model.transform.position += new Vector3(0.0f, 0.0f, modelSize.z * i);
+                model.transform.position += new Vector3(0.0f, 0.0f, this.modelSize * i);
                 model.transform.SetParent(this.transform);
                 
-                foreach(Transform c in Utilities.Helper.getChildren(model.transform)) {
-                    if(!c.name.StartsWith("Terrain")) continue;
-
-                    if(c.name.Equals($"Terrain {levelNumber}")) c.gameObject.SetActive(true);
+                foreach(Transform c in Utilities.Helper.getChildren(model.transform.Find("Terrains"))) {
+                    if(c.name.Equals($"{levelNumber}")) c.gameObject.SetActive(true);
                     else c.gameObject.SetActive(false);
 
                 }
@@ -103,19 +104,29 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
 
             }
 
-            GameObject front = models[models.Count - 1].transform.Find("Road").Find("Front").gameObject;
-            GameObject back = models[0].transform.Find("Road").Find("Back").gameObject;
+            GameObject front = models[models.Count - 1].transform.Find("Blocks").Find("Front").gameObject;
+            GameObject back = models[0].transform.Find("Blocks").Find("Back").gameObject;
 
             this.finishLineModel = front;
             this.startingLineModel = back;
-            this.spawners = Utilities.Helper.getChildren(
-                models[models.Count - 1].transform.Find("Road").Find("Spawners").gameObject
+            this.spawnerControllers = Utilities.Helper.getChildren(
+                models[models.Count - 1].transform.Find("Spawners").gameObject
+            ).Select<GameObject, SpawnerModule.SpawnerController>(
+                (go) => go.GetComponent<SpawnerModule.SpawnerController>()
             ).ToList();
 
             front.SetActive(true);
             back.SetActive(true);
 
-            if(this.spawners.Count != 0) this.spawners[0].transform.parent.gameObject.SetActive(true);
+            if(this.spawnerControllers.Count != 0) this.spawnerControllers[0].transform.parent.gameObject.SetActive(true);
+
+            foreach(SpawnerModule.SpawnerController sc in this.spawnerControllers) {
+                sc.targetPosition = back.transform.position;
+                sc.playerController = this.playerController;
+                sc.particleHolder = this.particleHolder;
+                sc.startSpawning();
+
+            }
 
             this._currentLength = this.road.length;
 

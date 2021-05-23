@@ -93,6 +93,17 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static T pickRandom<T>(System.Random random, T[] array) {
+            int index = random.Next(array.Length);
+            return array[index];
+
+        }
+
+        public static T pickRandom<T>(T[] array) {
+            return pickRandom<T>(new System.Random(), array);
+
+        }
+
         public static T[] reverse<T>(T[] array) {
             List<T> list = new List<T>(array);
             list.Reverse();

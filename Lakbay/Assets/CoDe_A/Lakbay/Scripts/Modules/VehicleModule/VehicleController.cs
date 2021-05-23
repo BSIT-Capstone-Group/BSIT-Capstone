@@ -22,7 +22,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 		[Tooltip("Maximum brake torque applied to the driving wheels")]
 		public float maxBrakeTorque = 30000.0f;
 		[Tooltip("Maximum deceleration applied to the driving wheels")]
-		public float maxDeceleration = 1000.0f;
+		public float maxDeceleration = 500.0f;
 
 		[Tooltip("The vehicle's speed when the physics engine can use different amount of sub-steps (in m/s).")]
 		public float criticalSpeed = 5f;
@@ -34,8 +34,10 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
     }
 
 	public class VehicleController : MonoBehaviour {
-        private Coroutine _unflipCoroutine = null;
-        private bool _flipped = false;
+		[HideInInspector]
+        public Coroutine _unflipCoroutine = null;
+		[HideInInspector]
+        public bool _flipped = false;
         public bool flipped { get { return this._flipped; } }
 		public bool sleeping {
 			get {
@@ -45,6 +47,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 			}
 
 		}
+
+		public float speed => this.GetComponent<Rigidbody>().velocity.sqrMagnitude;
 
 		[HideInInspector]
 		public Vector3 initialPosition = Vector3.zero;
@@ -194,6 +198,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 				}
 
 			}
+			
+			if(this.speed > this.vehicle.maxSpeed && factor > 0.0f) return;
 
 			foreach(WheelController wc in this.wheelControllers) {
                 // float factor = wc.getMotorTorqueFactor();

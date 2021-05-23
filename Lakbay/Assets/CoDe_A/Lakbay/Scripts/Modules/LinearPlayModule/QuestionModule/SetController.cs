@@ -30,7 +30,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         // public List<GameObject> triggerAgents = new List<GameObject>();
         public PlayerModule.PlayerController playerController;
 
-        public UIModule.UIController uIController;
+        public UIModule.UIController uiController;
         public RoadModule.RoadController roadController;
 
         public List<ItemController> itemControllers = new List<ItemController>();
@@ -61,23 +61,22 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
         public void populate() {
             RoadModule.RoadController rc = this.roadController;
-            if(!rc.sizeModel) return;
+            if(rc.modelSize == 0.0f) return;
 
             this.itemControllers.Clear();
             Utilities.Helper.destroyChildren(this.transform);
-            Vector3 modelSize = rc.sizeModel.GetComponent<MeshRenderer>().bounds.size;
 
             // GameObject[] itemModels = this.setController.populate(this.setController.transform);
-            float roadSize = modelSize.z * rc.road.length;
+            float roadSize = rc.modelSize * rc.road.length;
             float spacing = roadSize / (this.set.items.Count + 1);
-            float offsetSpacing = modelSize.z * this.roadController.road.additionalStartingLength;
+            float offsetSpacing = rc.modelSize * this.roadController.road.additionalStartingLength;
 
             for(int i = 0; i < this.set.items.Count; i++) {
                 Item item = this.set.items[i];
                 GameObject itemModel = Instantiate<GameObject>(this.itemModel, this.transform);
                 // itemModel.transform.position = Vector3.zero;
 
-                itemModel.transform.position += new Vector3(0.0f, 0.0f, ((spacing * (i + 1)) - modelSize.z) + offsetSpacing);
+                itemModel.transform.position += new Vector3(0.0f, 0.0f, ((spacing * (i + 1)) - rc.modelSize) + offsetSpacing);
 
                 ItemController ic = itemModel.AddComponent<ItemController>();
 
@@ -85,7 +84,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
                 ic.setController = this;
                 ic.playerController = this.playerController;
-                ic.uiController = this.uIController;
+                ic.uiController = this.uiController;
                 ic.shuffledChoices = this.shuffledItemChoices;
                 ic.setUpItem(item);
 
