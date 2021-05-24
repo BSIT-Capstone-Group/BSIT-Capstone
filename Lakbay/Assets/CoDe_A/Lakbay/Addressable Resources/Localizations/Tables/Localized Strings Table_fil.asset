@@ -58,5 +58,17 @@ MonoBehaviour:
       <size=50%>Driver''s License'
     m_Metadata:
       m_Items: []
+  - m_Id: 2527534523576320
+    m_Localized: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527598570598400
+    m_Localized: Video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527659601915904
+    m_Localized: Accessibility
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

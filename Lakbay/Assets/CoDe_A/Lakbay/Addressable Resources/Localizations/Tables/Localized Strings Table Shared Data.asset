@@ -51,6 +51,18 @@ MonoBehaviour:
     m_Key: proDLString
     m_Metadata:
       m_Items: []
+  - m_Id: 2527534523576320
+    m_Key: audioString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527598570598400
+    m_Key: videoString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527659601915904
+    m_Key: accessibilityString
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
