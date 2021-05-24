@@ -304,6 +304,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             this.setCoin(this.player.coin);
             this.setHint(this.player.hint);
             this.setLife(this.player.life);
+            this.setLifeIntegrity(this.player.lifeIntegrity);
 
         }
 

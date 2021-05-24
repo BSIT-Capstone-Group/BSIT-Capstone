@@ -13,22 +13,35 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
     public class SpawnController : MonoBehaviour, ISpawn {
         public SpawnerController spawnerController;
         public PlayerModule.PlayerController playerController;
+        public bool hit = false;
         public UnityEvent<SpawnController, Vector3> onHit = new UnityEvent<SpawnController, Vector3>();
 
         private void OnTriggerEnter(Collider collider) {
-            if(this.playerController.transform == collider.transform) {
+            if(
+                this.playerController.transform == collider.transform &&
+                !this.hit
+            ) {
+                this.hit = true;
+                
                 this.getHit(this.transform.position);
+                
+                this.spawnerController.playParticle(this);
+                this.spawnerController.despawn(this);
+
+            } else if(collider.transform == this.playerController.roadController.startingLineModel.transform) {
+                this.spawnerController.playParticle(this);
+                this.spawnerController.despawn(this);
 
             }
 
         }
         
-        public void move(Vector3 position) {
+        public virtual void move(Vector3 position) {
             this.transform.position = Vector3.Lerp(this.transform.position, position, 2.0f);
 
         }
 
-        public void getHit(Vector3 position) {
+        public virtual void getHit(Vector3 position) {
             this.onHit.Invoke(this, position);
 
         }

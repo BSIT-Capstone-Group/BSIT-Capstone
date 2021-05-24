@@ -32,13 +32,11 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule.VehicleSpawnModul
 
         }
 
-        public new void accelerate() {
-            if(this.speed > this.vehicle.maxSpeed) return;
-            
+        public override void accelerate() {
             foreach(WheelController wc in this.wheelControllers) {
 				this.accelerate(
 					wc,
-					this.speed > this.vehicle.maxSpeed ? 0.0f : wc.getMotorTorqueFactor()
+					this.speed > this.vehicle.maxSpeed && !this.sleeping ? 0.0f : wc.getMotorTorqueFactor()
 				);
 
 			}
@@ -47,8 +45,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule.VehicleSpawnModul
 
         }
 
-        public new void steer() {}
-        public new void brake() {}
+        public override void steer() {}
+        public override void brake() {}
 
     }
 

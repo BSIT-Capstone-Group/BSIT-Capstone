@@ -111,6 +111,27 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static float getMusicVolume() { return getVolume(MUSIC_VOLUME_PARAMETER); }
         public static float getSoundVolume() { return getVolume(SOUND_VOLUME_PARAMETER); }
 
+        public static void play(AudioClip audioClip) {
+            string name = $"Audio Source - {audioClip.GetInstanceID()}";
+            GameObject go = GameObject.Find(name);
+            AudioSource asrc = null;
+
+            if(!go) {
+                go = new GameObject(name);
+                asrc = go.AddComponent<AudioSource>();
+                asrc.playOnAwake = false;
+                asrc.clip = audioClip;
+
+            } else {
+                asrc = go.GetComponent<AudioSource>();
+
+            }
+
+            asrc.Play();
+            Destroy(go.gameObject, asrc.clip.length);
+
+        }
+
     }
 
 }

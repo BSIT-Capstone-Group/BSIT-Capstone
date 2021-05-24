@@ -142,12 +142,12 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
 		}
 
-		public void steer(WheelController wc, float factor) {
+		public virtual void steer(WheelController wc, float factor) {
 			wc.steer(factor);
 
 		}
 
-		public void steer() {
+		public virtual void steer() {
 			float[] factors = this.wheelControllers.Select<WheelController, float>(
 				(wc) => wc.getSteerAngleFactor()
 			).ToArray();
@@ -167,12 +167,12 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
 		}
 
-		public void accelerate(WheelController wc, float factor) {
+		public virtual void accelerate(WheelController wc, float factor) {
 			wc.accelerate(factor);
 
 		}
 
-		public void accelerate() {
+		public virtual void accelerate() {
 			float[] factors = this.wheelControllers.Select<WheelController, float>(
 				(wc) => wc.getMotorTorqueFactor()
 			).ToArray();
@@ -215,12 +215,12 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
 		}
 
-		public void decelerate(WheelController wc, float factor) {
+		public virtual void decelerate(WheelController wc, float factor) {
             wc.decelerate(factor == 0.0f ? 1.0f : 0.0f);
 
 		}
 
-		public void decelerate() {
+		public virtual void decelerate() {
 			float[] factors = this.wheelControllers.Select<WheelController, float>(
 				(wc) => wc.getMotorTorqueFactor()
 			).ToArray();
@@ -240,12 +240,12 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
 		}
 
-		public void brake(WheelController wc, float factor) {
+		public virtual void brake(WheelController wc, float factor) {
 			wc.brake(factor);
 
 		}
 
-		public void brake() {
+		public virtual void brake() {
 			float[] factors = this.wheelControllers.Select<WheelController, float>(
 				(wc) => wc.getBrakeTorqueFactor()
 			).ToArray();

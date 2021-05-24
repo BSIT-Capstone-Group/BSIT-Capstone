@@ -95,7 +95,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
         }
 
-        public float getSteerAngleFactor() {
+        public virtual float getSteerAngleFactor() {
             if(!this.canSteer) return 0.0f;
 
             float value = SimpleInput.GetAxis(this.steerAxis);
@@ -106,7 +106,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
         }
 
-        public float getMotorTorqueFactor() {
+        public virtual float getMotorTorqueFactor() {
             if(!this.canAccelerate) return 0.0f;
 
             float accelerate = Mathf.Min(SimpleInput.GetAxis(this.accelerateAxis), 0.0f) * -1;
@@ -118,7 +118,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
         }
 
-        public float getBrakeTorqueFactor() {
+        public virtual float getBrakeTorqueFactor() {
             if(!this.canBrake) return 0.0f;
 
             float value = Mathf.Max(SimpleInput.GetAxis(this.brakeAxis), 0.0f);

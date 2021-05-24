@@ -81,7 +81,8 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   particleHolder: {fileID: 0}
   despawnParticle: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
-  chance: 0.3
+  paused: 0
+  chance: 0.4
   timeDifferences:
   - 10
   - 11
@@ -300,7 +301,8 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   particleHolder: {fileID: 0}
   despawnParticle: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
-  chance: 0.15
+  paused: 0
+  chance: 0.5
   timeDifferences:
   - 12
   - 14
@@ -358,7 +360,8 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   particleHolder: {fileID: 0}
   despawnParticle: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
-  chance: 0.1
+  paused: 0
+  chance: 0.35
   timeDifferences:
   - 7
   - 10
@@ -512,6 +515,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   particleHolder: {fileID: 0}
   despawnParticle: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
+  paused: 0
   chance: 0.25
   timeDifferences:
   - 9

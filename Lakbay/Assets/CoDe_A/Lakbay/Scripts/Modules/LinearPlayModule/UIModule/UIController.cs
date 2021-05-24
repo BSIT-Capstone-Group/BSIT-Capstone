@@ -20,6 +20,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public TMP_Text lifeText;
         public Slider fuelBar;
 
+        public Image lifeImage;
+        public List<Sprite> lifeSprites = new List<Sprite>();
+
         [Header("Controls")]
         public Button leftSteer;
         public Button rightSteer;
@@ -61,9 +64,10 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public UIParticle lifeParticle;
 
         [Header("Audios")]
-        public AudioSource coinSound;
-        public AudioSource hintSound;
-        public AudioSource lifeSound;
+        public AudioClip coinSound;
+        public AudioClip hintSound;
+        public AudioClip lifeSound;
+        public AudioClip lifeBreakSound;
 
         [Header("Events")]
         public UnityEvent<UIController, float> onFuelTopUp = new UnityEvent<UIController, float>();
@@ -72,6 +76,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
             this.playerController.onCoinChange.AddListener(this.onPlayerControllerCoinChange);
             this.playerController.onHintChange.AddListener(this.onPlayerControllerHintChange);
             this.playerController.onLifeChange.AddListener(this.onPlayerControllerLifeChange);
+            this.playerController.onLifeIntegrityChange.AddListener(this.onPlayerControllerLifeIntegrityChange);
 
             this.vehicleController.onFuelChange.AddListener(this.onVehicleControllerFuelChange);
 
@@ -106,21 +111,47 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public void onPlayerControllerCoinChange(PlayerModule.PlayerController pc, float value) {
             this.coinText.SetText(pc.player.coin.ToString("N0"));
             this.coinParticle.Play();
-            this.coinSound.Play();
+            GameModule.AudioController.play(this.coinSound);
 
         }
 
         public void onPlayerControllerHintChange(PlayerModule.PlayerController pc, float value) {
             this.hintText.SetText(pc.player.hint.ToString("N0"));
             this.hintParticle.Play();
-            this.hintSound.Play();
+            AudioSource.PlayClipAtPoint(this.hintSound, Camera.main.transform.position);
+            GameModule.AudioController.play(this.hintSound);
 
         }
 
         public void onPlayerControllerLifeChange(PlayerModule.PlayerController pc, float value) {
             this.lifeText.SetText(pc.player.life.ToString("N0"));
             this.lifeParticle.Play();
-            this.lifeSound.Play();
+            GameModule.AudioController.play(this.lifeSound);
+
+        }
+
+        public void onPlayerControllerLifeIntegrityChange(PlayerModule.PlayerController pc, float value) {
+            // this.lifeText.SetText(pc.player.life.ToString("N0"));
+            // this.lifeParticle.Play();
+            // this.lifeBreakSound.Play();
+
+            float p = float.Parse((1.0f - (pc.player.lifeIntegrity / 3.0f)).ToString("N2"));
+            float bp = float.Parse((1.0f / this.lifeSprites.Count).ToString("N2"));
+            foreach(Sprite sprite in this.lifeSprites) {
+                float cp = float.Parse((bp * (this.lifeSprites.IndexOf(sprite))).ToString("N2"));
+                print($"{p} <= {cp}");
+
+                if(p <= cp) {
+                    this.lifeImage.sprite = sprite;
+                    break;
+
+                }
+
+            }
+
+            print($"life integrity: {pc.player.lifeIntegrity}");
+
+            GameModule.AudioController.play(this.lifeBreakSound);
 
         }
 

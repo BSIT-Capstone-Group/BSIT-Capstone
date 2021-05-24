@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using System.Linq;
 using UnityEngine;
 
 namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
@@ -55,22 +56,27 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
         }
 
         public void playParticle(SpawnController spawn) {
-            GameObject go = Instantiate<GameObject>(this.particleHolder.gameObject, this.particleHolder.transform);
-            Destroy(go.gameObject, go.GetComponent<ParticleSystem>().main.duration);
+            GameObject go = Instantiate<GameObject>(this.despawnParticle.gameObject, this.particleHolder.transform);
+            ParticleSystem ps = go.GetComponent<ParticleSystem>();
+            go.transform.position = spawn.transform.position;
+            go.transform.rotation = spawn.transform.rotation;
+            ps.Play();
+            Destroy(go.gameObject, ps.main.duration);
 
         }
 
         public IEnumerator repeatedlySpawn() {
             while(true) {
-                if(this.paused) continue;
-
-                SpawnController spawn = Utilities.Helper.pickRandom<SpawnController>(this.spawns.ToArray());
-
-                if(Random.value <= this.chance) this.spawn(spawn);
-
                 yield return new WaitForSeconds(
                     Utilities.Helper.pickRandom<float>(this.timeDifferences.ToArray())
                 );
+
+                if(!this.paused) {
+                    SpawnController spawn = Utilities.Helper.pickRandom<SpawnController>(this.spawns.ToArray());
+
+                    if(Random.value <= this.chance) this.spawn(spawn);
+
+                }
 
             }
 
@@ -78,6 +84,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
 
         public void startSpawning() {
             if(this._repeatedlySpawnCoroutine != null) return;
+
+            this.resumeSpawning();
 
             this._repeatedlySpawnCoroutine = StartCoroutine(this.repeatedlySpawn());
 
@@ -110,7 +118,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
 
             this.pauseSpawning();
 
-            foreach(SpawnController spawn in this.currentSpawns) {
+            List<SpawnController> spawns = this.currentSpawns.ToList();
+            foreach(SpawnController spawn in spawns) {
                 this.playParticle(spawn);
                 this.despawn(spawn);
 
