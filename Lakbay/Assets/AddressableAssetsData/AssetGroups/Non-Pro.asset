@@ -20,47 +20,58 @@ MonoBehaviour:
   - m_GUID: 5bf95f0ba6a0a774c9dd9b4c244b6bd3
     m_Address: Text Files/Modes/Non-Pro/Linear Play/player.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: aaa92bfe4102a7d45a13fdf9cfba18e4
     m_Address: Text Files/Modes/Non-Pro/Linear Play/vehicle.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: cc79c1594f8f42e46a018fb42f45e048
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/1/road.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 2b40a62466c9e2f48a2f3d6e973746e2
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/2/road.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 71c902651fcd9644c8d21050b028ed1d
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/3/road.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 4b24d18143acb1a4db934f8669220938
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/1/set_eng.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 8270ff973662f98479e96400a6903a7a
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/1/set_fil.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 574537b95128a0c40a2d17624303ffb9
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/2/set_eng.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 5b27fc018f4312d4791e7f24d1371483
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/2/set_fil.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 41118b23068d3b043880938e58dce980
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/3/set_engl.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   - m_GUID: 2f4d1dad0a5c8ce439c9fe5d0f0ae36b
     m_Address: Text Files/Modes/Non-Pro/Linear Play/Levels/3/set_fil.yaml
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Text Files
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

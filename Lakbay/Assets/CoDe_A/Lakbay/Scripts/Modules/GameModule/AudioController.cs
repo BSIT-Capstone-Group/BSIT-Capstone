@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Threading.Tasks;
+using System.Linq;
 using UnityEngine;
 
 namespace CoDe_A.Lakbay.Modules.GameModule {
     public class AudioController : MonoBehaviour {
+        [System.Serializable]
+        public class AudioSourceEntry {
+            public string outputAudioMixerGroup = "";
+            public List<AudioSource> audioSources = new List<AudioSource>();
+
+        }
+
+        public static readonly string MASTER_NAME = "Master";
+        public static readonly string MUSIC_NAME = "Music";
+        public static readonly string SOUND_NAME = "Sound";
         public static readonly string MASTER_VOLUME_PARAMETER = "masterVolume";
         public static readonly string MUSIC_VOLUME_PARAMETER = "musicVolume";
         public static readonly string SOUND_VOLUME_PARAMETER = "soundVolume";
@@ -15,18 +26,38 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static readonly float MAX_VOLUME = 0.0f;
         public static readonly float VOLUME_LENGTH = MAX_VOLUME - MIN_VOLUME;
 
+        public static AsyncOperationHandle<IList<AudioClip>> handle;
+        private static Coroutine _loadCoroutine = null;
+        private static float _loadingProgress = 0.0f;
+        public static float loadingProgress => _loadingProgress;
+
         public static Dictionary<string, float> lastVolumes = new Dictionary<string, float>{
             {MASTER_VOLUME_PARAMETER, 0.0f},
             {MUSIC_VOLUME_PARAMETER, 0.0f},
             {SOUND_VOLUME_PARAMETER, 0.0f},
         };
 
+        public static Dictionary<string, AudioClip> audios = new Dictionary<string, AudioClip>();
+
         public static AudioMixer gameMixer;
 
-        // private async Task Awake() {
-        //     await setUp();
+        public static Dictionary<string, List<AudioSourceEntry>> audioSourceEntries = new Dictionary<string, List<AudioSourceEntry>>();
 
-        // }
+        private void Update() {
+            foreach(KeyValuePair<string, List<AudioSourceEntry>> kvp in audioSourceEntries) {
+                foreach(var asrce in kvp.Value) {
+                    foreach(var asrc in asrce.audioSources) {
+                        asrc.outputAudioMixerGroup = GameModule.AudioController.gameMixer.FindMatchingGroups(asrce.outputAudioMixerGroup)[0];
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        
 
         public static async Task setUp() {
             if(!gameMixer) {
@@ -36,6 +67,12 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
                 gameMixer = h.Result;
 
             }
+
+        }
+
+        public static IEnumerator load() {
+            handle = GameModule.DatabaseController.loadAssets<AudioClip>("Audios");
+            yield return handle;
 
         }
 
@@ -127,9 +164,15 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
             }
 
+            asrc.outputAudioMixerGroup = gameMixer.FindMatchingGroups("Master/Sound")[0];
             asrc.Play();
-            Destroy(go.gameObject, asrc.clip.length);
+            // Destroy(go.gameObject, asrc.clip.length);
 
+        }
+
+        public static void testVolume(float value) {
+            gameMixer.SetFloat("musicVolume", Mathf.Log10(value) * 20.0f);
+            
         }
 
     }

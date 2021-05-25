@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,13 +22,36 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
         public TMP_Text musicVolumeText;
         public TMP_Text soundVolumeText;
 
+        // public AudioSource mainMenuMusic;
+        public List<GameModule.AudioController.AudioSourceEntry> audioSourceEntries;
+
         private IEnumerator Start() {
             yield return this.setUpLanguageDropdown();
 
             this.setUpQualityDropdown();
             this.setUpAutoRotationToggles();
             this.setUpVolumeSliders();
+
+            if(this.testVolumeSlider) this.testVolumeSlider.onValueChanged.AddListener(this.testVolume);
+            // if(this.mainMenuMusic) this.mainMenuMusic.velocityUpdateMode = AudioVelocityUpdateMode.Dynamic;
+
+            GameModule.AudioController.audioSourceEntries[this.GetInstanceID().ToString()] = audioSourceEntries;
             
+        }
+
+        private void OnDestroy() {
+            GameModule.AudioController.audioSourceEntries.Remove(this.GetInstanceID().ToString());
+
+        }
+
+        private void Update() {
+            // this.mainMenuMusic.u
+            // print(this.mainMenuMusic.outputAudioMixerGroup.audioMixer.name);
+            // if(this.mainMenuMusic) this.mainMenuMusic.outputAudioMixerGroup = GameModule.AudioController.gameMixer.FindMatchingGroups("Master/Music")[0];
+            // if(this.mainMenuMusic) this.mainMenuMusic.outputAudioMixerGroup = this.mainMenuMusic.outputAudioMixerGroup;
+            // GameModule.AudioController.gameMixer.
+            
+
         }
 
         public IEnumerator setUpLanguageDropdown() {
@@ -106,19 +130,30 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
             );
 
             this.masterVolumeSlider.onValueChanged.AddListener(
-                (v) => { this.masterVolumeText.SetText((v * 100.0f).ToString("N0") + "%"); }
-                // (v) => { this.masterVolumeText.SetText(v.ToString()); }
+                (v) => { this.masterVolumeText.SetText(v.ToString("P0")); }
             );
             this.musicVolumeSlider.onValueChanged.AddListener(
-                (v) => { this.musicVolumeText.SetText((v * 100.0f).ToString("N0") + "%"); }
+                (v) => { this.musicVolumeText.SetText(v.ToString("P0")); }
             );
             this.soundVolumeSlider.onValueChanged.AddListener(
-                (v) => { this.soundVolumeText.SetText((v * 100.0f).ToString("N0") + "%"); }
+                (v) => { this.soundVolumeText.SetText(v.ToString("P0")); }
             );
 
-            this.masterVolumeSlider.value = GameModule.AudioController.getMasterVolume();
-            this.musicVolumeSlider.value = GameModule.AudioController.getMusicVolume();
-            this.soundVolumeSlider.value = GameModule.AudioController.getSoundVolume();
+            float masterVolume = GameModule.AudioController.getMasterVolume();
+            float musicVolume = GameModule.AudioController.getMusicVolume();
+            float soundVolume = GameModule.AudioController.getSoundVolume();
+
+            this.masterVolumeSlider.value = masterVolume + 0.001f;
+            this.musicVolumeSlider.value = musicVolume + 0.001f;
+            this.soundVolumeSlider.value = soundVolume + 0.001f;
+
+            this.masterVolumeSlider.value = masterVolume;
+            this.musicVolumeSlider.value = musicVolume;
+            this.soundVolumeSlider.value = soundVolume;
+
+            // this.masterVolumeText.SetText(masterVolume.ToString("P0"));
+            // this.musicVolumeText.SetText(musicVolume.ToString("P0"));
+            // this.soundVolumeText.SetText(soundVolume.ToString("P0"));
 
         }
 
@@ -143,6 +178,15 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
             );
 
             // print(this.leftAutoRotationToggle.isOn + " " + this.rightAutoRotationToggle.isOn);
+
+        }
+
+        public Slider testVolumeSlider;
+        public TMP_Text testVolumeText;
+        public void testVolume(float value) {
+            float val = 0.0f;
+            GameModule.AudioController.gameMixer.GetFloat("musicVolume", out val);
+            this.testVolumeText.SetText(val.ToString());
 
         }
 

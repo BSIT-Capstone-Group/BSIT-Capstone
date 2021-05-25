@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.AddressableAssets;
 using CoDe_A.Lakbay.Modules.LinearPlayModule;
 using UnityEngine.Localization;
@@ -69,6 +70,10 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
     }
 
     public class DatabaseController : MonoBehaviour {
+        private static List<TextAsset> textFiles = new List<TextAsset>();
+        private static List<Sprite> images = new List<Sprite>();
+        private static List<AudioClip> audios = new List<AudioClip>();
+
         public static ModeData nonProModeData;
         public static ModeData proModeData;
 
@@ -77,6 +82,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         // }
 
         public static async Task setUp() {
+
             Task<ModeData> md = DatabaseController.loadNonProMode();
             await md;
             DatabaseController.nonProModeData = md.Result;
@@ -164,8 +170,42 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         }
 
+        public static AsyncOperationHandle<T> loadAsset<T>(IResourceLocation path) {
+            return Addressables.LoadAssetAsync<T>(path);
+
+        }
         public static AsyncOperationHandle<T> loadAsset<T>(string path) {
             return Addressables.LoadAssetAsync<T>(path);
+
+        }
+
+        public static AsyncOperationHandle<IList<T>> loadAssets<T>(string path, Action<T> callback) {
+            return Addressables.LoadAssetsAsync<T>(path, callback);
+
+        }
+
+        public static AsyncOperationHandle<IList<T>> loadAssets<T>(string path) {
+            return loadAssets<T>(path, (t) => {});
+
+        }
+
+        public static AsyncOperationHandle<IList<IResourceLocation>> getAddresses(string path) {
+            return Addressables.LoadResourceLocationsAsync(path);
+            // await loadAssetsWithAddresses<Sprite>("Images");
+        }
+
+        public static async Task<Dictionary<string, T>> loadAssetsWithAddresses<T>(string path) {
+            Dictionary<string, T> rvs = new Dictionary<string, T>();
+
+            var locations = await getAddresses(path).Task;
+            foreach(var loc in locations) {
+                var asset = await loadAsset<T>(loc.PrimaryKey).Task;
+                rvs[loc.PrimaryKey] = asset;
+
+            }
+
+            // await new Task<Dictionary<string, T>>(() => rvs);
+            return rvs;
 
         }
 

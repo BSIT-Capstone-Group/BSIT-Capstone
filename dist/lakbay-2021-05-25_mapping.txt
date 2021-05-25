@@ -1,0 +1,33 @@
+# compiler: R8
+# compiler_version: 1.6.67
+# min_api: 22
+# pg_map_id: 0042ea2
+# common_typos_disable
+com.google.androidgamesdk.ChoreographerCallback$1 -> com.google.androidgamesdk.ChoreographerCallback$a:
+com.google.androidgamesdk.ChoreographerCallback$a -> com.google.androidgamesdk.ChoreographerCallback$b:
+com.google.androidgamesdk.SwappyDisplayManager$1 -> com.google.androidgamesdk.SwappyDisplayManager$a:
+com.google.androidgamesdk.SwappyDisplayManager$a -> com.google.androidgamesdk.SwappyDisplayManager$b:
+    java.util.concurrent.locks.Condition d -> c
+    java.util.concurrent.locks.Lock c -> b
+com.unity3d.player.BuildConfig -> com.unity3d.player.BuildConfig:
+    7:7:void <clinit>() -> <clinit>
+    6:6:void <init>() -> <init>
+com.unity3d.player.UnityPlayerActivity -> com.unity3d.player.UnityPlayerActivity:
+    16:16:void <init>() -> <init>
+    121:123:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    106:108:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    35:44:void onCreate(android.os.Bundle) -> onCreate
+    68:70:void onDestroy() -> onDestroy
+    130:130:boolean onGenericMotionEvent(android.view.MotionEvent) -> onGenericMotionEvent
+    128:128:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    127:127:boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    89:91:void onLowMemory() -> onLowMemory
+    61:63:void onNewIntent(android.content.Intent) -> onNewIntent
+    75:77:void onPause() -> onPause
+    82:84:void onResume() -> onResume
+    129:129:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    96:101:void onTrimMemory(int) -> onTrimMemory
+    53:53:void onUnityPlayerQuitted() -> onUnityPlayerQuitted
+    48:49:void onUnityPlayerUnloaded() -> onUnityPlayerUnloaded
+    113:115:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    29:29:java.lang.String updateUnityCommandLineArguments(java.lang.String) -> updateUnityCommandLineArguments

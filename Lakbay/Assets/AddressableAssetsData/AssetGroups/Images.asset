@@ -20,47 +20,58 @@ MonoBehaviour:
   - m_GUID: 3d9d740579272d34d8a639ecd0a7ef0d
     m_Address: Images/two_way_traffic.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: d739db12d66f39a468b35f1bef623ba2
     m_Address: Images/no_entry_for_buses.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 9398647cbf5ab6242b1a95b8b628bf7d
     m_Address: Images/no_entry_for_jeepneys.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 1baef1c4eb53e9c4c8d1010d810ab18b
     m_Address: Images/no_entry_for_trucks.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 8030b93bbea7fca41b50911ae8e5a599
     m_Address: Images/no_left_turn.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 68fa86b6dfd91954ab9e6d5bad10d390
     m_Address: Images/no_overtaking.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 71f738fedf944ab4a8fd577393d3695b
     m_Address: Images/no_parking.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: f5924daf710854f4296347cf786a581d
     m_Address: Images/no_pedestrian_crossing.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 280ada0ae38d714439b1fa2a222b4b45
     m_Address: Images/no_right_turn.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 74a3e836a2ce79d41a3fc003d62795aa
     m_Address: Images/no_u_turn.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   - m_GUID: 034b386d150856c49a6cbd4d5a450ecf
     m_Address: Images/pedestrian_crossing.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Images
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
