@@ -2,252 +2,17 @@ name: ""
 items:
     -
         question:
-            images: 
-                - 'no_u_turn.png'
-            text: 'What road sign is shown?'
-        choices:
-            -
-                text: 'Pedestrian crossing'
-                correct: false
-            -
-                text: 'No U-Turn'
-                correct: true
-            -
-                text: 'No Parking'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
             images: []
-            text: "Keeping one's distance lessens the risk of accident. One good Rule is to leave a car length or:"
+            text: 'Ito ay awtorisadong ibinigay ng LTO sa isang tao sa legal na pagmamaneho ng pampribado at pampublikong sasakyan'
         choices:
             -
-                text: '8-second rule'
+                text: 'Certificate of public convenience'
                 correct: false
             -
-                text: '4-second rule'
+                text: 'Certificate of registration'
                 correct: false
             -
-                text: '2-second rule'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'When driving at night, you should:'
-        choices:
-            -
-                text: 'Always press the horn'
-                correct: false
-            -
-                text: 'Always turn your headlights on'
-                correct: true
-            -
-                text: 'Never turn your headlights on'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'A driver on a highway shall yield the right of way to:'
-        choices:
-            -
-                text: 'Pedestrians'
-                correct: false
-            -
-                text: 'Police/Fire Department vehicles and ambulances when such vehicles are on official business'
-                correct: true
-            -
-                text: 'Big Trucks and Busses'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: "To obtain a Driver's License, one must be at least:"
-        choices:
-            -
-                text: '13 years old'
-                correct: false
-            -
-                text: '16 years old'
-                correct: false
-            -
-                text: '18 years old'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'In changing lanes, what should be done first?'
-        choices:
-            -
-                text: 'Wait for the other vehicles'
-                correct: false
-            -
-                text: 'Make a full stop'
-                correct: false
-            -
-                text: 'Make a signal'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'It is not considered safe driving on an expressway when:'
-        choices:
-            -
-                text: 'Driver keep changing lanes without signaling'
-                correct: true
-            -
-                text: 'Driver focuses on the road'
-                correct: false
-            -
-                text: 'Driver apply safety protocols'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'When do you have to make a full stop?'
-        choices:
-            -
-                text: 'At a red traffic light'
-                correct: true
-            -
-                text: 'Anytime'
-                correct: false
-            -
-                text: 'Only when you want'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: "When can you lend your driver's license?"
-        choices:
-            -
-                text: 'Anytime'
-                correct: false
-            -
-                text: 'Under no circumstances'
-                correct: true
-            -
-                text: 'Only when you want'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'If you are the first to arrive at the scene of an accident, which of the following should you do?'
-        choices:
-            -
-                text: 'Drive and go'
-                correct: false
-            -
-                text: 'Turn a blind eye'
-                correct: false
-            -
-                text: 'Offer all reasonable assistance'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'You were apprehended because you were engaged in car racing while driving in a super highway, what traffic violation did you commit?'
-        choices:
-            -
-                text: 'Drunkenness'
-                correct: false
-            -
-                text: 'Reckless Driving '
-                correct: true
-            -
-                text: 'Safe Driving'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'Steady green Light at an intersection means:'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
-                correct: false
-            -
-                text: 'Informative Signs'
-                correct: false
-            -
-                text: 'Pedestrians are not allowed to cross the pedestrian lanes'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'Traffic jam can be prevented if you :'
-        choices:
-            -
-                text: 'Keep opposing lanes open'
-                correct: true
-            -
-                text: 'Keep opposing lanes close'
-                correct: false
-            -
-                text: 'Drive recklessly'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'The most effective way to deal with a tailgater is to:'
-        choices:
-            -
-                text: 'Ignore'
-                correct: false
-            -
-                text: 'Hit the pedestrian'
-                correct: false
-            -
-                text: 'Slow down and let him pass'
+                text: "Driver's license"
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -256,71 +21,17 @@ items:
     -
         question:
             images: 
-                - 'two_way_traffic.png'
-            text: 'What road sign is shown?'
+                - 'no_parking_anytime.png'
+            text: "Ano ang ibig sabihin ng road sign na ito?"
         choices:
             -
-                text: 'No Jaywalking'
+                text: 'Maaaring pumarada ng Lunes hanggang Biyernes'
                 correct: false
             -
-                text: 'Two-way Traffic'
-                correct: true
-            -
-                text: 'No Parking'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'Road crash can be avoided and minimized if the driver: '
-        choices:
-            -
-                text: 'Is a Dancer'
+                text: 'Hindi pwedeng pumarada'
                 correct: false
             -
-                text: 'Knows and obeys traffic signals, rules and regulations'
-                correct: true
-            -
-                text: 'Knows how to cook'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'The proper hand signal for a left turn is: ?'
-        choices:
-            -
-                text: ' Left arm straight in horizontal position'
-                correct: true
-            -
-                text: 'Left Side'
-                correct: false
-            -
-                text: 'Riht arm verticallly'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'What affects your visibility while driving at night? '
-        choices:
-            -
-                text: 'Moonlight'
-                correct: false
-            -
-                text: 'Sunglasses'
-                correct: false
-            -
-                text: 'Defective and dirty headlights'
+                text: 'Hindi pwedeng pumarada mula Lunes hanggang Biyernes'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -329,34 +40,16 @@ items:
     -
         question:
             images: []
-            text: 'Ignoring traffic lights could:'
+            text: 'Ano ang unang hakbang sa pagtanggal ng trailer?'
         choices:
             -
-                text: 'Involve you in fatal accident'
-                correct: true
-            -
-                text: 'Improve your eyesight'
+                text: 'Ibaba ang trailer legs at i-stow ang hawakan'
                 correct: false
             -
-                text: 'Help you arrive at your destination safely'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'It is considered as one of intentional violation? '
-        choices:
-            -
-                text: 'Using phone while driving'
+                text: 'I-maneho ang tractor ng dahan-dahan at maayos'
                 correct: false
             -
-                text: 'Driving with the flow of the traffic and overtaking in the shoulder or sidewalks'
-                correct: false
-            -
-                text: 'Driving against the flow of the traffic and overtaking in the shoulder or sidewalks'
+                text: 'Unahing i-secure ang the trailer brake'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -365,16 +58,16 @@ items:
     -
         question:
             images: []
-            text: 'This traffic sign warns you that school children may be present in the vicinity:'
+            text: 'Ano ang patakaran kapag ang traffic light ay steady green at steady left/right arrow?'
         choices:
             -
-                text: 'Triangle'
-                correct: false
-            -
-                text: 'Pentagon'
+                text: 'Ang mga sasakyan ay pwedeng dumiretso o ang mga sasakyan sa kanan/kaliwa ay maaaring lumiko pakanan/pakaliwa'
                 correct: true
             -
-                text: 'Circle'
+                text: 'Ang mga sasakyan sa kabila ay maaaring dumerecho'
+                correct: false
+            -
+                text: 'Maaaring dumaan ang mga pedestrian'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -383,16 +76,16 @@ items:
     -
         question:
             images: []
-            text: 'A driver must not park or stop at the side of the road with a "STOP SIGN" or a traffic control signal because it reduces visibility for other drivers, especially when it is within :'
+            text: 'Kung ikaw ay nagmamaneho ng sasakyan na may anti-lock brake system, ano ang gagawin mo sa pag-brake sa oras ng emergency?'
         choices:
             -
-                text: '6m'
-                correct: true
-            -
-                text: '1m'
+                text: 'I-pump ang brake pedal ng maigi'
                 correct: false
             -
-                text: '7m'
+                text: 'Mag-apply ng firm at tuloy-tuloy na pressure sa brake pedal'
+                correct: true
+            -
+                text: 'Mag-apply ng minimum na pwersa sa brake pedal'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -401,17 +94,54 @@ items:
     -
         question:
             images: 
-                - 'no_entry_for_trucks.png'
-            text: 'What sign is shown? '
+                - 'next_exit.png'
+            text: 'Ano ang ibig sabihin ng mga signs na ito pag nakita mo sa expressway?'
         choices:
             -
-                text: 'No Entry for Jeepneys'
+                text: 'Hinto, lahat ng lanes sa unahan ay sarado'
                 correct: false
             -
-                text: 'No Entry for Big Trucks'
+                text: 'Ang susunod na labasan ay 15 kilometrp pa ang layo'
                 correct: true
             -
-                text: 'No Entry for Busses'
+                text: 'May sharp bend na naghihintay sa unahan'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Ano ang dapat mong gamiting gear sa pagbababa ng mga bata sa eskwelahan?'
+        choices:
+            -
+                text: 'First gear'
+                correct: false
+            -
+                text: 'Reverse gear'
+                correct: false
+            -
+                text: 'Neutral'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'railroad_crossing_advance_warning.png'
+            text: 'Ano ang ibig sabihin ng road sign na ito?'
+        choices:
+            -
+                text: 'May intersekyon na madadaanan sa unahan'
+                correct: false
+            -
+                text: 'May railroad crossing na madadaanan sa unahan'
+                correct: true
+            -
+                text: 'May river crossing na madadaanan sa unahan'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -420,18 +150,292 @@ items:
     -
         question:
             images: 
-                - 'no_entry_for_busses.png'
-            text: 'What road sign is shown?'
+                - 'speed_limit_derestriction.png'
+            text: 'Ano ang ibig sabihin ng road sign na ito?'
         choices:
             -
-                text: 'No Entry for Jeepneys'
+                text: 'Bagong speed limit na 50 kph'
                 correct: false
             -
-                text: 'No Entry for Big Trucks'
+                text: 'Minimum na speed limit 60 kph'
                 correct: false
             -
-                text: 'No Entry for Busses'
+                text: 'Huling 60 kph zone'
                 correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: "Hanggang kailan ang vaildity period ng Temporary Operator's Permit (TOP)?"
+        choices:
+            -
+                text: '3 araw mula sa araw ng aprehensiyon'
+                correct: false
+            -
+                text: '72 hours mula sa oras ng aprehensiyon'
+                correct: true
+            -
+                text: '15 days mula sa petsa ng aprehensiyon'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Sa anong sitwasyon maaaring mag-swing ang isang trailer?'
+        choices:
+            -
+                text: 'Kapag ang trailer ay sobrang puno'
+                correct: false
+            -
+                text: 'Kapag ang trailer ay hindi maayos'
+                correct: false
+            -
+                text: 'Kapag ang trailer ay walang laman'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Sa aling panukat nakikita ang fuel level ng sasakyan?'
+        choices:
+            -
+                text: 'Voltmeter'
+                correct: false
+            -
+                text: 'Temperature gauge'
+                correct: false
+            -
+                text: 'Fuel gauge'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'no_stopping_anytime.png'
+            text: 'Ano ang ibig sabihin ng traffic sign na ito?'
+        choices:
+            -
+                text: 'Crossroad/interseksiyon'
+                correct: false
+            -
+                text: 'Bawal huminto anumang oras'
+                correct: true
+            -
+                text: 'Rotonda'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'no_left_turn.png'
+            text: 'Ano ang ibig sabihin ng traffic sign na ito?'
+        choices:
+            -
+                text: 'Bawal lumiko pakaliwa'
+                correct: true
+            -
+                text: 'Bawal lumiko pakanan'
+                correct: false
+            -
+                text: 'Bawal ang overtaking'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'flood.png'
+            text: 'Ano ang ibig sabihin ng sign na ito?'
+        choices:
+            -
+                text: 'Road ahead ends'
+                correct: false
+            -
+                text: 'Road get flooded'
+                correct: true
+            -
+                text: 'Uneven road surface'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Maiiwasan at mababawasan ang road crashes kung ang drayber ay:'
+        choices:
+            -
+                text: 'Kaskasero'
+                correct: false
+            -
+                text: 'Marunong sumunod sa traffic signals at batas-trapiko'
+                correct: true
+            -
+                text: 'Magaling magluto'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Saan dapat inilalagay ang mga mabibigat na bagahe kapag nagloload sa sasakyan?'
+        choices:
+            -
+                text: 'Sa ilalim'
+                correct: true
+            -
+                text: 'Sa gitna'
+                correct: false
+            -
+                text: 'Sa itaas'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Ano ang ibig sabihin kapag ang headlights ay lumilinaw at dumidilim kapag dinidiinan ang accelerator pedal?'
+        choices:
+            -
+                text: 'Battery overcharging'
+                correct: false
+            -
+                text: 'Battery undercharging'
+                correct: false
+            -
+                text: 'Battery dying'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'May mga dayuhan na nagrerelamo sa mga driver na overcharge ang kanilang singil sa pamasahe. Ano ang maaaring gawin dito?'
+        choices:
+            -
+                text: 'Huwag tumanggap ng dayuhang pasahero'
+                correct: false
+            -
+                text: 'Umiwas sa pagkakasunduang pamasahe at sundin ang taxi meter'
+                correct: true
+            -
+                text: 'Makipagkasundo sa singil ng pamasahe'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Ano ang maipapayong gawin kapag magpaparada sa matataong lugar?'
+        choices:
+            -
+                text: 'Dapat na tingnan ng drayber kung naka-fold ang side mirrors'
+                correct: true
+            -
+                text: 'Magparada sa intersection palayo sa pedestrian lane'
+                correct: false
+            -
+                text: 'Magparada sa pedestrian lane'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Ano ang ibig sabihin ng pavement marking na may dobleng solid line?'
+        choices:
+            -
+                text: 'Bawal mag-overtake at tumawid sa dalawang direksyon'
+                correct: true
+            -
+                text: 'Bawal mag-overtake at tumawid sa isang direksyon'
+                correct: false
+            -
+                text: 'Pwede ang pagtawid sa dalawang direksyon'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Bakit dapat na mas lalong maging alisto sa mga nakaparadang sasakyan sa gabi?'
+        choices:
+            -
+                text: 'Maaaring lasing ang mga driver'
+                correct: false
+            -
+                text: 'Maaaring masyadong marami ang nakaparada na sasakyan'
+                correct: false
+            -
+                text: 'Maaari silang paandarin ng may-ari ano mang oras'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Ano ang epekto ng pagsunod sa controlled hours?'
+        choices:
+            -
+                text: 'Pagkakaroon ng mababang kita kaysa sa mga walang controlled hours'
+                correct: false
+            -
+                text: 'Pagkakaroon ng mas mataas na kita kaysa sa mga walang controlled hours'
+                correct: true
+            -
+                text: 'Pagkakaroon ng parehas kita kaysa sa mga walang controlled hours'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: 
+                - 'no_entry_for_all.png'
+            text: 'Ano ang ibig sabihin ng road sign na ito?'
+        choices:
+            -
+                text: 'No entry'
+                correct: true
+            -
+                text: 'No parking'
+                correct: false
+            -
+                text: 'No through road'
+                correct: false
         minCoinGain: 10
         maxCoinGain: 20
         minFuelDeduction: 15
@@ -440,7 +444,7 @@ items:
         question:
             images: 
                 - 'no_entry_for_jeepneys.png'
-            text: 'What road sign is shown?'
+            text: 'Ano ang ibig sabihin ng road sign na ito?'
         choices:
             -
                 text: 'No Entry for Jeepneys'

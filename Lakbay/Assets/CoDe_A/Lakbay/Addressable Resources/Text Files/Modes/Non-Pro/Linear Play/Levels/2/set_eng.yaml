@@ -2,18 +2,35 @@ name: ""
 items:
     -
         question:
-            images: 
-                - 'pedestrian_crossing.png'
-            text: 'What road sign is shown?'
+            images: []
+            text: 'Road rage among motorists arises when:'
         choices:
             -
-                text: 'No U-Turn'
-                correct: false
-            -
-                text: 'Pedestrian crossing'
+                text: 'Either of the party starts to provoke the other'
                 correct: true
             -
-                text: 'No Parking'
+                text: 'Neither of the party starts to provoke the other'
+                correct: false
+            -
+                text: 'Neither of the party knows traffic rules and regulations'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 'stop.png'
+            text: 'What MUST you do when you see this sign?'
+        choices:
+            -
+                text: 'Stop, look, and listen'
+                correct: false
+            -
+                text: 'Stop, ONLY if children are waiting to cross'
+                correct: true
+            -
+                text: 'Stop, ONLY if traffic is approaching'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -22,16 +39,16 @@ items:
     -
         question:
             images: []
-            text: 'When negotiating a curve on a highway at a relatively high speed you should:'
+            text: 'Your doctor has prescribed you a medicine, why should you ask how it will affect you?'
         choices:
             -
-                text: 'Steady green Light'
+                text: 'The medicine you take may affect your hearing'
                 correct: false
             -
-                text: 'Drive immediately'
+                text: 'You will have to let your insurance company know about the medicine'
                 correct: false
             -
-                text: 'Decrease your speed further as you enter the curve'
+                text: 'Some types of medicine can cause your reactions to slow down'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -40,16 +57,35 @@ items:
     -
         question:
             images: []
-            text: 'A flashing red signal means:'
+            text: 'When motorists flash their headlights at you it means'
         choices:
             -
-                text: 'Informative Signs'
+                text: 'That they are giving way to you'
                 correct: false
             -
-                text: 'You must stop and then go only when it is safe to do so'
+                text: 'That there is a radar speed trap ahead'
+                correct: false
+            -
+                text: 'That they are warning you of their presence'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images:
+                - 'sharp_turn_left.png'
+            text: '	What does this traffic sign mean?'
+        choices:
+            -
+                text: 'Steep left curve'
                 correct: true
             -
-                text: 'Caution or Warning Signs'
+                text: 'No left turn'
+                correct: false
+            -
+                text: 'Dangerous right'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -58,34 +94,16 @@ items:
     -
         question:
             images: []
-            text: 'When an oncoming vehicle crosses the centerline in a straight road you should be:'
+            text: 'While changing lanes, you should give a signal, check your side and rear-view mirror, and '
         choices:
             -
-                text: 'Pause and Go'
+                text: 'Turn on the vehicle’s headlight'
                 correct: false
             -
-                text: 'Slow down and keep to right'
-                correct: true
-            -
-                text: 'Drive immediately'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A single solid yellow or white line means:'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
+                text: 'Watch out for approaching vehicles'
                 correct: false
             -
-                text: 'Make a full stop'
-                correct: false
-            -
-                text: 'Passing/overtaking is not allowed'
+                text: 'Sound your horn'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -94,16 +112,16 @@ items:
     -
         question:
             images: []
-            text: 'A single solid yellow or white line means:'
+            text: 'Which of these, if neglected, could cause a road crash?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Air conditioning freon level'
                 correct: false
             -
-                text: 'Make a full stop'
+                text: 'Radiator Water level'
                 correct: false
             -
-                text: 'Passing/overtaking is not allowed'
+                text: 'Brake fluid level'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -112,16 +130,16 @@ items:
     -
         question:
             images: []
-            text: 'In bad conditions, the 2-second rule should be increased to:'
+            text: 'What should you do when being pressured by motorists behind you to drive faster?'
         choices:
             -
-                text: '4 seconds in changing lanes'
+                text: 'Using directional signal, slowly ease to the slow moving vehicle lane and allow faster vehicles to overtake on your left'
                 correct: true
             -
-                text: 'Make a full stop'
+                text: 'Step on the brake once or twice while getting off the road'
                 correct: false
             -
-                text: '8 seconds in changing lanes'
+                text: 'Activate the hazard switch while gaining speed'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -130,16 +148,16 @@ items:
     -
         question:
             images: []
-            text: 'Having a drivers license is a:'
+            text: 'What should you do if several vehicles pass you on the left?'
         choices:
             -
-                text: 'Privilege'
-                correct: true
-            -
-                text: 'Authority'
+                text: 'Stop and wait for the vehicle to pass'
                 correct: false
             -
-                text: 'Mandatory'
+                text: 'Maintain or slightly reduce speed and keep to the right'
+                correct: true
+            -
+                text: 'Reduce speed and change lane'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -148,16 +166,34 @@ items:
     -
         question:
             images: []
-            text: 'As per R.A 4136, the brakes on every vehicle (other than a motorcycle) must:'
+            text: 'What is the right-of-way rule before a vehicle enters a public roadway from a driveway, alley, or private road?'
         choices:
             -
-                text: 'Brand New'
-                correct: false
-            -
-                text: 'Consist of a good foot and hand brake'
+                text: 'Vehicle must stop and yield the right-of-way to traffic on the roadway and to pedestrians'
                 correct: true
             -
-                text: 'Expensive'
+                text: 'Vehicle has the right-of-way to traffic from all directions'
+                correct: false
+            -
+                text: 'Vehicle has the right-of-way to traffic especially from left side of the street'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 'opening_bridge.png'
+            text: 'What does this traffic sign means?'
+        choices:
+            -
+                text: 'Broken bridge '
+                correct: false
+            -
+                text: 'Swing bridge'
+                correct: true
+            -
+                text: 'Narrow bridge'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -166,34 +202,16 @@ items:
     -
         question:
             images: []
-            text: 'When are you permitted to double-park?'
+            text: 'If you see a ball coming from behind a parked vehicle on a city street, chances are a kid is following it. What will you do?'
         choices:
             -
-                text: 'Often'
+                text: 'Increase your speed'
                 correct: false
             -
-                text: 'Always'
-                correct: false
-            -
-                text: 'Never'
-                correct: true
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'Chances of being hurt or killed while driving is reduced if one is wearing:'
-        choices:
-            -
-                text: 'Expensive Perfume'
-                correct: false
-            -
-                text: 'Seat belts/helmets '
+                text: 'Slow down'
                 correct: true
             -
-                text: 'High heels'
+                text: 'Blow your horn and maintain your speed'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -202,16 +220,16 @@ items:
     -
         question:
             images: []
-            text: 'A flashing yellow light means:'
+            text: "Student-driver's Permit has a validity period of?"
         choices:
             -
-                text: 'Slowdown and proceed with caution'
-                correct: true
-            -
-                text: 'Make a full stop'
+                text: 'Six months'
                 correct: false
             -
-                text: 'Drive and Go'
+                text: 'One year'
+                correct: true
+            -
+                text: '90 days'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -220,16 +238,16 @@ items:
     -
         question:
             images: []
-            text: 'This traffic sign states directions and distances?'
+            text: 'You are on an expressway and approaching the toll gates. There are red flashing lights above in every lane. You must?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Pull onto the lay-by'
                 correct: false
             -
-                text: 'Informative Signs'
+                text: 'Stop ad reverse'
                 correct: false
             -
-                text: 'Passing/overtaking is not allowed'
+                text: 'Stop and wait'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -237,55 +255,15 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: []
-            text: 'The Traffic light or signal that tells you to stop before the intersection is:'
+            images: 'no_parking_anytime.png'
+            text: 'What does this sign mean?'
         choices:
             -
-                text: 'Steady red Light'
+                text: 'You can park on the days shown'
+                correct: false
+            -
+                text: 'No parking anytime'
+                correct: false
+            -
+                text: 'No parking at all from Monday to Friday'
                 correct: true
-            -
-                text: 'Steady green light'
-                correct: false
-            -
-                text: 'Steady yellow light'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A traffic signal light that warns you that the red light is about to turn on:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green light'
-                correct: false
-            -
-                text: 'Steady yellow light'
-                correct: true
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A single solid yellow or white line means:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green Light'
-                correct: true
-            -
-                text: 'Steady yellow Light'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20

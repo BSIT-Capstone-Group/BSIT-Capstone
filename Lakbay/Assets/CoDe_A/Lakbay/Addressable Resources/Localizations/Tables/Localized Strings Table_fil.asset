@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 146866663424
-    m_Localized: Settings
+    m_Localized: Mga Setting
     m_Metadata:
       m_Items: []
   - m_Id: 174347743232
@@ -31,11 +31,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 221026152448
-    m_Localized: About
+    m_Localized: Patungkol
     m_Metadata:
       m_Items: []
   - m_Id: 1215400413982720
-    m_Localized: Tumuloy
+    m_Localized: Ituloy
     m_Metadata:
       m_Items: []
   - m_Id: 1216414357614592
@@ -59,15 +59,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2527534523576320
-    m_Localized: Audio
+    m_Localized: Tunog
     m_Metadata:
       m_Items: []
   - m_Id: 2527598570598400
-    m_Localized: Video
+    m_Localized: Bidyo
     m_Metadata:
       m_Items: []
   - m_Id: 2527659601915904
-    m_Localized: Accessibility
+    m_Localized: Aksesibilidad
     m_Metadata:
       m_Items: []
   references:

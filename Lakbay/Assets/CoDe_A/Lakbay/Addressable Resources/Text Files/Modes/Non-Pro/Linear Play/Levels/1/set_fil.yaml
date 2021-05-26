@@ -3,181 +3,181 @@ items:
     -
         question:
             images: []
-            text: 'Kailan ka dapat mag U-turn?'
+            text: 'Mayroong karatula na may makapal na putting linya sa kalsada. Bakit may stop sign dito?'
         choices:
             -
-                text: 'Pedestrian Crossing'
+                text: 'Ang bilis sa pangunahing kalsada ay pinaghihigpitan'
                 correct: false
             -
-                text: 'Check for traffic behind you and indicate your intentions with a left turn signal'
+                text: 'Indikasyon na may ginagawa sa kalsada'
+                correct: false
+            -
+                text: 'Ang pagdaan sa pangunahing kalsada ay pinaghihigpitan'
                 correct: true
-            -
-                text: 'No U-turn'
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Signs that are round, inverted triangle or octagonal with red borders are called:'
+            text: 'Maaari kang huminto sa isang expressway kapag:'
         choices:
             -
-                text: 'Steady green Light'
+                text: 'Kailangang ihatid ang isang pasahero'
                 correct: false
             -
-                text: 'Steady yellow Light'
+                text: 'Kailangang ibaba ang isang pasahero'
                 correct: false
             -
-                text: 'Caution or Warning Signs'
+                text: 'Kapag sinabihan ng traffic enforcer na gawin ito'
                 correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Signs that are round, inverted triangle or octagonal and with red colored borders are called:'
+            text: 'Anong kulay ng watawat ang kinakailangan upang mai-attach sa pag-project ng maraming sasakyan?'
         choices:
             -
-                text: 'Regulatory signs'
+                text: 'Dilaw'
+                correct: false
+            -
+                text: 'Luntian'
+                correct: false
+            -
+                text: 'Pula'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images:
+                - 'school_children_crossing.png'
+            text: 'Ano ang ibig sabihin ng karatulang ito?'
+        choices:
+            -
+                text: 'Railroad crossing'
+                correct: false
+            -
+                text: 'School Zone'
                 correct: true
             -
-                text: 'Steady yellow Light'
+                text: 'Animals crossing'
                 correct: false
-            -
-                text: 'Caution or Warning Signs'
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'What to do when you approach a crosswalk or pedestrian lane?'
+            text: 'Habang nagmamaneho, paano ka dapat tumingin sa iyong gilid at salamin sa likuran?'
         choices:
             -
-                text: 'Pause and Go'
-                correct: false
-            -
-                text: 'Stop and yield to pedestrians'
+                text: 'Sulyap lang'
                 correct: true
             -
-                text: 'Drive immediately'
+                text: 'Tumitig ng matagal sa iyong salamin'
                 correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+            -
+                text: 'Hindi bababa sa isang minuto'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Signs that are round, rectangular with white and blue background are called:'
+            text: 'Ano ang maaaring makawala ng iyong konsentrasyon habang nagmamaneho?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Paggamit ng wiper wash'
                 correct: false
             -
-                text: 'Informative Signs'
+                text: 'Pakikinig sa malakas na musika'
                 correct: true
             -
-                text: 'Drive and Go'
+                text: 'Pagsulyap sa side mirror'
                 correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'A driver while on highway shall yield the right of way to:'
+            text: 'Kapag may nakita kang nakatigil na sasakyan sa gilid ng kalsada, ano ang gagawin mo?'
         choices:
             -
-                text: 'Pedestrians within a crosswalk '
+                text: 'Bagalan ang takbo at gamitin ang caution habang tumatawid'
                 correct: true
             -
-                text: 'Make a full stop'
+                text: 'Magbusina'
                 correct: false
             -
-                text: 'Drive and Go'
+                text: 'Tumigil at komprontahin ang driver'
                 correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Steady red light at an intersection means:'
+            text: 'Totoo ba na ang tao ay maaring mag-apply ng Student-driver’s Permit kahit may tuberculosis o may mga Sexually-Transmitted Disease (STD)?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
-                correct: false
-            -
-                text: 'Make a full stop'
-                correct: false
-            -
-                text: 'Stop at the designated line '
+                text: 'Tama'
                 correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+            -
+                text: 'Mali'
+                correct: false
+            -
+                text: 'Pwede'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'When do you have a complete/full stop?'
+            text: 'Ano ang gagawin mo kapag nagreseta and iyong doktor ng gamot na makaka-apekto sa iyong pagmamaneho?'
         choices:
             -
-                text: 'In front of the pedestrian lane'
+                text: 'Iwasan ang pagmamaneho sa expressways'
                 correct: false
             -
-                text: 'At a red traffic light'
+                text: 'Magmaneho lamang kapag may kasama'
+                correct: false
+            -
+                text: 'Huwag magmaneho'
                 correct: true
-            -
-                text: 'Stop at the designated line '
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
-            images: []
-            text: 'At an intersection, if two (2) vehicles arrived at the same time, which vehicle has the right of way?'
+            images: 'no_entry_for_cars.png'
+            text: 'Ano ang ibig sabihin ng karatulang ito?'
         choices:
             -
-                text: 'Vehicle on the left'
+                text: 'Bawal mag- overtake'
                 correct: false
             -
-                text: 'Both vehicle must cross'
+                text: 'Clearway (walang hinto)'
                 correct: false
             -
-                text: 'Vehicle on the right  '
+                text: ' Bawal ang motorvehicles'
                 correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: 
-                - 'no_parking.png'
-            text: 'What road sign is shown?'
-        choices:
-            -
-                text: 'No Smoking'
-                correct: false
-            -
-                text: 'No U-Turn'
-                correct: false
-            -
-                text: 'No Parking'
-                correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20

@@ -83,7 +83,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
                     break;
 
                 } case(Mode.PRO): {
-                    GameController.currentModeData = GameModule.DatabaseController.nonProModeData;
+                    GameController.currentModeData = GameModule.DatabaseController.proModeData;
                     break;
 
                 }

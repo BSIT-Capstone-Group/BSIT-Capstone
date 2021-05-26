@@ -3,16 +3,16 @@ items:
     -
         question:
             images: []
-            text: 'When making a U-turn you should?'
+            text: 'What will you do if a passenger told you to drive faster in order to meet their appointment on time?'
         choices:
             -
-                text: 'Pedestrian Crossing'
+                text: 'I will drive fast but they must pay the violation if there is any'
                 correct: false
             -
-                text: 'Check for traffic behind you and indicate your intentions with a left turn signal'
+                text: 'I will do my best to arrive at the destination safely and on time'
                 correct: true
             -
-                text: 'No U-turn'
+                text: 'I will tell my passenger to get off the vehicle'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10
@@ -21,34 +21,16 @@ items:
     -
         question:
             images: []
-            text: 'Signs that are round, inverted triangle or octagonal with red borders are called:'
+            text: 'A driver on a highway shall yield the right of way to:'
         choices:
             -
-                text: 'Steady green Light'
-                correct: false
-            -
-                text: 'Steady yellow Light'
-                correct: false
-            -
-                text: 'Caution or Warning Signs'
-                correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: []
-            text: 'Signs that are round, inverted triangle or octagonal and with red colored borders are called:'
-        choices:
-            -
-                text: 'Regulatory Signs'
+                text: 'Police/fire department vehicles and ambulance'
                 correct: true
             -
-                text: 'Steady yellow Light'
+                text: 'Vehicles with special plates'
                 correct: false
             -
-                text: 'Caution or Warning Signs'
+                text: 'Vehicle with government plates'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10
@@ -57,16 +39,16 @@ items:
     -
         question:
             images: []
-            text: 'What to do when you approach a crosswalk or pedestrian lane?'
+            text: 'In case of an accident, the first duty of the driver involved is:'
         choices:
             -
-                text: 'Pause and Go'
-                correct: false
-            -
-                text: 'Stop and yield to pedestrians'
+                text: 'Attend to the injured person and call for help'
                 correct: true
             -
-                text: 'Drive immediately'
+                text: 'Report the accident to the nearest police station'
+                correct: false
+            -
+                text: 'Report the accident to the hospital'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10
@@ -75,52 +57,16 @@ items:
     -
         question:
             images: []
-            text: 'Signs that are round, rectangular with white and blue background are called:'
+            text: 'What should you do if your passenger does not have enough money to pay for your service?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Get some valuable items from the passenger to compensate for the fare'
                 correct: false
             -
-                text: 'Informative Signs'
-                correct: true
-            -
-                text: 'Drive and Go'
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: []
-            text: 'A driver while on highway shall yield the right of way to:'
-        choices:
-            -
-                text: 'Pedestrians within a crosswalk '
-                correct: true
-            -
-                text: 'Make a full stop'
+                text: 'Let the passenger sign an agreement that they will pay the fare on the following day'
                 correct: false
             -
-                text: 'Drive and Go'
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: []
-            text: 'Steady red Light at an intersection means:'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
-                correct: false
-            -
-                text: 'Make a full stop'
-                correct: false
-            -
-                text: 'Stop at the designated line '
+                text: 'Accept whatever amount the passenger has and courteously advise to bring enough money next time'
                 correct: true
         minCoinGain: 1
         maxCoinGain: 10
@@ -129,16 +75,16 @@ items:
     -
         question:
             images: []
-            text: 'When do you have a complete/full stop?'
+            text: 'What should you do if your boss called to you to hurry up going back to his house while you are dropping your boss daughter into the gate of the school?'
         choices:
             -
-                text: 'In front of the pedestrian lane'
+                text: 'Drop the daughter at once and proceed to the house immediately'
                 correct: false
             -
-                text: 'At a red traffic light'
+                text: 'Wait until the daughter safely entered the building compound then go'
                 correct: true
             -
-                text: 'Stop at the designated line '
+                text: 'Tell the daughter that his father called and need the car immediately'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10
@@ -147,53 +93,16 @@ items:
     -
         question:
             images: []
-            text: 'At an intersection, if two (2) vehicles arrived at the same time, which vehicle has the right of way?'
+            text: 'This is a violation that endangers the safety or rights of any person on a highway:'
         choices:
             -
-                text: 'Vehicle on the left'
+                text: 'Listening to loud music while driving'
                 correct: false
             -
-                text: 'Both vehicle must cross'
-                correct: false
-            -
-                text: 'Vehicle on the right'
-                correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: 
-               - 'no_parking.png'
-            text: 'What road sign is shown?'
-        choices:
-            -
-                text: 'No Smoking'
-                correct: false
-            -
-                text: 'No U-Turn'
-                correct: false
-            -
-                text: 'No Parking'
-                correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: []
-            text: 'A pre-trip inspection should be completed:'
-        choices:
-            -
-                text: 'Before operating the motor vehicle'
+                text: 'Reckless driving'
                 correct: true
             -
-                text: 'While operating the motor vehicle'
-                correct: false
-            -
-                text: 'After operating the motor vehicle'
+                text: 'Not wearing proper uniform'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10
@@ -202,17 +111,17 @@ items:
     -
         question:
             images: []
-            text: 'lt is illegal to park:'
+            text: 'What is the prescribed standard color of uniform for jeepney drivers?'
         choices:
             -
-                text: 'Within 9 meters of a fire hydrant and within 6 meters from the intersection'
+                text: 'Red'
                 correct: false
             -
-                text: 'Within 5 meters of a fire hydrant and within 6 meters from the intersection'
-                correct: false
-            -
-                text: 'Within 4 meters of a fire hydrant and within 6 meters from the intersection'
+                text: 'Light Blue'
                 correct: true
+            -
+                text: 'White '
+                correct: false
         minCoinGain: 1
         maxCoinGain: 10
         minFuelDeduction: 7
@@ -220,16 +129,16 @@ items:
     -
         question:
             images: []
-            text: 'Before making a turn, the driver should use the turn signal at what distance?'
+            text: ' A public utility driver is not allowed to talk to passengers while the vehicle is:'
         choices:
             -
-                text: '10 meters'
-                correct: false
-            -
-                text: '30 meters'
+                text: 'In motion'
                 correct: true
             -
-                text: '50 meters'
+                text: 'About to turn'
+                correct: false
+            -
+                text: 'Parked'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10
@@ -237,18 +146,17 @@ items:
         maxFuelDeduction: 15
     -
         question:
-            images: 
-               - 'no_overtaking.png'
-            text: 'What road sign is shown?'
+            images: []
+            text: 'What should you do after turning right?'
         choices:
             -
-                text: 'No Overtaking'
-                correct: true
-            -
-                text: 'No Entry for Pedestrians'
+                text: 'Proceed to the inner lane at once'
                 correct: false
             -
-                text: 'No Parking'
+                text: 'Stay on the outermost lane'
+                correct: true
+            -
+                text: 'Keep your turn signal light on'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10
@@ -256,18 +164,107 @@ items:
         maxFuelDeduction: 15
     -
         question:
-            images: 
-               - 'no_pedestrian_crossing.png'
-            text: 'What road sign is shown?'
+            images: []
+            text: 'Blue, Green, Red, White, and ____ are the officially recognized colors for traffic rules and regulations'
         choices:
             -
-                text: 'No Overtaking'
-                correct: false
-            -
-                text: 'No Entry for Pedestrians'
+                text: 'Yellow'
                 correct: true
             -
-                text: 'No Parking'
+                text: 'Pink'
+                correct: false
+            -
+                text: 'Violet'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Your vehicle catches fire while driving through a tunnel. It is still drivable. What should you do?'
+        choices:
+            -
+                text: 'Use the fire extinguisher and drive it out of the tunnel if you can do so'
+                correct: true
+            -
+                text: 'Leave it where it is with the engine running'
+                correct: false
+            -
+                text: 'Park it away from the highway'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'There is a police car following you. The traffic enforcer flashes the headlights and points to the right. What should you do?'
+        choices:
+            -
+                text: 'Stop immediately'
+                correct: false
+            -
+                text: 'Move over to the right'
+                correct: true
+            -
+                text: 'Pull up on the right'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Where should you point your front tires when parking uphill with a curb?'
+        choices:
+            -
+                text: 'Front tires must be parallel with the curb'
+                correct: false
+            -
+                text: 'Front tires must be pointed away from the curb'
+                correct: true
+            -
+                text: 'Front tires must be pointed towards the curb'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'Why should water NOT be thrown on a gasoline, oil, or grease fire?'
+        choices:
+            -
+                text: 'The water will surely cut off the fire'
+                correct: false
+            -
+                text: 'The water will only spread the gasoline, oil, or grease'
+                correct: true
+            -
+                text: 'The water has no effect on the gasoline, oil, or grease'
+                correct: false
+        minCoinGain: 1
+        maxCoinGain: 10
+        minFuelDeduction: 7
+        maxFuelDeduction: 15
+    -
+        question:
+            images: []
+            text: 'What is the traffic signal light that means you may proceed?'
+        choices:
+            -
+                text: 'Steady red light'
+                correct: false
+            -
+                text: 'Steady green light'
+                correct: true
+            -
+                text: 'Flashing red light'
                 correct: false
         minCoinGain: 1
         maxCoinGain: 10

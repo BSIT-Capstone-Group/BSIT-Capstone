@@ -72,6 +72,111 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images
+  - m_GUID: 84a616f2f89f4194ba5192ab6706a323
+    m_Address: Images/arm_signal_stop.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4490ec3dd3df45b42b3a726e95a82156
+    m_Address: Images/arm_signal_turn_left.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ef12d466adb6ec248878ae02699c91c0
+    m_Address: Images/arm_signal_turn_right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ca281dca286c95c42bd939914c34981d
+    m_Address: Images/checkerboard_pattern.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 2e56c7de719772940b98c15e55f6b3ab
+    m_Address: Images/curve_left.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 259e28c758000584ba31f68b8c625faf
+    m_Address: Images/curve_right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8f7cb8bfd1766d44f928105f4f245b7f
+    m_Address: Images/flood.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: be77e59b923aa33408675b35b5f6b38f
+    m_Address: Images/next_exit.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: a65bd4f1363cc9848bd962c3135d405c
+    m_Address: Images/no_entry.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4dbb7ef681367cc4c8cd58b708d54c00
+    m_Address: Images/no_entry_for_all.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 59ac1a96b7975254eabf2ea0c9e665d4
+    m_Address: Images/no_parking_anytime.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: b2eb8d8fe0a80a9449fc34eee8b12055
+    m_Address: Images/no_stopping_anytime.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8dd8a1a601ff9a24d9a81b9fded86b95
+    m_Address: Images/oil_low_pressure.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4dfc53d9454cb824488f059d74056e43
+    m_Address: Images/railroad_crossing_advance_warning.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 160693b37cae63743a5e36c8e8cc71d1
+    m_Address: Images/speed_limit_derestriction.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 7862bc738cf3fd7459617755f8b3ff1a
+    m_Address: Images/traffic_lights_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d63775ddff0afe849a1e50c7b1f75a0b
+    m_Address: Images/no_entry_for_cars.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 126338a797d869a42a8e6e8bd0c21d18
+    m_Address: Images/opening_bridge.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: b810144192ac80045bd0404a1a8ccec4
+    m_Address: Images/school_children_crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d3182df4785c6c14593382a97e7a3416
+    m_Address: Images/sharp_turn_left.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4fad943303ae5ca4ca517fb6eea43281
+    m_Address: Images/stop.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

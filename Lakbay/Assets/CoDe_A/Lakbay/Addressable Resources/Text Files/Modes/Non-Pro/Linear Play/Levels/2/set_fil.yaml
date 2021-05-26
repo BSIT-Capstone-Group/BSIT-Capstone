@@ -2,18 +2,35 @@ name: ""
 items:
     -
         question:
-            images: 
-                - 'pedestrian_crossing.png'
-            text: 'Anong road sign ito?'
+            images: []
+            text: 'Nagkakarooon ng di-pagkakaunawaan sa mga motorista kapag:'
         choices:
             -
-                text: 'No U-Turn'
-                correct: false
-            -
-                text: 'Pedestrian crossing'
+                text: 'Kapag may nagsimulang magkompronta sa kanila'
                 correct: true
             -
-                text: 'No Parking'
+                text: 'Kapag walang may nagkompronta sa kanila'
+                correct: false
+            -
+                text: 'Kapag wala sa kanila ang may alam sa batas-trapiko'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 'stop.png'
+            text: 'Ano ang dapat nating gawin kapag nakita natin ang karatulang ito?'
+        choices:
+            -
+                text: 'Huminto, Tumingin, at Makinig'
+                correct: false
+            -
+                text: 'Huminto lamang kapag may mga batang tatawid'
+                correct: true
+            -
+                text: 'Huminto lamang kapag may paparating na trapiko'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -22,16 +39,16 @@ items:
     -
         question:
             images: []
-            text: 'When negotiating a curve on a highway at a relatively high speed you should:'
+            text: 'Nagreseta ang iyong doktor ng gamot, bakit kailangang tanungin kung ano ang magiging epekto nito sa iyo?'
         choices:
             -
-                text: 'Steady green Light'
+                text: 'Ang gamot na iyong iinumin ay maaring makaapekto sa iyong pandinig'
                 correct: false
             -
-                text: 'Drive immediately'
+                text: 'Kailangang malaman ito ng iyong insurance company'
                 correct: false
             -
-                text: 'Decrease your speed further as you enter the curve'
+                text: 'May ilang mga gamot na makakapagpabagal ng iyong reaksyon'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -40,16 +57,34 @@ items:
     -
         question:
             images: []
-            text: 'A flashing red signal means:'
+            text: '	Ano ang ibig sabihin kapag itinutok ng ibang driver ang kanilang headlight sa iyo?'
         choices:
             -
-                text: 'Informative Signs'
+                text: 'Na pinapadaan ka nila'
                 correct: false
             -
-                text: 'You must stop and then go only when it is safe to do so'
+                text: 'Na mayroong radar speed trap sa unahan'
+                correct: false
+            -
+                text: 'Na nagpapahiwatig na sila ay nariyan '
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 'sharp_turn_left.png'
+            text: '	Ano ang ibig sabihin ng karatulang ito?'
+        choices:
+            -
+                text: 'Steep left curve'
                 correct: true
             -
-                text: 'Caution or Warning Signs'
+                text: 'Bawal kumaliwa'
+                correct: false
+            -
+                text: 'Mapanganib sa kanan'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -58,16 +93,16 @@ items:
     -
         question:
             images: []
-            text: 'When an oncoming vehicle crosses the centerline in a straight road you should be:'
+            text: 'Habang nagpapalit ng lanes, kailangan mong magbigay ng senyales, i-check ang side at rear-view mirror, at?'
         choices:
             -
-                text: 'Pause and Go'
+                text: 'I-on ang headlight ng sasakyan'
                 correct: false
             -
-                text: 'Slow down and keep to right'
+                text: 'Magmatyag sa mga paparating na mga ssakyan'
                 correct: true
             -
-                text: 'Drive immediately'
+                text: 'Magbusina'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -76,16 +111,16 @@ items:
     -
         question:
             images: []
-            text: 'A single solid yellow or white line means:'
+            text: 'Alin sa mga ito, kung napabayaan, ay maaaring maging sanhi ng isang road crash?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Antas ng freon ng aircon'
                 correct: false
             -
-                text: 'Make a full stop'
+                text: 'Antas ng tubig sa radiator'
                 correct: false
             -
-                text: 'Passing/overtaking is not allowed'
+                text: 'Antas ng Brake fluid'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -94,34 +129,16 @@ items:
     -
         question:
             images: []
-            text: 'A single solid yellow or white line means:'
+            text: 'Ano ang dapat mong gawin kapag nai-pressure ng mga motorista sa likuran mo upang mas mabilis na magmaneho?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
-                correct: false
-            -
-                text: 'Make a full stop'
-                correct: false
-            -
-                text: 'Passing/overtaking is not allowed'
-                correct: true
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'In bad conditions, the 2-second rule should be increased to:'
-        choices:
-            -
-                text: '4 seconds in changing lanes'
+                text: 'Gamit ang direksyonal na signal, dahan-dahang pumunta sa vehicle lane at magbigay-daan sa mga humaharurot na sasakyan'
                 correct: true
             -
-                text: 'Make a full stop'
+                text: 'Humakbang sa preno isa o dalawang beses habang bumababa ng kalsada'
                 correct: false
             -
-                text: '8 seconds in changing lanes'
+                text: 'Isaaktibo ang switch ng hazard habang tumatakbo ng mabilis'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -130,16 +147,52 @@ items:
     -
         question:
             images: []
-            text: 'Having a drivers license is a:'
+            text: 'Ano ang dapat mong gawin kung maraming sasakyan ang dumaan sa iyong kaliwa?'
         choices:
             -
-                text: 'Privilege'
-                correct: true
-            -
-                text: 'Authority'
+                text: 'Huminto at hintaying dumaan ang sasakyan  '
                 correct: false
             -
-                text: 'Mandatory'
+                text: 'Panatilihin o bahagyang bawasan ang bilis at panatilihin sa kanan'
+                correct: true
+            -
+                text: 'Bawasan ang bilis at palitan ang linya'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+                images: []
+                text: 'Ano ang batas ng right-of-way bago pumasok sa sa pampublikong kalsada, alley, at pribadong kalsada?'
+        choices:
+            -
+                text: 'Ang sasakyan ay dapat huminto at ibigay ang right-of-way sa trapiko, sa daanan at sa mga naglalakad'
+                correct: true
+            -
+                text: 'Ang sasakyan ay may right-of-way sa lahat ng direksyon sa kalsada'
+                correct: false
+            -
+                text: 'Ang sasakyan ay may right-of-way sa trapiko lalo na sa kaliwang bahagi ng daan'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 'opening_bridge.png'
+            text: 'Ano ang ibig sabihin ng karatulang ito?'
+        choices:
+            -
+                text: 'Sirang tulay '
+                correct: false
+            -
+                text: 'Swing bridge'
+                correct: true
+            -
+                text: '	Makitid na tulay'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -148,16 +201,16 @@ items:
     -
         question:
             images: []
-            text: 'As per R.A 4136, the brakes on every vehicle (other than a motorcycle) must:'
+            text: 'Kapag may nakitang bola sa likod ng nakaparadang sasakyan, maaaring may batang nakasunod doon. Ano ang iyong gagawin?'
         choices:
             -
-                text: 'Brand New'
+                text: 'Bilisan ang pagpapatakbo'
                 correct: false
             -
-                text: 'Consist of a good foot and hand brake'
+                text: 'Bagalan ang takbo'
                 correct: true
             -
-                text: 'Expensive'
+                text: 'Magbusina at panatilihin ang bilis ng takbo'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -166,34 +219,16 @@ items:
     -
         question:
             images: []
-            text: 'When are you permitted to double-park?'
+            text: "Ang Student-driver’s Permit ay tumatagal  lamang ng?"
         choices:
             -
-                text: 'Often'
+                text: 'Anim na buwan'
                 correct: false
             -
-                text: 'Always'
-                correct: false
-            -
-                text: 'Never'
-                correct: true
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'Chances of being hurt or killed while driving is reduced if one is wearing:'
-        choices:
-            -
-                text: 'Expensive Perfume'
-                correct: false
-            -
-                text: 'Seat belts/helmets '
+                text: 'Isang taon'
                 correct: true
             -
-                text: 'High heels'
+                text: '90 araw'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -202,34 +237,16 @@ items:
     -
         question:
             images: []
-            text: 'A flashing yellow light means:'
+            text: 'Ikaw ay nasa expressway at malapit na sa tollgate. May mga umiilaw-ilaw na pula sa taas ng lane dapat kang?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
-                correct: true
-            -
-                text: 'Make a full stop'
+                text: 'Huminto sa lay-by'
                 correct: false
             -
-                text: 'Drive and Go'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'This traffic sign states directions and distances?'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
+                text: 'Huminto at mag-reverse'
                 correct: false
             -
-                text: 'Informative Signs'
-                correct: false
-            -
-                text: 'Passing/overtaking is not allowed'
+                text: 'Huminto at maghintay'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -237,55 +254,15 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: []
-            text: 'The Traffic light or signal that tells you to stop before the intersection is:'
+            images: 'no_parking_anytime.png'
+            text: 'Ano ang ibig sabihin ng karatulang ito?'
         choices:
             -
-                text: 'Steady red Light'
+                text: 'Maaring pumarada sa mga araw na nakalagay'
+                correct: false
+            -
+                text: 'Bawal pumarada sa lahat ng panahon'
+                correct: false
+            -
+                text: 'Bawal pumarada mula Lunes hanggang Biyernes'
                 correct: true
-            -
-                text: 'Steady green light'
-                correct: false
-            -
-                text: 'Steady yellow light'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A traffic signal light that warns you that the red light is about to turn on:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green light'
-                correct: false
-            -
-                text: 'Steady yellow light'
-                correct: true
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A single solid yellow or white line means:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green Light'
-                correct: true
-            -
-                text: 'Steady yellow Light'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 10
-        maxFuelDeduction: 20

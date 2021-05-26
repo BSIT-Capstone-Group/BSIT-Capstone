@@ -3,35 +3,17 @@ items:
     -
         question:
             images: 
-                - 'pedestrian_crossing.png'
-            text: 'What road sign is shown?'
+                - 'traffic_lights_ahead.png'
+            text: 'What does this traffic sign mean?'
         choices:
             -
-                text: 'No U-Turn'
+                text: 'Beware of traffic enforcers'
                 correct: false
             -
-                text: 'Pedestrian crossing'
-                correct: true
-            -
-                text: 'No Parking'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'When negotiating a curve on a highway at a relatively high speed you should:'
-        choices:
-            -
-                text: 'Steady green Light'
+                text: 'Traffic signs ahead'
                 correct: false
             -
-                text: 'Drive immediately'
-                correct: false
-            -
-                text: 'Decrease your speed further as you enter the curve'
+                text: 'Traffic signal light ahead'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -40,16 +22,16 @@ items:
     -
         question:
             images: []
-            text: 'A flashing red signal means:'
+            text: 'What is the effect of pushing on the brake pedal intermittently while the vehicle is not in motion or the engine is off?'
         choices:
             -
-                text: 'Informative Signs'
+                text: 'May increase braking capacity'
                 correct: false
             -
-                text: 'You must stop and then go only when it is safe to do so'
+                text: 'May damage the fluid lines'
                 correct: true
             -
-                text: 'Caution or Warning Signs'
+                text: 'May improve breaking ability of driver'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -58,16 +40,16 @@ items:
     -
         question:
             images: []
-            text: 'When an oncoming vehicle crosses the centerline in a straight road you should be:'
+            text: 'What is the primary function of ECM, ECU, or PLD (Computer Box)?'
         choices:
             -
-                text: 'Pause and Go'
+                text: 'To send signals to electronic sensors and alert the driver of warnings'
                 correct: false
             -
-                text: 'Slow down and keep to right'
+                text: 'To receive signals from sensors and convert it into audible and visible information to the driver or to the engine'
                 correct: true
             -
-                text: 'Drive immediately'
+                text: 'To think what will happen if anything goes wrong electronically'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -76,16 +58,35 @@ items:
     -
         question:
             images: []
-            text: 'A single solid yellow or white line means:'
+            text: 'Certain vehicles are equipped with body leveling valve switch, this is especially useful for:'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Crossing long bridges'
                 correct: false
             -
-                text: 'Make a full stop'
+                text: 'Crossing flooded areas'
+                correct: true
+            -
+                text: 'Crossing highways'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'oil_low_pressure.png'
+            text: 'What does this warning light on the instrument panel mean?'
+        choices:
+            -
+                text: 'Low air pressure'
                 correct: false
             -
-                text: 'Passing/overtaking is not allowed'
+                text: 'Low fuel pressure'
+                correct: false
+            -
+                text: 'Low oil pressure'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -94,70 +95,16 @@ items:
     -
         question:
             images: []
-            text: 'In bad conditions, the 2-second rule should be increased to:'
+            text: 'When will the trailer more likely to swing?'
         choices:
             -
-                text: '4 seconds in changing lanes'
-                correct: true
-            -
-                text: 'Make a full stop'
+                text: 'An endurance brake (retarder) is fitted'
                 correct: false
             -
-                text: '8 seconds in changing lanes'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'Having a drivers license is a:'
-        choices:
-            -
-                text: 'Privilege'
-                correct: true
-            -
-                text: 'Authority'
+                text: 'Braking lightly several times'
                 correct: false
             -
-                text: 'Mandatory'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'As per R.A 4136, the brakes on every vehicle (other than a motorcycle) must:'
-        choices:
-            -
-                text: 'Brand New'
-                correct: false
-            -
-                text: 'Consist of a good foot and hand brake'
-                correct: true
-            -
-                text: 'Expensive'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'When are you permitted to double-park?'
-        choices:
-            -
-                text: 'Often'
-                correct: false
-            -
-                text: 'Always'
-                correct: false
-            -
-                text: 'Never'
+                text: 'Braking on a bend, over steering at speed and when the brakes are out of adjustment'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -166,88 +113,16 @@ items:
     -
         question:
             images: []
-            text: 'Chances of being hurt or killed while driving is reduced if one is wearing:'
+            text: 'What should you do when your dispatcher is calling on your radio about your whereabouts?'
         choices:
             -
-                text: 'Expensive Perfume'
+                text: 'Quickly answer the radio and shut it off'
                 correct: false
             -
-                text: 'Seat belts/helmets '
-                correct: true
-            -
-                text: 'High Heels'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A flashing yellow Light means:'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
-                correct: true
-            -
-                text: 'Make a full stop'
+                text: 'Wait for red traffic light then answer the radio'
                 correct: false
             -
-                text: 'Drive and Go'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'This traffic sign states directions and distances?'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
-                correct: false
-            -
-                text: 'Informative Signs'
-                correct: true
-            -
-                text: 'Passing/overtaking is not allowed'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'The Traffic light or signal that tells you to stop before the intersection is:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: true
-            -
-                text: 'Steady green Light'
-                correct: false
-            -
-                text: 'Steady yellow Light'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A traffic signal light that warns you that the red light is about to turn on:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green Light'
-                correct: false
-            -
-                text: 'Steady yellow Light'
+                text: 'Do not answer the radio'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -256,16 +131,16 @@ items:
     -
         question:
             images: []
-            text: 'The traffic signal light that means you can go if the intersection is clear:'
+            text: 'What is your violation if you are driving at the center of a broken line?'
         choices:
             -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green Light'
+                text: 'Obstruction/Reckless (Straddling)'
                 correct: true
             -
-                text: 'Steady yellow Light'
+                text: 'Speeding'
+                correct: false
+            -
+                text: 'None'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -274,16 +149,35 @@ items:
     -
         question:
             images: []
-            text: 'When taking any medicine, you should:'
+            text: 'What is the best way of maintaining an appropriate stopping distance?'
         choices:
             -
-                text: 'Just take it without any prescriptions'
+                text: 'A driver should drive at low gear in the expressway'
                 correct: false
             -
-                text: 'Ignore and go'
+                text: 'A driver should match the speed with the traffic flow while driving within speed limit'
+                correct: true
+            -
+                text: 'A driver should drive slowly at all times to improve traffic flow'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'arm_signal_turn_right.png'
+            text: 'What arm signal is shown?'
+        choices:
+            -
+                text: 'Arm signal to u-turn'
                 correct: false
             -
-                text: 'Consult your doctor about the effects before driving'
+                text: 'Arm signal to turn left '
+                correct: false
+            -
+                text: 'Arm signal to turn right'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -292,16 +186,34 @@ items:
     -
         question:
             images: []
-            text: 'It is not considered safe driving on an expressway when a driver of a motor vehicle: '
+            text: 'Applying as a delivery driver for a chemical manufacturing company. What must you have first?'
         choices:
             -
-                text: 'Driving when drunk'
+                text: 'Medical Clearance'
                 correct: false
             -
-                text: 'Change lanes without signalling'
+                text: 'NBI Clearance'
+                correct: false
+            -
+                text: 'Seminar/Training on transporting and handling of chemicals'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'You are transporting frozen foods. What important additional training do you need to have?'
+        choices:
+            -
+                text: 'Packaging procedures'
+                correct: false
+            -
+                text: 'Food-handling procedures'
                 correct: true
             -
-                text: 'Using phone while driving'
+                text: 'Waste-handling procedures'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -310,35 +222,16 @@ items:
     -
         question:
             images: []
-            text: 'What is not a good trait of a driver? '
+            text: 'Is it true that family drivers are required to bring their Certificate of Public Convenience (CPC) when driving in the country?'
         choices:
             -
-                text: 'Driving recklessly and under the influence of alcohol or drug'
-                correct: true
-            -
-                text: 'Follows the Rules and Regulations'
+                text: 'True, CPC is valid all over the Philippines'
                 correct: false
             -
-                text: 'Driving carefully'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images:
-                - 'no_left_turn.png'
-            text: 'What sign is shown?'
-        choices:
-            -
-                text: 'No U-Turn'
+                text: 'False, Franchise must be brought instead of CPC'
                 correct: false
             -
-                text: 'No Right Turn'
-                correct: false
-            -
-                text: 'No Left Turn'
+                text: 'False, CPCs are for Public Utility Vehicles only'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -346,18 +239,128 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images:
-                - 'no_right_turn.png'
-            text: 'What sign is shown?'
+            images: []
+            text: 'The penalty for the third and subsequent violation for any PUV Operator whose driver refuses to render service to the public or passengers is?'
         choices:
             -
-                text: 'No U-Turn'
+                text: 'Monetary penalty and revocation of license'
                 correct: false
             -
-                text: 'No Right Turn'
+                text: 'Monetary penalty and cancellation of CPC where unit is authorized'
                 correct: true
             -
-                text: 'No Left Turn'
+                text: 'Monetary penalty and cancellation of unit from the CPC'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'no_entry.png'
+            text: 'What is the meaning of this sign?'
+        choices:
+            -
+                text: 'Speed Restrictions'
+                correct: false
+            -
+                text: 'No Entry'
+                correct: true
+            -
+                text: 'School Crossing Patrol'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'What is the penalty if you failed to settle the Temporary Operator Permit violation within 15 days after apprehension?'
+        choices:
+            -
+                text: '60 days suspension'
+                correct: false
+            -
+                text: 'One year suspension'
+                correct: false
+            -
+                text: '30 days suspension'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'curve_left.png'
+                - 'curve_right.png'
+            text: 'What should you do if you see these signs while driving?'
+        choices:
+            -
+                text: 'Stop at the sign'
+                correct: false
+            -
+                text: 'Stop and look for open farm gates'
+                correct: false
+            -
+                text: 'Slow, there is road curve ahead'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'What is the most probable effect does braking have on a load that is not tied down or secured?'
+        choices:
+            -
+                text: 'Unsecured load may collapse when applying the brakes'
+                correct: false
+            -
+                text: 'Unsecured load may shift forward when applying the brakes'
+                correct: true
+            -
+                text: 'Unsecured load may destroy the frame of the vehicle when applying the brakes'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'How can you avoid brake fade when driving downhill?'
+        choices:
+            -
+                text: 'Shift to neutral'
+                correct: false
+            -
+                text: 'Shift to lower gear'
+                correct: true
+            -
+                text: 'Increase the RPM'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'What type of vehicle is allowed to a holder of a professional drivers license for light vehicles?'
+        choices:
+            -
+                text: 'Public Utility Vehicle up to 1600 kgs GVW'
+                correct: false
+            -
+                text: 'Public Utility Vehicle up to 4500 kgs GVW'
+                correct: true
+            -
+                text: 'Public Utility Vehicle above 4500 kgs GVW'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15

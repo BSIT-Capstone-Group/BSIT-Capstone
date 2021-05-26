@@ -3,181 +3,163 @@ items:
     -
         question:
             images: []
-            text: 'When making a U-turn you should?'
+            text: 'At this junction there is a stop sign with a solid white line on the road surface. Why is there a stop sign here?'
         choices:
             -
-                text: 'Pedestrian Crossing'
+                text: 'Speed on the major road is derestricted'
                 correct: false
             -
-                text: 'Check for traffic behind you and indicate your intentions with a left turn signal'
+                text: 'It is a busy junction'
+                correct: false
+            -
+                text: 'Visibility along the major road is restricted'
                 correct: true
-            -
-                text: 'No U-turn'
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Signs that are round, inverted triangle or octagonal with red borders are called:'
+            text: 'What flag color is required to be attached on projecting loads of a vehicle?'
         choices:
             -
-                text: 'Steady green Light'
+                text: 'Yellow'
                 correct: false
             -
-                text: 'Steady yellow Light'
+                text: 'Green'
                 correct: false
             -
-                text: 'Caution or Warning Signs'
+                text: 'Red'
                 correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 'school_children_crossing.png'
+            text: 'What does this traffic sign means?'
+        choices:
+            -
+                text: 'Railroad crossing'
+                correct: false
+            -
+                text: 'School Zone'
+                correct: true
+            -
+                text: 'Animals crossing'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Signs that are round, inverted triangle or octagonal and with red colored borders are called:'
+            text: 'While driving, how should you look at your side and rear view mirror?'
         choices:
             -
-                text: 'Regulatory signs'
+                text: 'Stare longer at your mirrors'
+                correct: false
+            -
+                text: 'A quick glance'
                 correct: true
             -
-                text: 'Steady yellow Light'
+                text: 'NOT less than once per one minute'
                 correct: false
-            -
-                text: 'Caution or Warning Signs'
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'What to do when you approach a crosswalk or pedestrian lane?'
+            text: 'What can make you lose your concentration while driving?'
         choices:
             -
-                text: 'Pause and Go'
+                text: 'Using the wiper wash'
                 correct: false
             -
-                text: 'Stop and yield to pedestrians'
+                text: 'Listening to loud music'
                 correct: true
             -
-                text: 'Drive immediately'
+                text: 'Glancing at the side mirror'
                 correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Signs that are round, rectangular with white and blue background are called:'
+            text: 'If you see a stopped vehicle on the side of the road, what should you do?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Blow the horn'
                 correct: false
             -
-                text: 'Informative Signs'
+                text: 'Stop and provoke the driver'
+                correct: false
+            -
+                text: 'Slow down and use caution when passing'
                 correct: true
-            -
-                text: 'Drive and Go'
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'A driver while on highway shall yield the right of way to:'
+            text: "Is it true that a person may apply for a Student-driver's Permit even with a tuberculosis or sexually transmitted disease?"
         choices:
             -
-                text: 'Pedestrians within a crosswalk '
+                text: 'True'
                 correct: true
             -
-                text: 'Make a full stop'
+                text: 'False'
                 correct: false
             -
-                text: 'Drive and Go'
+                text: 'Maybe'
                 correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+            
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
             images: []
-            text: 'Steady red light at an intersection means:'
+            text: 'What should you do when your doctor prescribes you a medicine which is likely to affect your driving?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Avoid driving on expressways'
                 correct: false
             -
-                text: 'Make a full stop'
+                text: 'Drive only if someone is with you'
                 correct: false
             -
-                text: 'Stop at the designated line '
+                text: 'Do Not Drive'
                 correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
     -
         question:
-            images: []
-            text: 'When do you have a complete/full stop?'
+            images: 'no_entry_for_cars.png'
+            text: 'What does this sign mean?'
         choices:
             -
-                text: 'In front of the pedestrian lane'
+                text: 'No overtaking'
                 correct: false
             -
-                text: 'At a red traffic light'
+                text: 'Clearway (no stopping)'
+                correct: false
+            -
+                text: 'No motor vehicles'
                 correct: true
-            -
-                text: 'Stop at the designated line '
-                correct: false
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: []
-            text: 'At an intersection, if two (2) vehicles arrived at the same time, which vehicle has the right of way?'
-        choices:
-            -
-                text: 'Vehicle on the left'
-                correct: false
-            -
-                text: 'Both vehicle must cross'
-                correct: false
-            -
-                text: 'Vehicle on the right  '
-                correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
-    -
-        question:
-            images: 
-                - 'no_parking.png'
-            text: 'What road sign is shown?'
-        choices:
-            -
-                text: 'No Smoking'
-                correct: false
-            -
-                text: 'No U-Turn'
-                correct: false
-            -
-                text: 'No Parking'
-                correct: true
-        minCoinGain: 1
-        maxCoinGain: 10
-        minFuelDeduction: 7
-        maxFuelDeduction: 15
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20

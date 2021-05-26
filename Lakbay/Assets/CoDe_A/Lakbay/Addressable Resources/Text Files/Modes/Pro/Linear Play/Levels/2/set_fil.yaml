@@ -3,35 +3,17 @@ items:
     -
         question:
             images: 
-                - 'pedestrian_crossing.png'
-            text: 'What road sign is shown?'
+                - 'traffic_lights_ahead.png'
+            text: 'Ano ang ibig sabihin ng traffic sign na ito?'
         choices:
             -
-                text: 'No U-Turn'
+                text: 'Mag-ingat sa mga traffic enforcer'
                 correct: false
             -
-                text: 'Pedestrian crossing'
-                correct: true
-            -
-                text: 'No Parking'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'When negotiating a curve on a highway at a relatively high speed you should:'
-        choices:
-            -
-                text: 'Steady green Light'
+                text: 'Papalapit na traffic signs'
                 correct: false
             -
-                text: 'Drive immediately'
-                correct: false
-            -
-                text: 'Decrease your speed further as you enter the curve'
+                text: 'Papalapit na Traffic signal light'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -40,16 +22,16 @@ items:
     -
         question:
             images: []
-            text: 'A flashing red signal means:'
+            text: 'Ano ang epekto ng pagpreno ng pedal nang paulit-ulit habang ang sasakyan ay wala sa paggalaw o patay ang makina?'
         choices:
             -
-                text: 'Informative Signs'
+                text: 'Madadagdagan ang break capacity'
                 correct: false
             -
-                text: 'You must stop and then go only when it is safe to do so'
+                text: 'Makakasira ng fluid lines ng sasakyan'
                 correct: true
             -
-                text: 'Caution or Warning Signs'
+                text: 'Mahahasa ang skill ng drayber sa pagmamaneho'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -58,16 +40,16 @@ items:
     -
         question:
             images: []
-            text: 'When an oncoming vehicle crosses the centerline in a straight road you should be:'
+            text: 'Ano ang pangunahing trabaho ng ECM, ECU, o PLD (Computer Box)?'
         choices:
             -
-                text: 'Pause and Go'
+                text: 'Magpadala ng signal at alertuhin ang drayber ng mga babala'
                 correct: false
             -
-                text: 'Slow down and keep to right'
+                text: 'Makatanggap ng signals mula sensors at i-convert ito sa mga babala at alertuhin ang drayber at makina'
                 correct: true
             -
-                text: 'Drive immediately'
+                text: 'Wala sa nabanggit'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -76,16 +58,35 @@ items:
     -
         question:
             images: []
-            text: 'A single solid yellow or white line means:'
+            text: 'Ang iilang sasakyan ay mayroong body leveling valve switch. Ginagamit ito sa?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Pagtawid sa mga mahahabang tulay'
                 correct: false
             -
-                text: 'Make a full stop'
+                text: 'Pagtawid sa mga bahaing lugar'
+                correct: true
+            -
+                text: 'Pagtawid sa highway'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'oil_low_pressure.png'
+            text: 'Ano ang ibig sabihin ng warning light na ito sa may instrument panel?'
+        choices:
+            -
+                text: 'Mababang fuel pressure'
                 correct: false
             -
-                text: 'Passing/overtaking is not allowed'
+                text: 'Mababang water pressure'
+                correct: false
+            -
+                text: 'Mababang oil pressure'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -94,70 +95,16 @@ items:
     -
         question:
             images: []
-            text: 'In bad conditions, the 2-second rule should be increased to:'
+            text: 'Kailan madalas mag-swing ang trailer?'
         choices:
             -
-                text: '4 seconds in changing lanes'
-                correct: true
-            -
-                text: 'Make a full stop'
+                text: 'Kapag ang endurance brake (retarder) ay sakto'
                 correct: false
             -
-                text: '8 seconds in changing lanes'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'Having a drivers license is a:'
-        choices:
-            -
-                text: 'Privilege'
-                correct: true
-            -
-                text: 'Authority'
+                text: 'Kapag nagpepreno ng maraming beses'
                 correct: false
             -
-                text: 'Mandatory'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'As per R.A 4136, the brakes on every vehicle (other than a motorcycle) must:'
-        choices:
-            -
-                text: 'Brand New'
-                correct: false
-            -
-                text: 'Consist of a good foot and hand brake'
-                correct: true
-            -
-                text: 'Expensive'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'When are you permitted to double-park?'
-        choices:
-            -
-                text: 'Often'
-                correct: false
-            -
-                text: 'Always'
-                correct: false
-            -
-                text: 'Never'
+                text: 'Kapag nagpepreno ng naka-bend at ang brakes ay mali ang adjustment'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -166,88 +113,16 @@ items:
     -
         question:
             images: []
-            text: 'Chances of being hurt or killed while driving is reduced if one is wearing:'
+            text: 'Ano ang dapat gawin kapag tinawagan ka sa radyo ng iyong dispatcher habang nasa biyahe?'
         choices:
             -
-                text: 'Expensive Perfume'
+                text: 'Agad na sagutin ang tawag at patayin ito'
                 correct: false
             -
-                text: 'Seat belts/helmets '
-                correct: true
-            -
-                text: 'High Heels'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A flashing yellow Light means:'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
-                correct: true
-            -
-                text: 'Make a full stop'
+                text: 'Hintayin ang red traffic light at sagutin ito'
                 correct: false
             -
-                text: 'Drive and Go'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'This traffic sign states directions and distances?'
-        choices:
-            -
-                text: 'Slowdown and proceed with caution'
-                correct: false
-            -
-                text: 'Informative Signs'
-                correct: true
-            -
-                text: 'Passing/overtaking is not allowed'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'The Traffic light or signal that tells you to stop before the intersection is:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: true
-            -
-                text: 'Steady green Light'
-                correct: false
-            -
-                text: 'Steady yellow Light'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images: []
-            text: 'A traffic signal light that warns you that the red light is about to turn on:'
-        choices:
-            -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green Light'
-                correct: false
-            -
-                text: 'Steady yellow Light'
+                text: 'Wag sagutin ang tawag dahil nasa biyahe'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -256,16 +131,16 @@ items:
     -
         question:
             images: []
-            text: 'The traffic signal light that means you can go if the intersection is clear:'
+            text: 'Ano ang tawag sa paglabag kung ikaw ay nagdadrive sa gitna ng broken line?'
         choices:
             -
-                text: 'Steady red Light'
-                correct: false
-            -
-                text: 'Steady green Light'
+                text: 'Obstruction/Reckless (Straddling)'
                 correct: true
             -
-                text: 'Steady yellow Light'
+                text: 'Speeding'
+                correct: false
+            -
+                text: 'Wala sa nabanggit'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -274,16 +149,35 @@ items:
     -
         question:
             images: []
-            text: 'When taking any medicine, you should:'
+            text: 'Ano ang pinakamabisang paraan sa pagpapanatili ng stopping distance?'
         choices:
             -
-                text: 'Just take it without any prescriptions'
+                text: 'Dapat na magmaneho ng low gear sa expressway'
                 correct: false
             -
-                text: 'Ignore and go'
+                text: 'Dapat tugma ang bilis ng takbo sa traffic flow habang nagmamaneho sa speed limit'
+                correct: true
+            -
+                text: 'Dapat na magmaneho ng mabagal upang umayos ang traffic flow'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'arm_signal_turn_right.png'
+            text: 'Anong arm signal ang ipinapakita sa larawan?'
+        choices:
+            -
+                text: 'Arm signal para sa u-turn'
                 correct: false
             -
-                text: 'Consult your doctor about the effects before driving'
+                text: 'Arm signal na pa-kaliwa'
+                correct: false
+            -
+                text: 'Arm signal na pa-kanan'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -292,16 +186,34 @@ items:
     -
         question:
             images: []
-            text: 'It is not considered safe driving on an expressway when a driver of a motor vehicle: '
+            text: 'Anong dapat mayroon ka kung ikaw ay nagdedeliver para sa isang chemical manufacturing company?'
         choices:
             -
-                text: 'Driving when drunk'
+                text: 'Medical Clearance'
                 correct: false
             -
-                text: 'Change lanes without signalling'
+                text: 'NBI Clearance'
+                correct: false
+            -
+                text: 'Seminar/Training sa paghawak at paglilipat ng mga kemikal'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'You are transporting frozen foods. What important additional training do you need to have?'
+        choices:
+            -
+                text: 'Packaging procedures'
+                correct: false
+            -
+                text: 'Food-handling procedures'
                 correct: true
             -
-                text: 'Using phone while driving'
+                text: 'Waste-handling procedures'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
@@ -310,35 +222,16 @@ items:
     -
         question:
             images: []
-            text: 'What is not a good trait of a driver? '
+            text: 'Totoo ba na kailangang dalhin ng family driver ang kanilang Certificate of Public Convenience (CPC) kapag nagmamaneho sa Pilipinas?'
         choices:
             -
-                text: 'Driving recklessly and under the influence of alcohol or drug'
-                correct: true
-            -
-                text: 'Follows the Rules and Regulations'
+                text: 'Oo, dahil ang CPC ay valid sa Pilipinas'
                 correct: false
             -
-                text: 'Driving carefully'
-                correct: false
-        minCoinGain: 5
-        maxCoinGain: 15
-        minFuelDeduction: 15
-        maxFuelDeduction: 20
-    -
-        question:
-            images:
-                - 'no_left_turn.png'
-            text: 'What sign is shown?'
-        choices:
-            -
-                text: 'No U-Turn'
+                text: 'Hindi, dahil Franchise dapat ang dala bago ang CPC'
                 correct: false
             -
-                text: 'No Right Turn'
-                correct: false
-            -
-                text: 'No Left Turn'
+                text: 'Hindi, dahil ang CPC ay pang Public Utility Vehicles lamang'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15
@@ -346,18 +239,128 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images:
-                - 'no_right_turn.png'
-            text: 'What sign is shown?'
+            images: []
+            text: 'Ang parusa sa pangatlo at sunod na paglabag ng isang PUV Operator na may drayber na tumatanggi sa serbisyo sa publiko at pasahero ay?'
         choices:
             -
-                text: 'No U-Turn'
+                text: 'Monetary penalty at pagbawi ng lisensya'
                 correct: false
             -
-                text: 'No Right Turn'
+                text: 'Monetary penalty at kanselasyon ng CPC ng awtorisadong unit'
                 correct: true
             -
-                text: 'No Left Turn'
+                text: 'Monetary penalty at kanselasyon mula sa CPC'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'no_entry.png'
+            text: 'Anong tawag sa road sign na ito?'
+        choices:
+            -
+                text: 'Speed Restrictions'
+                correct: false
+            -
+                text: 'No Entry'
+                correct: true
+            -
+                text: 'School Crossing Patrol'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Ano ang parusa kung bigo kang maayos ang Temporary Operators Permit violation sa loob ng 15 araw pagkatapos ng pagkahuli?'
+        choices:
+            -
+                text: '60 days na suspensiyon'
+                correct: false
+            -
+                text: 'Isang taong suspensiyon'
+                correct: false
+            -
+                text: '30 araw na suspensiyon '
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: 
+                - 'curve_left.png'
+                - 'curve_right.png'
+            text: 'Ano ang dapat mong gawin kapag nakita mo ang sign na ito habang nagmamaneho?'
+        choices:
+            -
+                text: 'Huminto sa sign'
+                correct: false
+            -
+                text: 'Huminto at maghanap ng bukas na farm gates'
+                correct: false
+            -
+                text: 'Pabagalin ang pagtakbo dahil sa road curve na madadaanan'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Ano ang maaaring epekto ng pagpepreno sa mga kargang hindi maayos ang pagkakatali?'
+        choices:
+            -
+                text: 'Maaaring mahulog ang karga sa pagpepreno'
+                correct: false
+            -
+                text: 'Ang mga karga ay pwedeng mapunta sa unahan kapag nagpepreno'
+                correct: true
+            -
+                text: 'Maaaring masira ang frame ng sasakyan'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Paano maiiwasan ang brake fade kapag namamaneho pababa?'
+        choices:
+            -
+                text: 'Lumipat sa neutral'
+                correct: false
+            -
+                text: 'Lumipat sa lower gear'
+                correct: true
+            -
+                text: 'Pataasin ang RPM'
+                correct: false
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 15
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
+            text: 'Anong uri ng sasakyan ang pinapayagang gamitin ng mga propesyonal na driver para sa mga light vehicle?'
+        choices:
+            -
+                text: 'Public Utility Vehicle hanggang 1600 kgs GVW'
+                correct: false
+            -
+                text: 'Public Utility Vehicle hanggang 4500 kgs GVW'
+                correct: true
+            -
+                text: 'Public Utility Vehicle na 4500 kgs GVW pataas'
                 correct: false
         minCoinGain: 5
         maxCoinGain: 15
