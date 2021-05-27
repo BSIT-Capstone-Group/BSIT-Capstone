@@ -19,12 +19,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule.VehicleSpawnModul
         }
 
         public override void getHit(Vector3 position) {
-            if(this.playerController.player.coin != 0.0f) {
-                this.playerController.setCoin(
-                    Mathf.Max(this.playerController.player.coin - this.coinReduction, 0.0f)
-                );
+            // if(this.playerController.player.coin != 0.0f) {
+            //     this.playerController.setCoin(
+            //         Mathf.Max(this.playerController.player.coin - this.coinReduction, 0.0f)
+            //     );
 
-            }
+            // }
 
             if(this.playerController.player.lifeIntegrity != 0.0f) {
                 this.playerController.setLifeIntegrity(
@@ -34,11 +34,17 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule.VehicleSpawnModul
             }
             
             if(this.playerController.player.lifeIntegrity == 0.0f) {
-                this.spawnerController.stopSpawning();
-                this.playerController.respawn();
-                this.playerController.useLife();
-                this.playerController.setLifeIntegrity(3.0f);
-                this.spawnerController.startSpawning();
+                if(this.playerController.player.life != 0.0f) {
+                    this.spawnerController.stopSpawning();
+                    this.playerController.respawn();
+                    this.playerController.useLife();
+                    this.playerController.setLifeIntegrity(this.playerController.player.maxLifeIntegrity);
+                    this.spawnerController.startSpawning();
+
+                } else {
+                    GameModule.GameController.loadScene(1);
+
+                }
 
             }
 

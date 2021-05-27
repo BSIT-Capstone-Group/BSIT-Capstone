@@ -70,6 +70,8 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
     }
 
     public class DatabaseController : MonoBehaviour {
+        public static readonly string ADDRESSABLE_LABEL = "";
+
         private static List<TextAsset> textFiles = new List<TextAsset>();
         private static List<Sprite> images = new List<Sprite>();
         private static List<AudioClip> audios = new List<AudioClip>();
@@ -77,7 +79,12 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static ModeData nonProModeData;
         public static ModeData proModeData;
 
-        // private async Task Start() {
+        // private void Start() {
+        //     StartCoroutine(loadAssetsWithAddresses<Sprite>(
+        //         "Images", (c, t, p, a) => {
+        //             print($"{c}, {t}, {p}");
+        //         }
+        //     ));
 
         // }
 
@@ -194,18 +201,64 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             // await loadAssetsWithAddresses<Sprite>("Images");
         }
 
-        public static async Task<Dictionary<string, T>> loadAssetsWithAddresses<T>(string path) {
+        // public static async Task<Dictionary<string, T>> loadAssetsWithAddresses<T>(string path) {
+        //     Dictionary<string, T> rvs = new Dictionary<string, T>();
+
+        //     var locations = await getAddresses(path).Task;
+        //     foreach(var loc in locations) {
+        //         var asset = await loadAsset<T>(loc.PrimaryKey).Task;
+        //         rvs[loc.PrimaryKey] = asset;
+
+        //     }
+
+        //     // await new Task<Dictionary<string, T>>(() => rvs);
+        //     return rvs;
+
+        // }
+
+        public static IEnumerator loadAssetsWithAddresses<T>(
+            string path,
+            Action<int, int, float, T> onProgress,
+            Action<float, Dictionary<string, T>> onComplete
+        ) {
             Dictionary<string, T> rvs = new Dictionary<string, T>();
 
-            var locations = await getAddresses(path).Task;
+            var h = getAddresses(path);
+            yield return h;
+            var locations = h.Result;
+
+            int t = locations.Count;
+            float st = Time.time;
+
             foreach(var loc in locations) {
-                var asset = await loadAsset<T>(loc.PrimaryKey).Task;
+                var hh = loadAsset<T>(loc.PrimaryKey);
+                yield return hh;
+                var asset = hh.Result;
                 rvs[loc.PrimaryKey] = asset;
+
+                int c = locations.IndexOf(loc) + 1;
+                if(onProgress != null) onProgress.Invoke(c, t, (c / (float) t), asset);
 
             }
 
-            // await new Task<Dictionary<string, T>>(() => rvs);
-            return rvs;
+            float et = Time.time;
+            float tt = et - st;
+
+            if(onComplete != null) onComplete.Invoke(tt, rvs);
+
+        }
+
+        public static IEnumerator loadAssetsWithAddresses<T>(string path) {
+            yield return loadAssetsWithAddresses<T>(path, null, null);
+
+        }
+
+        public static IEnumerator loadAssets<T>(
+            string path,
+            Action<int, int, float, T> onProgress,
+            Action<float, Dictionary<string, T>> onComplete
+        ) {
+            yield return loadAssetsWithAddresses(path, onProgress, onComplete);
 
         }
 

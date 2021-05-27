@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Audios
+  m_EditorClassIdentifier: 
+  m_GroupName: Audios
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1608659eff2118c4b8cd845ff8b5393f
+  m_SerializeEntries:
+  - m_GUID: 19322bcff6c320549817b59be91a5e6e
+    m_Address: Audios/Sounds/life.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audios
+    - Sounds
+  - m_GUID: 7310e0df9630e304daf830b74c6a57dc
+    m_Address: Audios/Sounds/life_break.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audios
+    - Sounds
+  - m_GUID: 7cabac15b6bec084c95782e96a3f19a1
+    m_Address: Audios/Sounds/box_break.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audios
+    - Sounds
+  - m_GUID: 02014ff66c6e1774681dde7b59aa6557
+    m_Address: Audios/Sounds/coin.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audios
+    - Sounds
+  - m_GUID: 8895f19dd5d97fd4ca97e4d73869d587
+    m_Address: Audios/Sounds/hint.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audios
+    - Sounds
+  - m_GUID: 2e589d5e379cfc74a96999fd3051d900
+    m_Address: Audios/Music/Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audios
+    - Music
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 47fdfd8f3785836479d6b6b9f85cfad0, type: 2}
+    - {fileID: 11400000, guid: 8eb69b5a04333914eb6a36b378004a06, type: 2}

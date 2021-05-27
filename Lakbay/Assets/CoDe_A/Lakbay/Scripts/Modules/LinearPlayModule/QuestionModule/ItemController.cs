@@ -172,8 +172,17 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
             this.onAnswer.Invoke(this, choice);
             this.hide();
 
-            foreach(var sc in this.playerController.roadController.spawnerControllers) {
-                sc.resumeSpawning();
+            if(this.setController.itemControllers.IndexOf(this) != this.setController.itemControllers.Count - 1) {
+                foreach(var sc in this.playerController.roadController.spawnerControllers) {
+                    sc.resumeSpawning();
+
+                }
+                
+            } else {
+                foreach(var sc in this.playerController.roadController.spawnerControllers) {
+                    sc.stopSpawning();
+
+                }
 
             }
 

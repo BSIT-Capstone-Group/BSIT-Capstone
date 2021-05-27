@@ -20,7 +20,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'stop.png'
+            images:
+                - 'stop.png'
             text: 'What MUST you do when you see this sign?'
         choices:
             -
@@ -183,7 +184,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'opening_bridge.png'
+            images:
+                - 'opening_bridge.png'
             text: 'What does this traffic sign means?'
         choices:
             -
@@ -255,7 +257,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'no_parking_anytime.png'
+            images:
+                - 'no_parking_anytime.png'
             text: 'What does this sign mean?'
         choices:
             -

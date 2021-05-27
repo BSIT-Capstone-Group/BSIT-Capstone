@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.UI;
+using System;
 using TMPro;
 // using UnityEngine.Localization.Settings;
 
@@ -15,6 +16,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static DayPhase dayPhase = DayPhase.MORNING;
         public static float lastTimeScale = 0.0f;
         public static bool paused => Time.timeScale == 0.0f;
+        public static bool isInSplashScreen => SceneManager.GetActiveScene().buildIndex == 0;
         public static GameModule.ModeData currentModeData = null;
         public static Mode currentModeType;
         public static GameModule.LinearPlayData.Level currentLinearPlayLevel = null;
@@ -50,14 +52,50 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
             // }
 
-            if(SceneManager.GetActiveScene().buildIndex == 0) {
+            if(isInSplashScreen) {
                 try {
                     await GameModule.DatabaseController.setUp();
-                    if(this.loadingSlider) this.loadingSlider.value = 1 / 3.0f;
+                    // if(this.loadingSlider) this.loadingSlider.value = 1 / 3.0f;
                     await AudioController.setUp();
-                    if(this.loadingSlider) this.loadingSlider.value = 1 / 2.0f;
+                    // if(this.loadingSlider) this.loadingSlider.value = 1 / 2.0f;
                     await PreferencesController.setUp();
-                    if(this.loadingSlider) this.loadingSlider.value = 1 / 1.0f;
+                    // if(this.loadingSlider) this.loadingSlider.value = 1 / 1.0f;
+
+                    IEnumerator audios = AudioController.loadAssets(
+                        (c, t, p, a) => {
+                            print($"{c} {t} {p}");
+                            if(this.loadingText) this.loadingText.SetText("Loading Audios...");
+                            if(this.loadingSlider) this.loadingSlider.value = p;
+                        },
+                        (tt, a) => {
+                            if(this.loadingText) this.loadingText.SetText("Loading finished.");
+
+                            Func<IEnumerator> end = () => {
+                                DontDestroyOnLoad(this.gameObject);
+                                goToMainMenu();
+                                return null;
+                            };
+
+                            StartCoroutine(end());
+                        }
+                    );
+
+                    IEnumerator images = ImageController.loadAssets(
+                        (c, t, p, a) => {
+                            print($"{c} {t} {p}");
+                            if(this.loadingText) this.loadingText.SetText("Loading Images...");
+                            if(this.loadingSlider) this.loadingSlider.value = p;
+                        },
+                        (tt, a) => {
+                            StartCoroutine(audios);
+                            // GameController.DontDestroyOnLoad(this.gameObject);
+                            // GameController.loadScene(1);
+                        }
+                    );
+
+                    StartCoroutine(images);
+
+                    print("loading done.");
 
                 } catch (System.Exception e) {
                     if(this.loadingText) this.loadingText.SetText(e.ToString());
@@ -65,14 +103,20 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
                 }
 
-                GameController.DontDestroyOnLoad(this.gameObject);
-                GameController.loadScene(1);
+                // GameController.DontDestroyOnLoad(this.gameObject);
+                // GameController.loadScene(1);
 
             } else {
 
             }
             
             return;
+
+        }
+
+        public static void goToMainMenu() {
+            // GameController.DontDestroyOnLoad(this.gameObject);
+            loadScene(1);
 
         }
 

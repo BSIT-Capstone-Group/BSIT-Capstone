@@ -22,9 +22,6 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
         public TMP_Text musicVolumeText;
         public TMP_Text soundVolumeText;
 
-        // public AudioSource mainMenuMusic;
-        public List<GameModule.AudioController.AudioSourceEntry> audioSourceEntries;
-
         private IEnumerator Start() {
             yield return this.setUpLanguageDropdown();
 
@@ -34,14 +31,7 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
 
             if(this.testVolumeSlider) this.testVolumeSlider.onValueChanged.AddListener(this.testVolume);
             // if(this.mainMenuMusic) this.mainMenuMusic.velocityUpdateMode = AudioVelocityUpdateMode.Dynamic;
-
-            GameModule.AudioController.audioSourceEntries[this.GetInstanceID().ToString()] = audioSourceEntries;
             
-        }
-
-        private void OnDestroy() {
-            GameModule.AudioController.audioSourceEntries.Remove(this.GetInstanceID().ToString());
-
         }
 
         private void Update() {

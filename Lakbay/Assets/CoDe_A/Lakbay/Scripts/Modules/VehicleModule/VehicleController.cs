@@ -62,6 +62,9 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 		public Light leftHeadlight;
 		public Light rightHeadlight;
 
+		public AudioClip idleSound;
+		public AudioClip accelerateSound;
+
 		public List<WheelController> wheelControllers = new List<WheelController>();
 
 		public UnityEvent<VehicleController, float> onSteer = new UnityEvent<VehicleController, float>();
@@ -211,7 +214,21 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
 			}
 
-			if(factor != 0.0f) this.onAccelerate.Invoke(this, factor);
+			if(factor != 0.0f) {
+				if(this.accelerateSound) {
+					AudioSource.PlayClipAtPoint(this.accelerateSound, this.transform.position);
+
+				}
+
+				this.onAccelerate.Invoke(this, factor);
+				
+			} else {
+				if(this.idleSound) {
+					AudioSource.PlayClipAtPoint(this.idleSound, this.transform.position);
+
+				}
+
+			}
 
 		}
 

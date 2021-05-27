@@ -165,17 +165,18 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'no_entry_for_cars.png'
+            images:
+                - 'no_entry_for_cars.png'
             text: 'Ano ang ibig sabihin ng karatulang ito?'
         choices:
             -
-                text: 'Bawal mag- overtake'
+                text: 'Bawal mag-overtake'
                 correct: false
             -
                 text: 'Clearway (walang hinto)'
                 correct: false
             -
-                text: ' Bawal ang motorvehicles'
+                text: ' Bawal ang motor vehicles'
                 correct: true
         minCoinGain: 5
         maxCoinGain: 15

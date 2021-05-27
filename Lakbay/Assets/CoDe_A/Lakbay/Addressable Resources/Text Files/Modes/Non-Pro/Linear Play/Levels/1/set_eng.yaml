@@ -38,7 +38,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'school_children_crossing.png'
+            images:
+                - 'school_children_crossing.png'
             text: 'What does this traffic sign means?'
         choices:
             -
@@ -147,7 +148,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'no_entry_for_cars.png'
+            images:
+                - 'no_entry_for_cars.png'
             text: 'What does this sign mean?'
         choices:
             -

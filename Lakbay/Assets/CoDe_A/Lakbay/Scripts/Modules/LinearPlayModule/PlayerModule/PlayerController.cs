@@ -14,6 +14,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         public float hint = 3.0f;
         public float life = 3.0f;
 
+        public float maxLifeIntegrity = 3.0f;
         public float lifeIntegrity = 3.0f;
 
     }
@@ -122,7 +123,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         }
 
         public void onNextStage() {
-            this.setLifeIntegrity(3.0f);
+            this.setLifeIntegrity(this.player.maxLifeIntegrity);
 
             GameModule.LinearPlayData.Level l = GameController.currentLinearPlayLevel;
             this.vehicleController.respawn(

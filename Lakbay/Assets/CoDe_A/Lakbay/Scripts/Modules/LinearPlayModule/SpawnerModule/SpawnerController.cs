@@ -12,6 +12,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
         public Vector3 targetPosition = Vector3.zero;
         public GameObject particleHolder;
         public ParticleSystem despawnParticle;
+        // public 
         public bool paused = false;
         public float chance = 0.25f;
         public List<float> timeDifferences = new List<float>() {2.0f};
@@ -52,6 +53,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
         public void despawn(SpawnController spawn) {
             this.currentSpawns.Remove(spawn);
             Destroy(spawn.gameObject);
+            print($"despawn: {spawn.name}");
 
         }
 

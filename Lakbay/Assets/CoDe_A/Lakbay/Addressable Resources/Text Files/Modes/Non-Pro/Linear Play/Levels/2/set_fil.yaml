@@ -20,7 +20,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'stop.png'
+            images:
+                - 'stop.png'
             text: 'Ano ang dapat nating gawin kapag nakita natin ang karatulang ito?'
         choices:
             -
@@ -74,7 +75,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'sharp_turn_left.png'
+            images:
+                - 'sharp_turn_left.png'
             text: '	Ano ang ibig sabihin ng karatulang ito?'
         choices:
             -
@@ -182,7 +184,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'opening_bridge.png'
+            images:
+                - 'opening_bridge.png'
             text: 'Ano ang ibig sabihin ng karatulang ito?'
         choices:
             -
@@ -254,7 +257,8 @@ items:
         maxFuelDeduction: 20
     -
         question:
-            images: 'no_parking_anytime.png'
+            images:
+                - 'no_parking_anytime.png'
             text: 'Ano ang ibig sabihin ng karatulang ito?'
         choices:
             -
