@@ -2,18 +2,17 @@ name: ""
 items:
     -
         question:
-            images: 
-                - 'no_u_turn.png'
-            text: 'What road sign is shown?'
+            images: []
+            text: 'Gumamit lamang ng telepono kapag:'
         choices:
             -
-                text: 'Pedestrian crossing'
-                correct: false
-            -
-                text: 'No U-Turn'
+                text: 'Nakaparada na ang sasakyan'
                 correct: true
             -
-                text: 'No Parking'
+                text: 'Tatanggap ng tawag'
+                correct: false
+            -
+                text: 'Nagmamaneho ng Automatikong sasakyan'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -22,34 +21,16 @@ items:
     -
         question:
             images: []
-            text: "Keeping one's distance lessens the risk of accident. One good Rule is to leave a car length or:"
+            text: "Ano ang dapat gawin kapag ikaw ay nakaramdam ng pagod na sa pagmamaneho?"
         choices:
             -
-                text: '8-second rule'
+                text: 'Uminom ng gamot sa sakit ng ulo at magpatuloy sa pagmamaneho'
                 correct: false
             -
-                text: '4-second rule'
-                correct: false
-            -
-                text: '2-second rule'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'When driving at night, you should:'
-        choices:
-            -
-                text: 'Always press the horn'
-                correct: false
-            -
-                text: 'Always turn your headlights on'
+                text: 'Maghintay na maging maayos ang pakiramdam bago magmaneho ulit'
                 correct: true
             -
-                text: 'Never turn your headlights on'
+                text: 'Bagalan ang pagmamaneho at lumipat sa Hazard warning light'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -58,34 +39,16 @@ items:
     -
         question:
             images: []
-            text: 'A driver on a highway shall yield the right of way to:'
+            text: 'Ang dalawahang highway na iyong lilikuan sa kanan ay isang makitid na kalsada. Dapat kang:'
         choices:
             -
-                text: 'Pedestrians'
+                text: 'Magpatuloy kaagad at kalimutan ang tungkol sa right of way'
                 correct: false
             -
-                text: 'Police/Fire Department vehicles and ambulances when such vehicles are on official business'
-                correct: true
-            -
-                text: 'Big Trucks and Busses'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: "To obtain a Driver's License, one must be at least:"
-        choices:
-            -
-                text: '13 years old'
+                text: 'Hintayin ang ibang mga sasakyan at sundan sila'
                 correct: false
             -
-                text: '16 years old'
-                correct: false
-            -
-                text: '18 years old'
+                text: 'Maghintay hanggang sa ang kalsada ay malinis sa parehong direksyon'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -94,34 +57,16 @@ items:
     -
         question:
             images: []
-            text: 'In changing lanes, what should be done first?'
+            text: 'Ang mga palatandaan ng limitasyon ng bilis sa kahabaan ng mga daanan ay dapat isipin bilang:'
         choices:
             -
-                text: 'Wait for the other vehicles'
+                text: 'Ang inirekomendang bilis sa ilalim ng malala na kondisyon ng kalsada at panahon'
                 correct: false
             -
-                text: 'Make a full stop'
-                correct: false
-            -
-                text: 'Make a signal'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'It is not considered safe driving on an expressway when:'
-        choices:
-            -
-                text: 'Driver keep changing lanes without signaling'
+                text: 'Ang legal na bilis ng pagtakbo sa kalsada at ang kalagayan ng panahon'
                 correct: true
             -
-                text: 'Driver focuses on the road'
-                correct: false
-            -
-                text: 'Driver apply safety protocols'
+                text: 'Ang inirekomendang bilis sa ilalim ng magandang kalsada at maayos na panahon'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -130,16 +75,16 @@ items:
     -
         question:
             images: []
-            text: 'When do you have to make a full stop?'
+            text: "Bakit kailangnang ipakita ang karatulang ito?"
         choices:
             -
-                text: 'At a red traffic light'
+                text: 'Upang ipaalam na may ginagawang kalsada sa unahan'
                 correct: true
             -
-                text: 'Anytime'
+                text: 'Upang mabantaan na dulo na ng expressway'
                 correct: false
             -
-                text: 'Only when you want'
+                text: 'Upang mabantaan na mababa ang tulay'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -148,16 +93,35 @@ items:
     -
         question:
             images: []
-            text: "When can you lend your driver's license?"
+            text: 'Pagdating sa isang intersection, ano ang dapat mong gawin kung nalaman mong ang daanan ay naharang sa trapiko?'
         choices:
             -
-                text: 'Anytime'
+                text: 'Panatilihing malapit sa sasakyan sa unahan'
                 correct: false
             -
-                text: 'Under no circumstances'
+                text: 'Magpatuloy ng mahina sa intersection hanggang umusad ang trapiko'
+                correct: false
+            -
+                text: 'Huminto bago mag intersection at hintayin na umusad ang trapiko'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images:
+                - 'road_work.png'
+            text: 'Ano ang ibig sabihin ng karatulang ito?'
+        choices:
+            -
+                text: 'Magbigay ng right-of way'
                 correct: true
             -
-                text: 'Only when you want'
+                text: 'Huminto at magpatuloy kapag sinabihan ng traffic enforcer'
+                correct: false
+            -
+                text: 'Inirerekomenda ang rolling stop'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -166,16 +130,16 @@ items:
     -
         question:
             images: []
-            text: 'If you are the first to arrive at the scene of an accident, which of the following should you do?'
+            text: 'Ayun sa RA 8750 ang penalty ng first offense sa pagpapaupo sa 6 na taong gulang na bata sa harapan ay nagkakahalaga ng?'
         choices:
             -
-                text: 'Drive and go'
+                text: 'Php 1,500'
                 correct: false
             -
-                text: 'Turn a blind eye'
+                text: 'Php 2,000'
                 correct: false
             -
-                text: 'Offer all reasonable assistance'
+                text: 'Php 1,000'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -184,16 +148,16 @@ items:
     -
         question:
             images: []
-            text: 'You were apprehended because you were engaged in car racing while driving in a super highway, what traffic violation did you commit?'
+            text: "Kailan ang tamang pagsusuri ng langis?"
         choices:
             -
-                text: 'Drunkenness'
-                correct: false
-            -
-                text: 'Reckless Driving '
+                text: 'Nakatayo ang motorsiklo'
                 correct: true
             -
-                text: 'Safe Driving'
+                text: 'Ang motorsiklo ay nakatayo sa gilid ng tagapuno ng langis'
+                correct: false
+            -
+                text: 'Ang motorsiklo ay nakatayo palayo sa gilid ng tagapuno ng langis'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -202,16 +166,53 @@ items:
     -
         question:
             images: []
-            text: 'Steady green light at an intersection means:'
+            text: 'Saan kailangang nakatutok ang iyong mga gulong kapag pumarada paakyat sa may kurba?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Diretso'
                 correct: false
             -
-                text: 'Informative Signs'
+                text: 'Palayo sa kurba'
+                correct: true
+            -
+                text: 'Papunta sa kurba'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images:
+                - 'reverse_turn.png'
+            text: 'Anong simbolo ang ipinakikita sa larawan?'
+        choices:
+            -
+                text: 'Reverse Turn'
+                correct: true
+            -
+                text: 'One-way '
                 correct: false
             -
-                text: 'Pedestrians are not allowed to cross the pedestrian lanes'
+                text: 'No Entry'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'Sumusunod ka sa isang mag-aaral na student driver na tumambad sa isang junction. Dapat kang?'
+        choices:
+            -
+                text: 'Agad na lumiko sa kanila at magmaneho '
+                correct: false
+            -
+                text: 'Simulang i-revive ang iyong makina kung magtatagal silang mag-restart'
+                correct: false
+            -
+                text: 'Maging mapagpasensya kung alam mong magkamali sila'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -220,17 +221,36 @@ items:
     -
         question:
             images: []
-            text: 'Traffic jam can be prevented if you :'
+            text: 'Naghahanap ka ng lugar pamparada ng iyong sasakyan. Puno ang lugar maliban sa mga puwang na minarkahang "PWD" / "Person With Disability". Alin sa mga sumusunod ang tama?'
         choices:
             -
-                text: 'Keep opposing lanes open'
+                text: 'Maaari mong gamitin ang mga puwang na ito kapag puno ang ibang lugar'
+                correct: false
+            -
+                text: 'HINDI ka dapat huminto doon maliban kung ikaw ay kasama o mayroon kang isang PWD'
                 correct: true
             -
-                text: 'Keep opposing lanes close'
+                text: 'Maaari mong gamitin ang mga puwang ng thesis, kung ikaw man ay PWD o hindi'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images:
+                - 'speed_restriction.png'
+            text: 'Anong ibig sabihin ng asul na simbolong ito?'
+        choices:
+            -
+                text: 'Minimum na bilis na 30 kph'
                 correct: false
             -
-                text: 'Drive recklessly'
+                text: 'Hangganan ng maximum speed'
                 correct: false
+            -
+                text: 'Minimum na bilis na 40 kph'
+                correct: true
         minCoinGain: 10
         maxCoinGain: 20
         minFuelDeduction: 15
@@ -238,36 +258,17 @@ items:
     -
         question:
             images: []
-            text: 'The most effective way to deal with a tailgater is to:'
+            text: 'Nakaparada kang nakaharap sa isang matarik na burol. Kung nagmamaneho ka ng isang awtomatiko, dapat mong iwanan ang iyong sasakyan sa "park." Anong gamit ang dapat mong gamitin sa isang manwal?'
         choices:
             -
-                text: 'Ignore'
+                text: 'Iwanan ang sasakyan ng naka-neutral'
                 correct: false
             -
-                text: 'Hit the pedestrian'
+                text: 'Iwanan ang sasakyan sa first gear'
                 correct: false
             -
-                text: 'Slow down and let him pass'
+                text: 'Iwanan ang sasakyan sa reverse'
                 correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: 
-                - 'two_way_traffic.png'
-            text: 'What road sign is shown?'
-        choices:
-            -
-                text: 'No Jaywalking'
-                correct: false
-            -
-                text: 'Two-way Traffic'
-                correct: true
-            -
-                text: 'No Parking'
-                correct: false
         minCoinGain: 10
         maxCoinGain: 20
         minFuelDeduction: 15

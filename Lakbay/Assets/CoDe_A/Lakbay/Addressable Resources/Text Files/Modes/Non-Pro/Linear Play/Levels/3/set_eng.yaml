@@ -2,18 +2,17 @@ name: ""
 items:
     -
         question:
-            images: 
-                - 'no_u_turn.png'
-            text: 'What road sign is shown?'
+            images: []
+            text: 'Use a mobile phone ONLY when:'
         choices:
             -
-                text: 'Pedestrian crossing'
-                correct: false
-            -
-                text: 'No U-Turn'
+                text: 'Suitably parked'
                 correct: true
             -
-                text: 'No Parking'
+                text: 'Receiving a call'
+                correct: false
+            -
+                text: 'Driving an automatic vehicle'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -22,34 +21,16 @@ items:
     -
         question:
             images: []
-            text: "Keeping one's distance lessens the risk of accident. One good Rule is to leave a car length or:"
+            text: "What should you do when you feel tired while driving?"
         choices:
             -
-                text: '8-second rule'
+                text: 'Continue driving but take a pill for headaches'
                 correct: false
             -
-                text: '4-second rule'
-                correct: false
-            -
-                text: '2-second rule'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'When driving at night, you should:'
-        choices:
-            -
-                text: 'Always press the horn'
-                correct: false
-            -
-                text: 'Always turn your headlights on'
+                text: 'Wait until you are fit and well before driving'
                 correct: true
             -
-                text: 'Never turn your headlights on'
+                text: 'Drive slowly and switch on your hazard warning light'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -58,34 +39,16 @@ items:
     -
         question:
             images: []
-            text: 'A driver on a highway shall yield the right of way to:'
+            text: 'The dual highway you are turning right onto is a narrow road. You should:'
         choices:
             -
-                text: 'Pedestrians'
+                text: 'Proceed right away and forget about the right of way'
                 correct: false
             -
-                text: 'Police/Fire Department vehicles and ambulances when such vehicles are on official business'
-                correct: true
-            -
-                text: 'Big Trucks and Busses'
-                correct: false
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: "To obtain a Driver's License, one must be at least:"
-        choices:
-            -
-                text: '13 years old'
+                text: 'Wait for other vehicles and follow them'
                 correct: false
             -
-                text: '16 years old'
-                correct: false
-            -
-                text: '18 years old'
+                text: 'Wait until the road is clear in both directions'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -94,34 +57,16 @@ items:
     -
         question:
             images: []
-            text: 'In changing lanes, what should be done first?'
+            text: 'The speed limit signs along the roadways should be thought of as:'
         choices:
             -
-                text: 'Wait for the other vehicles'
+                text: 'The recommended speed under the worst road and weather condition'
                 correct: false
             -
-                text: 'Make a full stop'
-                correct: false
-            -
-                text: 'Make a signal'
-                correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: []
-            text: 'It is not considered safe driving on an expressway when:'
-        choices:
-            -
-                text: 'Driver keep changing lanes without signaling'
+                text: 'The legal speed under the best road and weather condition'
                 correct: true
             -
-                text: 'Driver focuses on the road'
-                correct: false
-            -
-                text: 'Driver apply safety protocols'
+                text: 'The recommended speed under any road and weather condition'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -129,17 +74,18 @@ items:
         maxFuelDeduction: 25
     -
         question:
-            images: []
-            text: 'When do you have to make a full stop?'
+            images:
+                - 'road_work.png'
+            text: "Why would this temporary speed limit sign be shown?"
         choices:
             -
-                text: 'At a red traffic light'
+                text: 'To warn of road works ahead'
                 correct: true
             -
-                text: 'Anytime'
+                text: 'To warn of the end of the expressway'
                 correct: false
             -
-                text: 'Only when you want'
+                text: 'To warn you of a low bridge'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -148,16 +94,35 @@ items:
     -
         question:
             images: []
-            text: "When can you lend your driver's license?"
+            text: 'Upon approaching an intersection, what should you do if you found out that the roadway beyond is blocked with traffic?'
         choices:
             -
-                text: 'Anytime'
+                text: 'Keep as close as possible to the car ahead'
                 correct: false
             -
-                text: 'Under no circumstances'
+                text: 'Proceed slowly into the intersection until the traffic ahead moves on'
+                correct: false
+            -
+                text: 'Stop before the intersection and wait until the traffic ahead moves on'
+                correct: true
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images:
+                - 'give_way.png'
+            text: 'What does this traffic sign mean?'
+        choices:
+            -
+                text: 'Yield the right-of-way'
                 correct: true
             -
-                text: 'Only when you want'
+                text: 'Stop and proceed when told by traffic enforcer'
+                correct: false
+            -
+                text: 'Rolling stop is advised'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -166,16 +131,16 @@ items:
     -
         question:
             images: []
-            text: 'If you are the first to arrive at the scene of an accident, which of the following should you do?'
+            text: 'In RA 8750, how much is the penalty for the first offense for allowing a child six (6) years and below to be seated on front passenger seat?'
         choices:
             -
-                text: 'Drive and go'
+                text: 'Php 1,500'
                 correct: false
             -
-                text: 'Turn a blind eye'
+                text: 'Php 2,000'
                 correct: false
             -
-                text: 'Offer all reasonable assistance'
+                text: 'Php 1,000'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -184,16 +149,16 @@ items:
     -
         question:
             images: []
-            text: 'You were apprehended because you were engaged in car racing while driving in a super highway, what traffic violation did you commit?'
+            text: "The proper checking of oil level is when?"
         choices:
             -
-                text: 'Drunkenness'
-                correct: false
-            -
-                text: 'Reckless Driving '
+                text: 'The motorcycle is standing upright'
                 correct: true
             -
-                text: 'Safe Driving'
+                text: 'The motorcycle is standing on the side of the oil filler'
+                correct: false
+            -
+                text: 'The motorcycle is standing away from the side of the oil filler'
                 correct: false
         minCoinGain: 10
         maxCoinGain: 20
@@ -202,16 +167,53 @@ items:
     -
         question:
             images: []
-            text: 'Steady green light at an intersection means:'
+            text: 'Where do you need to turn your wheels when parking uphill with a curb?'
         choices:
             -
-                text: 'Slowdown and proceed with caution'
+                text: 'Straight'
                 correct: false
             -
-                text: 'Informative Signs'
+                text: 'Away from the curb'
+                correct: true
+            -
+                text: 'To the curb'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images:
+                - 'reverse_turn.png'
+            text: 'What sign is shown in the figure?'
+        choices:
+            -
+                text: 'Reverse Turn'
+                correct: true
+            -
+                text: 'One-way'
                 correct: false
             -
-                text: 'Pedestrians are not allowed to cross the pedestrian lanes'
+                text: 'No Entry'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images: []
+            text: 'You are following a student-driver who stalls at a junction. You should:'
+        choices:
+            -
+                text: 'Immediately steer around them and drive on'
+                correct: false
+            -
+                text: 'Start to rev your engine if they take too long to restart'
+                correct: false
+            -
+                text: 'Be patient as you expect them to make mistakes'
                 correct: true
         minCoinGain: 10
         maxCoinGain: 20
@@ -220,17 +222,36 @@ items:
     -
         question:
             images: []
-            text: 'Traffic jam can be prevented if you :'
+            text: 'You are looking for somewhere to park your vehicle. The area is full except for spaces marked "PWD" / "Person With Disability". Which of the following is correct?'
         choices:
             -
-                text: 'Keep opposing lanes open'
+                text: 'You can use these spaces when elsewhere is full'
+                correct: false
+            -
+                text: 'You should NOT park there unless you are or you are with a PWD'
                 correct: true
             -
-                text: 'Keep opposing lanes close'
+                text: 'You can use theses spaces, whether you are a PWD or not'
+                correct: false
+        minCoinGain: 10
+        maxCoinGain: 20
+        minFuelDeduction: 15
+        maxFuelDeduction: 25
+    -
+        question:
+            images:
+                - 'speed_restriction.png'
+            text: 'What does this blue sign mean?'
+        choices:
+            -
+                text: 'Minimum speed 30 kph'
                 correct: false
             -
-                text: 'Drive recklessly'
+                text: 'End of maximum speed'
                 correct: false
+            -
+                text: 'Minimum Speed Restriction of 40 kph'
+                correct: true
         minCoinGain: 10
         maxCoinGain: 20
         minFuelDeduction: 15
@@ -238,36 +259,17 @@ items:
     -
         question:
             images: []
-            text: 'The most effective way to deal with a tailgater is to:'
+            text: 'You have parked facing down a steep hill. If you drive an automatic, you should leave your car in “park.” What gear should you use with a manual?'
         choices:
             -
-                text: 'Ignore'
+                text: 'Leave the car in neutral'
                 correct: false
             -
-                text: 'Hit the pedestrian'
+                text: 'Leave the car in first gear'
                 correct: false
             -
-                text: 'Slow down and let him pass'
+                text: 'Leave the car in reverse'
                 correct: true
-        minCoinGain: 10
-        maxCoinGain: 20
-        minFuelDeduction: 15
-        maxFuelDeduction: 25
-    -
-        question:
-            images: 
-                - 'two_way_traffic.png'
-            text: 'What road sign is shown?'
-        choices:
-            -
-                text: 'No Jaywalking'
-                correct: false
-            -
-                text: 'Two-way Traffic'
-                correct: true
-            -
-                text: 'No Parking'
-                correct: false
         minCoinGain: 10
         maxCoinGain: 20
         minFuelDeduction: 15
