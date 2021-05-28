@@ -26,6 +26,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
         public GameObject startingLineModel;
         [HideInInspector]
         public GameObject finishLineModel;
+        [HideInInspector]
+        public List<GameObject> lights;
 
         public GameObject particleHolder;
 
@@ -88,6 +90,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
                 (t) => t.GetComponent<MeshRenderer>().bounds.size.z
             ).Sum();
 
+            this.lights.Clear();
+
             for(int i = 0; i < this.road.length + additionalRoadLength; i++) {
                 GameObject model = Instantiate<GameObject>(this.model);
 
@@ -99,6 +103,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.RoadModule {
                     else c.gameObject.SetActive(false);
 
                 }
+
+                Transform lights = model.transform.Find("Lights");
+                this.lights.Add(lights.gameObject);
 
                 models.Add(model);
 

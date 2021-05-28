@@ -136,6 +136,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             GameController.setDayPhase();
             if(GameController.dayPhase == GameController.DayPhase.EVENING) {
                 this.vehicleController.turnOnHeadlights();
+                
+                foreach(GameObject go in this.roadController.lights) go.SetActive(true);
 
             } else this.vehicleController.turnOffHeadlights();
 
