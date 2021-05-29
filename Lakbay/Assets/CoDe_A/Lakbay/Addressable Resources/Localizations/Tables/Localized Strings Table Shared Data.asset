@@ -63,6 +63,38 @@ MonoBehaviour:
     m_Key: accessibilityString
     m_Metadata:
       m_Items: []
+  - m_Id: 4513556039954432
+    m_Key: masterString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4526621372411904
+    m_Key: musicString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4526717933678592
+    m_Key: soundString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4527702190026752
+    m_Key: qualityString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4528037096812544
+    m_Key: autoRotationString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4528302944382976
+    m_Key: languageString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4541062843428864
+    m_Key: leftString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4541134104653824
+    m_Key: rightString
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

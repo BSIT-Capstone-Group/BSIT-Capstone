@@ -8,11 +8,23 @@ using System.Linq;
 
 namespace CoDe_A.Lakbay.Modules.UIModule {
     // [ExecuteInEditMode]
+
+    [ExecuteInEditMode]
     public class SliderController : MonoBehaviour {
         public Slider slider;
         public TMP_Text sliderValueText;
         public float steppedValue = 0.0f;
         public string toString = "P0";
+
+        private void OnEnable() {
+            this.setUpSlider();
+
+        }
+
+        private void OnValidate() {
+            this.setUpSlider();
+
+        }
 
         private void Awake() {
             this.setUpSlider();
@@ -49,8 +61,6 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
 
             float rvalue = value;
             float rem = value % steppedValue;
-
-            print($"{value} % {steppedValue} = {rem}");
 
             if(rem != 0) rvalue = value - rem;
             if(new List<float>(includedValues).Contains(value)) rvalue = value;
