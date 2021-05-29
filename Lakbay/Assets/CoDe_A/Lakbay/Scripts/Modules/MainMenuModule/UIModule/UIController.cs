@@ -29,7 +29,6 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
             this.setUpAutoRotationToggles();
             this.setUpVolumeSliders();
 
-            if(this.testVolumeSlider) this.testVolumeSlider.onValueChanged.AddListener(this.testVolume);
             // if(this.mainMenuMusic) this.mainMenuMusic.velocityUpdateMode = AudioVelocityUpdateMode.Dynamic;
             
         }
@@ -168,15 +167,6 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
             );
 
             // print(this.leftAutoRotationToggle.isOn + " " + this.rightAutoRotationToggle.isOn);
-
-        }
-
-        public Slider testVolumeSlider;
-        public TMP_Text testVolumeText;
-        public void testVolume(float value) {
-            float val = 0.0f;
-            GameModule.AudioController.gameMixer.GetFloat("musicVolume", out val);
-            this.testVolumeText.SetText(val.ToString());
 
         }
 

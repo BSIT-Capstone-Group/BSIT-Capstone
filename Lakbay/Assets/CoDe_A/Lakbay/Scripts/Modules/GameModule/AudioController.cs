@@ -174,11 +174,6 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         public static void play(AudioClip audioClip) => play(audioClip, SOUND_AUDIO_MIXER_GROUP);
 
-        public static void testVolume(float value) {
-            gameMixer.SetFloat("musicVolume", Mathf.Log10(value) * 20.0f);
-            
-        }
-
     }
 
 }
