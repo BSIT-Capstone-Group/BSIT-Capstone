@@ -16,7 +16,28 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 683f8ee84392c2f4b8d9fe3330cdc53e
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 64419c5ab13592847a6e85bece3822cb
+    m_Address: Text Files/Contents/Main Menu/Help/modes.yaml
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Text Files
+    - Locale-en
+    - Locale-fil
+  - m_GUID: 7f476b631a462f742ae8fd1a2cce7c43
+    m_Address: Text Files/Contents/Main Menu/Help/linear_play.yaml
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Text Files
+    - Locale-en
+    - Locale-fil
+  - m_GUID: b6d67644e30ff5f4b99f98fb664ac2ca
+    m_Address: Text Files/Contents/Main Menu/Help/free_roam_play.yaml
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Text Files
+    - Locale-en
+    - Locale-fil
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

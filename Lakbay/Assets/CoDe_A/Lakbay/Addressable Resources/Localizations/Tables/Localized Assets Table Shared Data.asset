@@ -39,6 +39,18 @@ MonoBehaviour:
     m_Key: proLinearPlayLevel3SetFile
     m_Metadata:
       m_Items: []
+  - m_Id: 4860006695399424
+    m_Key: helpModesContent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4860069840646144
+    m_Key: helpLinearPlayContent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4860140875378688
+    m_Key: helpFreeRoamPlayContent
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - id: 0
@@ -71,6 +83,18 @@ MonoBehaviour:
           - en
           - fil
         - m_KeyId: 644952846336
+          m_TableCodes:
+          - en
+          - fil
+        - m_KeyId: 4860006695399424
+          m_TableCodes:
+          - en
+          - fil
+        - m_KeyId: 4860069840646144
+          m_TableCodes:
+          - en
+          - fil
+        - m_KeyId: 4860140875378688
           m_TableCodes:
           - en
           - fil
