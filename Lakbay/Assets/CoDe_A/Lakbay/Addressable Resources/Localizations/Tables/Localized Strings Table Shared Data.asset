@@ -95,6 +95,14 @@ MonoBehaviour:
     m_Key: rightString
     m_Metadata:
       m_Items: []
+  - m_Id: 4870355628814336
+    m_Key: gameString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4870363669295104
+    m_Key: acknowledgementString
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

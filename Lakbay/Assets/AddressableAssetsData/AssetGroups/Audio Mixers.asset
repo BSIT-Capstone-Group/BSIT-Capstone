@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: c533312b17f3036418589b75bd7e413f
     m_Address: Audio Mixers/Game.mixer
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Audio Mixers
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

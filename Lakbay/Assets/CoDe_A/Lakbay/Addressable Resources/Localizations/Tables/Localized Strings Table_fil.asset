@@ -102,5 +102,13 @@ MonoBehaviour:
     m_Localized: Kanan
     m_Metadata:
       m_Items: []
+  - m_Id: 4870355628814336
+    m_Localized: Laro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4870363669295104
+    m_Localized: Pasasalamat
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

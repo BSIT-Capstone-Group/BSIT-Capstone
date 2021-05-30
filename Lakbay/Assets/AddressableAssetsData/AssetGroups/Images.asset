@@ -177,6 +177,46 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images
+  - m_GUID: 51ef802d3b03544459ee5c5537801361
+    m_Address: Images/Unity Logo Assets/Unity Tab/Circle/png/unity-tab-circle-black.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9a73f6c65e2df3a4fa72fb1d593657e3
+    m_Address: Images/Unity Logo Assets/Unity Tab/Circle/png/unity-tab-circle-white.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: e13493cd914777642835c190e1d9c157
+    m_Address: Images/Unity Logo Assets/Unity Tab/Square/png/unity-tab-square-black.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1e43651ccd407b441b0b5290fd2e634d
+    m_Address: Images/Unity Logo Assets/Unity Tab/Square/png/unity-tab-square-white.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: a98c3d068e7acfe4e90f204b3fe48116
+    m_Address: Images/Unity Logo Assets/Masterbrand/png/unity-masterbrand-black.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: efd080ae294503b458602d3c8e527339
+    m_Address: Images/Unity Logo Assets/Masterbrand/png/unity-masterbrand-white.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8f0cc8322df24ee45a05527a1dd2fc93
+    m_Address: Images/Unity Logo Assets/MadeWithUnity/png/unity-mwu-black.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c85397c85e586db4d895b3078b2ccc23
+    m_Address: Images/Unity Logo Assets/MadeWithUnity/png/unity-mwu-white.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

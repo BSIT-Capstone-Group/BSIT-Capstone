@@ -99,6 +99,7 @@ MonoBehaviour:
     - Sounds
     - Audios
     - Text Files
+    - Audio Mixers
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 010a4b3874ff01045abad0942e499df4, type: 2}

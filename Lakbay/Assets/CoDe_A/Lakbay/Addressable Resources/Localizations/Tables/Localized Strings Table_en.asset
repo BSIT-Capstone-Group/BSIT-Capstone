@@ -102,5 +102,13 @@ MonoBehaviour:
     m_Localized: Right
     m_Metadata:
       m_Items: []
+  - m_Id: 4870355628814336
+    m_Localized: Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4870363669295104
+    m_Localized: Acknowledgement
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
