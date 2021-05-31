@@ -1,0 +1,20 @@
+-
+  # name: "Lessons"
+  # thumbnail: ""
+  # children:
+  #   -
+  #     name: "Driving Fundamentals"
+  #     thumbnail: ""
+  #     children:
+  #       -
+  name: "Lesson 1"
+  thumbnail: ""
+  contentPath: "Text Files/Contents/Main Menu/Wiki/Readables/Lessons/Driving Fundamentals/lesson_1.yaml"
+  contents:
+    -
+      text: "This is a text..."
+    -
+      images:
+        - "img.jpg"
+        - "img1.jpg"
+        - "img2.jpg"
