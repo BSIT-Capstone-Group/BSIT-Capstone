@@ -7,8 +7,15 @@ using UnityEngine;
 namespace CoDe_A.Lakbay.Modules.UIModule {
     [System.Serializable]
     public class Content {
+        [System.Serializable]
+        public class Image {
+            public string path = "";
+            public string description = "";
+
+        }
+
         public string text = "";
-        public List<string> images = new List<string>();
+        public List<Image> images = new List<Image>();
 
         public bool isImageContent => images.Count != 0;
 
@@ -17,6 +24,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
     public class ContentController : MonoBehaviour {
         public bool setUpContentOnAwake = false;
 
+        public TMP_Text titleText;
         public GameObject textContent;
         public GameObject imageContent;
         public GameObject imageContentImageButton;
@@ -61,7 +69,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
                     if(this.imageContent && this.imageContentImageButton) {
                         GameObject imageContent = Instantiate<GameObject>(this.imageContent, this.transform);
 
-                        foreach(string image in content.images) {
+                        foreach(Content.Image image in content.images) {
                             GameObject imgObj = Instantiate<GameObject>(this.imageContentImageButton, imageContent.transform);
                             Image img = imgObj.GetComponent<Image>();
                             Toggle toggle = imgObj.GetComponent<Toggle>();
