@@ -8,24 +8,6 @@ using System;
 using System.Linq;
 
 namespace CoDe_A.Lakbay.Modules.UIModule {
-    [System.Serializable]
-    public class NestedContentEntry {
-        // public NestedContentEntry parent;
-
-        public string path = "";
-        public string name = "";
-        public string thumbnail = "";
-
-        // public List<NestedContentEntry> children = new List<NestedContentEntry>();
-
-        // public bool isCategory => this.children.Count != 0;
-        public bool isCategory => contents.Count == 0;
-
-        public string contentPath = "";
-        public List<Content> contents = new List<Content>();
-
-    }
-
     public class NestedContentController : MonoBehaviour {
         [HideInInspector]
         public NestedContent currentNestedContent = null;
@@ -45,6 +27,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
         // public TextAsset nestedContentFile;
         // public List<NestedContentEntry> nestedContent = new List<NestedContentEntry>();
         public ContentController contentController;
+        public VideoContentController videoContentController;
 
         public List<NestedContent> currentNestedContentParents {
             get {
@@ -136,11 +119,18 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
         }
 
         public void openNestedContent(NestedContent nestedContent) {
-            if(nestedContent.isFolder) return;
+            if(nestedContent.type == NestedContent.Type.FOLDER) return;
 
-            this.openedNestedContentMainPanel.SetActive(true);
-            this.contentController.titleText.SetText(nestedContent.label);
-            this.contentController.setUpContent(nestedContent.contentsFile, true);
+            if(nestedContent.type == NestedContent.Type.READABLE) {
+                this.openedNestedContentMainPanel.SetActive(true);
+                this.contentController.titleText.SetText(nestedContent.label);
+                this.contentController.setUpContent(nestedContent.contentsFile, true);
+
+            } else {
+                this.videoContentController.gameObject.SetActive(true);
+                this.videoContentController.setUpContent(nestedContent.videoFile, true);
+
+            }
 
         }
 
@@ -156,7 +146,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
                     Button btn = null;
                     Func<NestedContent, UnityAction> c = (x) => null;
 
-                    if(nce.isFolder) {
+                    if(nce.type == NestedContent.Type.FOLDER) {
                         e = Instantiate<GameObject>(this.nestedContentEntryCategory, this.nestedContentPanel.transform);
 
                     } else {
@@ -171,7 +161,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
                     // img.sprite = 
                     text.SetText(nce.label);
                     
-                    if(nce.isFolder) {
+                    if(nce.type == NestedContent.Type.FOLDER) {
                         c = (x) => {
                             return () => this.setCurrentNestedContent(x);
                         };

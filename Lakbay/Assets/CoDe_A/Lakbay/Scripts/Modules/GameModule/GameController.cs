@@ -245,6 +245,26 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static void setDayPhase(int dayPhase, Light light) => setDayPhase((DayPhase) dayPhase, light);
         public static void setDayPhase(int dayPhase) => setDayPhase(dayPhase, RenderSettings.sun);
 
+        public static void copyToClipboard(string str) {
+            str.CopyToClipboard();
+
+        }
+
+        public static void copyToClipboard(TMP_InputField inputField) {
+            inputField.text.CopyToClipboard();
+
+        }
+
+        public static void copyToClipboard(TMP_Text text) {
+            text.text.CopyToClipboard();
+
+        }
+
+        public static void openURL(string url) {
+            Application.OpenURL(url);
+
+        }
+
     }
 
 }

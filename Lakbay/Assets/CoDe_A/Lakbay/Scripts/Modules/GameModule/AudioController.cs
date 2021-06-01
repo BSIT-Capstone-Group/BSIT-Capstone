@@ -26,10 +26,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static readonly float MAX_VOLUME = 0.0f;
         public static readonly float VOLUME_LENGTH = MAX_VOLUME - MIN_VOLUME;
 
-        public static AsyncOperationHandle<IList<AudioClip>> handle;
-        private static Coroutine _loadCoroutine = null;
         private static float _loadingProgress = 0.0f;
-        public static float loadingProgress => _loadingProgress;
 
         public static Dictionary<string, float> lastVolumes = new Dictionary<string, float>{
             {MASTER_VOLUME_PARAMETER, 0.0f},
@@ -68,6 +65,11 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             Action<int, int, float, AudioClip> onProgress,
             Action<float, Dictionary<string, AudioClip>> onComplete
         ) {
+            Action<float, Dictionary<string, AudioClip>> oc = (tt, a) => {
+                audios = a;
+            };
+            oc += onComplete;
+
             yield return loadAssets<AudioClip>(AudioController.ADDRESSABLE_LABEL, onProgress, onComplete);
 
         }

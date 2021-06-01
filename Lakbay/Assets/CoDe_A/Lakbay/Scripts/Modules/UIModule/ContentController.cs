@@ -61,6 +61,11 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
 
 		}
 
+        public void viewImage(Content.Image contentImage) {
+            this.imageViewerController.show(contentImage);
+
+        }
+
         public void displayContent() {
             Utilities.Helper.destroyChildren(this.transform);
 
@@ -76,6 +81,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
                             toggle.group = this.toggleGroup;
 
                             // img.sprite = GameModule.;
+                            toggle.onValueChanged.AddListener((b) => this.viewImage(image));
 
                         }
 
