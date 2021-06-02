@@ -74,7 +74,8 @@ items:
         maxFuelDeduction: 25
     -
         question:
-            images: []
+            images:
+                - 'road_work.png'
             text: "Bakit kailangnang ipakita ang karatulang ito?"
         choices:
             -
@@ -111,7 +112,7 @@ items:
     -
         question:
             images:
-                - 'road_work.png'
+                - 'give_way.png'
             text: 'Ano ang ibig sabihin ng karatulang ito?'
         choices:
             -
@@ -191,7 +192,7 @@ items:
                 text: 'Reverse Turn'
                 correct: true
             -
-                text: 'One-way '
+                text: 'One-way'
                 correct: false
             -
                 text: 'No Entry'
@@ -273,3 +274,16 @@ items:
         maxCoinGain: 20
         minFuelDeduction: 15
         maxFuelDeduction: 25
+scoring:
+    [0, 7]:
+        - "Pagbutihin pa!"
+    [8, 10]:
+        - "Mahusay!"
+        - "Magaling!"
+    [11, 14]:
+        - "Pagbati! Nagawa mo!"
+        - "Napakahusay!"
+    [15, 15]:
+        - "Mahusay ang iyong ginawa!"
+        - "Kamangha-mangha!"
+        - "Kagilas-gilas!"

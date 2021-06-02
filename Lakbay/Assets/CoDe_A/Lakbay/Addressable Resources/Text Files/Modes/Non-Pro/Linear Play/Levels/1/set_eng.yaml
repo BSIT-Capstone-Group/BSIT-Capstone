@@ -165,3 +165,16 @@ items:
         maxCoinGain: 15
         minFuelDeduction: 10
         maxFuelDeduction: 20
+scoring:
+    [0, 4]:
+        - "Better Luck Next Time."
+    [5, 7]:
+        - "Well done."
+        - "Good Job!"
+    [8, 9]:
+        - "Congratulations, you made it!"
+        - "You did a great job!"
+    [10, 10]:
+        - "Splendid!"
+        - "Spectacular!"
+        - "Perfect!"

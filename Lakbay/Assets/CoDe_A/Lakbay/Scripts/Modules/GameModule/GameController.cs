@@ -13,6 +13,15 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public enum Mode { NON_PRO, PRO }
         public enum DayPhase { MORNING, AFTERNOON, EVENING };
 
+        public static readonly string[] NON_PRO_COLORS = {
+            "#00D7FF",
+            "#006C80",
+        };
+        public static readonly string[] PRO_COLORS = {
+            "#FFA452",
+            "#805229"
+        };
+
         public static DayPhase dayPhase = DayPhase.MORNING;
         public static float lastTimeScale = 0.0f;
         public static bool paused => Time.timeScale == 0.0f;
@@ -63,26 +72,29 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
                     IEnumerator audios = AudioController.loadAssets(
                         (c, t, p, a) => {
-                            print($"{c} {t} {p}");
+                            // print($"{c} {t} {p}");
                             if(this.loadingText) this.loadingText.SetText("Loading Audios...");
                             if(this.loadingSlider) this.loadingSlider.value = p;
                         },
                         (tt, a) => {
                             if(this.loadingText) this.loadingText.SetText("Loading finished.");
 
-                            Func<IEnumerator> end = () => {
-                                DontDestroyOnLoad(this.gameObject);
-                                goToMainMenu();
-                                return null;
-                            };
+                            // Func<IEnumerator> end = () => {
+                            //     DontDestroyOnLoad(this.gameObject);
+                            //     goToMainMenu();
+                            //     return null;
+                            // };
 
-                            StartCoroutine(end());
+                            // StartCoroutine(end());
+
+                            DontDestroyOnLoad(this.gameObject);
+                            goToMainMenu();
                         }
                     );
 
                     IEnumerator images = ImageController.loadAssets(
                         (c, t, p, a) => {
-                            print($"{c} {t} {p}");
+                            // print($"{c} {t} {p}");
                             if(this.loadingText) this.loadingText.SetText("Loading Images...");
                             if(this.loadingSlider) this.loadingSlider.value = p;
                         },
@@ -93,7 +105,20 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
                         }
                     );
 
-                    StartCoroutine(images);
+                    IEnumerator textFiles = TextFileController.loadAssets(
+                        (c, t, p, a) => {
+                            // print($"{c} {t} {p}");
+                            if(this.loadingText) this.loadingText.SetText("Loading Text Files...");
+                            if(this.loadingSlider) this.loadingSlider.value = p;
+                        },
+                        (tt, a) => {
+                            StartCoroutine(images);
+                            // GameController.DontDestroyOnLoad(this.gameObject);
+                            // GameController.loadScene(1);
+                        }
+                    );
+
+                    StartCoroutine(textFiles);
 
                     print("loading done.");
 
@@ -137,6 +162,8 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
             GameController.currentModeType = mode;
             GameController.currentLinearPlayLevel = null;
             GameController.forwardLinearPlayLevel();
+            // GameController.forwardLinearPlayLevel();
+            // GameController.forwardLinearPlayLevel();
 
         }
 

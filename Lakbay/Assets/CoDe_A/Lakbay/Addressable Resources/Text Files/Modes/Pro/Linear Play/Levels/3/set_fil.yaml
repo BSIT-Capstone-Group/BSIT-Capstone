@@ -459,3 +459,16 @@ items:
         maxCoinGain: 20
         minFuelDeduction: 15
         maxFuelDeduction: 25
+scoring:
+    [0, 12]:
+        - "Pagbutihin pa!"
+    [13, 19]:
+        - "Mahusay"
+        - "Magaling"
+    [21, 24]:
+        - "Pagbati! Nagawa mo!"
+        - "Napakahusay!"
+    [25, 25]:
+        - "Mahusay ang iyong ginawa!"
+        - "Kamangha-mangha!"
+        - "Kagilas-gilas!"

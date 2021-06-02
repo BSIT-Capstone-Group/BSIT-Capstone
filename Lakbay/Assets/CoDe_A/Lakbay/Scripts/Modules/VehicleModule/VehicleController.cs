@@ -216,7 +216,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 
 			if(factor != 0.0f) {
 				if(this.accelerateSound) {
-					AudioSource.PlayClipAtPoint(this.accelerateSound, this.transform.position);
+					// AudioSource.PlayClipAtPoint(this.accelerateSound, this.transform.position);
 
 				}
 
@@ -224,7 +224,7 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 				
 			} else {
 				if(this.idleSound) {
-					AudioSource.PlayClipAtPoint(this.idleSound, this.transform.position);
+					// AudioSource.PlayClipAtPoint(this.idleSound, this.transform.position);
 
 				}
 

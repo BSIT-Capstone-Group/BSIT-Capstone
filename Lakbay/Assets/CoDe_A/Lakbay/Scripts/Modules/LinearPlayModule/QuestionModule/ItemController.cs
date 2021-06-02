@@ -68,12 +68,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
         }
 
-        private async Task OnTriggerEnter(Collider collider) {
-            await this.trigger(collider);
+        private void OnTriggerEnter(Collider collider) {
+            this.trigger(collider);
 
         }
 
-        public async Task trigger(Collider collider) {
+        public void trigger(Collider collider) {
             if(this.triggered) return;
 
             if(this.playerController.transform == collider.transform) {
@@ -94,9 +94,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
                 }
 
                 this.uiController.maximizedImagePanel.SetActive(false);
-                Task<GameObject[]> t = this.uiController.setImageButtons(this.item.question.images.ToArray());
-                await t;
-                GameObject[] imbs = t.Result;
+                GameObject[] t = this.uiController.setImageButtons(this.item.question.images.ToArray());
+                // await t;
+                GameObject[] imbs = t;
                 foreach(GameObject imb in imbs) {
                     Button btn = imb.GetComponent<Button>();
                     btn.onClick.AddListener(this.maximizeImage(

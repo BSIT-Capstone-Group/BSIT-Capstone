@@ -19,6 +19,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public TMP_Text hintText;
         public TMP_Text lifeText;
         public Slider fuelBar;
+        public Slider progressBar;
 
         public Image lifeImage;
         public List<Sprite> lifeSprites = new List<Sprite>();
@@ -43,7 +44,13 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
 
         [Header("Post Stage")]
         public GameObject postStagePanel;
+        public TMP_Text scoreText;
+        public TMP_Text scoreDescriptionText;
+        public TMP_Text levelText;
+        public GameObject starsPanel;
         public Button nextStageButton;
+        public Button viewAssessmentButton;
+        public Button endGameButton;
 
         [Header("Post Linear Play")]
         public GameObject postLinearPlayPanel;
@@ -79,6 +86,25 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
             this.playerController.onLifeIntegrityChange.AddListener(this.onPlayerControllerLifeIntegrityChange);
 
             this.vehicleController.onFuelChange.AddListener(this.onVehicleControllerFuelChange);
+
+            Image hi = this.progressBar.handleRect.GetComponent<Image>();
+            Image fi = this.progressBar.fillRect.GetComponent<Image>();
+            Image li = this.stageText.transform.parent.GetComponent<Image>();
+            string hc = "", fc = "", lc = "";
+
+            if(GameController.currentModeType == GameController.Mode.NON_PRO) {
+                fc = GameController.NON_PRO_COLORS[0]; hc = GameController.NON_PRO_COLORS[1];
+                lc = GameController.NON_PRO_COLORS[1];
+
+            } else {
+                fc = GameController.PRO_COLORS[0]; hc = GameController.PRO_COLORS[1];
+                lc = GameController.PRO_COLORS[1];
+
+            }
+
+            fi.color = Utilities.Color.create(fc);
+            hi.color = Utilities.Color.create(hc);
+            li.color = Utilities.Color.create(lc);
 
             // if(GameController.linearPlayStage != null) {
             //     GameController.linearPlayStage.localizedSetFile.AssetChanged += (ta) => {
@@ -226,7 +252,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
 
         }
 
-        public async Task<GameObject[]> setImageButtons(params string[] paths) {
+        public GameObject[] setImageButtons(params string[] paths) {
             List<Sprite> sprites = new List<Sprite>();
 
             foreach(string path in paths) {

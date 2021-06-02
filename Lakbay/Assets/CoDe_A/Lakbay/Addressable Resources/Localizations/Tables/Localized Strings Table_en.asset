@@ -110,5 +110,21 @@ MonoBehaviour:
     m_Localized: Acknowledgement
     m_Metadata:
       m_Items: []
+  - m_Id: 5860169786290176
+    m_Localized: View Assessment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5861386369331200
+    m_Localized: Next Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5862703242375168
+    m_Localized: Non-Professional
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5862887221325824
+    m_Localized: Professional
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

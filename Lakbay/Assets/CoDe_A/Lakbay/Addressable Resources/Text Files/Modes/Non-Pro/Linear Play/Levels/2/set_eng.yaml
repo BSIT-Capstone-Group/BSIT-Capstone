@@ -270,3 +270,16 @@ items:
             -
                 text: 'No parking at all from Monday to Friday'
                 correct: true
+scoring:
+    [0, 7]:
+        - "Better Luck Next Time."
+    [8, 10]:
+        - "Well done."
+        - "Good Job!"
+    [11, 14]:
+        - "Congratulations, you made it!"
+        - "You did a great job!"
+    [15, 15]:
+        - "Splendid!"
+        - "Spectacular!"
+        - "Perfect!"

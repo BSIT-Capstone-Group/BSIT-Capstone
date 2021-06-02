@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using UnityEngine;
 using CoDe_A.Lakbay.Modules.GameModule;
 
@@ -10,6 +11,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         public string name = "";
 
         public List<Item> items = new List<Item>();
+
+        public Dictionary<IEnumerable<int>, List<string>> scoring = new Dictionary<IEnumerable<int>, List<string>>();
 
     }
 
@@ -35,13 +38,36 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
         public List<ItemController> itemControllers = new List<ItemController>();
 
-        public float score {
-            get => this.itemControllers.Select<ItemController, float>(
-                (ic) => ic.answeredCorrectly ? 1.0f : 0.0f
+        public int score {
+            get => this.itemControllers.Select<ItemController, int>(
+                (ic) => ic.answeredCorrectly ? 1 : 0
             ).Sum();
         }
 
-        public float maxScore { get => this.itemControllers.Count; }
+        public int maxScore { get => this.itemControllers.Count; }
+
+        public string scoreDescription {
+            get {
+                return Utilities.Helper.pickRandom<string>(this.set.scoring[this.scoringKey].ToArray());
+
+            }
+        }
+
+        public IEnumerable<int> scoringKey => this.set.scoring.Keys.ToList().Find((e) => e.Contains(score));
+
+        public int star {
+            get {
+                var o = this.set.scoring.OrderBy((kvp) => kvp.Key.ToList().Last());
+                var os = o.ToList();
+                foreach(var o_ in os) {
+                    if(o_.Key.Equals(this.scoringKey)) return os.IndexOf(o_);
+
+                }
+
+                return 0;
+
+            }
+        }
 
         private void Start() {
             if(GameController.currentModeData != null) this.setUpSet(
@@ -54,7 +80,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         private void Update() {
             if(this.set.items.Count != this._currentItemsCount) {
                 this.setUpSet(this.set);
-
+                
             }
 
         }

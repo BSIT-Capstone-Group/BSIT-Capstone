@@ -68,6 +68,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
 
         private void Update() {
             // print(this.timer.time);
+            if(this.roadController.finishLineModel) {
+                float tp = this.roadController.finishLineModel.transform.position.z;
+                float cp = this.transform.position.z;
+                this.uiController.progressBar.value = cp / tp;
+
+            }
 
         }
 
@@ -80,24 +86,48 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             if(this.roadController) {
                 GameObject fm = this.roadController.finishLineModel;
                 if(fm && fm.transform == collider.transform) {
+                    int level = GameController.currentLinearPlayLevelIndex + 1; 
                     GameModule.LinearPlayData.Level l = GameController.forwardLinearPlayLevel();
 
-                    if(l != null) {
-                        this.vehicleController.sleep();
-                        this.uiController.postStagePanel.SetActive(true);
-                        this.uiController.nextStageButton.onClick.RemoveAllListeners();
-                        this.uiController.nextStageButton.onClick.AddListener(this.onNextStage);
-                        this.timer.pause();
+                    this.vehicleController.sleep();
+                    this.uiController.postStagePanel.SetActive(true);
+                    this.uiController.nextStageButton.onClick.RemoveAllListeners();
+                    // this.uiController.endGameButton.onClick.RemoveAllListeners();
+                    this.uiController.nextStageButton.onClick.AddListener(this.onNextStage);
+                    this.timer.pause();
+
+                    int score = this.setController.score, maxScore = this.setController.maxScore;
+                    this.uiController.scoreText.SetText($"{score} / {maxScore}");
+
+                    this.uiController.nextStageButton.gameObject.SetActive(true);
+                    this.uiController.endGameButton.gameObject.SetActive(false);
+                    // TMP_Text text = this.uiController.scoreDescriptionPanel.GetComponentInChildren<TMP_Text>();
+                    // text.gameObject.SetActive(true);
+                    this.uiController.levelText.SetText(level + "");
+                    this.uiController.scoreDescriptionText.SetText(this.setController.scoreDescription);
+                    
+                    for(int i = 0; i < this.uiController.starsPanel.transform.childCount; i++) {
+                        var go = this.uiController.starsPanel.transform.GetChild(i);
+                        if(i < this.setController.star) go.gameObject.SetActive(true);
+                        else go.gameObject.SetActive(false);
+
+                    }
+                    // this.vehicleController.sleep();
+                    // this.uiController.postLinearPlayPanel.SetActive(true);
+                    // this.uiController.freeRoamButton.onClick.RemoveAllListeners();
+                    // this.uiController.freeRoamButton.onClick.AddListener(this.onNextPhase);
+                    // string text = this.timer.time.ToString("N0") + "s";
+                    // text += $", {this.setController.score}/{this.setController.maxScore} pts";
+                    // this.uiController.totalTimeText.SetText(text);
+
+                    if(level == 3) {
+                        this.uiController.viewAssessmentButton.gameObject.SetActive(true);
+                        this.uiController.nextStageButton.gameObject.SetActive(false);
+                        this.timer.stop();
 
                     } else {
-                        this.vehicleController.sleep();
-                        this.uiController.postLinearPlayPanel.SetActive(true);
-                        this.uiController.freeRoamButton.onClick.RemoveAllListeners();
-                        this.uiController.freeRoamButton.onClick.AddListener(this.onNextPhase);
-                        string text = this.timer.time.ToString("N0") + "s";
-                        text += $", {this.setController.score}/{this.setController.maxScore} pts";
-                        this.uiController.totalTimeText.SetText(text);
-                        this.timer.stop();
+                        this.uiController.nextStageButton.gameObject.SetActive(true);
+                        this.uiController.viewAssessmentButton.gameObject.SetActive(false);
 
                     }
 
@@ -124,6 +154,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
 
         public void onNextStage() {
             this.setLifeIntegrity(this.player.maxLifeIntegrity);
+            this.vehicleController.setFuel(
+                Mathf.Min(this.vehicleController.vehicle.fuel + (this.player.coin * 0.25f), this.vehicleController.vehicle.maxFuel)
+            );
 
             GameModule.LinearPlayData.Level l = GameController.currentLinearPlayLevel;
             this.vehicleController.respawn(

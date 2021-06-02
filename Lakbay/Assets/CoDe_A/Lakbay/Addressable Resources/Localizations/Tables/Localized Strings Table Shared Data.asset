@@ -103,6 +103,22 @@ MonoBehaviour:
     m_Key: acknowledgementString
     m_Metadata:
       m_Items: []
+  - m_Id: 5860169786290176
+    m_Key: viewAssessmentString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5861386369331200
+    m_Key: nextLevelString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5862703242375168
+    m_Key: nonProfessionalString
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5862887221325824
+    m_Key: professionalString
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

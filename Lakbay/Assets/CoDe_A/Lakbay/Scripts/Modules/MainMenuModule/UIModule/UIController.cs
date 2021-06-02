@@ -118,23 +118,23 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
                 GameModule.PreferencesController.setSoundVolume
             );
 
-            this.masterVolumeSlider.onValueChanged.AddListener(
-                (v) => { this.masterVolumeText.SetText(v.ToString("P0")); }
-            );
-            this.musicVolumeSlider.onValueChanged.AddListener(
-                (v) => { this.musicVolumeText.SetText(v.ToString("P0")); }
-            );
-            this.soundVolumeSlider.onValueChanged.AddListener(
-                (v) => { this.soundVolumeText.SetText(v.ToString("P0")); }
-            );
+            // this.masterVolumeSlider.onValueChanged.AddListener(
+            //     (v) => { this.masterVolumeText.SetText(v.ToString("P0")); }
+            // );
+            // this.musicVolumeSlider.onValueChanged.AddListener(
+            //     (v) => { this.musicVolumeText.SetText(v.ToString("P0")); }
+            // );
+            // this.soundVolumeSlider.onValueChanged.AddListener(
+            //     (v) => { this.soundVolumeText.SetText(v.ToString("P0")); }
+            // );
 
             float masterVolume = GameModule.AudioController.getMasterVolume();
             float musicVolume = GameModule.AudioController.getMusicVolume();
             float soundVolume = GameModule.AudioController.getSoundVolume();
 
-            this.masterVolumeSlider.value = masterVolume + 0.001f;
-            this.musicVolumeSlider.value = musicVolume + 0.001f;
-            this.soundVolumeSlider.value = soundVolume + 0.001f;
+            // this.masterVolumeSlider.value = masterVolume + 0.001f;
+            // this.musicVolumeSlider.value = musicVolume + 0.001f;
+            // this.soundVolumeSlider.value = soundVolume + 0.001f;
 
             this.masterVolumeSlider.value = masterVolume;
             this.musicVolumeSlider.value = musicVolume;
