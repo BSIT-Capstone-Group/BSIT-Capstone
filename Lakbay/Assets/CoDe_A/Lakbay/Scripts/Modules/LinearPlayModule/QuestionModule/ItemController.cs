@@ -34,6 +34,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
         public float minFuelDeduction = 7.0f;
         public float maxFuelDeduction = 15.0f;
 
+        public bool answeredCorrectly = false;
+
     }
 
     public class ItemController : MonoBehaviour {
@@ -185,6 +187,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
                 }
 
             }
+
+            this.item.answeredCorrectly = this.answeredCorrectly;
 
         }
 

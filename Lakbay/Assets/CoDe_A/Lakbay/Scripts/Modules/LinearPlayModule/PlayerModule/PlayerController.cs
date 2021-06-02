@@ -89,6 +89,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                     int level = GameController.currentLinearPlayLevelIndex + 1; 
                     GameModule.LinearPlayData.Level l = GameController.forwardLinearPlayLevel();
 
+                    GameController.pause();
                     this.vehicleController.sleep();
                     this.uiController.postStagePanel.SetActive(true);
                     this.uiController.nextStageButton.onClick.RemoveAllListeners();
@@ -125,6 +126,41 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                         this.uiController.nextStageButton.gameObject.SetActive(false);
                         this.timer.stop();
 
+                        var levels = GameController.currentModeData.linearPlayData.levels;
+
+                        for(int i = 0; i < 3; i++) {
+                            string ls = $"{PlayerDataController.levelScores[i].Item1} / {PlayerDataController.levelScores[i].Item2}";
+                            this.uiController.levelScoreTexts[i].SetText(ls);
+
+                        }
+
+                        this.uiController.remainingLifeText.SetText(PlayerDataController.life + "");
+                        this.uiController.remainingHintText.SetText(PlayerDataController.hint + "");
+                        this.uiController.remainingCoinText.SetText(PlayerDataController.coin + "");
+
+                        TimeSpan ts = TimeSpan.FromSeconds(PlayerDataController.totalTime);
+                        string tsstr = ts.ToString(@"\:mm\:ss"); 
+
+                        this.uiController.totalScoreText.SetText($"{PlayerDataController.totalScore} / {PlayerDataController.totalMaxScore}");
+                        this.uiController.totalTimeText.SetText($"{tsstr}");
+
+                        bool passed = PlayerDataController.passed;
+
+                        this.uiController.crossmarkImage.gameObject.SetActive(!passed);
+                        this.uiController.failedText.gameObject.SetActive(!passed);
+
+                        this.uiController.checkmarkImage.gameObject.SetActive(passed);
+                        this.uiController.passedText.gameObject.SetActive(passed);
+
+                        this.uiController.freeRoamButton.gameObject.SetActive(passed);
+                        this.uiController.retryButton.gameObject.SetActive(!passed);
+
+                        this.uiController.freeRoamButton.onClick.RemoveAllListeners();
+                        this.uiController.freeRoamButton.onClick.AddListener(() => {
+                            GameController.resume();
+                            GameController.loadScene(1);
+                        });
+
                     } else {
                         this.uiController.nextStageButton.gameObject.SetActive(true);
                         this.uiController.viewAssessmentButton.gameObject.SetActive(false);
@@ -153,6 +189,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         }
 
         public void onNextStage() {
+            GameController.resume();
             this.setLifeIntegrity(this.player.maxLifeIntegrity);
             this.vehicleController.setFuel(
                 Mathf.Min(this.vehicleController.vehicle.fuel + (this.player.coin * 0.25f), this.vehicleController.vehicle.maxFuel)

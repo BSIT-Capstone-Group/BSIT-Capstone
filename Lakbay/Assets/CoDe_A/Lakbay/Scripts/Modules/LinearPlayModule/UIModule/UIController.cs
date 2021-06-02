@@ -56,6 +56,16 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public GameObject postLinearPlayPanel;
         public TMP_Text totalTimeText;
         public Button freeRoamButton;
+        public Button retryButton;
+        public Image crossmarkImage;
+        public Image checkmarkImage;
+        public TMP_Text passedText;
+        public TMP_Text failedText;
+        public TMP_Text totalScoreText;
+        public List<TMP_Text> levelScoreTexts;
+        public TMP_Text remainingLifeText;
+        public TMP_Text remainingHintText;
+        public TMP_Text remainingCoinText;
 
         [Header("Notifications")]
         public Utilities.Notification notification;

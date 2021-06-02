@@ -172,6 +172,11 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
 
         }
 
+        public static void resetCurrentMode() {
+            setMode(currentModeType);
+
+        }
+
         public static void loadScene(int sceneBuildIndex) {
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
 

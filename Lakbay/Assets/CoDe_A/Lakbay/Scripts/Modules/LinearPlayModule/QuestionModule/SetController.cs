@@ -14,6 +14,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
         public Dictionary<IEnumerable<int>, List<string>> scoring = new Dictionary<IEnumerable<int>, List<string>>();
 
+        public int score => this.items.FindAll((i) => i.answeredCorrectly).Count;
+        public int maxScore => this.items.Count;
+
     }
 
     public class SetController : MonoBehaviour {
