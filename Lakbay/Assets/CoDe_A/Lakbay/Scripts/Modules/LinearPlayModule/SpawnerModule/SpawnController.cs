@@ -14,6 +14,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
         public SpawnerController spawnerController;
         public PlayerModule.PlayerController playerController;
         public bool hit = false;
+        public AudioSource hitAudioSource;
         public UnityEvent<SpawnController, Vector3> onHit = new UnityEvent<SpawnController, Vector3>();
 
         private void OnTriggerEnter(Collider collider) {
@@ -24,11 +25,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule {
                 this.hit = true;
                 
                 this.getHit(this.transform.position);
-                
+                if(this.hitAudioSource) this.hitAudioSource.Play();
                 this.spawnerController.playParticle(this);
                 this.spawnerController.despawn(this);
 
             } else if(collider.transform == this.playerController.roadController.startingLineModel.transform) {
+                if(this.hitAudioSource) this.hitAudioSource.Play();
                 this.spawnerController.playParticle(this);
                 this.spawnerController.despawn(this);
 

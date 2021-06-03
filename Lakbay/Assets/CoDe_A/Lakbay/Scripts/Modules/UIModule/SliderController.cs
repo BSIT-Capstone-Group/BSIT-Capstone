@@ -32,7 +32,11 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
         }
 
         private void Update() {
-            float value = this.slider.value;
+
+        }
+
+        public void onValueChanged(float value) {
+            value = this.slider.value;
             value = stepValue(value, steppedValue, this.slider.minValue, this.slider.maxValue);
             // v = Mathf.Max(Mathf.Min(v, this.slider.maxValue), this.slider.minValue);
             value = Mathf.Min(Mathf.Max(value, this.slider.minValue), this.slider.maxValue);
@@ -51,6 +55,14 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
 
         public void setUpSlider() {
             if(!this.slider) this.slider = this.GetComponent<Slider>();
+
+            try {
+                this.slider.onValueChanged.RemoveListener(this.onValueChanged);
+
+            } catch {}
+
+            this.slider.onValueChanged.AddListener(this.onValueChanged);
+            this.slider.onValueChanged.Invoke(this.slider.value);
 
         }
 

@@ -108,6 +108,8 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
         }
 
         public void setUpVolumeSliders() {
+
+            
             this.masterVolumeSlider.onValueChanged.AddListener(
                 GameModule.PreferencesController.setMasterVolume
             );
@@ -128,13 +130,14 @@ namespace CoDe_A.Lakbay.Modules.MainMenuModule.UIModule {
             //     (v) => { this.soundVolumeText.SetText(v.ToString("P0")); }
             // );
 
-            float masterVolume = GameModule.AudioController.getMasterVolume();
-            float musicVolume = GameModule.AudioController.getMusicVolume();
-            float soundVolume = GameModule.AudioController.getSoundVolume();
+            float masterVolume = GameModule.PreferencesController.preferences["Audio"]["MasterVolume"].FloatValue;
+            float musicVolume = GameModule.PreferencesController.preferences["Audio"]["MusicVolume"].FloatValue;
+            float soundVolume = GameModule.PreferencesController.preferences["Audio"]["SoundVolume"].FloatValue;
 
             // this.masterVolumeSlider.value = masterVolume + 0.001f;
             // this.musicVolumeSlider.value = musicVolume + 0.001f;
             // this.soundVolumeSlider.value = soundVolume + 0.001f;
+            print($"{masterVolume} {musicVolume} {soundVolume}");
 
             this.masterVolumeSlider.value = masterVolume;
             this.musicVolumeSlider.value = musicVolume;

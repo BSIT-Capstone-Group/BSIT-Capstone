@@ -62,8 +62,8 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 		public Light leftHeadlight;
 		public Light rightHeadlight;
 
-		public AudioClip idleSound;
-		public AudioClip accelerateSound;
+		public AudioSource idleAudioSource;
+		public AudioSource accelerateAudioSource;
 
 		public List<WheelController> wheelControllers = new List<WheelController>();
 
@@ -81,6 +81,14 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 				GameController.currentModeData.linearPlayData.vehicleFile
 			);
 			else if(this.vehicleFile) this.setUpVehicle(this.vehicleFile);
+
+		}
+
+		private void Update() {
+			if(GameController.dayPhase == GameController.DayPhase.EVENING) {
+				this.turnOnHeadlights();
+
+			} else this.turnOffHeadlights();
 
 		}
 
@@ -215,16 +223,20 @@ namespace CoDe_A.Lakbay.Modules.VehicleModule {
 			}
 
 			if(factor != 0.0f) {
-				if(this.accelerateSound) {
+				if(this.accelerateAudioSource) {
 					// AudioSource.PlayClipAtPoint(this.accelerateSound, this.transform.position);
+					if(this.idleAudioSource.isPlaying) this.idleAudioSource.Stop();
+					if(!this.accelerateAudioSource.isPlaying) this.accelerateAudioSource.Play();
 
 				}
 
 				this.onAccelerate.Invoke(this, factor);
 				
 			} else {
-				if(this.idleSound) {
+				if(this.idleAudioSource) {
 					// AudioSource.PlayClipAtPoint(this.idleSound, this.transform.position);
+					if(this.accelerateAudioSource.isPlaying) this.accelerateAudioSource.Stop();
+					if(!this.idleAudioSource.isPlaying) this.idleAudioSource.Play();
 
 				}
 

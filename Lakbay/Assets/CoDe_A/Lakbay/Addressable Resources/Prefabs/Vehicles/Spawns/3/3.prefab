@@ -81,7 +81,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0970215, y: 0.67279613, z: 2.4017434}
+  m_Size: {x: 1.0238866, y: 0.67279613, z: 2.2868667}
   m_Center: {x: 0, y: 0.32210165, z: -0.00000011920929}
 --- !u!114 &2420856511563004545
 MonoBehaviour:
@@ -115,6 +115,8 @@ MonoBehaviour:
   wheelModel: {fileID: 0}
   leftHeadlight: {fileID: 7762828883939404236}
   rightHeadlight: {fileID: 7762828883506951933}
+  idleAudioSource: {fileID: 0}
+  accelerateAudioSource: {fileID: 0}
   wheelControllers:
   - {fileID: 7276489491404726881}
   - {fileID: 3196492691759665688}
@@ -146,10 +148,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerController: {fileID: 0}
   playerController: {fileID: 0}
+  hit: 0
   onHit:
     m_PersistentCalls:
       m_Calls: []
   vehicleController: {fileID: 2420856511563004545}
+  coinReduction: 5
 --- !u!1 &3298856285892861471
 GameObject:
   m_ObjectHideFlags: 0

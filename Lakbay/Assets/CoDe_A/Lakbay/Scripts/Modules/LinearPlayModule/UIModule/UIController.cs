@@ -41,6 +41,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public GameObject choicesPanel;
         public GameObject choiceButton;
         public Button hintButton;
+        public TMP_Text hintValueText;
 
         [Header("Post Stage")]
         public GameObject postStagePanel;
@@ -69,7 +70,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
 
         [Header("Notifications")]
         public Utilities.Notification notification;
-        public Utilities.Notification pointNotification;
+        public Utilities.Notification coinNotification;
+        public Utilities.Notification fuelNotification;
 
         [Header("Controllers")]
         public VehicleModule.VehicleController vehicleController;
@@ -81,10 +83,10 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public UIParticle lifeParticle;
 
         [Header("Audios")]
-        public AudioClip coinSound;
-        public AudioClip hintSound;
-        public AudioClip lifeSound;
-        public AudioClip lifeBreakSound;
+        public AudioSource coinAudioSource;
+        public AudioSource hintAudioSource;
+        public AudioSource lifeAudioSource;
+        public AudioSource lifeBreakAudioSource;
 
         [Header("Events")]
         public UnityEvent<UIController, float> onFuelTopUp = new UnityEvent<UIController, float>();
@@ -103,11 +105,11 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
             string hc = "", fc = "", lc = "";
 
             if(GameController.currentModeType == GameController.Mode.NON_PRO) {
-                fc = GameController.NON_PRO_COLORS[0]; hc = GameController.NON_PRO_COLORS[1];
+                fc = GameController.NON_PRO_COLORS[0]; hc = GameController.NON_PRO_COLORS[0];
                 lc = GameController.NON_PRO_COLORS[1];
 
             } else {
-                fc = GameController.PRO_COLORS[0]; hc = GameController.PRO_COLORS[1];
+                fc = GameController.PRO_COLORS[0]; hc = GameController.PRO_COLORS[0];
                 lc = GameController.PRO_COLORS[1];
 
             }
@@ -147,29 +149,32 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public void onPlayerControllerCoinChange(PlayerModule.PlayerController pc, float value) {
             this.coinText.SetText(pc.player.coin.ToString("N0"));
             this.coinParticle.Play();
-            GameModule.AudioController.play(this.coinSound);
+            this.coinAudioSource.Play();
+            // GameModule.AudioController.play(this.coinAudioSource);
 
         }
 
         public void onPlayerControllerHintChange(PlayerModule.PlayerController pc, float value) {
             this.hintText.SetText(pc.player.hint.ToString("N0"));
             this.hintParticle.Play();
-            AudioSource.PlayClipAtPoint(this.hintSound, Camera.main.transform.position);
-            GameModule.AudioController.play(this.hintSound);
+            // AudioSource.PlayClipAtPoint(this.hintAudioSource, Camera.main.transform.position);
+            this.hintAudioSource.Play();
+            // GameModule.AudioController.play(this.hintAudioSource);
 
         }
 
         public void onPlayerControllerLifeChange(PlayerModule.PlayerController pc, float value) {
             this.lifeText.SetText(pc.player.life.ToString("N0"));
             this.lifeParticle.Play();
-            GameModule.AudioController.play(this.lifeSound);
+            this.lifeAudioSource.Play();
+            // GameModule.AudioController.play(this.lifeAudioSource);
 
         }
 
         public void onPlayerControllerLifeIntegrityChange(PlayerModule.PlayerController pc, float value) {
             // this.lifeText.SetText(pc.player.life.ToString("N0"));
             // this.lifeParticle.Play();
-            // this.lifeBreakSound.Play();
+            // this.lifeBreakAudioSource.Play();
 
             float p = float.Parse((1.0f - (pc.player.lifeIntegrity / 3.0f)).ToString("N2"));
             float bp = float.Parse((1.0f / this.lifeSprites.Count).ToString("N2"));
@@ -187,7 +192,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
 
             print($"life integrity: {pc.player.lifeIntegrity}");
 
-            GameModule.AudioController.play(this.lifeBreakSound);
+            lifeBreakAudioSource.Play();
+            // GameModule.AudioController.play(this.lifeBreakAudioSource);
 
         }
 

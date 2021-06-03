@@ -115,8 +115,12 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static float getVolume(string name) {
             float lastVolume = 0.0f;
             gameMixer.GetFloat(name, out lastVolume);
+            print($"{name} lastvolume: {lastVolume}");
+            // float rvalue = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20.0f;
 
-            return Mathf.Max((lastVolume + VOLUME_LENGTH) / VOLUME_LENGTH, 0.0001f);
+            // return Mathf.Max((lastVolume + VOLUME_LENGTH) / VOLUME_LENGTH, 0.0001f);
+            // return 1.0f - (lastVolume / (Mathf.Log10(0.0001f) * 20.0f));
+            return lastVolume;
 
         }
 
@@ -175,6 +179,11 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         }
 
         public static void play(AudioClip audioClip) => play(audioClip, SOUND_AUDIO_MIXER_GROUP);
+
+        public static void play(AudioSource audioSource) {
+            audioSource.Play();
+
+        }
 
     }
 

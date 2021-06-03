@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Driving Fundamentals
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
-  children: []
+  children:
+  - {fileID: 11400000, guid: 01100b0bc3f96854c87717ecd83b079f, type: 2}
+  - {fileID: 11400000, guid: c69b85815c1f94d4fa68cc3fc8eb279f, type: 2}
+  - {fileID: 11400000, guid: f1a25016309c4cd41a57f467241327ec, type: 2}
+  - {fileID: 11400000, guid: 6fae2e007d42426478a92696396e3b82, type: 2}
   label: Driving Fundamentals
   thumbnail: {fileID: 0}
   contentsFile: {fileID: 0}
+  videoFile: {fileID: 0}

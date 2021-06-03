@@ -48,8 +48,8 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
             this.uiController.onFuelTopUp.AddListener(this.onUIFuelTopUp);
             this.viewCameraController.onUpdate.AddListener(this.onViewCameraControllerUpdate);
             this.onHintChange.AddListener((pc, f) => {
-                TMP_Text hintText = this.uiController.hintButton.GetComponentInChildren<TMP_Text>();
-                hintText.SetText($"Hint ({pc.player.hint})");
+                // TMP_Text hintText = this.uiController.hintButton.GetComponentInChildren<TMP_Text>();
+                this.uiController.hintValueText.SetText($"{pc.player.hint}");
             });
 
             this.vehicleController.onFuelChange.AddListener(this.onVehicleControllerFuelChange);
@@ -139,7 +139,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                         this.uiController.remainingCoinText.SetText(PlayerDataController.coin + "");
 
                         TimeSpan ts = TimeSpan.FromSeconds(PlayerDataController.totalTime);
-                        string tsstr = ts.ToString(@"\:mm\:ss"); 
+                        string tsstr = ts.ToString(@"mm\:ss"); 
 
                         this.uiController.totalScoreText.SetText($"{PlayerDataController.totalScore} / {PlayerDataController.totalMaxScore}");
                         this.uiController.totalTimeText.SetText($"{tsstr}");
@@ -247,7 +247,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                 message = "Correct Answer! Coins increased by {0}.";
                 svalue = cg;
 
-                this.uiController.pointNotification.show("1", 1.5f);
+                this.uiController.coinNotification.show(cg, 1.5f);
 
             } else {
 
@@ -265,12 +265,14 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                 message = choice != null ? "Wrong Answer! Fuel got reduced by {0}." : message;
                 svalue = fd;
 
+                this.uiController.fuelNotification.show(fd, 1.5f);
+
             }
             
-            this.uiController.notification.show(
-                String.Format(message, svalue),
-                3.5f
-            );
+            // this.uiController.notification.show(
+            //     String.Format(message, svalue),
+            //     3.5f
+            // );
 
             // print(ic.answeredCorrectly + " " + this.setController.score);
             // foreach(var icc in this.setController.itemControllers) {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3818178723910013702}
   - component: {fileID: 3818178723910013701}
   m_Layer: 5
-  m_Name: Content Image
+  m_Name: Image Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 175, y: 175}
+  m_CellSize: {x: 275, y: 275}
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 1
   m_ConstraintCount: 3

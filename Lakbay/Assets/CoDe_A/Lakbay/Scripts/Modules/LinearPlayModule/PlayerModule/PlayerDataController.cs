@@ -14,7 +14,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         public static int totalScore => levelScores.Select((x) => x.Item1).Sum();
         public static int totalMaxScore => levelScores.Select((x) => x.Item2).Sum();
         public static float totalTime = 0.0f;
-        public static bool passed => (totalScore / totalMaxScore) >= (totalMaxScore * 0.80f);
+        public static bool passed => totalScore >= (totalMaxScore * 0.80f);
         
         public PlayerController playerController;
 

@@ -211,6 +211,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         }
 
         public static void save(string path) {
+            print("saving...");
             PreferencesController.preferences.SaveToFile(path);
 
         }
