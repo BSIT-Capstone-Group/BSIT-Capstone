@@ -12,7 +12,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
 
         public List<Item> items = new List<Item>();
 
-        public Dictionary<IEnumerable<int>, List<string>> scoring = new Dictionary<IEnumerable<int>, List<string>>();
+        public Dictionary<List<int>, List<string>> scoring = new Dictionary<List<int>, List<string>>();
 
         public int score => this.items.FindAll((i) => i.answeredCorrectly).Count;
         public int maxScore => this.items.Count;
@@ -56,7 +56,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
             }
         }
 
-        public IEnumerable<int> scoringKey => this.set.scoring.Keys.ToList().Find((e) => e.Contains(score));
+        public List<int> scoringKey => this.set.scoring.Keys.ToList().Find((e) => Enumerable.Range(e[0], e[2]).Contains(score));
 
         public int star {
             get {

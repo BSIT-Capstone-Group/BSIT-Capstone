@@ -126,5 +126,87 @@ MonoBehaviour:
     m_Localized: Propesyonal
     m_Metadata:
       m_Items: []
+  - m_Id: 6645271457918976
+    m_Localized: Buod
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6645582230679552
+    m_Localized: Pasado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6645793191587840
+    m_Localized: Bagsak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6646028403961856
+    m_Localized: Ulitin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6646145911582720
+    m_Localized: Mga Iskor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6646256674762752
+    m_Localized: Mga Mahalaga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6647021317353472
+    m_Localized: Kabuuang Iskor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6647264515682304
+    m_Localized: Kabuuang Oras
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6647349479698432
+    m_Localized: Pahayag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6650015584841728
+    m_Localized: Ginto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6650080911126528
+    m_Localized: Tulong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6650256094621696
+    m_Localized: Buhay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6650665471275008
+    m_Localized: Antas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6654192381816832
+    m_Localized: Pumili ng Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6654302092226560
+    m_Localized: Magtungo sa Tulong sa Main Menu upang mas maunawaan ang mga Modes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6654608679071744
+    m_Localized: Sa Mode na ito daraan ang Manlalaro sa 10-15-15 (40) na mga katanungan
+      sa Linear Play.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6655457740419072
+    m_Localized: Sa Mode na ito daraan ang Manlalaro sa 15-20-25 (60) na mga katanungan
+      sa Linear Play.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6656946349240320
+    m_Localized: Babasahin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6657050065989632
+    m_Localized: Napapanood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6657878432641024
+    m_Localized: Naghahanda...
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

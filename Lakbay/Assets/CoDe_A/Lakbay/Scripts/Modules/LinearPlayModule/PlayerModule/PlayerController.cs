@@ -129,7 +129,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                         var levels = GameController.currentModeData.linearPlayData.levels;
 
                         for(int i = 0; i < 3; i++) {
-                            string ls = $"{PlayerDataController.levelScores[i].Item1} / {PlayerDataController.levelScores[i].Item2}";
+                            string ls = $"{PlayerDataController.levelScores[i].Item1}/{PlayerDataController.levelScores[i].Item2}";
                             this.uiController.levelScoreTexts[i].SetText(ls);
 
                         }
@@ -141,7 +141,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                         TimeSpan ts = TimeSpan.FromSeconds(PlayerDataController.totalTime);
                         string tsstr = ts.ToString(@"mm\:ss"); 
 
-                        this.uiController.totalScoreText.SetText($"{PlayerDataController.totalScore} / {PlayerDataController.totalMaxScore}");
+                        this.uiController.totalScoreText.SetText($"{PlayerDataController.totalScore}/{PlayerDataController.totalMaxScore}");
                         this.uiController.totalTimeText.SetText($"{tsstr}");
 
                         bool passed = PlayerDataController.passed;

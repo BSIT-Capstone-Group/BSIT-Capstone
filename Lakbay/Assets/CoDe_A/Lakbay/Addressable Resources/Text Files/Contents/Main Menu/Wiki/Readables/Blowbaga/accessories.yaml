@@ -1,0 +1,51 @@
+-
+  text: "<b>Accessories</b>"
+-
+  text: " "
+-
+  images:
+    -
+      path: "Images/blowbaga_accessories_damages.png"
+      description: "Check body for damages / scratches."
+    -
+      path: "Images/blowbaga_accessories_electrical_components.png"
+      description: "Check electrical components."
+    -
+      path: "Images/blowbaga_accessories_spare_tire.png"
+      description: "Check spare tire."
+    -
+      path: "Images/blowbaga_accessories_jack.png"
+      description: "Check jack."
+    -
+      path: "Images/blowbaga_accessories_doors_and_windows.png"
+      description: "Check doors and windows."
+    -
+      path: "Images/blowbaga_accessories_wipers.png"
+      description: "Check wipers."
+    -
+      path: "Images/blowbaga_accessories_mirrors.png"
+      description: "Check side and rear view mirrors."
+    -
+      path: "Images/blowbaga_accessories_cluster.png"
+      description: "Check cluster instrument."
+    -
+      path: "Images/blowbaga_accessories_seatbelt.png"
+      description: "Check seatbelt."
+    -
+      path: "Images/blowbaga_accessories_first_aid.png"
+      description: "Check first aid kit if required."
+    -
+      path: "Images/blowbaga_accessories_fire_extinguisher.png"
+      description: "Check fire extinguisher."
+    -
+      path: "Images/blowbaga_accessories_early_warning_device.png"
+      description: "Check early warning device."
+    -
+      path: "Images/blowbaga_accessories_ac_components.png"
+      description: "Check AC components."
+    -
+      path: "Images/blowbaga_accessories_basic_tools.png"
+      description: "Check basic tools."
+    -
+      path: "Images/blowbaga_accessories_engine_components.png"
+      description: "Check engine components."

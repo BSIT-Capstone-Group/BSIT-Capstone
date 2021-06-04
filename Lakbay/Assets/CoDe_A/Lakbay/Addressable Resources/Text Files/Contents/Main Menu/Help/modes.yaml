@@ -1,4 +1,26 @@
 -
   text: >-
-    <space=4em><b>Modes</b> are the different ways to play the game. Currently, the
-    two modes that are available in the game are the <b>Non-Professional</b> and <b>Professional</b> Modes.
+    <b>Modes</b>
+-
+  text: " "
+-
+  text: >-
+    <space=2em>Modes are defined as the variations of overall gameplay of the game. Each
+
+    <space=2em>There are two game modes in the game. Each mode runs through the two phases of the game; These modes were divided based on their specific purposes on the game.
+-
+  text: " "
+-
+  text: >-
+    <space=2em><b>Non-Professional Mode</b>
+-
+  text: >-
+    <space=2em>• This mode of the game consists of 40 questions.
+-
+  text: " "
+-
+  text: >-
+    <space=2em><b>Professional Mode</b>
+-
+  text: >-
+    <space=2em>• This mode of the game consists of 60 questions.

@@ -27,8 +27,13 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
         }
 
         public void show(Content.Image contentImage) {
-            // Sprite sprite = contentImage.path
-            this.show(null, contentImage.description);
+            Sprite sprite = null;
+            try {
+                sprite = GameModule.ImageController.images[contentImage.path];
+
+            } catch { sprite = null; }
+
+            this.show(sprite, contentImage.description);
 
         }
 

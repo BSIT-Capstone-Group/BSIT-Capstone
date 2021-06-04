@@ -1,45 +1,11 @@
 -
   text: >-
-    <space=4em>The <b>Linear Play</b> is a <b>Phase</b> of the game that is both both played on both
-    the <b>Non-Professional</b> and <b>Professional Modes</b>.
+    <b>Linear Play</b>
 -
-  images:
-    - "Images/money_1.png"
-    - "Images/lightning_1.png"
-    - "Images/heart_1.png"
+  text: " "
 -
   text: >-
-    <space=4em>The Linear Play is a <b>Phase</b> of the game that is both both played on both
-    the <b>Non-Professional</b> and <b>Professional Modes</b>.
--
-  images:
-    - "Images/money_1.png"
-    - "Images/lightning_1.png"
-    - "Images/heart_1.png"
+    <space=2em>This is a standard gameplay phase consisting of levels wherein, the player must drive on the road and will need to answer every question that will pop up along the way and is composed of three levels in every mode of the game.
 -
   text: >-
-    <space=4em>The Linear Play is a <b>Phase</b> of the game that is both both played on both
-    the <b>Non-Professional</b> and <b>Professional Modes</b>.
--
-  images:
-    - "Images/money_1.png"
-    - "Images/lightning_1.png"
-    - "Images/heart_1.png"
--
-  text: >-
-    <space=4em>The Linear Play is a <b>Phase</b> of the game that is both both played on both
-    the <b>Non-Professional</b> and <b>Professional Modes</b>.
--
-  images:
-    - "Images/money_1.png"
-    - "Images/lightning_1.png"
-    - "Images/heart_1.png"
--
-  text: >-
-    <space=4em>The Linear Play is a <b>Phase</b> of the game that is both both played on both
-    the <b>Non-Professional</b> and <b>Professional Modes</b>.
--
-  images:
-    - "Images/money_1.png"
-    - "Images/lightning_1.png"
-    - "Images/heart_1.png"
+    <space=2em>This is a standard gameplay phase consisting of levels wherein, the player must drive on the road and will need to answer every question that will pop up along the way and is composed of three levels in every mode of the game.

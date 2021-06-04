@@ -21,6 +21,24 @@ items:
     -
         question:
             images: []
+            text: 'You are allowed to stop on an expressway when you:'
+        choices:
+            -
+                text: 'Need to convey a passenger'
+                correct: false
+            -
+                text: 'Need to unload a passenger'
+                correct: false
+            -
+                text: 'Are told to do so by a traffic enforcer'
+                correct: true
+        minCoinGain: 5
+        maxCoinGain: 15
+        minFuelDeduction: 10
+        maxFuelDeduction: 20
+    -
+        question:
+            images: []
             text: 'What flag color is required to be attached on projecting loads of a vehicle?'
         choices:
             -

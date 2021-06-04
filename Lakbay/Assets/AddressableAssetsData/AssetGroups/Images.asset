@@ -237,6 +237,116 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images
+  - m_GUID: ff5d4995442b912489aa8fa51fe7fe09
+    m_Address: Images/blowbaga_water.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 35176092ce12c3e46b163ae87ec4503b
+    m_Address: Images/blowbaga_accessories_ac_components.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d2351ae0639ca714fbf2e1ad8d14fae9
+    m_Address: Images/blowbaga_accessories_basic_tools.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ad4babf02574abf4faa2dcd329cbb35a
+    m_Address: Images/blowbaga_accessories_cluster.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 0d5150231421793469605721bd154d53
+    m_Address: Images/blowbaga_accessories_damages.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4d886124405e939488fb3bcaa101c2df
+    m_Address: Images/blowbaga_accessories_doors_and_windows.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c8c24fbe693db2e4db1b9b507a59a25f
+    m_Address: Images/blowbaga_accessories_early_warning_device.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d94d4db83f0f13148b221d327fdb634c
+    m_Address: Images/blowbaga_accessories_electrical_components.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 13c3c0df40aad584e988e37c5980563e
+    m_Address: Images/blowbaga_accessories_engine_components.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 84364cd785e92e14784b0c298f3186a6
+    m_Address: Images/blowbaga_accessories_fire_extinguisher.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 393b646ff3e66f64799102a11a7a6377
+    m_Address: Images/blowbaga_accessories_first_aid.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 7dffb06f140e5f64f92c3efe24284ee1
+    m_Address: Images/blowbaga_accessories_jack.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 3bdc4b45035386544869d48a8091c4fb
+    m_Address: Images/blowbaga_accessories_mirrors.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 7a007d709405bb243808eb5585c3a0a1
+    m_Address: Images/blowbaga_accessories_seatbelt.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: cd2fff28b44770e40a3c0d380432f8b9
+    m_Address: Images/blowbaga_accessories_spare_tire.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ab230dcd726be4746b83438b2f77b2f2
+    m_Address: Images/blowbaga_accessories_wipers.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 847f88db1dab9354eb1f3d34a2db3cad
+    m_Address: Images/blowbaga_air.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: bb441cf9761248a4ab08c7f7f1d2b5f9
+    m_Address: Images/blowbaga_battery.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 0237807dae308e94184e0e0682903839
+    m_Address: Images/blowbaga_brakes.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: a72d83e1af9f20346a7c99708b6cb787
+    m_Address: Images/blowbaga_gas.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: e6c5fa9b478b4fd438c528f6b969e188
+    m_Address: Images/blowbaga_lights.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: fb4e795f8a29cb84690ce3eb5288c2cb
+    m_Address: Images/blowbaga_oil.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:
