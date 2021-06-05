@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System;
 using UnityEngine;
 
 namespace CoDe_A.Lakbay.Modules.UIModule {
@@ -16,6 +17,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
 
         public string text = "";
         public List<Image> images = new List<Image>();
+        public List<float> imageSize = new List<float>() { 275.0f, 275.0f };
 
         public bool isImageContent => images.Count != 0;
 
@@ -83,10 +85,13 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
                 if(content.isImageContent) {
                     if(this.imageContent && this.imageContentImageButton) {
                         GameObject imageContent = Instantiate<GameObject>(this.imageContent, this.transform);
+                        imageContent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(
+                            content.imageSize[0], content.imageSize[1]
+                        );
 
                         foreach(Content.Image image in content.images) {
                             GameObject imgObj = Instantiate<GameObject>(this.imageContentImageButton, imageContent.transform);
-                            Image img = imgObj.GetComponent<Image>();
+                            Image img = imgObj.transform.GetChild(0).GetComponent<Image>();
                             Toggle toggle = imgObj.GetComponent<Toggle>();
                             toggle.group = this.toggleGroup;
 

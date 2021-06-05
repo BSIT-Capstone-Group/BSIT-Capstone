@@ -1,4 +1,29 @@
 -
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/UI Revamped/logo.png"
+      description: ""
+-
   text: >-
-    <space=4em><b>Modes</b> are the different ways to play the game. Currently, the
-    two modes that are available in the game are the <b>Non-Professional</b> and <b>Professional</b> Modes.
+    <size=150%><align="center"><b>Lakbay</b>
+
+    <size=75%><align="center">v2021.06.06
+-
+  text: " "
+-
+  text: >-
+    <align="center">Copyright © 2021 CoDe_A. All Rights Reserved.
+-
+  text: " "
+-
+  text: >-
+    <align="center">CoDe_A is:
+
+    <align="center"><b>Co</b>nsuelo, John Paul Ruado
+
+    <align="center"><b>De</b>facto, Hannie May Gabasa
+
+    <align="center"><b>A</b>molat, Nommel Isanar Lavapie
+
+    

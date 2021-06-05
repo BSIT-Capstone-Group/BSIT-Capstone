@@ -347,6 +347,266 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images
+  - m_GUID: 079e86fe4ba26e24f80ee6b39df19f3e
+    m_Address: Images/angle_parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: cbcf2522629e8ee49a5ec50eb572c07b
+    m_Address: Images/before_starting_to_drive.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ceb20c596679f934fb2507947f9e7d71
+    m_Address: Images/blowout.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d7b7768435dac24458fc48ccd5a7b632
+    m_Address: Images/braking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5f73cfdc87656754aa2042030569998d
+    m_Address: Images/cancel.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 819a36df3bc928445bd16ab903be4fda
+    m_Address: Images/changing_lanes.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: e11dbaa0e6765f7438ca9b263abc8fb2
+    m_Address: Images/checkmark.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 6241ae39e2ba2ee4fbf2f9bde722f0d0
+    m_Address: Images/collision_prevention.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 617527b9ed0fbfc40a7649d0ad057239
+    m_Address: Images/emergency_braking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4226f5a5294f8a94b93fce46eaba59c0
+    m_Address: Images/emergency_vehicles.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d88e9aca6e1875743bb754925d1efdbd
+    m_Address: Images/enforcement_officers.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 334bc1c4d39b7f843b0f106716e15788
+    m_Address: Images/fire.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c601f57148bd2804d869e169bd1a54ed
+    m_Address: Images/following_distance.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 3219120c61591cd4782feee82ca8cb51
+    m_Address: Images/green_signal.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4baf4e4406cac86449420e35b7ff8f9a
+    m_Address: Images/hazards.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 53ad168f39c092d4eb62c1f51f9222a7
+    m_Address: Images/heavy_long_vehicles.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9c0e087fa0345fc479ea7a290ffa99c7
+    m_Address: Images/impact_mitigation.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1b8fcfd468026cb4881b76655f97fa6d
+    m_Address: Images/intersection.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8d016479febc10b4e859622604fe3549
+    m_Address: Images/jammed_gas_pedal.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 7b8e2a93d74256140bf1b15c2fdcf370
+    m_Address: Images/left.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 386790dc4356fe6478fff0b157f6eac1
+    m_Address: Images/left_turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 7ab6f9ad5f9447e42a16c175e461cf0b
+    m_Address: Images/motorcyclists_cyclists.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5affbdb82e3e77a46b96fd1e987fab8e
+    m_Address: Images/parallel_parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: f2b77105e234acf4799ff322d9b82caa
+    m_Address: Images/parking_headed_downhill.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ff1ca979a2b8af34687c074032cbfe58
+    m_Address: Images/pavement_drop_off.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 98797cf01f636bf43bc5ef46e7734bc5
+    m_Address: Images/pedestrians.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 46aac9b2c3dfb0c4eb2a66105118fed0
+    m_Address: Images/perpendicular_parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 82d1bdc9d2340e642aab63063dd68e8e
+    m_Address: Images/potential_incidents.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: fd45fe87673412649aac78b860168df9
+    m_Address: Images/red_signal.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5087c8788818cc84dba8c3c1d9f23be7
+    m_Address: Images/right.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ada009e6236d2fc4d9cf6ce8ff06a7c9
+    m_Address: Images/right_of_way_a.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5fb3eb70725a81b48b967f7a8d9c2eb5
+    m_Address: Images/right_of_way_b.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 05c52b7aeada4c647af1ce80943e0a36
+    m_Address: Images/right_of_way_c.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 2c0680cdd5e274d4698dae0015f43b8f
+    m_Address: Images/right_of_way_d.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 3afd68ab95df17e488e8a5752f41131d
+    m_Address: Images/right_of_way_e.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 07e80c4904fa4c445905173046991dcb
+    m_Address: Images/right_turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: e08dd37371cc3934795c52a2c22eaa25
+    m_Address: Images/road_crash.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 06c19a924c77a214fa5b7695d56587f2
+    m_Address: Images/rotonda.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 2304eb59fd3dc684bac37911447557c1
+    m_Address: Images/rotonda.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ea69d48c8e6f19545848363104edbd99
+    m_Address: Images/skidding.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 999cfa6fbbb69cc4fa9fc57210eec1d4
+    m_Address: Images/slippery_road.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8acc721e5c872b440a9cccf9f39060d4
+    m_Address: Images/starting_to_drive.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1a54ec9db74c2024fb4359ed8e63d608
+    m_Address: Images/stop.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: da08c074ec05205429fd59338a5b8482
+    m_Address: Images/submerged_vehicles.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 0fac1adfbb23f9c4ab60667595a00886
+    m_Address: Images/u_turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 84f744cc80fb5c7408d5a4c1219ca30f
+    m_Address: Images/vehicles_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 998200272d5dd294da8a5f44742b6fef
+    m_Address: Images/vehicles_behind.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d95ff97aadd10b1489a824d6bccbcb3b
+    m_Address: Images/yellow_signal.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9ccf7064c3f01ed4f8e6346dc3d65a1b
+    m_Address: Images/stop_hs.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ef1c8abdeafe01f41a4e76b0717fa0eb
+    m_Address: Images/right_turn_hs.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: cb1024cca6c3af845b64862d88f58c45
+    m_Address: Images/left_turn_hs.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d4613c4de352c5b4db67cac031e81aa8
+    m_Address: Images/UI Revamped/logo.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

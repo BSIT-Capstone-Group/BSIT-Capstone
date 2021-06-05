@@ -271,37 +271,14 @@
 -
   images:
     -
-      path: "Images/left_turn.png"
-      description: ""
--
-  text: " "
--
-  text: >-
-    <space=2em>• LEFT TURN
--
-  text: " "
--
-  images:
+      path: "Images/left_turn_hs.png"
+      description: "Left Turn"
     -
-      path: "Images/right_turn.png"
-      description: ""
--
-  text: " "
--
-  text: >-
-    <space=2em>• RIGHT TURN
--
-  text: " "
--
-  images:
+      path: "Images/right_turn_hs.png"
+      description: "Right Turn"
     -
-      path: "Images/stop.png"
-      description: ""
--
-  text: " "
--
-  text: >-
-    <space=2em>• STOP
+      path: "Images/stop_hs.png"
+      description: "Stop"
 -
   text: " "
 -

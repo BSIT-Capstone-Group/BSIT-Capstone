@@ -6,11 +6,11 @@
 -
   text: >-
     <line-indent=5%><b>Basic Troubleshooting</b>
--
-  images:
-    -
-      path: "Images/basic_troubleshooting.png"
-      description: ""
+# -
+#   images:
+#     -
+#       path: "Images/basic_troubleshooting.png"
+#       description: ""
 -
   text: " "
 -
