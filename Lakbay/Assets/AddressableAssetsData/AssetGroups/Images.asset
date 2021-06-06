@@ -607,6 +607,366 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images
+  - m_GUID: b683d33e09d5fa245bd23de1245cb676
+    m_Address: Images/additional_sign_road_works.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 6c9abf9bd40b9264ca8fc6dd04c9e258
+    m_Address: Images/advice_to_pedestrian.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 87cc3295b5d40204da315251569059c7
+    m_Address: Images/animal_crossing_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 2a3d9cdce89a1554f8ab078a1cce1751
+    m_Address: Images/approach_to_intersection.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: b43232023a7f01b4fbb7f09e93162dc4
+    m_Address: Images/approach_to_intersection_merging_traffic.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: af8411151db3a014d8e15f973297a57f
+    m_Address: Images/approach_to_intersection_sideroad.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 3592b54d48efe93439e1cbf6ab038d8c
+    m_Address: Images/bikelane_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 02e7cf0494876a145b6a6851c8123634
+    m_Address: Images/bus_puj_stop_zone.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 39ec682f963f34f449384d70467cbad2
+    m_Address: Images/bus_stop_zone.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 25f2915a5b4b40f4ba1ee8b18c931fe9
+    m_Address: Images/children_crossing_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 652c32bd2cc0e1b4e90dc5688d14f604
+    m_Address: Images/distance_to_next_hazard_area.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8ccae801f5b488d4a838b41b3f37901a
+    m_Address: Images/downhill_sign.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d7c7ccd519f7fa848bbc1260c162f7c4
+    m_Address: Images/end_speed_restriction.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 0c0ecec00071c414cab6bee5ade23cf4
+    m_Address: Images/flood_prone_area.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5580a82ef2655d841a47e361a8662dae
+    m_Address: Images/giveway.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 21adb8abab2c5114f8fe188354d0a630
+    m_Address: Images/giveway_sign_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 241d2e6bd37e9e148ae12d9e8c279d23
+    m_Address: Images/hairpin_bend.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: dc26d1222d1d3494a86ba060e8db5468
+    m_Address: Images/hump_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 88237c42bb8d4f6449fa2fa3a3ed2638
+    m_Address: Images/intersection_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 40bca3f9fcb6dd14f98192032564124d
+    m_Address: Images/landslide_prone_area.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: f4108b1e97f80b847ab975076c2a528f
+    m_Address: Images/left_turn_must_giveway.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 45d7476561dea7b4f94579c08ce60317
+    m_Address: Images/low_flying_airplane_zone.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9a2a400992e3d034fb0b67b319f08b3c
+    m_Address: Images/maximum_speed_restriction.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c9eb5941a99914c4caf57bbc4f5711fb
+    m_Address: Images/minimum_speed_restriction.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5daf47a25f2a43a469392b0a849aba33
+    m_Address: Images/narrow_bridge_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 87ecdf9226a5fa04f9584ebf752995b4
+    m_Address: Images/no_animal_drawn_vehicle.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: b00fa70cae7f93e47871ef93390b9ea3
+    m_Address: Images/no_bicycles.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 429e04aaaaf26ec48809a4fe549d5be7
+    m_Address: Images/no_buses.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4f844a1cdb886654ebb0f33439bd79e8
+    m_Address: Images/no_cars.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 73d190bddb727b140bb9100a62653007
+    m_Address: Images/no_entry_for_all_typesofvehicles.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1e19e74d98ffb444994b3b12b91c365e
+    m_Address: Images/no_jeepneys.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d6efb7750572ff745af2bb7bea015432
+    m_Address: Images/no_motorcycles.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 04a30e21be51fc44eafbc8efdff9f8a2
+    m_Address: Images/no_parking_monday_friday.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: a170dbd33d6131e4cbfa3c973e51d1ed
+    m_Address: Images/no_parking_on_fire_hydrant.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 2bec4292e29696c47aa62337af0658a9
+    m_Address: Images/no_parking_towaway_zone.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 7657fd12e0271734b80a0063471a57f7
+    m_Address: Images/no_stopping_anytime_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: abd6ddabc8a5437499cd7d98d5e3dc27
+    m_Address: Images/no_stopping_parking.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 883f882e39406dd4dabbe074828d88b0
+    m_Address: Images/no_tricycles.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8e6e475b59c06584faaf47f42d78bac2
+    m_Address: Images/no_trucks.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 13436626f4b52d84ba59ba2b9be769c9
+    m_Address: Images/no_vehicles_with_trailer.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 3f25fa59cbe91ba4dbc228df8931d83c
+    m_Address: Images/no_waiting
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c638f7f06345e074e90903215f1bf7cb
+    m_Address: Images/opening_bridge_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8b81121463b6a9942a115a2200c846e7
+    m_Address: Images/parking_and_stopping_signs.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 25f302596bda538478209a5e808c7afa
+    m_Address: Images/pedestrian_crossing_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 6b1a3b1e2770201448df23c884327364
+    m_Address: Images/preferred_maximum_speed.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 58acdc32dcbee0547b8cfa3472c2d6be
+    m_Address: Images/puj_buses.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 975bb0147de217c468221f82ae6e133e
+    m_Address: Images/puj_stop_zone.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9be660e370420a149945ef8f107b5070
+    m_Address: Images/pwd_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5c1effe5e4a16fc468985df148246066
+    m_Address: Images/railroad_crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 69f3ae812b178f74fb8f1b4a04dd8227
+    m_Address: Images/railroad_crossing_advance_warning_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8515528272f2ad841a0a7f1f46e892f9
+    m_Address: Images/railway_crossing.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1a185ad78b232c64bbafe815d4f3b5c0
+    m_Address: Images/reverse_curve.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ef2b1a8ac5ddaec47a0ad4b6556622ae
+    m_Address: Images/reverse_curve_double_curve.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ffd61f592fc96f44c9fe7394fdd91f1d
+    m_Address: Images/reverse_turn_double_bend.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 76270b4db63b328458fa04c4f91d2d08
+    m_Address: Images/right_turner_cross.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 49af1d0cc3872cb4c935587f155d66f0
+    m_Address: Images/road_narrows_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5394212cbeef27e4c856f40b2a5c9d3a
+    m_Address: Images/roundabout_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 35727f4e0b18d2b4eafc2289677b9bfd
+    m_Address: Images/sharp_turn.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 50317a7d067eb3e4ea2a5bd9abd35226
+    m_Address: Images/side_road_junction_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: a9dc0619206d15048bec4a4597c7e8e8
+    m_Address: Images/signs_of_pwds_etc.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: b7183789d90c4ae43b59ef6343855b1f
+    m_Address: Images/slippery_when_wet.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 044d8b25ef80a4d4982e0ad23e4e95b0
+    m_Address: Images/spill_way_sign.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: aa06278cc5933964bb5bcbc49c407dbd
+    m_Address: Images/stop_sign.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9e4052d547397174f85d79d27554ad32
+    m_Address: Images/stop_sign_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 99b614a1c00db6640be584e6c56860ea
+    m_Address: Images/t_junction_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: d4f865c6b3287304aa0a08c7064f4204
+    m_Address: Images/traffic_lights_ahead_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1d4053b83bc4a4e49b1e7221ead7332c
+    m_Address: Images/two_way_road_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9e3630cff0908424cb045d725062e001
+    m_Address: Images/uneven_road_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: a75ffe1b5041c1e4bb1fcdcabf25cc68
+    m_Address: Images/uphill_sign.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 3ba24baba1cd6ee468791c54489feeff
+    m_Address: Images/when_wet.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: eaafb0fa7af0ca44ea5be08033c6c1b8
+    m_Address: Images/winding_road.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: e0ef93e1b08132e49b4cc0f81492480f
+    m_Address: Images/y_junction_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

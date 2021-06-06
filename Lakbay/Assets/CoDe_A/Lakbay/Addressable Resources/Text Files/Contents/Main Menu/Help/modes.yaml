@@ -1,26 +1,55 @@
 -
   text: >-
-    <b>Modes</b>
+    <b>MODES</b>
 -
   text: " "
 -
   text: >-
-    <space=2em>Modes are defined as the variations of overall gameplay of the game. Each
+    <space=4em>Modes are the offered variations of gameplay that the player can choose. Each of the modes sets specific settings for the game.
+    
+    <space=4em>There are two game modes in the game: Non-Professional and Professional. Each mode runs through the two phases of the game: Linear Play and Free-Roam Play.
+    
+    <space=4em>Overall, the modes were constructed based on their specific purposes in the game. The differences between these two modes are stated below:
+-
+  text: " "
+-
+  text: >-
+    <line-indent=5℅><b>NON-PROFESSIONAL MODE</b>
+-
+  text: >-
+    <space=2em><b>Linear Play Phase</b>
+    
+    <space=2em>Sets the total number of questions to be answered to 40 items. It contains three (3) levels that the player needs to complete in order to proceed to the next one. Difficulty of questions per level increases as the level increases. The higher the level, the more difficult the questions can be. Also, the number of questions varies in every level. Questions per level for Non- Professional Mode are listed as follows: 
 
-    <space=2em>There are two game modes in the game. Each mode runs through the two phases of the game; These modes were divided based on their specific purposes on the game.
+    <space=4em>• Level 1 - consists of 10 questions 
+    
+    <space=4em>• Level 2 and 3 both consists of 15 questions respectively.
+    
+    <space=2em>• The Passing score in this mode is eighty percent (80%) of the total number of questions. The overall total number of questions in three levels is 40 and the passing score is 32 points.
+    
+    <space=2em><b>Free-Roam Play Phase</b>
+
+    <space=2em>The phase of the game wherein the player must successfully fulfill the missions to complete the game. The player was given ten (10) missions and each mission reflects basic driving simulation that supports Safety Driving practices on the road. This part of the game reflects the Practical Driving Course (PDC) which tests the actual driving skills of a driver in the road.
+    
 -
   text: " "
 -
   text: >-
-    <space=2em><b>Non-Professional Mode</b>
+    <line-indent=5℅><b>PROFESSIONAL MODE</b>
 -
   text: >-
-    <space=2em>• This mode of the game consists of 40 questions.
--
-  text: " "
--
-  text: >-
-    <space=2em><b>Professional Mode</b>
--
-  text: >-
-    <space=2em>• This mode of the game consists of 60 questions.
+    <space=2em><b>Linear Play Phase</b>
+    
+    <space=2em>Sets the total number of questions to be answered to 60 items. It contains three (3) levels that the player needs to complete in order to proceed to the next one. Difficulty of questions per level increases as the level increases. The higher the level, the more difficult the questions can be. Also, the number of questions varies in every level. Questions per level for Professional Mode are listed as follows: 
+
+    <space=4em>• Level 1 - consists of 15 questions 
+
+    <space=4em>• Level 2 - consists of 20 questions and
+    
+    <space=4em>• Level 3 - consists of 25 questions
+    
+    <space=2em>• The Passing score in this mode is eighty percent (80%) of the total number of questions. The overall total number of questions in three levels is 60 and the passing score is 48 points.
+    
+    <space=2em><b>Free-Roam Play Phase</b>
+    
+    <space=2em>The phase of the game wherein the player must successfully fulfill the missions to complete the game. The player was given ten (10) missions and each mission reflects basic driving simulation that supports Safety Driving practices on the road. This part of the game reflects the Practical Driving Course (PDC) which tests the actual driving skills of a driver in the road.
