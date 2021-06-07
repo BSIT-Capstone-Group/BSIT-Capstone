@@ -51,7 +51,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
 
         public void displayContent() {
             this.urlText.text = this.videoContent.url;
-            // this.thumbnailImage.sprite = this.videoContent.url;
+            this.thumbnailImage.sprite = GameModule.ImageController.images[this.videoContent.thumbnail];
             this.timeText.SetText(this.videoContent.time);
             this.labelText.SetText(this.videoContent.label);
             this.authorText.SetText(this.videoContent.author);

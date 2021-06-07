@@ -68,6 +68,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.UIModule {
         public TMP_Text remainingHintText;
         public TMP_Text remainingCoinText;
 
+        [Header("Game Over")]
+        public GameObject gameOverPanel;
+
         [Header("Notifications")]
         public Utilities.Notification notification;
         public Utilities.Notification coinNotification;

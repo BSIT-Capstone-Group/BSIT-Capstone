@@ -156,10 +156,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                         this.uiController.retryButton.gameObject.SetActive(!passed);
 
                         this.uiController.freeRoamButton.onClick.RemoveAllListeners();
-                        this.uiController.freeRoamButton.onClick.AddListener(() => {
-                            GameController.resume();
-                            GameController.loadScene(1);
-                        });
+                        this.uiController.freeRoamButton.onClick.AddListener(this.onNextPhase);
 
                     } else {
                         this.uiController.nextStageButton.gameObject.SetActive(true);
@@ -180,7 +177,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                     this.useLife();
 
                 } else {
-                    GameController.loadScene(1);
+                    this.uiController.gameOverPanel.SetActive(true);
+                    GameController.pause();
+                    // GameController.loadScene(1);
 
                 }
 
@@ -218,7 +217,10 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
         }
 
         public void onNextPhase() {
-            GameController.loadScene(1);
+            GameController.goToMainMenu();
+            // GameController.loadScene(1);
+            // GameController.resume();
+            // GameController.loadScene(1);
 
         }
 

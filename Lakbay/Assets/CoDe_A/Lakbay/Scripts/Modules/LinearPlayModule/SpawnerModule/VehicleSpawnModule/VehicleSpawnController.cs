@@ -42,7 +42,9 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.SpawnerModule.VehicleSpawnModul
                     this.spawnerController.startSpawning();
 
                 } else {
-                    GameModule.GameController.loadScene(1);
+                    this.playerController.uiController.gameOverPanel.SetActive(true);
+                    GameModule.GameController.pause();
+                    // GameModule.GameController.loadScene(1);
 
                 }
 

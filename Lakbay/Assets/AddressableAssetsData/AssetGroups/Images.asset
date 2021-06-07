@@ -808,7 +808,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - Images
   - m_GUID: 3f25fa59cbe91ba4dbc228df8931d83c
-    m_Address: Images/no_waiting
+    m_Address: Images/no_waiting.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images
@@ -964,6 +964,96 @@ MonoBehaviour:
     - Images
   - m_GUID: e0ef93e1b08132e49b4cc0f81492480f
     m_Address: Images/y_junction_ahead.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 62b81a5d667798f48a7320cc48ffc779
+    m_Address: Images/no_loading_unloading_zone.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 47dfb82e255f33e4cbb9d719e420a9a4
+    m_Address: Images/ra_4136.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c0b9b1d67522bf44dbc35876b3e3e7e5
+    m_Address: Images/ra_8749.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1112c9085ac02724aaad097797123c12
+    m_Address: Images/ra_8750.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 2150ae0795322214791cd0aae5b17698
+    m_Address: Images/Thumbnails/defensive_driving.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: e8b5490bcfc837940b332dde3fa8347b
+    m_Address: Images/Thumbnails/dos_and_donts_of_automatic.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 0928fd3d08d105843a37c7818c7dd5b6
+    m_Address: Images/Thumbnails/dos_and_donts_of_manual.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 9a86b8b991d847d46a1a53304f56b6a3
+    m_Address: Images/Thumbnails/earthquake_driving.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 0c3364397f31fcc4bace7d2f15f3b34b
+    m_Address: Images/Thumbnails/hit_driving.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 74b72e869a138b94c8c8129fed935a41
+    m_Address: Images/Thumbnails/identifying_understeer.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 6c12a8c7fab9ed946b9f8460cf36343c
+    m_Address: Images/Thumbnails/lines_on_roads.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: ad67330baa3b9eb4494a175eee4778f7
+    m_Address: Images/Thumbnails/ltos_10_year_dl.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 447e8e1a9ae003a4da94e19d2f0679eb
+    m_Address: Images/Thumbnails/ltos_new_protocol_about_dl.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 33a01a790edaeae40b885a03a7b2367e
+    m_Address: Images/Thumbnails/pdc_cert_requirement.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 35212cfac083bd44aa251d53c4097bf3
+    m_Address: Images/Thumbnails/ph_traffic_laws.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1c63e21d5eafac94f82920f51efb0a6f
+    m_Address: Images/Thumbnails/road_safety_advocacy.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1c99e904ffa654d4c982b825f0e31df5
+    m_Address: Images/Thumbnails/student_permit_requires_tdc.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 396c66a26cfb3f346ac98f3939bccc8f
+    m_Address: Images/Thumbnails/turnover_of_dl.jpg
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images

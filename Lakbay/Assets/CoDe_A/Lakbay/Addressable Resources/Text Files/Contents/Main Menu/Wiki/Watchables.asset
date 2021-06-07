@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   children:
-  - {fileID: 11400000, guid: 4af36c0e4970bec408b2fd9f16f646eb, type: 2}
   - {fileID: 11400000, guid: b803f885fbd40b14a90c377e5f37f176, type: 2}
+  - {fileID: 11400000, guid: 669b4a1cfda44db4f954a2323f08b4e1, type: 2}
+  - {fileID: 11400000, guid: 4af36c0e4970bec408b2fd9f16f646eb, type: 2}
+  - {fileID: 11400000, guid: 7e2ae080e1501cd44bad041f15682a0f, type: 2}
   label: Watchables
   thumbnail: {fileID: 0}
   contentsFile: {fileID: 0}

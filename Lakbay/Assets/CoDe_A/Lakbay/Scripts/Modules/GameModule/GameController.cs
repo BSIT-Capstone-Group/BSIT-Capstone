@@ -142,6 +142,7 @@ namespace CoDe_A.Lakbay.Modules.GameModule {
         public static void goToMainMenu() {
             // GameController.DontDestroyOnLoad(this.gameObject);
             loadScene(1);
+            GameController.resume();
 
         }
 

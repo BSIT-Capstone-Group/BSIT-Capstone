@@ -141,7 +141,7 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
 
                 foreach(var nce in this.currentNestedContent.children) {
                     Image img = null;
-                    TMP_Text text = null;
+                    TMP_Text text = null, ttext = null;
                     GameObject e = null;
                     Button btn = null;
                     Func<NestedContent, UnityAction> c = (x) => null;
@@ -155,10 +155,25 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
                     }
 
                     btn = e.GetComponent<Button>();
-                    img = e.GetComponentInChildren<Image>();
+                    img = e.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+                    ttext = e.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
                     text = e.GetComponentInChildren<TMP_Text>();
 
-                    // img.sprite = 
+                    if(nce.thumbnail == null) {
+                        string[] words = nce.label.Split(' ');
+                        string[] fls = words.Select<string, string>((s) => s.Length != 0 ? s[0].ToString().ToUpper() : "").ToArray();
+                        string flsw = String.Join(Char.MinValue.ToString(), fls);
+                        ttext.SetText(flsw.Length >= 2 ? flsw[0] + fls[1] : fls[0]);
+                        ttext.gameObject.SetActive(true);
+                        img.gameObject.SetActive(false);
+
+                    } else {
+                        img.sprite = nce.thumbnail;
+                        ttext.gameObject.SetActive(false);
+                        img.gameObject.SetActive(true);
+
+                    }
+
                     text.SetText(nce.label);
                     
                     if(nce.type == NestedContent.Type.FOLDER) {

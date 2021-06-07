@@ -38,11 +38,11 @@
     <space=4em>• The environment is the actual setting of the game. This is made up of objects that serve as aesthetics for the game. These include the roads, street lights, trees, buildings, and houses.
 -
   text: " "
--
-  images:
-    -
-      path: "Images/pause_button.png"
-      description: ""
+# -
+#   images:
+#     -
+#       path: "Images/pause_button.png"
+#       description: ""
 -
   text: " "
 -
@@ -50,11 +50,11 @@
     <space=4em>• The Pause Button temporarily halts the current progression of the game and summons the game menu. The game menu offers some of the navigations that are available in the main menu.
 -
   text: " "
--
-  images:
-    -
-      path: "Images/fuel_top_button.png"
-      description: ""
+# -
+#   images:
+#     -
+#       path: "Images/fuel_top_button.png"
+#       description: ""
 -
   text: " "
 -
@@ -62,11 +62,11 @@
     <space=4em>• The Fuel Top-up Button replenishes the fuel bar of the player by converting a coin into fuel while being held. The Steering Wheel, on the other hand, enables the player to steer and change the direction of the main vehicle. The maximum steering angle of the vehicle is set to 30 degrees, and to fully steer at this angle, the player must hold and rotate the steering wheel at 360 degrees, quite similar to real-life steering wheels.
 -
   text: " "
--
-  images:
-    -
-      path: "Images/accelerate_button.png"
-      description: ""
+# -
+#   images:
+#     -
+#       path: "Images/accelerate_button.png"
+#       description: ""
 -
   text: " "
 -

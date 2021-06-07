@@ -199,6 +199,10 @@ MonoBehaviour:
     m_Key: loadingString
     m_Metadata:
       m_Items: []
+  - m_Id: 7568166820474880
+    m_Key: gameOverString
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
