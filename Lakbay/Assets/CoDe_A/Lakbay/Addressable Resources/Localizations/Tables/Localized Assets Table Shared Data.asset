@@ -51,6 +51,14 @@ MonoBehaviour:
     m_Key: helpFreeRoamPlayContent
     m_Metadata:
       m_Items: []
+  - m_Id: 7897466434187264
+    m_Key: aboutAcknowledgementContent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7897748945727488
+    m_Key: aboutGameContent
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - id: 0
@@ -95,6 +103,14 @@ MonoBehaviour:
           - en
           - fil
         - m_KeyId: 4860140875378688
+          m_TableCodes:
+          - en
+          - fil
+        - m_KeyId: 7897466434187264
+          m_TableCodes:
+          - en
+          - fil
+        - m_KeyId: 7897748945727488
           m_TableCodes:
           - en
           - fil

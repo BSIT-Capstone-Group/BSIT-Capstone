@@ -1057,6 +1057,96 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Images
+  - m_GUID: 03410ecd2ea17a145a76963bcd2b82c6
+    m_Address: Images/help_accelerate.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c01ee062a5df2ba4cbd81443a42d8f30
+    m_Address: Images/help_approaching_vehicle.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 5f66e583af305d746994ea6c793a9c6c
+    m_Address: Images/help_brake.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: c920494a60c4bac4eb670d3d41849787
+    m_Address: Images/help_coin.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 70ace70b0be5fa54faf6e24292d9ba45
+    m_Address: Images/help_controls.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 03338274864386c46b756fd8d96bec77
+    m_Address: Images/help_fuel.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 7fffa544f18ec4646ac303ccf4866df3
+    m_Address: Images/help_fuel_top_up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: f9c983c0feca2964dad44384d25d9727
+    m_Address: Images/help_hint.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 3ca1f8a73d0fd474d8a3d60f93b30f2b
+    m_Address: Images/help_indicators.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 483a2dba2b784f849ac99af7f7ffd616
+    m_Address: Images/help_life.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 4731ed9188024d748b7093bdd9795bde
+    m_Address: Images/help_pause.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: a7f9ca16a2e72a948969da2917da3fe8
+    m_Address: Images/help_player_vehicle.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 1ec9919d59897ab4bb980a5a29807a98
+    m_Address: Images/help_progress.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 2554c057ebfa85f458d647a6d306ba88
+    m_Address: Images/help_question_checkpoint.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: b81636b6e3b79d944b3f1486836c89a4
+    m_Address: Images/help_reverse.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: f037d12409e571d43888650c5124f861
+    m_Address: Images/help_steering_wheel.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 8ef9d73ba725f1f42a36e11406967d0b
+    m_Address: Images/help_summary.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 77013bafffca9c84d8aa320c61e297b1
+    m_Address: Images/help_post_message.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

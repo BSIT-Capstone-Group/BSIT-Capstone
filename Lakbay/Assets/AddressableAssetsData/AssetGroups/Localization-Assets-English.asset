@@ -38,6 +38,16 @@ MonoBehaviour:
     - Text Files
     - Locale-en
     - Locale-fil
+  - m_GUID: b91b7cb3ff8b0c34895bc16e99e57796
+    m_Address: acknowledgement_eng
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: ab1a03783309f5a46b8e7c044bccf9ff
+    m_Address: game_eng
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c20949f9e1b239848b377090326b1a3c, type: 2}
   m_SchemaSet:

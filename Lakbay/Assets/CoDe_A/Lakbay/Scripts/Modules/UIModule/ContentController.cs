@@ -42,6 +42,11 @@ namespace CoDe_A.Lakbay.Modules.UIModule {
 
         }
 
+        public void setUpContentAgain(TextAsset contentFile) {
+            this.setUpContent(contentFile, true);
+
+        }
+
         public void setUpContent(TextAsset contentFile) {
 			this.setUpContent(contentFile, false);
 

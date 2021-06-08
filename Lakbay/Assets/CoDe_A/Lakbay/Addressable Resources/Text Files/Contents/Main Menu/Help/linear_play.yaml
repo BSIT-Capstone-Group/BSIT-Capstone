@@ -15,34 +15,69 @@
     <line-indent=5℅><b>ENTITIES</b>
 -
   text: >-
-    <space=2em>Entities are any objects that are present and placed in the game itself, objects that can be seen by the view of the player.
-
-    <space=4em>The Player’s Vehicle is the main controllable entity in the game. The player can control the vehicle using the controls and the vehicle itself can cause interaction around other entities.
-    
-    <space=4em>Approaching Vehicles are the Non-Player entities of the game. They randomly spawn at different lanes of the road. The goal is for the player to avoid them as much as possible to avoid losing life integrity that can eventually lead to losing a life.
-    
-    <space=4em>The environment is the actual setting of the game. This is made up of objects that serve as aesthetics for the game. These include the roads, street lights, trees, buildings, and houses.
+    <space=2em>• Entities are any objects that are present and placed in the game itself, objects that can be seen by the view of the player.
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_player_vehicle.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-
+    <space=4em>• The Player’s Vehicle is the main controllable entity in the game. The player can control the vehicle using the controls and the vehicle itself can cause interaction around other entities.
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_approaching_vehicle.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-    
+    <space=4em>• Approaching Vehicles are the Non-Player entities of the game. They randomly spawn at different lanes of the road. The goal is for the player to avoid them as much as possible to avoid losing life integrity that can eventually lead to losing a life.
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_controls.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-    
+    <space=4em>• The environment is the actual setting of the game. This is made up of objects that serve as aesthetics for the game. These include the roads, street lights, trees, buildings, and houses.
 -
   text: " "
 -
   text: >-
     <line-indent=5℅><b>CONTROLS</b>
 -
-  text: >-
-    <space=4em>Controls are the interactable user interfaces that allow the player to navigate around the game. These controls are found in the different parts of the screen. In the top-right, the Pause Button. In the bottom-left, the Fuel Top-up Button and Steering Wheel. Lastly, In the bottom-right, the Accelerate, Brake, and Reverse Buttons.
-
-    <space=4em>• The Player’s Vehicle is the main controllable entity in the game. The player can control the vehicle using the controls and the vehicle itself can cause interaction around other entities.
-    
-    <space=4em>• Approaching Vehicles are the Non-Player entities of the game. They randomly spawn at different lanes of the road. The goal is for the player to avoid them as much as possible to avoid losing life integrity that can eventually lead to losing a life.
-    
-    <space=4em>• The environment is the actual setting of the game. This is made up of objects that serve as aesthetics for the game. These include the roads, street lights, trees, buildings, and houses.
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_controls.png"
+      description: ""
 -
   text: " "
-# -
-#   images:
-#     -
-#       path: "Images/pause_button.png"
-#       description: ""
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_pause.png"
+      description: ""
 -
   text: " "
 -
@@ -50,11 +85,12 @@
     <space=4em>• The Pause Button temporarily halts the current progression of the game and summons the game menu. The game menu offers some of the navigations that are available in the main menu.
 -
   text: " "
-# -
-#   images:
-#     -
-#       path: "Images/fuel_top_button.png"
-#       description: ""
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_fuel_top_up.png"
+      description: ""
 -
   text: " "
 -
@@ -62,31 +98,112 @@
     <space=4em>• The Fuel Top-up Button replenishes the fuel bar of the player by converting a coin into fuel while being held. The Steering Wheel, on the other hand, enables the player to steer and change the direction of the main vehicle. The maximum steering angle of the vehicle is set to 30 degrees, and to fully steer at this angle, the player must hold and rotate the steering wheel at 360 degrees, quite similar to real-life steering wheels.
 -
   text: " "
-# -
-#   images:
-#     -
-#       path: "Images/accelerate_button.png"
-#       description: ""
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_accelerate.png"
+      description: ""
 -
   text: " "
 -
   text: >-
-    <space=4em>• The Accelerate Button (Left) drives the vehicle forward. The Brake Button (Right) decelerates the car until its movement is stopped. The Reverse Button (Bottom) moves the car in a backward motion.
+    <space=4em>• The Accelerate Button (Left) drives the vehicle forward.
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_brake.png"
+      description: ""
 -
   text: " "
 -
   text: >-
-    <line-indent=5℅><b>CONTROLS</b>
+    <space=4em>• The Brake Button (Right) decelerates the car until its movement is stopped.
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_reverse.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-
+    <space=4em>• The Reverse Button (Bottom) moves the car in a backward motion.
+-
+  text: " "
+-
+  text: >-
+    <line-indent=5℅><b>INDICATORS</b>
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_indicators.png"
+      description: ""
+-
+  text: " "
 -
   text: >-
     <space=4em>Indicators are user interfaces that are meant to be viewed only to indicate the statuses that are useful to the player.
-
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_coin.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-
     <space=4em>• The coin indicator shows the current coin count of the player.
-    
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_hint.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-
     <space=4em>• The hint indicator shows the remaining available hints that the player can use when a question pops in.
-    
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_life.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-
     <space=4em>• The life indicator shows the remaining number of respawns that the player can use.
-    
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_progress.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-
     <space=4em>• The progress indicator shows the current level that the player is in, as well as the remaining distance needed to be traveled before reaching the end of the road.
 -
   text: " "
@@ -96,27 +213,69 @@
 -
   text: >-
     <space=4em>There are several things to consider in Linear Play.
-
+-
+  text: >-
     <space=4em>• The goal is for the player to reach the end of the road while answering correctly the questions along the way and at the same time avoiding any oncoming vehicles.
-    
+-
+  text: >-    
     <space=4em>• The player starts the game with initial coins, hints, lives, and fuel. These persist across the levels of Linear Play.
-    
+-
+  text: >-    
     <space=4em>• Coins are used to replenish the fuel of the player.
-    
+-
+  text: >-    
     <space=4em>• Hints are used to eliminate half of the choices in a question that are wrong.
-    
+-
+  text: >-    
     <space=4em>• Lives are the number of respawns and retries that the player can have when fuel is emptied or when life integrity is broken.
-    
+-
+  text: >-    
     <space=4em>• Life Integrity is the armor of the player’s life. Life Integrity always resets once a life is lost. Life integrity determines the number of times that the player can hit oncoming vehicles without losing a life. Once broken, it will cost a player’s life.
-    
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_question_checkpoint.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-    
     <space=4em>• Question checkpoints are distributed evenly on the road, and once the player’s vehicle reaches these checkpoints, timed questions will pop up and the progression of the game is halted.
-    
+-
+  text: >-    
     <space=4em>• Answering a question incorrectly or not answering it means a decrease in the fuel gauge of the player.
-    
+-
+  text: >-    
     <space=4em>• Hitting an oncoming vehicle means losing life integrity. And eventually, losing a life.
-    
-    <space=4em>• The Losing a life means respawning at the last question checkpoint encountered by the player and having full life integrity again. If no question yet has been encountered then the player will respawn at its starting position.
-    
+-
+  text: >-    
+    <space=4em>• Losing a life means respawning at the last question checkpoint encountered by the player and having full life integrity again. If no question yet has been encountered then the player will respawn at its starting position.
+-
+  text: >-    
     <space=4em>• Reaching the end of the road will move the player to the next level of Linear Play.
-
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_post_message.png"
+      description: ""
+-
+  text: " "
+-
+  text: " "
+-
+  imageSize: [500, 290]
+  images:
+    -
+      path: "Images/help_summary.png"
+      description: ""
+-
+  text: " "
+-
+  text: >-
     <space=4em>• Once the three levels of Linear Play are finished, a summary report will be presented to the player. The eligibility of the player to proceed to the Free-Roam Play will also be decided at this point.

@@ -105,8 +105,12 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                     // TMP_Text text = this.uiController.scoreDescriptionPanel.GetComponentInChildren<TMP_Text>();
                     // text.gameObject.SetActive(true);
                     this.uiController.levelText.SetText(level + "");
-                    this.uiController.scoreDescriptionText.SetText(this.setController.scoreDescription);
+                    print($"score: {this.setController.score}");
+                    print($"maxScore: {this.setController.maxScore}");
+                    print($"scoringKey: {this.setController.scoringKey[0]}");
+                    print($"star: {this.setController.star}");
                     
+                    this.uiController.scoreDescriptionText.SetText(this.setController.scoreDescription);
                     for(int i = 0; i < this.uiController.starsPanel.transform.childCount; i++) {
                         var go = this.uiController.starsPanel.transform.GetChild(i);
                         if(i < this.setController.star) go.gameObject.SetActive(true);
@@ -175,6 +179,7 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.PlayerModule {
                 if(this.player.life > 0.0f) {
                     this.respawn();
                     this.useLife();
+                    this.setLifeIntegrity(this.player.maxLifeIntegrity);
 
                 } else {
                     this.uiController.gameOverPanel.SetActive(true);

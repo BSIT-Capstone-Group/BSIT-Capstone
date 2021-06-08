@@ -56,14 +56,14 @@ namespace CoDe_A.Lakbay.Modules.LinearPlayModule.QuestionModule {
             }
         }
 
-        public List<int> scoringKey => this.set.scoring.Keys.ToList().Find((e) => Enumerable.Range(e[0], e[2]).Contains(score));
+        public List<int> scoringKey => this.set.scoring.Keys.ToList().Find((e) => Enumerable.Range(e[0], (e[1] - e[0]) + 1).Contains(score));
 
         public int star {
             get {
                 var o = this.set.scoring.OrderBy((kvp) => kvp.Key.ToList().Last());
                 var os = o.ToList();
                 foreach(var o_ in os) {
-                    if(o_.Key.Equals(this.scoringKey)) return os.IndexOf(o_);
+                    if(o_.Key == this.scoringKey) return os.IndexOf(o_);
 
                 }
 
