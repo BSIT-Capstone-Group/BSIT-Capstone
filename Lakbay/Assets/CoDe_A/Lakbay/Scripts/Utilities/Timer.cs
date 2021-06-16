@@ -1,113 +1,144 @@
+using System.Collections.Specialized;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CoDe_A.Lakbay.Utilities {
-    public class Timer : ExtendedMonoBehaviour {
-        public enum RunningStatus {
-            PAUSED, RUNNING
+    public interface ITimer {
+        void run();
+        void pause();
+        void resume();
+        void start(float duration, float timeScale);
+        void start(float duration);
+        void start();
+        void stop();
+
+    }
+
+    public class Timer : MonoBehaviour, ITimer {
+        public enum MainStatus { STARTED, STOPPED }
+        public enum Status { PAUSED, RUNNING }
+
+        private MainStatus _mainStatus = MainStatus.STOPPED;
+        private Status _status = Status.PAUSED;
+        private float _currentDuration = 0.0f;
+        private float _lastTimeScale = 0.0f;
+
+        public MainStatus mainStatus => _mainStatus;
+        public Status status => _status;
+        public float currentDuration => _currentDuration;
+        public bool indefinite => duration == 0.0f;
+        public float progress => !indefinite ? 1 - (currentDuration / duration) : 1.0f;
+        public bool debug = false;
+        public bool startOnAwake = false;
+        public float duration = 0.0f;
+        public float timeScale = 1.0f;
+
+        public UnityEvent<Timer, float> onRun = new UnityEvent<Timer, float>();
+        public UnityEvent<Timer, float> onPause = new UnityEvent<Timer, float>();
+        public UnityEvent<Timer, float> onResume = new UnityEvent<Timer, float>();
+        public UnityEvent<Timer, float> onStart = new UnityEvent<Timer, float>();
+        public UnityEvent<Timer, float> onStop = new UnityEvent<Timer, float>();
+
+        public void start(float duration, float timeScale) {
+            if(mainStatus == MainStatus.STARTED) return;
+            this.duration = duration;
+            this.timeScale = timeScale;
+
+            _mainStatus = MainStatus.STARTED;
+            _currentDuration = indefinite ? 0.0f : this.duration;
+            _status = this.timeScale > 0.0f ? Status.RUNNING : Status.PAUSED;
+            onStart.Invoke(this, currentDuration);
 
         }
 
-        public enum InitialStatus {
-            STARTED, STOPPED
+        public void start(float duration) { start(duration, 1.0f); }
 
-        }
-
-        private float _defaultTimeScale = 1.0f;
-        private RunningStatus _runningStatus = RunningStatus.RUNNING;
-        private InitialStatus _initialStatus = InitialStatus.STOPPED;
-
-        public RunningStatus runningStatus {
-            get => this._runningStatus;
-        }
-        public InitialStatus initialStatus {
-            get => this._initialStatus;
-        }
-
-        public bool stopWatch = false;
-        public bool startOnPlay = true;
-        public float time = 0.0f;
-        public float timeDuration = 5.0f;
-
-        public float progress {
-            get => 1.0f - (this.time / this.timeDuration);
-
-        }
-        
-        public UnityEvent<Timer> onRun = new UnityEvent<Timer>();
-        public UnityEvent<Timer> onPause = new UnityEvent<Timer>();
-        public UnityEvent<Timer> onResume = new UnityEvent<Timer>();
-        public UnityEvent<Timer> onStart = new UnityEvent<Timer>();
-        public UnityEvent<Timer> onStop = new UnityEvent<Timer>();
-
-        private void Awake() {
-            this._defaultTimeScale = this.timeScale;
-
-            if(this.startOnPlay) this.start();
-
-        }
-
-        private void Update() {
-            this.run();
-
-        }
-
-        public void run() {
-            if(this.initialStatus == InitialStatus.STARTED) {
-                // print("running...");
-                if(!this.stopWatch) {
-                    this.time = Mathf.Max(this.time - (Time.deltaTime * this.timeScale), 0.0f);
-
-                    if(this.time == 0.0f) this.stop();
-
-                } else this.time = this.time + (Time.deltaTime * this.timeScale);
-
-            }
-
-            if(this.initialStatus != InitialStatus.STOPPED) this.onRun.Invoke(this);
-
-        }
-
-        public void start() {
-            this.timeScale = this._defaultTimeScale;
-            if(!this.stopWatch) this.time = this.timeDuration;
-            else this.time = 0.0f;
-
-            this._initialStatus = InitialStatus.STARTED;
-
-            this.onStart.Invoke(this);
-
-        }
+        public void start() { start(duration); }
 
         public void stop() {
-            if(!this.stopWatch) this.time = 0.0f;
-
-            this._initialStatus = InitialStatus.STOPPED;
-
-            this.onStop.Invoke(this);
+            if(mainStatus == MainStatus.STOPPED) return;
+            
+            _mainStatus = MainStatus.STOPPED;
+            onStop.Invoke(this, currentDuration);
 
         }
 
         public void pause() {
-            if(this.initialStatus == InitialStatus.STOPPED) return;
+            if(status == Status.PAUSED) return;
 
-            this.timeScale = 0.0f;
-            this._runningStatus = RunningStatus.PAUSED;
-
-            this.onPause.Invoke(this);
+            _status = Status.PAUSED;
+            _lastTimeScale = timeScale;
+            timeScale = 0.0f;
+            onPause.Invoke(this, currentDuration);
 
         }
 
         public void resume() {
-            if(this.initialStatus == InitialStatus.STOPPED) return;
+            if(status == Status.RUNNING) return;
 
-            this.timeScale = this._defaultTimeScale;
-            this._runningStatus = RunningStatus.RUNNING;
+            _status = Status.RUNNING;
+            timeScale = _lastTimeScale;
+            onResume.Invoke(this, currentDuration);
 
-            this.onResume.Invoke(this);
+        }
+        
+        public void run() {
+            if(mainStatus == MainStatus.STARTED) {
+                if(status == Status.RUNNING) {
+                    if(!indefinite) {
+                        _currentDuration = Mathf.Max(_currentDuration - (Time.deltaTime * timeScale), 0.0f);
 
+                        if(_currentDuration == 0.0f) this.stop();
+
+                    } else _currentDuration = _currentDuration + (Time.deltaTime * timeScale);
+
+                    if(debug) {
+                        Helper.log("Timer", new OrderedDictionary() {
+                            {"duration", duration},
+                            {"currentDuration", currentDuration},
+                            {"progress", progress},
+                        });
+
+                    }
+
+                    onRun.Invoke(this, currentDuration);
+
+                }
+
+            }
+
+        }
+        public static Timer quickStart(float duration, float timeScale) {
+            if(duration > 0.0f && timeScale > 0.0f) {
+                GameObject go = new GameObject("Quick Timer");
+                Timer t = go.AddComponent<Timer>();
+                t.startOnAwake = true;
+                t.duration = duration;
+                t.timeScale = timeScale;
+
+                return t;
+
+            }
+
+            return null;
+
+        }
+
+        public static Timer quickStart(float duration) {
+            return quickStart(duration, 1.0f);
+
+        }
+
+        private void Awake() {
+            if(startOnAwake) start();
+            
+        }
+
+        private void Update() {
+            run();
+            
         }
 
     }

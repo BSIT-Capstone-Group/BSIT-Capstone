@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
@@ -12,7 +13,6 @@ namespace CoDe_A.Lakbay.Utilities {
     public class TextAssetEvent : UnityEvent<TextAsset> {}
 
     public class LocalizedTextAssetEvent : LocalizedAssetEvent<TextAsset, LocalizedTextAsset, TextAssetEvent> {
-        
     }
 
 }

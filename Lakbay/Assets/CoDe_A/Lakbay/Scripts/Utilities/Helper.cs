@@ -1,11 +1,14 @@
+using System;
+using System.Linq;
 using System.Collections;
+using System.Collections.Specialized;
 using System.Collections.Generic;
-using UnityEngine.Events;
+using UnityEngine;
+
 using Newtonsoft.Json;
 using YamlDotNet.Serialization;
-using UnityEngine;
-using System.Linq;
-using System;
+using Force.DeepCloner;
+using CloneExtensions;
 
 namespace CoDe_A.Lakbay.Utilities {
     public static class Helper {
@@ -121,34 +124,46 @@ namespace CoDe_A.Lakbay.Utilities {
             return new Deserializer().Deserialize<T>(str);
 
         }
-
-    }
-
-    public class ExtendedMonoBehaviour : MonoBehaviour {
-        [HideInInspector]
-        public bool paused = false;
-        [HideInInspector]
-        public float timeScale = 1.0f;
-
-        public float speed {
-            get {
-                Rigidbody rb = this.GetComponent<Rigidbody>();
-
-                if(rb) return rb.velocity.magnitude;
-
-                return 0.0f;
-                
-            }
-
-            set {
-                Rigidbody rb = this.GetComponent<Rigidbody>();
-
-                if(rb) rb.velocity = rb.velocity.normalized * value;
+        
+        public static String asPrettyString(OrderedDictionary keyAndValues, String separator) {
+            List<String> strs = new List<String>();
+            foreach(DictionaryEntry de in keyAndValues) {
+                strs.Add($"{de.Key}: {de.Value}");
 
             }
+
+            return String.Join(separator, strs);
 
         }
 
+        public static String asPrettyString(OrderedDictionary keyAndValues) {
+            return asPrettyString(keyAndValues, ", ");
+
+        }
+
+        public static void log(OrderedDictionary keyAndValues, String separator) {
+            Debug.Log(asPrettyString(keyAndValues, separator));
+
+        }
+
+        public static void log(String label, OrderedDictionary keyAndValues) {
+            Debug.Log($"[{label}]:\t" + asPrettyString(keyAndValues, ", "));
+
+        }
+
+        public static void log(OrderedDictionary keyAndValues) => log(keyAndValues, ", ");
+
+        public static void copyToClipboard(String str) => GUIUtility.systemCopyBuffer = str;
+        
+        public static void clearClipboard() => GUIUtility.systemCopyBuffer = "";
+
+        public static T clone<T>(T obj, bool deep) {
+            return deep ? obj.DeepClone<T>() : obj.ShallowClone<T>();
+
+        }
+
+        public static T clone<T>(T obj) => clone(obj, false);
+        
     }
 
 }
