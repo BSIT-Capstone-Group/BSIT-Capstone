@@ -95,7 +95,7 @@ namespace CoDe_A.Lakbay.Utilities {
                     } else _currentDuration = _currentDuration + (Time.deltaTime * timeScale);
 
                     if(debug) {
-                        Helper.log("Timer", new OrderedDictionary() {
+                        Helper.Log("Timer", new OrderedDictionary() {
                             {"duration", duration},
                             {"currentDuration", currentDuration},
                             {"progress", progress},
@@ -110,13 +110,15 @@ namespace CoDe_A.Lakbay.Utilities {
             }
 
         }
-        public static Timer quickStart(float duration, float timeScale) {
+        public static Timer quickStart(float duration, float timeScale, bool start) {
             if(duration > 0.0f && timeScale > 0.0f) {
                 GameObject go = new GameObject("Quick Timer");
                 Timer t = go.AddComponent<Timer>();
                 t.startOnAwake = true;
                 t.duration = duration;
                 t.timeScale = timeScale;
+
+                if(start) t.start(); t.onStop.AddListener((t, d) => Destroy(go));
 
                 return t;
 
@@ -126,8 +128,13 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static Timer quickStart(float duration, bool start) {
+            return quickStart(duration, 1.0f, start);
+
+        }
+
         public static Timer quickStart(float duration) {
-            return quickStart(duration, 1.0f);
+            return quickStart(duration, false);
 
         }
 

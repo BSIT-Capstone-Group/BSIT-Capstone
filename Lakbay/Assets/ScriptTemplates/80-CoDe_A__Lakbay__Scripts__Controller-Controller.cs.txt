@@ -1,0 +1,14 @@
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using CoDe_A.Lakbay.Utilities;
+
+namespace CoDe_A.Lakbay {
+    public class #SCRIPTNAME# : Lakbay.Modules.Core.Controller {
+
+    }
+
+}

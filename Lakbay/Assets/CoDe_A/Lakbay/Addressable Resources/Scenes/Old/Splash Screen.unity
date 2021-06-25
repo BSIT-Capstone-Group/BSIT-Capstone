@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 846288734}
   - component: {fileID: 846288733}
   - component: {fileID: 846288732}
+  - component: {fileID: 846288735}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -627,6 +628,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &846288735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846288731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df176cf9d7b0694d8449b3e5fd798e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    invulnerable: 0
+    maxLife: 3
+    life: 3
+    shieldPowerUp:
+      stackable: 0
+      duration: 4
+      events:
+        onActivate:
+          m_PersistentCalls:
+            m_Calls: []
+        onBuff:
+          m_PersistentCalls:
+            m_Calls: []
+        onDeactivate:
+          m_PersistentCalls:
+            m_Calls: []
+    speedBoosterPowerUp:
+      stackable: 0
+      duration: 0
+      events:
+        onActivate:
+          m_PersistentCalls:
+            m_Calls: []
+        onBuff:
+          m_PersistentCalls:
+            m_Calls: []
+        onDeactivate:
+          m_PersistentCalls:
+            m_Calls: []
+    events:
+      onLifeChange:
+        m_PersistentCalls:
+          m_Calls: []
+  playerEvents:
+    onLifeChange:
+      m_PersistentCalls:
+        m_Calls: []
+  shieldPowerUpEvents:
+    onActivate:
+      m_PersistentCalls:
+        m_Calls: []
+    onBuff:
+      m_PersistentCalls:
+        m_Calls: []
+    onDeactivate:
+      m_PersistentCalls:
+        m_Calls: []
+  speedBoosterPowerUpEvents:
+    onActivate:
+      m_PersistentCalls:
+        m_Calls: []
+    onBuff:
+      m_PersistentCalls:
+        m_Calls: []
+    onDeactivate:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &849743376
 GameObject:
   m_ObjectHideFlags: 0

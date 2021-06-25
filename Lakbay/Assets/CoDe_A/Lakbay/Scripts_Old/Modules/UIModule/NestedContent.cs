@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace CoDe_A_Old.Lakbay.Modules.UIModule {
-    [CreateAssetMenu(fileName="Nested Content", menuName="ScriptableObjects/NestedContent", order=1)]
+    // [CreateAssetMenu(fileName="Nested Content", menuName="ScriptableObjects/NestedContent", order=1)]
     public class NestedContent : ScriptableObject {
         public enum Type {
             FOLDER, READABLE, WATCHABLE

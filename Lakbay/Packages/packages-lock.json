@@ -1,11 +1,10 @@
 {
   "dependencies": {
     "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git",
+      "version": "file:C:/Users/NI.L.A/Downloads/Compressed/ParticleEffectForUGUI-3.3.8/ParticleEffectForUGUI-3.3.8",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "24d32d8441eb27da88e462a44935ab78e9172dbb"
+      "source": "local",
+      "dependencies": {}
     },
     "com.unity.2d.common": {
       "version": "4.0.3",
@@ -56,11 +55,22 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.collab-proxy": {
-      "version": "1.3.9",
+    "com.unity.ai.navigation.components": {
+      "version": "1.0.0-exp.1",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.collab-proxy": {
+      "version": "1.5.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
@@ -111,6 +121,22 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "2.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.probuilder": {
+      "version": "4.5.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.settings-manager": "1.0.3"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.recorder": {
       "version": "2.5.5",
       "depth": 0,
@@ -123,6 +149,13 @@
     "com.unity.scriptablebuildpipeline": {
       "version": "1.18.0",
       "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.settings-manager": {
+      "version": "1.0.3",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"

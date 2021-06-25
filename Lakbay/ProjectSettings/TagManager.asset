@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+  - LinearPlayLaneArea
+  - LinearPlayLaneObstacle
   layers:
   - Default
   - TransparentFX

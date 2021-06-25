@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine;
 
 namespace CoDe_A_Old.Lakbay.Modules.ViewCameraModule {
-
+    [ExecuteInEditMode]
     public class ViewCameraController : MonoBehaviour {
         public enum Mode {
             TOP, BOTTOM,
@@ -12,6 +12,8 @@ namespace CoDe_A_Old.Lakbay.Modules.ViewCameraModule {
             LEFT, RIGHT
 
         }
+
+        private bool _started = false;
 
         private float _lastXPosition = 0.0f;
         private float _lastYPosition = 0.0f;
@@ -30,9 +32,19 @@ namespace CoDe_A_Old.Lakbay.Modules.ViewCameraModule {
 
         public UnityEvent<ViewCameraController, Vector3, Vector3> onUpdate = new UnityEvent<ViewCameraController, Vector3, Vector3>();
 
+        private void Start() {
+            _started = true;
+
+        }
+
         public void FixedUpdate() {
             this.update();
             
+        }
+
+        private void Update() {
+            if(!_started) update();
+
         }
 
         public void update() {
@@ -104,7 +116,8 @@ namespace CoDe_A_Old.Lakbay.Modules.ViewCameraModule {
 
         public void move(Vector3 position, float smoothTime) {
             Vector3 pos = Vector3.zero;
-            this.transform.position = Vector3.SmoothDamp(this.transform.position, position, ref pos, smoothTime);
+            // this.transform.position = Vector3.SmoothDamp(this.transform.position, position, ref pos, smoothTime);
+            this.transform.position = Vector3.Lerp(this.transform.position, position, 10.0f * Time.fixedDeltaTime);
 
         }
 

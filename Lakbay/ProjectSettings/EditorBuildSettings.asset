@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/CoDe_A/Lakbay/Addressable Resources/Scenes/Splash Screen.unity
+    guid: a5d8b00f09686ee40b1a6883f22dd006
+  - enabled: 1
     path: Assets/CoDe_A/Lakbay/Addressable Resources/Scenes/Old/Splash Screen.unity
     guid: 782374cd9887c3c40ba6237c515516c2
   - enabled: 1
