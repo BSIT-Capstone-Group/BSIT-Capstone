@@ -1,7 +1,15 @@
+/*
+ * Date Created: Saturday, June 26, 2021 6:28 AM
+ * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
+ * 
+ * Copyright © 2021 CoDe_A. All Rights Reserved.
+ */
+
 using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 // using GInput = UnityEngine.Input;
 using GInput = SimpleInput;
@@ -10,70 +18,38 @@ using NaughtyAttributes;
 using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Modules.Game.Input {
+    public static class System {
+        public static Keyboard keyboard => InputSystem.GetDevice<Keyboard>();
+        public static Mouse mouse => InputSystem.GetDevice<Mouse>();
+        public static Touchscreen touchscreen => InputSystem.GetDevice<Touchscreen>();
+
+    } 
+
     public interface IController : Core.IController {
         bool canReceiveInput { get; set; }
         void ReceiveInput();
 
     }
 
-    public class Controller : GInput, IController {
-        [SerializeField, NaughtyAttributes.ReadOnly, Label("Name"), BoxGroup("Controller")]
-        protected string _controllerName = "Controller";
-        public string controllerName => _controllerName;
-        [SerializeField, NaughtyAttributes.ReadOnly, BoxGroup("Controller")]
-        protected bool _needsUpdate = true;
-        public bool needsUpdate => _needsUpdate;
+    public class Controller : Core.Controller, IController {
         [SerializeField, BoxGroup("Input.Controller")]
-        private bool _canReceiveInput = true;
-        public bool canReceiveInput {
+        protected bool _canReceiveInput = true;
+        public virtual bool canReceiveInput {
             get => _canReceiveInput;
             set => _canReceiveInput = value;
             
         }
 
-        public Controller() : base() => _controllerName = Helper.GetName(this, 3);
-
-        [ContextMenu("Localize")]
-        public virtual void Localize() {}
-
-        public virtual void OnNeedsUpdate() {}
 
         public virtual void ReceiveInput() {}
 
-        public virtual void Awake() {
-            
+        public override void Awake() {
+
         }
 
-        public virtual void Start() {
-            _needsUpdate = true;
-            
-        }
-
-        public virtual void OnValidate() {
-            _needsUpdate = true;
-            
-        }
-
-        public virtual void Update() {
-            if(needsUpdate) {
-                OnNeedsUpdate();
-                _needsUpdate = false;
-
-            }
-
+        public override void Update() {
+            base.Update();
             if(canReceiveInput) ReceiveInput();
-
-        }
-
-        public virtual void FixedUpdate() {
-            
-        }
-
-        public virtual void OnCollisionEnter(Collision other) {
-            
-        }
-
-        public virtual void OnTriggerEnter(Collider other) {
             
         }
 

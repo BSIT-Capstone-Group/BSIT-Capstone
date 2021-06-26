@@ -13,4 +13,3 @@ MonoBehaviour:
   m_Name: Left
   m_EditorClassIdentifier: 
   length: 100
-  meshController: {fileID: 3212098026265892710, guid: b0e681498b117114b9a1ecb4cf4840d5, type: 3}

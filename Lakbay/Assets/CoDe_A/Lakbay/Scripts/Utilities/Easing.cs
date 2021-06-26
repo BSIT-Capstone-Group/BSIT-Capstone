@@ -1109,6 +1109,13 @@ namespace CoDe_A.Lakbay.Utilities {
         }
     }
 
+    /*
+    * Date Created: Saturday, June 26, 2021 6:28 AM
+    * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
+    * 
+    * Copyright © 2021 CoDe_A. All Rights Reserved.
+    */
+
     public abstract class Easing : _EasingFunction {
         public static Func<float, float, float, float> Get(Ease ease, bool derivative) {
             return new Func<float, float, float, float>(

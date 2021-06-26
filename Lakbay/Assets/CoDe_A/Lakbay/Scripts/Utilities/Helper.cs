@@ -1,3 +1,10 @@
+/*
+ * Date Created: Saturday, June 26, 2021 6:28 AM
+ * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
+ * 
+ * Copyright © 2021 CoDe_A. All Rights Reserved.
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -152,10 +159,33 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static T ParseJson<T>(TextAsset textAsset) {
+            return ParseJson<T>(textAsset.text);
+
+        }
+
         public static T ParseYaml<T>(string str) {
             return new Deserializer().Deserialize<T>(str);
 
         }
+        
+        public static T ParseYaml<T>(TextAsset textAsset) {
+            return ParseYaml<T>(textAsset.text);
+
+        }
+
+        public static T Parse<T>(string str) {
+            try {
+                return ParseYaml<T>(str);
+
+            } catch { 
+                return ParseJson<T>(str);
+
+            }
+
+        }
+
+        public static T Parse<T>(TextAsset textAsset) => Parse<T>(textAsset.ToString());
         
         public static string AsPrettyString(OrderedDictionary keyAndValues, string separator) {
             List<string> strs = new List<string>();

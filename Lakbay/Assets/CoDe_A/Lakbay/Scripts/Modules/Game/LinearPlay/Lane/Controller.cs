@@ -1,3 +1,10 @@
+/*
+ * Date Created: Saturday, June 26, 2021 6:28 AM
+ * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
+ * 
+ * Copyright © 2021 CoDe_A. All Rights Reserved.
+ */
+
 using System;
 using System.Linq;
 using System.Collections;
@@ -14,10 +21,22 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Lane {
         public Data data;
         [BoxGroup("Lane.Controller")]
         public Mesh.Controller meshController;
+        public Vector3 startPosition {
+            get {
+                if(_meshControllers.Count == 0) return Vector3.zero;
+                return _meshControllers[0].transform.position;
 
-        public override void Start() {
-            Populate();
-            
+            }
+
+        }
+        public Vector3 endPosition {
+            get {
+                int c = _meshControllers.Count;
+                if(c == 0) return Vector3.zero;
+                return _meshControllers[c - 1].transform.position;
+
+            }
+
         }
 
         protected void FillMeshControllersWithNulls() {

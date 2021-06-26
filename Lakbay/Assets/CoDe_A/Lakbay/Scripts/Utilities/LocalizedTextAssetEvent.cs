@@ -1,3 +1,10 @@
+/*
+ * Date Created: Saturday, June 26, 2021 6:28 AM
+ * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
+ * 
+ * Copyright © 2021 CoDe_A. All Rights Reserved.
+ */
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;
