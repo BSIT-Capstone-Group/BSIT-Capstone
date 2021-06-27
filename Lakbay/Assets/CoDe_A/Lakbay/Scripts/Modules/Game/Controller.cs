@@ -1,13 +1,11 @@
-using CoDe_A.Lakbay.Modules.Core;
 using CoDe_A.Lakbay.Utilities;
 
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CoDe_A.Lakbay.Modules.Game
-{
+namespace CoDe_A.Lakbay.Modules.Game {
     /// <summary>Used to control mostly anything related to the game.</summary>
-    public class GameController : Controller {
+    public class Controller : Core.Controller {
         public struct Event {
             public UnityEvent onPause;
             public UnityEvent onResume;

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using NaughtyAttributes;
 
@@ -18,14 +19,19 @@ using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Modules.Core {
     public interface IController {
+        Highlight highlight { get; set; }
         bool highlighted { get; set; }
 
         void Localize();
         void OnNeedsUpdate();
-        void SetData(Data data);
-        void SetData<T>(TextAsset textAsset) where T : Data;
+        // void Focus<T>() where T : IController;
+        // void Unfocus<T>() where T : IController;
+        void Focus();
+        void Unfocus();
+        void SetData(IData data);
+        void SetData<T>(TextAsset textAsset) where T : IData;
         void SetData(TextAsset textAsset);
-        T GetData<T>() where T : Data;
+        T GetData<T>() where T : IData;
         void OnEnable();
         void Awake();
         void Start();
@@ -38,26 +44,42 @@ namespace CoDe_A.Lakbay.Modules.Core {
     }
 
     /// <summary>The base class for anything attachable to a <see cref="GameObject"/>.</summary>
-    public abstract class Controller : MonoBehaviour, IController {
+    public class Controller : MonoBehaviour, IController {
         [SerializeField, NaughtyAttributes.ReadOnly, Label("Name"), BoxGroup("Controller")]
         protected string _controllerName = "Controller";
         [SerializeField, NaughtyAttributes.ReadOnly, BoxGroup("Controller")]
         protected bool _needsUpdate = true;
         [SerializeField, Label("Data Text Asset"), BoxGroup("Controller")]
         private TextAsset __dataTextAsset;
+        [SerializeField, Label("Highlight"), BoxGroup("Controller")]
+        private Highlight __highlight;
         [SerializeField, Label("Highlighted"), BoxGroup("Controller")]
         private bool __highlighted = false;
 
-        public bool highlighted {
+
+        public Highlight highlight {
             get {
-                Outline outline = GetComponent<Outline>();
-                return outline ? outline.enabled : false;
+                if(__highlight) return __highlight;
+                Highlight highlight = GetComponent<Highlight>();
+                return highlight;
 
             }
             set {
-                if(value == highlighted) return;
-                Outline outline = GetComponent<Outline>();
-                outline.enabled = value;
+                if(value == this.highlight) return;
+                __highlight = value;
+
+            }
+
+        }
+
+        public bool highlighted {
+            get {
+                return highlight ? highlight.showing : false;
+
+            }
+            set {
+                if(!highlight || value == highlighted) return;
+                highlight.showing = value;
 
             }
 
@@ -86,13 +108,73 @@ namespace CoDe_A.Lakbay.Modules.Core {
         public virtual void OnNeedsUpdate() {
             dataTextAsset = __dataTextAsset;
 
+            highlight = __highlight;
             highlighted = __highlighted;
 
         }
 
-        public virtual void SetData(Data data) {}
+        public virtual void Focus() {
+            highlighted = true;
 
-        public virtual void SetData<T>(TextAsset textAsset) where T : Data {
+        }
+
+        public virtual void Unfocus() {
+            highlighted = false;
+
+        }
+
+        public static void Focus<T>(T[] controllers, T[] excludedControllers) where T : IController {
+            foreach(var c in controllers) {
+                if(excludedControllers.Contains(c)) continue;
+                c?.Focus();
+
+            }
+
+        }
+
+        public static void Unfocus<T>(T[] controllers, T[] excludedControllers) where T : IController {
+            foreach(var c in controllers) {
+                if(excludedControllers.Contains(c)) continue;
+                c?.Unfocus();
+
+            }
+
+        }
+
+        public static void Focus<T>(params T[] excludedControllers) where T : IController {
+            var s = SceneManager.GetActiveScene();
+            foreach(var r in s.GetRootGameObjects()) {
+                var cs = r.GetComponentsInChildren<T>();
+                var mcs = (from c in cs where excludedControllers.Contains(c) select c).ToArray();
+                Focus<T>(cs, mcs);
+
+            }
+
+        }
+
+        public static void Unfocus<T>(params T[] excludedControllers) where T : IController {
+            var s = SceneManager.GetActiveScene();
+            foreach(var r in s.GetRootGameObjects()) {
+                var cs = r.GetComponentsInChildren<T>();
+                var mcs = (from c in cs where excludedControllers.Contains(c) select c).ToArray();
+                Unfocus<T>(cs, mcs);
+
+            }
+
+        }
+        public static void Focus<T>() where T : IController {
+            Focus<T>(new T[] {});
+
+        }
+
+        public static void Unfocus<T>() where T : IController {
+            Unfocus<T>(new T[] {});
+
+        }
+
+        public virtual void SetData(IData data) {}
+
+        public virtual void SetData<T>(TextAsset textAsset) where T : IData {
             SetData(Helper.Parse<T>(textAsset));
 
         }
@@ -102,7 +184,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
 
         }
         
-        public virtual T GetData<T>() where T : Data { return default; }
+        public virtual T GetData<T>() where T : IData { return default; }
 
         public virtual void OnEnable() {
             

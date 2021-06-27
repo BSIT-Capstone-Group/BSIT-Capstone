@@ -18,7 +18,7 @@ using CoDe_A.Lakbay.Utilities;
 namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Player {
     public enum SlideDirection { Left, None, Right };
 
-    public interface IController {
+    public interface IController : Input.IController {
         Data data { get; set; }
 
         bool canReceiveSlideInput { get; set; }
@@ -204,6 +204,20 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Player {
 
         public virtual SlideDirection slideDirection => _slideDirection;
 
+        public override void Focus() {
+            base.Focus();
+            isTraveling = false;
+            canReceiveInput = false;
+
+        }
+
+        public override void Unfocus() {
+            base.Unfocus();
+            isTraveling = true;
+            canReceiveInput = true;
+
+        }
+
         public override void Start() {
             base.Start();
             // SetData(dataTextAsset);
@@ -320,7 +334,6 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Player {
         public virtual Coroutine Slide(float duration) => Slide(laneController, duration);
 
         public virtual Coroutine Travel(Lane.Controller laneController, float duration, Easing.Ease easing) {
-            _isTraveling = true;
             var pos = transform.position;
             return Helper.DoOver(
                 mono: this,

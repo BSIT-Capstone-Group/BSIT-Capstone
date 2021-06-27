@@ -20,6 +20,8 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Lane {
         [BoxGroup("Lane.Controller")]
         public Data data;
         [BoxGroup("Lane.Controller")]
+        public GameObject meshHolder;
+        [BoxGroup("Lane.Controller")]
         public Mesh.Controller meshController;
         public Vector3 startPosition {
             get {
@@ -46,6 +48,7 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Lane {
         }
 
         public void Populate(int index) {
+            Transform transform = meshHolder.transform;
             if(_meshControllers.Count != data.length) FillMeshControllersWithNulls();
             if(index < 0 || index >= data.length) return;
             if(_meshControllers[index]) Remove(index);

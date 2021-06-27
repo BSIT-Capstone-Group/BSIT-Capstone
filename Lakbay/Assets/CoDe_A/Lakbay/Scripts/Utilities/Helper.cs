@@ -271,14 +271,17 @@ namespace CoDe_A.Lakbay.Utilities {
             float elapsedTime = 0;
             onStart?.Invoke();
 
-            while (elapsedTime < duration) {
-                float time = !fixedUpdate ? Time.deltaTime : Time.fixedDeltaTime;
-                time = onRun != null ? onRun(time, elapsedTime, duration) : time;
+            float timeDelta = 0.0f;
+            while (elapsedTime <= duration) {
+                // time = !fixedUpdate ? Time.deltaTime : Time.fixedDeltaTime;
+                timeDelta = onRun != null ? onRun(timeDelta, elapsedTime, duration) : timeDelta;
 
-                elapsedTime += time;
+                elapsedTime += timeDelta;
 
+                float starTime = Time.time;
                 if(!fixedUpdate) yield return new WaitForEndOfFrame();
                 else yield return new WaitForFixedUpdate();
+                timeDelta = Time.time - starTime;
 
             }
 
