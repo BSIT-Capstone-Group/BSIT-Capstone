@@ -1,5 +1,5 @@
 /*
- * Date Created: Saturday, June 26, 2021 6:28 AM
+ * Date Created: Tuesday, June 29, 2021 6:50 PM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -8,22 +8,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
-
-using CloneExtensions;
-
-using Force.DeepCloner;
-
-using Newtonsoft.Json;
 
 using UnityEngine;
 
+using NaughtyAttributes;
+
+using Code_A.Lakbay.Utilities;
+using System.Collections.Specialized;
+using Force.DeepCloner;
+using UnityEngine.Events;
+using UnityEditor.Events;
+using Newtonsoft.Json;
 using YamlDotNet.Serialization;
 
-namespace CoDe_A.Lakbay.Utilities {
+namespace Code_A.Lakbay.Utilities {
     public static class Helper {
-        public static readonly float ReadingCharacterPerSecond = 25.0f;
+        public const float ReadingCharacterPerSecond = 25.0f;
 
         public static int GetIndexOfChild(Transform parent, Transform child) {
             int index = -1;
@@ -154,8 +155,18 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static object ParseJson(string str, Type type) {
+            return JsonConvert.DeserializeObject(str, type);
+
+        }
+
         public static T ParseJson<T>(string str) {
             return JsonConvert.DeserializeObject<T>(str);
+
+        }
+
+        public static object ParseJson(TextAsset textAsset, Type type) {
+            return ParseJson(textAsset.text, type);
 
         }
 
@@ -164,8 +175,18 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static object ParseYaml(string str, Type type) {
+            return new Deserializer().Deserialize(str, type);
+
+        }
+
         public static T ParseYaml<T>(string str) {
             return new Deserializer().Deserialize<T>(str);
+
+        }
+        
+        public static object ParseYaml(TextAsset textAsset, Type type) {
+            return ParseYaml(textAsset.text, type);
 
         }
         
@@ -174,18 +195,32 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static object Parse(string str, Type type) {
+            try {
+                return ParseYaml(str, type);
+
+            } catch { 
+                return ParseJson(str, type);
+
+            }
+
+        }
+
         public static T Parse<T>(string str) {
             try {
                 return ParseYaml<T>(str);
 
-            } catch { 
+            } catch (Exception e) {
+                Debug.Log(e.ToString()); 
                 return ParseJson<T>(str);
 
             }
 
         }
 
-        public static T Parse<T>(TextAsset textAsset) => Parse<T>(textAsset.ToString());
+        public static object Parse(TextAsset textAsset, Type type) => Parse(textAsset.text, type);
+
+        public static T Parse<T>(TextAsset textAsset) => Parse<T>(textAsset.text);
         
         public static string AsPrettyString(OrderedDictionary keyAndValues, string separator) {
             List<string> strs = new List<string>();
@@ -273,15 +308,15 @@ namespace CoDe_A.Lakbay.Utilities {
 
             float timeDelta = 0.0f;
             while (elapsedTime <= duration) {
-                // time = !fixedUpdate ? Time.deltaTime : Time.fixedDeltaTime;
+                timeDelta = !fixedUpdate ? Time.deltaTime : Time.fixedDeltaTime;
                 timeDelta = onRun != null ? onRun(timeDelta, elapsedTime, duration) : timeDelta;
 
                 elapsedTime += timeDelta;
 
-                float starTime = Time.time;
+                // float starTime = Time.time;
                 if(!fixedUpdate) yield return new WaitForEndOfFrame();
                 else yield return new WaitForFixedUpdate();
-                timeDelta = Time.time - starTime;
+                // timeDelta = Time.time - starTime;
 
             }
 
@@ -429,7 +464,44 @@ namespace CoDe_A.Lakbay.Utilities {
         }
 
         public static T Replace<T>(List<T> list, int index) => Replace<T>(list, index, default);
+
+        public static T AsDelegate<T>(object obj, string propertyName, bool getter) where T : Delegate {
+            var pi = obj.GetType().GetProperty(propertyName);
+            var mi = getter ? pi.GetMethod : pi.SetMethod;
+            return (T) Delegate.CreateDelegate(
+                typeof(T), obj, mi
+            );
+
+        }
+
+        public static T AsDelegate<T>(object obj, string propertyName) where T : Delegate {
+            return AsDelegate<T>(obj, propertyName, false);
+
+        }
         
+        public static void AddPersistentListener(UnityEvent unityEvent, UnityAction call) {
+            UnityEventTools.AddPersistentListener(unityEvent, call);
+
+        }
+        
+        public static void AddPersistentListener(UnityEvent unityEvent, object obj, string setterName) {
+            var call = AsDelegate<UnityAction>(obj, setterName);
+            AddPersistentListener(unityEvent, call);
+
+        }
+        
+        public static void AddPersistentListener<T0>(UnityEvent<T0> unityEvent, UnityAction<T0> call) {
+            UnityEventTools.AddPersistentListener(unityEvent, call);
+
+        }
+        
+        public static void AddPersistentListener<T0>(UnityEvent<T0> unityEvent, object obj, string setterName) {
+            var call = AsDelegate<UnityAction<T0>>(obj, setterName);
+            AddPersistentListener(unityEvent, call);
+
+        }
+ 
+
     }
 
 }

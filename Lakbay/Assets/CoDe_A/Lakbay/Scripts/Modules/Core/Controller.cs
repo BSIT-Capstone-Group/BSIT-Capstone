@@ -1,5 +1,5 @@
 /*
- * Date Created: Saturday, June 26, 2021 6:28 AM
+ * Date Created: Tuesday, June 29, 2021 6:48 PM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -11,219 +11,206 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 using NaughtyAttributes;
 
-using CoDe_A.Lakbay.Utilities;
+using Code_A.Lakbay.Utilities;
 
-namespace CoDe_A.Lakbay.Modules.Core {
+namespace Code_A.Lakbay.Modules.Core {
     public interface IController {
-        Highlight highlight { get; set; }
-        bool highlighted { get; set; }
+        string controllerName { get; }
+        TextAsset dataTextAsset { get; set; }
+        Data data { get; set; }
+        string label { get; set; }
+        string description { get; set; }
+        bool inspectorHasUpdate { get; }
 
-        void Localize();
-        void OnNeedsUpdate();
-        // void Focus<T>() where T : IController;
-        // void Unfocus<T>() where T : IController;
-        void Focus();
-        void Unfocus();
-        void SetData(IData data);
-        void SetData<T>(TextAsset textAsset) where T : IData;
+
         void SetData(TextAsset textAsset);
-        T GetData<T>() where T : IData;
+        void Localize();
+        void OnInspectorHasUpdate();
+
         void OnEnable();
+        void OnDisable();
         void Awake();
         void Start();
         void OnValidate();
         void Update();
         void FixedUpdate();
+        void LateUpdate();
         void OnCollisionEnter(Collision other);
         void OnTriggerEnter(Collider other);
 
     }
 
-    /// <summary>The base class for anything attachable to a <see cref="GameObject"/>.</summary>
     public class Controller : MonoBehaviour, IController {
-        [SerializeField, NaughtyAttributes.ReadOnly, Label("Name"), BoxGroup("Controller")]
-        protected string _controllerName = "Controller";
-        [SerializeField, NaughtyAttributes.ReadOnly, BoxGroup("Controller")]
-        protected bool _needsUpdate = true;
-        [SerializeField, Label("Data Text Asset"), BoxGroup("Controller")]
-        private TextAsset __dataTextAsset;
-        [SerializeField, Label("Highlight"), BoxGroup("Controller")]
-        private Highlight __highlight;
-        [SerializeField, Label("Highlighted"), BoxGroup("Controller")]
-        private bool __highlighted = false;
-
-
-        public Highlight highlight {
-            get {
-                if(__highlight) return __highlight;
-                Highlight highlight = GetComponent<Highlight>();
-                return highlight;
-
-            }
-            set {
-                if(value == this.highlight) return;
-                __highlight = value;
-
-            }
-
-        }
-
-        public bool highlighted {
-            get {
-                return highlight ? highlight.showing : false;
-
-            }
-            set {
-                if(!highlight || value == highlighted) return;
-                highlight.showing = value;
-
-            }
-
-        }
-
-
+        public const string BoxGroupName = "Core.Controller";
+        
+        [BoxGroup(BoxGroupName)]
+        [SerializeField, ReadOnly]
+        protected string _controllerName;
         public string controllerName => _controllerName;
-        public bool needsUpdate => _needsUpdate;
+        [BoxGroup(BoxGroupName)]
+        [SerializeField, Label("Data Text Asset")]
+        private TextAsset __dataTextAsset;
         protected TextAsset _dataTextAsset;
-        public TextAsset dataTextAsset {
+        public virtual TextAsset dataTextAsset {
             get => _dataTextAsset;
             set {
-                if(value == _dataTextAsset) return;
+                if(value == dataTextAsset) return;
                 _dataTextAsset = value;
                 __dataTextAsset = value;
 
             }
 
         }
-        
-        public Controller() : base() => _controllerName = Helper.GetName(this, 3);
-
-        [ContextMenu("Localize")]
-        public virtual void Localize() {}
-
-        public virtual void OnNeedsUpdate() {
-            dataTextAsset = __dataTextAsset;
-
-            highlight = __highlight;
-            highlighted = __highlighted;
-
-        }
-
-        public virtual void Focus() {
-            highlighted = true;
-
-        }
-
-        public virtual void Unfocus() {
-            highlighted = false;
-
-        }
-
-        public static void Focus<T>(T[] controllers, T[] excludedControllers) where T : IController {
-            foreach(var c in controllers) {
-                if(excludedControllers.Contains(c)) continue;
-                c?.Focus();
+        public virtual Data data {
+            get => new Data(this); set {
+                if(value == null) value = new Data();
+                label = value.label;
+                description = value.description;
 
             }
 
         }
-
-        public static void Unfocus<T>(T[] controllers, T[] excludedControllers) where T : IController {
-            foreach(var c in controllers) {
-                if(excludedControllers.Contains(c)) continue;
-                c?.Unfocus();
-
-            }
-
-        }
-
-        public static void Focus<T>(params T[] excludedControllers) where T : IController {
-            var s = SceneManager.GetActiveScene();
-            foreach(var r in s.GetRootGameObjects()) {
-                var cs = r.GetComponentsInChildren<T>();
-                var mcs = (from c in cs where excludedControllers.Contains(c) select c).ToArray();
-                Focus<T>(cs, mcs);
+        [BoxGroup(BoxGroupName)]
+        [SerializeField, Label("Label")]
+        private string __label;
+        protected string _label;
+        public virtual string label {
+            get => _label;
+            set {
+                if(value == label) return;
+                _label = value;
+                __label = value;
 
             }
 
         }
-
-        public static void Unfocus<T>(params T[] excludedControllers) where T : IController {
-            var s = SceneManager.GetActiveScene();
-            foreach(var r in s.GetRootGameObjects()) {
-                var cs = r.GetComponentsInChildren<T>();
-                var mcs = (from c in cs where excludedControllers.Contains(c) select c).ToArray();
-                Unfocus<T>(cs, mcs);
+        [BoxGroup(BoxGroupName)]
+        [SerializeField, Label("Description")]
+        private string __description;
+        protected string _description;
+        public virtual string description {
+            get => _description;
+            set {
+                if(value == description) return;
+                _description = value;
+                __description = value;
 
             }
 
         }
-        public static void Focus<T>() where T : IController {
-            Focus<T>(new T[] {});
+        protected bool _inspectorHasUpdate = false;
+        public virtual bool inspectorHasUpdate {
+            get => _inspectorHasUpdate;
+            set {
+                _inspectorHasUpdate = value;
 
+                if(inspectorHasUpdate) {
+                    OnInspectorHasUpdate();
+                    inspectorHasUpdate = false;
+
+                }
+
+            }
+            
         }
 
-        public static void Unfocus<T>() where T : IController {
-            Unfocus<T>(new T[] {});
 
-        }
-
-        public virtual void SetData(IData data) {}
-
-        public virtual void SetData<T>(TextAsset textAsset) where T : IData {
-            SetData(Helper.Parse<T>(textAsset));
+        public Controller() : base() {
+            _controllerName = Helper.GetName(this, 3);
+            data = null;
 
         }
 
         public virtual void SetData(TextAsset textAsset) {
-            SetData(Helper.Parse<Data>(textAsset));
+            data = new Data(textAsset);
 
         }
-        
-        public virtual T GetData<T>() where T : IData { return default; }
+
+        [ContextMenu("Localize")]
+        public virtual void Localize() {
+            var c = GetComponent<LocalizedTextAssetEvent>();
+            if(!c) {
+                c = gameObject.AddComponent<LocalizedTextAssetEvent>();
+            }
+            
+            Utilities.Helper.AddPersistentListener(
+                c.OnUpdateAsset, this, "dataTextAsset"
+            );
+
+        }
+
+        public virtual void OnInspectorHasUpdate() {
+            dataTextAsset = __dataTextAsset;
+            label = __label;
+            description = __description;
+
+        }
 
         public virtual void OnEnable() {
             
+
+        }
+
+        public virtual void OnDisable() {
+            
+
         }
 
         public virtual void Awake() {
             
+
         }
 
         public virtual void Start() {
-            _needsUpdate = true;
             
+
         }
 
         public virtual void OnValidate() {
-            _needsUpdate = true;
-            
+            inspectorHasUpdate = true;
+
         }
 
         public virtual void Update() {
-            if(_needsUpdate) {
-                OnNeedsUpdate();
-                _needsUpdate = false;
-
-            }
+            
 
         }
 
         public virtual void FixedUpdate() {
             
+
+        }
+
+        public virtual void LateUpdate() {
+            
+
         }
 
         public virtual void OnCollisionEnter(Collision other) {
             
+
         }
 
         public virtual void OnTriggerEnter(Collider other) {
             
+
         }
+
+        // public override void Awake() {
+        //     base.Awake();
+        //     (this as IController).data = new Data();
+
+        // }
+
+        // public override void OnNeedsUpdate() {
+        //     base.OnNeedsUpdate();
+
+        // }
+
+        // public override void SetData(TextAsset data) => (this as IController).data = Helper.Parse<Data>(data);
 
     }
 

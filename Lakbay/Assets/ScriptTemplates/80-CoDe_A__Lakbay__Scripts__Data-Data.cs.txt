@@ -14,16 +14,32 @@ using UnityEngine;
 
 using NaughtyAttributes;
 
-using CoDe_A.Lakbay.Utilities;
+using #NAMESPACE#.Utilities;
 
-namespace CoDe_A.Lakbay {
-    public interface I#SCRIPTNAME# : Lakbay.Modules.Core.IData {
+namespace #RELATIVE_NAMESPACE# {
+    public interface I#SCRIPTNAME# : #NAMESPACE#.Modules.Core.IData {
 
 
     }
 
-    public class #SCRIPTNAME# : Lakbay.Modules.Core.Data, I#SCRIPTNAME# {
-        
+    [Serializable]
+    public class #SCRIPTNAME# : #NAMESPACE#.Modules.Core.Data, I#SCRIPTNAME# {
+        public #SCRIPTNAME#() : this(default(#NAMESPACE#.Modules.Core.Data)) {}
+
+        public #SCRIPTNAME#(
+            #NAMESPACE#.Modules.Core.Data data=null
+        ) : base(data ?? new #NAMESPACE#.Modules.Core.Data()) {
+            
+
+        }
+
+        public #SCRIPTNAME#(#SCRIPTNAME# data) : this(
+            (#NAMESPACE#.Modules.Core.Data) data
+        ) {}
+
+        public #SCRIPTNAME#(IController controller) : this(controller.data) {}
+
+        public #SCRIPTNAME#(TextAsset textAsset) : this(Helper.Parse<#SCRIPTNAME#>(textAsset)) {}
 
     }
 

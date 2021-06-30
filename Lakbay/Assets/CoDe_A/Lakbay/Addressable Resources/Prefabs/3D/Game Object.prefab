@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4043361199034632131}
   - component: {fileID: 1565558347172156408}
-  - component: {fileID: 4329105034094925278}
+  - component: {fileID: 934173399358227735}
   m_Layer: 0
   m_Name: Meshes
   m_TagString: Untagged
@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isUI: 0
   __showing: 0
-  __outline: {fileID: 4329105034094925278}
---- !u!114 &4329105034094925278
+  __outline: {fileID: 934173399358227735}
+--- !u!114 &934173399358227735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,8 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 0.42646277, g: 1, b: 0, a: 1}
+  outlineColor: {r: 0.4701681, g: 1, b: 0, a: 1}
   outlineWidth: 20
-  precomputeOutline: 1
+  precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  needsUpdate: 1

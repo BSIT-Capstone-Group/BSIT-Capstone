@@ -14,16 +14,36 @@ using UnityEngine;
 
 using NaughtyAttributes;
 
-using CoDe_A.Lakbay.Utilities;
+using #NAMESPACE#.Utilities;
 
-namespace CoDe_A.Lakbay {
-    public interface I#SCRIPTNAME# : Lakbay.Modules.Core.IController {
-
+namespace #RELATIVE_NAMESPACE# {
+    public interface I#SCRIPTNAME# : #NAMESPACE#.Modules.Core.IController {
+        new Data data { get; set; }
 
     }
 
-    public class #SCRIPTNAME# : Lakbay.Modules.Core.Controller, I#SCRIPTNAME# {
+    public class #SCRIPTNAME# : #NAMESPACE#.Modules.Core.Controller, I#SCRIPTNAME# {
+        Data I#SCRIPTNAME#.data {
+            get => new Data(this); set {
+                if(value == null) value = new Data();
+                (this as #NAMESPACE#.Modules.Core.IController).data = value;
 
+            }
+
+        }
+
+
+        public Controller() : base() {
+            (this as IController).data = null;
+
+        }
+
+        public override void OnInspectorHasUpdate() {
+            base.OnInspectorHasUpdate();
+
+        }
+
+        public override void SetData(TextAsset textAsset) => (this as I#SCRIPTNAME#).data = new Data(textAsset);
 
     }
 

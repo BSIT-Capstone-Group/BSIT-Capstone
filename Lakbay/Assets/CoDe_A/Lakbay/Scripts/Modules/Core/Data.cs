@@ -1,5 +1,5 @@
 /*
- * Date Created: Saturday, June 26, 2021 6:28 AM
+ * Date Created: Tuesday, June 29, 2021 6:49 PM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -14,14 +14,39 @@ using UnityEngine;
 
 using NaughtyAttributes;
 
-using CoDe_A.Lakbay.Utilities;
+using Code_A.Lakbay.Utilities;
 
-namespace CoDe_A.Lakbay.Modules.Core {
+namespace Code_A.Lakbay.Modules.Core {
     public interface IData {
+
 
     }
 
-    public class Data : ScriptableObject, IData {
+    [Serializable]
+    public class Data : IData {
+        public string label;
+        public string description;
+
+
+        public Data() : this("") {}
+
+        public Data(
+            string label="",
+            string description=""
+        ) : base() {
+            this.label = label;
+            this.description = description;
+
+        }
+
+        public Data(Data data) : this(
+            data.label,
+            data.description
+        ) {}
+
+        public Data(IController controller) : this(controller.data) {}
+
+        public Data(TextAsset textAsset) : this(Helper.Parse<Data>(textAsset)) {}
 
     }
 
