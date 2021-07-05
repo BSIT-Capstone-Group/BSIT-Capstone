@@ -1,5 +1,5 @@
 /*
- * Date Created: Tuesday, June 29, 2021 6:48 PM
+ * Date Created: Sunday, July 4, 2021 11:44 AM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -11,24 +11,30 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 using NaughtyAttributes;
+using TMPro;
+using YamlDotNet.Serialization;
 
-using Code_A.Lakbay.Utilities;
+using CoDe_A.Lakbay.Utilities;
 
-namespace Code_A.Lakbay.Modules.Core {
-    public interface IController {
+namespace CoDe_A.Lakbay.Modules.Core {
+    using Event = Utilities.Event;
+
+    public interface IInterface {}
+
+    public interface IController : IInterface {
         string controllerName { get; }
         TextAsset dataTextAsset { get; set; }
-        Data data { get; set; }
-        string label { get; set; }
-        string description { get; set; }
-        bool inspectorHasUpdate { get; }
+        bool inspectorHasUpdate { get; set; }
 
-
-        void SetData(TextAsset textAsset);
-        void Localize();
+        void Log(string message);
+        
+        void OnCollide(Collider collider);
         void OnInspectorHasUpdate();
+        void Localize();
 
         void OnEnable();
         void OnDisable();
@@ -38,75 +44,45 @@ namespace Code_A.Lakbay.Modules.Core {
         void Update();
         void FixedUpdate();
         void LateUpdate();
-        void OnCollisionEnter(Collision other);
-        void OnTriggerEnter(Collider other);
+        void OnCollisionEnter(Collision collision);
+        void OnTriggerEnter(Collider collider);
+
+
+        void OnDataTextAssetChange(TextAsset old, TextAsset @new);
+        void OnLabelChange(string old, string @new);
+        void OnDescriptionChange(string old, string @new);
+        
+        Event.OnValueChange<IController, TextAsset> onDataTextAssetChange { get; }
 
     }
 
-    public class Controller : MonoBehaviour, IController {
+    public interface IController<T> : IController
+        where T : IData {
+        T data { get; set; }
+
+        void OnDataChange(T old, T @new);
+
+        Event.OnValueChange<IController<T>, T> onDataChange { get; }
+
+    }
+
+    public class Controller<T> : MonoBehaviour, IController<T>
+        where T : class, IData, new() {
         public const string BoxGroupName = "Core.Controller";
         
+
         [BoxGroup(BoxGroupName)]
         [SerializeField, ReadOnly]
         protected string _controllerName;
-        public string controllerName => _controllerName;
+        public virtual string controllerName => _controllerName;
         [BoxGroup(BoxGroupName)]
-        [SerializeField, Label("Data Text Asset")]
-        private TextAsset __dataTextAsset;
-        protected TextAsset _dataTextAsset;
-        public virtual TextAsset dataTextAsset {
-            get => _dataTextAsset;
-            set {
-                if(value == dataTextAsset) return;
-                _dataTextAsset = value;
-                __dataTextAsset = value;
-
-            }
-
-        }
-        public virtual Data data {
-            get => new Data(this); set {
-                if(value == null) value = new Data();
-                label = value.label;
-                description = value.description;
-
-            }
-
-        }
-        [BoxGroup(BoxGroupName)]
-        [SerializeField, Label("Label")]
-        private string __label;
-        protected string _label;
-        public virtual string label {
-            get => _label;
-            set {
-                if(value == label) return;
-                _label = value;
-                __label = value;
-
-            }
-
-        }
-        [BoxGroup(BoxGroupName)]
-        [SerializeField, Label("Description")]
-        private string __description;
-        protected string _description;
-        public virtual string description {
-            get => _description;
-            set {
-                if(value == description) return;
-                _description = value;
-                __description = value;
-
-            }
-
-        }
-        protected bool _inspectorHasUpdate = false;
+        [SerializeField, ReadOnly]
+        protected bool _inspectorHasUpdate;
         public virtual bool inspectorHasUpdate {
             get => _inspectorHasUpdate;
             set {
+                if(value == inspectorHasUpdate) return;
                 _inspectorHasUpdate = value;
-
                 if(inspectorHasUpdate) {
                     OnInspectorHasUpdate();
                     inspectorHasUpdate = false;
@@ -114,38 +90,79 @@ namespace Code_A.Lakbay.Modules.Core {
                 }
 
             }
-            
+
         }
+        [BoxGroup(BoxGroupName)]
+        [SerializeField]
+        protected TextAsset m_dataTextAsset;
+        protected TextAsset _dataTextAsset;
+        public virtual TextAsset dataTextAsset {
+            get => _dataTextAsset;
+            set {
+                if(value == dataTextAsset) return;
+                var o = dataTextAsset; var n = value;
+                _dataTextAsset = m_dataTextAsset = value;
+                if(dataTextAsset) data = dataTextAsset.Parse<T>();
+                onDataTextAssetChange.Invoke(this, o, n);
+                OnDataTextAssetChange(o, n);
+
+            }
+
+        }
+        [BoxGroup(BoxGroupName)]
+        [SerializeField]
+        protected T m_data;
+        protected T _data;
+        public virtual T data {
+            get => _data;
+            set {
+                if(value == data) return;
+                var o = data; var n = value;
+                _data = m_data = value;
+                onDataChange.Invoke(this, o, n);
+                OnDataChange(o, n);
+
+            }
+
+        }
+
+        [BoxGroup(BoxGroupName)]
+        [SerializeField]
+        protected Event.OnValueChange<IController<T>, T> _onDataChange = new Event.OnValueChange<IController<T>, T>();
+        public virtual Event.OnValueChange<IController<T>, T> onDataChange => _onDataChange;
+        [BoxGroup(BoxGroupName)]
+        [SerializeField]
+        protected Event.OnValueChange<IController, TextAsset> _onDataTextAssetChange = new Event.OnValueChange<IController, TextAsset>();
+        public virtual Event.OnValueChange<IController, TextAsset> onDataTextAssetChange => _onDataTextAssetChange;
 
 
         public Controller() : base() {
             _controllerName = Helper.GetName(this, 3);
-            data = null;
+            data = new T();
 
         }
 
-        public virtual void SetData(TextAsset textAsset) {
-            data = new Data(textAsset);
+        public virtual void Log(string message) => print(message);
+
+        public virtual void OnInspectorHasUpdate() {
+            dataTextAsset = m_dataTextAsset;
+            data = m_data;
+            data?.OnInspectorHasUpdate();
 
         }
+
 
         [ContextMenu("Localize")]
         public virtual void Localize() {
-            var c = GetComponent<LocalizedTextAssetEvent>();
-            if(!c) {
-                c = gameObject.AddComponent<LocalizedTextAssetEvent>();
-            }
-            
-            Utilities.Helper.AddPersistentListener(
+            var c = gameObject.GetComponent<LocalizedTextAssetEvent>(true);
+            Helper.AddPersistentListener(
                 c.OnUpdateAsset, this, "dataTextAsset"
             );
 
         }
 
-        public virtual void OnInspectorHasUpdate() {
-            dataTextAsset = __dataTextAsset;
-            label = __label;
-            description = __description;
+        public virtual void OnCollide(Collider collider) {
+            
 
         }
 
@@ -189,28 +206,35 @@ namespace Code_A.Lakbay.Modules.Core {
 
         }
 
-        public virtual void OnCollisionEnter(Collision other) {
+        public virtual void OnCollisionEnter(Collision collision) {
+            OnCollide(collision.collider);
+
+        }
+
+        public virtual void OnTriggerEnter(Collider collider) {
+            OnCollide(collider);
+
+        }
+
+        public virtual void OnLabelChange(string old, string @new) {
             
 
         }
 
-        public virtual void OnTriggerEnter(Collider other) {
+        public virtual void OnDescriptionChange(string old, string @new) {
             
 
         }
 
-        // public override void Awake() {
-        //     base.Awake();
-        //     (this as IController).data = new Data();
+        public void OnDataChange(T old, T @new) {
+            
 
-        // }
+        }
 
-        // public override void OnNeedsUpdate() {
-        //     base.OnNeedsUpdate();
+        public void OnDataTextAssetChange(TextAsset old, TextAsset @new) {
+            
 
-        // }
-
-        // public override void SetData(TextAsset data) => (this as IController).data = Helper.Parse<Data>(data);
+        }
 
     }
 

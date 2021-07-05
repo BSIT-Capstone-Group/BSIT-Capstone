@@ -14,15 +14,15 @@ using UnityEngine;
 
 using NaughtyAttributes;
 
-using Code_A.Lakbay.Utilities;
 using System.Collections.Specialized;
 using Force.DeepCloner;
 using UnityEngine.Events;
 using UnityEditor.Events;
 using Newtonsoft.Json;
 using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
-namespace Code_A.Lakbay.Utilities {
+namespace CoDe_A.Lakbay.Utilities {
     public static class Helper {
         public const float ReadingCharacterPerSecond = 25.0f;
 
@@ -58,6 +58,7 @@ namespace Code_A.Lakbay.Utilities {
             return GetChildren(parent.transform).Select<Transform, GameObject>(
                 (t) => t.gameObject
             ).ToArray();
+            
         }
 
         public static GameObject[] GetChildrenWithTag(GameObject gameObject, string tag) {
@@ -88,9 +89,10 @@ namespace Code_A.Lakbay.Utilities {
 
         }
 
-        public static void DestroyChildren(Transform parent) {
+        public static void DestroyChildren(Transform parent, bool immediate=false) {
             for(int i = 0; i < parent.childCount; i++) {
-                GameObject.Destroy(parent.GetChild(i).gameObject);
+                if(!immediate) GameObject.Destroy(parent.GetChild(i).gameObject);
+                else GameObject.DestroyImmediate(parent.GetChild(i).gameObject);
 
             }
 
@@ -500,7 +502,69 @@ namespace Code_A.Lakbay.Utilities {
             AddPersistentListener(unityEvent, call);
 
         }
+
+        public static void RemovePersistentListener(UnityEvent unityEvent, UnityAction call) {
+            UnityEventTools.RemovePersistentListener(unityEvent, call);
+
+        }
+
+        public static void RemovePersistentListener(UnityEvent unityEvent, int index) {
+            UnityEventTools.RemovePersistentListener(unityEvent, index);
+
+        }
  
+        public static Color AsColor(string str) {
+            ColorUtility.TryParseHtmlString(str, out Color color);
+            return color;
+            
+        }
+
+        public static Color32 AsColor32(string str) {
+            ColorUtility.TryParseHtmlString(str, out Color color);
+            return (Color32) color;
+            
+        }
+ 
+        public static Color AsColor(params float[] colors) {
+            var c = colors;
+            return new Color(c[0], c[1], c[2], c.Length != 4 ? 1.0f : c[3]);
+            
+        }
+ 
+        public static Color32 AsColor(params int[] colors) {
+            var c = colors.Select<int, byte>((c) => (byte) c).ToArray();
+            return new Color32(c[0], c[1], c[2], c.Length != 4 ? (byte) 255 : c[3]);
+            
+        }
+
+        public static void RestrictedSetter<T0, T1>(
+            T0 instance,
+            T1 value, out T1 field, out T1 secondField,
+            Action<T0, T1, T1> @event=null,
+            Action<T1, T1> eventMethod=null
+        ) where T1 : class {
+            field = default;
+            secondField = default;
+
+            if(value == field) return;
+            var o = field; var n = value;
+            field = secondField = value;
+            @event?.Invoke(instance, o, n);
+            eventMethod?.Invoke(o, n);
+
+        }
+
+        public static void RestrictedSetter<T0, T1>(
+            T0 instance,
+            T1 value, out T1 field, 
+            Action<T0, T1, T1> @event=null,
+            Action<T1, T1> eventMethod=null
+        ) where T1 : class {
+            RestrictedSetter<T0, T1>(
+                instance, value, out field, out T1 i, @event, eventMethod
+            );
+
+        }
 
     }
 

@@ -1,0 +1,9 @@
+entries:
+    -
+        text: "text1"
+    -
+        text: "text2"
+    -
+        images:
+            -
+                path: "path/to/your/image.png"

@@ -1,0 +1,4 @@
+text: "sampletext"
+images:
+    -
+        path: "path/to/your/image.png"

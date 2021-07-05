@@ -11,39 +11,52 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 using NaughtyAttributes;
+using TMPro;
+using YamlDotNet.Serialization;
 
 using #NAMESPACE#.Utilities;
 
 namespace #RELATIVE_NAMESPACE# {
-    public interface I#SCRIPTNAME# : #NAMESPACE#.Modules.Core.IController {
+    public interface I#SCRIPTNAME# : Core.Base.IController, ISerializable {
         new Data data { get; set; }
 
     }
 
-    public class #SCRIPTNAME# : #NAMESPACE#.Modules.Core.Controller, I#SCRIPTNAME# {
+    public class #SCRIPTNAME# : Core.Base.Controller, I#SCRIPTNAME# {
+        public new const string BoxGroupName = "#RELATIVE_NAMESPACE#.#SCRIPTNAME#";
+
         Data I#SCRIPTNAME#.data {
-            get => new Data(this); set {
-                if(value == null) value = new Data();
-                (this as #NAMESPACE#.Modules.Core.IController).data = value;
+            get => new Data(this);
+            set {
+                value ??= new Data();
+                (this as Core.Base.IController).data = value;
 
             }
 
         }
 
 
-        public Controller() : base() {
-            (this as IController).data = null;
+        public #SCRIPTNAME#() : base() {
+            var self = this as IController;
+            self.data = null;
 
         }
 
         public override void OnInspectorHasUpdate() {
+            var self = this as IController;
             base.OnInspectorHasUpdate();
 
         }
 
-        public override void SetData(TextAsset textAsset) => (this as I#SCRIPTNAME#).data = new Data(textAsset);
+        public override void SetData(TextAsset textAsset) {
+            var self = this as IController;
+            self.data = new Data(textAsset);
+            
+        }
 
     }
 

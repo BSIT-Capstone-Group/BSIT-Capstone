@@ -11,35 +11,39 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 using NaughtyAttributes;
+using TMPro;
+using YamlDotNet.Serialization;
 
 using #NAMESPACE#.Utilities;
 
 namespace #RELATIVE_NAMESPACE# {
-    public interface I#SCRIPTNAME# : #NAMESPACE#.Modules.Core.IData {
+    public interface ISerializable : Core.Base.ISerializable {
 
+    }
+
+    public interface I#SCRIPTNAME# : Core.Base.IData, ISerializable {
 
     }
 
     [Serializable]
-    public class #SCRIPTNAME# : #NAMESPACE#.Modules.Core.Data, I#SCRIPTNAME# {
-        public #SCRIPTNAME#() : this(default(#NAMESPACE#.Modules.Core.Data)) {}
+    public class #SCRIPTNAME# : Core.Base.Data, I#SCRIPTNAME# {
+        public #SCRIPTNAME#() : this(default(Core.Base.ISerializable)) {}
 
-        public #SCRIPTNAME#(
-            #NAMESPACE#.Modules.Core.Data data=null
-        ) : base(data ?? new #NAMESPACE#.Modules.Core.Data()) {
-            
+        public Data(
+            Core.Base.ISerializable serializable=null
+        ) : base(serializable ?? new Core.Base.Data()) {
 
         }
 
-        public #SCRIPTNAME#(#SCRIPTNAME# data) : this(
-            (#NAMESPACE#.Modules.Core.Data) data
+        public Data(ISerializable serializable) : this(
+            
         ) {}
 
-        public #SCRIPTNAME#(IController controller) : this(controller.data) {}
-
-        public #SCRIPTNAME#(TextAsset textAsset) : this(Helper.Parse<#SCRIPTNAME#>(textAsset)) {}
+        public #SCRIPTNAME#(TextAsset textAsset) : this(textAsset.Parse<#SCRIPTNAME#>()) {}
 
     }
 

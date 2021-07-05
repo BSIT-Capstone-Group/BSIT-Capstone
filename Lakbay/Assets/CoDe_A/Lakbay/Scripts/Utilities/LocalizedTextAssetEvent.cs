@@ -14,12 +14,11 @@ using UnityEngine;
 
 using NaughtyAttributes;
 
-using Code_A.Lakbay.Utilities;
 using UnityEngine.Localization;
 using UnityEngine.Events;
 using UnityEngine.Localization.Components;
 
-namespace Code_A.Lakbay.Utilities {
+namespace CoDe_A.Lakbay.Utilities {
     [Serializable]
     public class LocalizedTextAsset : LocalizedAsset<TextAsset> {}
 
