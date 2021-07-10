@@ -1,0 +1,21 @@
+entries:
+    -
+        text: "hehehehe"
+    -
+        text: "12345"
+    -
+        images:
+            -
+                path: "path/to/your/image.png"
+            -
+                path: "path/to/your/image.png"
+            -
+                path: "path/to/your/image.png"
+            -
+                path: "path/to/your/image.png"
+            -
+                path: "path/to/your/image.png"
+            -
+                path: "path/to/your/image.png"
+    -
+        text: "hehehehe"

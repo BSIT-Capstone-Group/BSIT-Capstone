@@ -1,0 +1,37 @@
+/*
+ * Date Created: #DATE#
+ * Author: #AUTHOR#
+ * 
+ * Copyright © #YEAR# #DEVELOPER_NAME#. All Rights Reserved.
+ */
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+using NaughtyAttributes;
+using TMPro;
+using YamlDotNet.Serialization;
+
+using #NAMESPACE#.Utilities;
+
+namespace #RELATIVE_NAMESPACE# {
+    using Event = Utilities.Event;
+
+
+    public interface I#SCRIPTNAME# {
+
+        
+    }
+
+    public class #SCRIPTNAME# : I#SCRIPTNAME# {
+
+
+    }
+
+}

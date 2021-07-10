@@ -1,0 +1,12 @@
+# text: "sample/path/to/the/text/file.txt"
+images:
+    -
+        path: "sample/path/to/the/text/file.txt"
+    -
+        path: "sample/path/to/the/text/file.txt"
+    -
+        path: "sample/path/to/the/text/file.txt"
+    -
+        path: "sample/path/to/the/text/file.txt"
+    -
+        path: "sample/path/to/the/text/file.txt"

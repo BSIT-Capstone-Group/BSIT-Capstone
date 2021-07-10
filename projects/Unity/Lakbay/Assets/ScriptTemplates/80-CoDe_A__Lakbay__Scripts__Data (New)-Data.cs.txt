@@ -1,0 +1,80 @@
+/*
+ * Date Created: #DATE#
+ * Author: #AUTHOR#
+ * 
+ * Copyright © #YEAR# #DEVELOPER_NAME#. All Rights Reserved.
+ */
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+using NaughtyAttributes;
+using TMPro;
+using YamlDotNet.Serialization;
+
+using #NAMESPACE#.Utilities;
+
+namespace #RELATIVE_NAMESPACE# {
+    using Event = Utilities.Event;
+    using BaseIData = Core.IData<Controller>;
+    using BaseData = Core.Data<Controller>;
+
+    public interface I#SCRIPTNAME# : Core.IData {
+
+    }
+
+    public interface I#SCRIPTNAME#<T> : Core.IData<T>, I#SCRIPTNAME#
+        where T : IController {
+
+    }
+
+    [Serializable]
+    public class #SCRIPTNAME# : Core.Data<Controller>, I#SCRIPTNAME#<Controller> {
+        public new const string HeaderName = "#RELATIVE_NAMESPACE#.#SCRIPTNAME#";
+
+        public #SCRIPTNAME#() { Create(instance: this); }
+
+        public override void OnInspectorHasUpdate() {
+            base.OnInspectorHasUpdate();
+
+        }
+
+        public override void Load(TextAsset textAsset) => Create(textAsset, this);
+
+        public static #SCRIPTNAME# Create(
+            BaseIData data=null,
+            #SCRIPTNAME# instance=null
+        ) {
+            instance ??= new #SCRIPTNAME#();
+            BaseData.Create(data, instance);
+
+            return instance;
+
+        }
+
+        public static #SCRIPTNAME# Create(
+            I#SCRIPTNAME#<Controller> data,
+            #SCRIPTNAME# instance=null
+        ) {
+            data ??= new #SCRIPTNAME#();
+            return Create(
+                data as BaseIData,
+                instance
+            );
+
+        }
+
+        public static #SCRIPTNAME# Create(TextAsset textAsset, #SCRIPTNAME# instance=null) {
+           return Create(textAsset.Parse<#SCRIPTNAME#>(), instance);
+
+        }
+
+    }
+
+}
