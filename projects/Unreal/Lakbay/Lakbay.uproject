@@ -1,25 +1,16 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.0EA",
+	"EngineAssociation": "4.26",
 	"Category": "",
 	"Description": "",
 	"Plugins": [
 		{
-			"Name": "ChaosVehiclesPlugin",
+			"Name": "PhysXVehicles",
 			"Enabled": true
 		},
 		{
 			"Name": "RawInput",
 			"Enabled": true
-		},
-		{
-			"Name": "Bridge",
-			"Enabled": true,
-			"SupportedTargetPlatforms": [
-				"Win64",
-				"Mac",
-				"Linux"
-			]
 		}
 	]
 }

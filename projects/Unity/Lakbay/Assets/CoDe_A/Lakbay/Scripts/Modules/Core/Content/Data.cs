@@ -1,5 +1,5 @@
 /*
- * Date Created: Wednesday, July 7, 2021 8:16 AM
+ * Date Created: Tuesday, July 13, 2021 9:28 PM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -13,6 +13,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 using NaughtyAttributes;
 using TMPro;
@@ -22,40 +23,72 @@ using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Modules.Core.Content {
     using Event = Utilities.Event;
-    using EntryList = List<Entry.Data>;
+    using Input = Utilities.Input;
+    using BaseIData = Core.Interactable.IData<Controller>;
+    using BaseData = Core.Interactable.Data<Controller>;
 
-    public interface IEvent : Core.IEvent {
-        Event.OnValueChange<IEvent, Information.Data> onInformationChange { get; }
-        Event.OnValueChange<IEvent, Asset.Image.Data> onImageChange { get; }
-        Event.OnValueChange<IEvent, EntryList> onEntriesChange { get; }
 
-        void OnInformationChange(Information.Data old, Information.Data @new);
-        void OnImageChange(Asset.Image.Data old, Asset.Image.Data @new);
-        void OnEntriesChange(EntryList old, EntryList @new);
+    public interface IData : BaseIData {
+        List<Entry.Data> entries { get; set; }
 
-    }
-
-    public interface IProperty : Core.IProperty {
-        Information.Data information { get; set; }
-        Asset.Image.Data image { get; set; }
-        EntryList entries { get; set; }
-
-    }
-
-    public interface IPropertyEvent : IProperty, IEvent {}
-
-    public interface IData : Core.IData, IProperty {
-
+        Event.OnValueChange<Controller, List<Entry.Data>> onEntriesChange { get; }
+        
     }
 
     [Serializable]
-    public class Data : Core.Data, IData {
-        [SerializeField] protected Information.Data _information;
-        public virtual Information.Data information { get => _information; set => _information = value; }
-        [SerializeField] protected Asset.Image.Data _image;
-        public virtual Asset.Image.Data image { get => _image; set => _image = value; }
-        [SerializeField] protected EntryList _entries;
-        public virtual EntryList entries { get => _entries; set => _entries = value; }
+    public class Data : BaseData, IData {
+        [SerializeField]
+        protected List<Entry.Data> _entries;
+        public virtual List<Entry.Data> entries {
+            get => _entries;
+            set  {
+                var r = Helper.SetInvoke(controller, ref _entries, value, onEntriesChange);
+                if(r.Item1) controller?.OnEntriesChange(r.Item2[0], r.Item2[1]);
+            
+            }
+
+        }
+
+        [SerializeField]
+        protected Event.OnValueChange<Controller, List<Entry.Data>> _onEntriesChange = new Event.OnValueChange<Controller, List<Entry.Data>>();
+        [YamlIgnore]
+        public virtual Event.OnValueChange<Controller, List<Entry.Data>> onEntriesChange => _onEntriesChange;
+
+
+        public Data() => Create(instance: this);
+
+        public static Data Create(
+            List<Entry.Data> entries=null,
+            BaseIData data=null,
+            IData instance=null
+        ) {
+            instance ??= new Data();
+            BaseData.Create(data, instance);
+            instance.entries = entries ?? new List<Entry.Data>();
+
+            return instance as Data;
+
+        }
+
+        public static Data Create(
+            IData data,
+            IData instance=null
+        ) {
+            data ??= new Data();
+            return Create(
+                data.entries,
+                data,
+                instance
+            );
+
+        }
+
+        public static Data Create(TextAsset textAsset, IData instance=null) {
+            return Create(textAsset.Parse<Data>(), instance);
+
+        }
+
+        public override void Set(TextAsset textAsset) => Create(textAsset, this);
 
     }
 

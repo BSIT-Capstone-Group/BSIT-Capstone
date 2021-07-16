@@ -20,6 +20,15 @@ using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Utilities {
     public static class Extension {
+        public static IEnumerable<T> GetFlags<T>(this T e) where T : Enum {
+            return Enum.GetValues(e.GetType()).Cast<T>().Where((ee) => e.HasFlag(ee));
+
+        }
+
+        public static T PickRandomly<T>(this IEnumerable<T> enumerable) => Helper.PickRandomly<T>(enumerable.ToArray());
+        public static T Pop<T>(this List<T> list, int index) => Helper.Pop<T>(list, index);
+        public static T Pop<T>(this List<T> list, T item) => Helper.Pop<T>(list, list.IndexOf(item));
+
         public static T ParseJson<T>(this TextAsset textAsset) => Helper.ParseJson<T>(textAsset);
 
         public static T ParseYaml<T>(this TextAsset textAsset) => Helper.ParseYaml<T>(textAsset);
@@ -53,6 +62,22 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static Vector3 GetSize(this GameObject gameObject) {
+            var cs = gameObject.GetComponentsInChildren<Renderer>();
+
+            if(cs != null && cs.Length > 0) {
+                var m = Enumerable.Range(0, 3).Select<int, float>((i) => {
+                    return cs.Max((r) => r.bounds.size[i]);
+                });
+                
+                return m.AsVector3();
+
+            }
+
+            return Vector3.zero;
+
+        }
+
 
         public static void CopyToClipboard(this string str) => Helper.CopyToClipboard(str); 
         
@@ -68,6 +93,11 @@ namespace CoDe_A.Lakbay.Utilities {
         public static T PickRandomly<T>(this T[] array) => Helper.PickRandomly<T>(array);
 
         public static T[] Reverse<T>(this T[] array) => Helper.Reverse<T>(array);
+
+        public static Vector3 AsVector3(this float[] array) => Helper.AsVector3(array);
+        public static Vector3 AsVector3(this int[] array) => Helper.AsVector3(array.Select((v) => (float) v).ToList());
+        public static Vector3 AsVector3(this IEnumerable<float> array) => Helper.AsVector3(array.Select((v) => (float) v).ToList());
+        public static Vector3 AsVector3(this IEnumerable<int> array) => Helper.AsVector3(array.Select((v) => (float) v).ToList());
 
 
         public static int[] GetRgba(this Color32 color) => new int[] {color.r, color.g, color.b, color.a};

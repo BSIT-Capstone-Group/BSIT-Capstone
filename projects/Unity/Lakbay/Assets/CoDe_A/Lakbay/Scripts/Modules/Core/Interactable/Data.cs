@@ -1,5 +1,5 @@
 /*
- * Date Created: Wednesday, July 7, 2021 8:24 AM
+ * Date Created: Tuesday, July 13, 2021 1:14 PM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -13,6 +13,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 using NaughtyAttributes;
 using TMPro;
@@ -22,54 +23,127 @@ using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Modules.Core.Interactable {
     using Event = Utilities.Event;
+    using Input = Utilities.Input;
 
-    public interface IEvent : Core.IEvent {
-        Event.OnValueChange<IEvent, Information.Data> onDescriptionChange { get; }
-        Event.OnValueChange<IEvent, Asset.Image.Data> onImageChange { get; }
-        Event.OnValueChange<IEvent, Highlight.Data> onHighlightChange { get; }
-        Event.OnValueChange<IEvent, Content.Data> onTutorialContentChange { get; }
-        Event.OnValueChange<IEvent, Input.Data> onInputChange { get; }
-        Event.OnValueChange<IEvent, Collider.Data> onColliderChange { get; }
 
-        void OnDescriptionChange(Information.Data old, Information.Data @new);
-        void OnImageChange(Asset.Image.Data old, Asset.Image.Data @new);
-        void OnHighlightChange(Highlight.Data old, Highlight.Data @new);
-        void OnTutorialContentChange(Content.Data old, Content.Data @new);
-        void OnInputChange(Input.Data old, Input.Data @new);
-        void OnColliderChange(Collider.Data old, Collider.Data @new);
-
+    public interface IData : Minimal.IData {
+        bool playing { get; set; }
+        bool handlingInputs { get; set; }
+        int maxCollisionCount { get; set; }
+        int collisionCount { get; set; }
+    
     }
 
-    public interface IProperty : Core.IProperty {
-        Information.Data information { get; set; }
-        Asset.Image.Data image { get; set; }
-        Highlight.Data highlight { get; set; }
-        Content.Data tutorialContent { get; set; }
-        Input.Data input { get; set; }
-        Collider.Data collider { get; set; }
+    public interface IData<T> : Minimal.IData<T>, IData
+        where T : IController {
 
-    }
-
-    public interface IPropertyEvent : IProperty, IEvent {}
-
-    public interface IData : Core.IData, IProperty {
-
+        Event.OnBoolChange<IController> onPlayingChange { get; }
+        Event.OnBoolChange<IController> onHandlingInputsChange { get; }
+        
     }
 
     [Serializable]
-    public class Data : Core.Data, IData {
-        [SerializeField] protected Information.Data _information;
-        public virtual Information.Data information { get => _information; set => _information = value; }
-        [SerializeField] protected Asset.Image.Data _image;
-        public virtual Asset.Image.Data image { get => _image; set => _image = value; }
-        [SerializeField] protected Highlight.Data _highlight;
-        public virtual Highlight.Data highlight { get => _highlight; set => _highlight = value; }
-        [SerializeField] protected Content.Data _tutorialContent;
-        public virtual Content.Data tutorialContent { get => _tutorialContent; set => _tutorialContent = value; }
-        [SerializeField] protected Input.Data _input;
-        public virtual Input.Data input { get => _input; set => _input = value; }
-        [SerializeField] protected Collider.Data _collider;
-        public virtual Collider.Data collider { get => _collider; set => _collider = value; }
+    public class Data<T> : Minimal.Data<T>, IData<T>
+        where T : class, IController {
+        [SerializeField]
+        protected int _maxCollisionCount;
+        public virtual int maxCollisionCount {
+            get => _maxCollisionCount;
+            set {
+                var r = Helper.SetInvoke(controller, ref _maxCollisionCount, value);
+                // if(r.Item1) controller?.OnPlayingChange(r.Item2[0], r.Item2[1]);
+                
+            }
+            
+        }
+        [SerializeField]
+        protected int _collisionCount;
+        public virtual int collisionCount {
+            get => _collisionCount;
+            set {
+                if(maxCollisionCount >= 0) Mathf.Clamp(value, 0, maxCollisionCount);
+                var r = Helper.SetInvoke(controller, ref _collisionCount, value);
+                // if(r.Item1) controller?.OnPlayingChange(r.Item2[0], r.Item2[1]);
+                
+            }
+            
+        }
+        [SerializeField]
+        protected bool _playing;
+        public virtual bool playing {
+            get => _playing;
+            set {
+                var r = Helper.SetInvoke(controller, ref _playing, value, onPlayingChange);
+                if(r.Item1) controller?.OnPlayingChange(r.Item2[0], r.Item2[1]);
+                
+            }
+            
+        }
+        [SerializeField]
+        protected bool _handlingInputs;
+        public virtual bool handlingInputs {
+            get => _handlingInputs;
+            set {
+                var r = Helper.SetInvoke(controller, ref _handlingInputs, value, onHandlingInputsChange);
+                if(r.Item1) controller?.OnHandlingInputsChange(r.Item2[0], r.Item2[1]);
+                
+            }
+
+        }
+
+        [SerializeField]
+        protected Event.OnBoolChange<IController> _onPlayingChange = new Event.OnBoolChange<IController>();
+        [YamlIgnore]
+        public virtual Event.OnBoolChange<IController> onPlayingChange => _onPlayingChange;
+        [SerializeField]
+        protected Event.OnBoolChange<IController> _onHandlingInputsChange = new Event.OnBoolChange<IController>();
+        [YamlIgnore]
+        public virtual Event.OnBoolChange<IController> onHandlingInputsChange => _onHandlingInputsChange;
+
+
+        public Data() => Create(instance: this);
+
+        public static Data<T> Create(
+            bool playing=false,
+            bool handlingInputs=true,
+            int maxCollisionCount=-1,
+            int collisionCount=0,
+            Minimal.IData<T> data=null,
+            IData<T> instance=null
+        ) {
+            instance ??= new Data<T>();
+            Minimal.Data<T>.Create(data, instance);
+            instance.playing = playing;
+            instance.handlingInputs = handlingInputs;
+            instance.maxCollisionCount = maxCollisionCount;
+            instance.collisionCount = collisionCount;
+
+            return instance as Data<T>;
+
+        }
+
+        public static Data<T> Create(
+            IData<T> data,
+            IData<T> instance=null
+        ) {
+            data ??= new Data<T>();
+            return Create(
+                data.playing,
+                data.handlingInputs,
+                data.maxCollisionCount,
+                data.collisionCount,
+                data,
+                instance
+            );
+
+        }
+
+        public static Data<T> Create(TextAsset textAsset, IData<T> instance=null) {
+            return Create(textAsset.Parse<Data<T>>(), instance);
+
+        }
+
+        public override void Set(TextAsset textAsset) => Create(textAsset, this);
 
     }
 

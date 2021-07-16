@@ -1,5 +1,5 @@
 /*
- * Date Created: Wednesday, July 7, 2021 10:26 AM
+ * Date Created: Tuesday, July 13, 2021 2:06 PM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -13,6 +13,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 using NaughtyAttributes;
 using TMPro;
@@ -22,29 +23,17 @@ using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Modules.Game.Player {
     using Event = Utilities.Event;
+    using Input = Utilities.Input;
 
-    public interface IEvent : Core.Interactable.IEvent {
 
-    }
+    public interface IData : Core.Interactable.IData<Controller> {
 
-    public interface IProperty : Core.Interactable.IProperty {
-        Move.Data slide { get; set; }
-        Move.Data travel { get; set; }
-
-    }
-
-    public interface IPropertyEvent : IProperty, IEvent {}
-
-    public interface IData : Core.Interactable.IData, IProperty {
-
+        
     }
 
     [Serializable]
-    public class Data : Core.Interactable.Data, IData {
-        [SerializeField] protected Move.Data _slide;
-        public virtual Move.Data slide { get => _slide; set => _slide = value; }
-        [SerializeField] protected Move.Data _travel;
-        public virtual Move.Data travel { get => _travel; set => _travel = value; }
+    public class Data : Core.Interactable.Data<Controller>, IData {
+
 
     }
 

@@ -25,6 +25,12 @@ using YamlDotNet.Serialization.NamingConventions;
 namespace CoDe_A.Lakbay.Utilities {
     public static class Helper {
         public const float ReadingCharacterPerSecond = 25.0f;
+        public static readonly System.Random Random;
+
+        static Helper() {
+            Random = new System.Random();
+            
+        }
 
         public static int GetIndexOfChild(Transform parent, Transform child) {
             int index = -1;
@@ -132,20 +138,19 @@ namespace CoDe_A.Lakbay.Utilities {
         }
 
         public static T[] Shuffle<T>(T[] array) {
-            System.Random random = new System.Random();
-
-            return Helper.Shuffle<T>(random, array);
+            return Helper.Shuffle<T>(Random, array);
 
         }
 
         public static T PickRandomly<T>(System.Random random, T[] array) {
+            if(array.Length == 0) return default;
             int index = random.Next(array.Length);
             return array[index];
 
         }
 
         public static T PickRandomly<T>(T[] array) {
-            return PickRandomly<T>(new System.Random(), array);
+            return PickRandomly<T>(Random, array);
 
         }
 
@@ -410,6 +415,11 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static Vector3 AsVector3(params float[] list) {
+            return new Vector3(list[0], list[1], list[2]);
+
+        }
+
         public static bool All<T>(Func<T, bool> predicate, params T[] objs) {
             var bools = objs.Select<T, bool>(predicate);
             foreach(var b in bools) if(!b) return false;
@@ -577,7 +587,7 @@ namespace CoDe_A.Lakbay.Utilities {
         
         public static T[] Set<T>(ref T old, T @new) {
             T[] values = null;
-            if(object.Equals(old, @new)) return values;
+            if(EqualityComparer<T>.Default.Equals(old, @new)) return values;
             values = new T[] { old, @new };
             old = @new;
 
@@ -591,22 +601,23 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static bool SetInvoke<T0, T1>(
+        public static Tuple<bool, T1[]> SetInvoke<T0, T1>(
             T0 self, ref T1 old, T1 @new,
             Action<T0, T1, T1> @event=null, Action<T1, T1> eventMethod=null
         ) {
             T1[] values = Set(ref old, @new);
+            bool res = false;
             if(values != null) {
                 Invoke<T0, T1>(self, old, @new, @event, eventMethod);
-                return true;
+                res = true;
 
             }
 
-            return false;
+            return new Tuple<bool, T1[]>(res, new T1[] {old, @new});
 
         }
 
-        public static bool SetInvoke<T0, T1>(
+        public static Tuple<bool, T1[]> SetInvoke<T0, T1>(
             T0 self, ref T1 old, T1 @new,
             UnityEvent<T0, T1, T1> @event=null, Action<T1, T1> eventMethod=null
         ) {
@@ -614,7 +625,7 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static bool SetInvoke<T0, T1>(
+        public static Tuple<bool, T1[]> SetInvoke<T0, T1>(
             T0 self, ref T1 old, T1 @new
         ) => SetInvoke(self, ref old, @new, default(Action<T0, T1, T1>), null);
 

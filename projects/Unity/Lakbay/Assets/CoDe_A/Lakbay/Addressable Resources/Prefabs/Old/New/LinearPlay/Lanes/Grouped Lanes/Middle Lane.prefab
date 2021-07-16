@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1459123046906655605, guid: 7dd179ad789dcd04889ed105e61bf2d8, type: 3}
       propertyPath: m_Name
-      value: Middle
+      value: Middle Lane
       objectReference: {fileID: 0}
     - target: {fileID: 1459123047749674856, guid: 7dd179ad789dcd04889ed105e61bf2d8, type: 3}
       propertyPath: m_Mesh
@@ -127,5 +127,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1397474551287713679, guid: 7dd179ad789dcd04889ed105e61bf2d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7dd179ad789dcd04889ed105e61bf2d8, type: 3}
