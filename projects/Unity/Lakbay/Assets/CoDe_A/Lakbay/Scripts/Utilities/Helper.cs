@@ -27,6 +27,12 @@ namespace CoDe_A.Lakbay.Utilities {
         public const float ReadingCharacterPerSecond = 25.0f;
         public static readonly System.Random Random;
 
+        public static readonly Serializer YamlSerializer = new SerializerBuilder()
+            .EmitDefaults()
+            .EnsureRoundtrip()
+            .Build();
+        public static readonly Deserializer YamlDeserializer = new Deserializer();
+
         static Helper() {
             Random = new System.Random();
             
@@ -183,12 +189,12 @@ namespace CoDe_A.Lakbay.Utilities {
         }
 
         public static object ParseYaml(string str, Type type) {
-            return new Deserializer().Deserialize(str, type);
+            return YamlDeserializer.Deserialize(str, type);
 
         }
 
         public static T ParseYaml<T>(string str) {
-            return new Deserializer().Deserialize<T>(str);
+            return YamlDeserializer.Deserialize<T>(str);
 
         }
         

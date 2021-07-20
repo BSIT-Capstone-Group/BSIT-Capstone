@@ -20,8 +20,122 @@ using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Utilities {
     public static class Extension {
-        public static IEnumerable<T> GetFlags<T>(this T e) where T : Enum {
-            return Enum.GetValues(e.GetType()).Cast<T>().Where((ee) => e.HasFlag(ee));
+        public static string ToString<T>(this IEnumerable<T> enumerable, bool pretty) {
+            if(!pretty) return enumerable.ToString();
+            return "[" + string.Join(", ", enumerable) + "]";
+
+        }
+
+        public static bool Contains<T>(this IEnumerable<T> enumerable, Func<T, bool> predicate) {
+            return enumerable.Contains((t, i) => predicate(t));
+
+        }
+
+        public static bool Contains<T>(this IEnumerable<T> enumerable, Func<T, int, bool> predicate) {
+            int ii = 0;
+            foreach(var i in enumerable) {
+                if(predicate(i, ii++)) return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static T Find<T>(this IEnumerable<T> enumerable, Func<T, bool> predicate) {
+            return enumerable.Find((t, i) => predicate(t));
+
+        }
+
+        public static T Find<T>(this IEnumerable<T> enumerable, Func<T, int, bool> predicate) {
+            int ii = 0;
+            foreach(var i in enumerable) {
+                if(predicate(i, ii++)) return i;
+
+            }
+
+            return default;
+
+        }
+
+        public static bool TryFind<T>(this IEnumerable<T> enumerable, Func<T, bool> predicate, out T value) {
+            return enumerable.TryFind((t, i) => predicate(t), out value);
+
+        }
+
+        public static bool TryFind<T>(this IEnumerable<T> enumerable, Func<T, int, bool> predicate, out T value) {
+            value = default;
+
+            if(enumerable.Contains(predicate)) {
+                value = enumerable.Find(predicate);
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static bool Either<T>(this T value, params T[] otherValues) {
+            foreach(var v in otherValues) {
+                if(v.Equals(value)) return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static bool Within(this float value, float lower, float upper) {
+            return value >= lower && value <= upper;
+
+        }
+
+        public static bool Within(this int value, int lower, int upper) {
+            return ((float) value).Within(lower, upper);
+
+        }
+
+        public static bool All(this IEnumerable<bool> enumerable) {
+            return enumerable.All((i) => i);
+
+        }
+
+        public static IEnumerable<KeyValuePair<int, T>> Enumerate<T>(this IEnumerable<T> enumerable) {
+            int i = 0;
+            foreach(var e in enumerable) {
+                yield return new KeyValuePair<int, T>(i++, e);
+
+            }
+
+        }
+
+        public static int GetCount(this IEnumerable enumerable) {
+            int s = 0;
+            foreach(var e in enumerable) s++;
+            return s;
+            
+        }
+
+        public static bool IsEmpty(this IEnumerable enumerable) {
+            foreach(var e in enumerable) return false;
+            return true;
+
+        }
+
+        public static List2D<T> ToList2D<T>(this IEnumerable<T> l) {
+            // return l as List2D<T>;
+            var ll = new List2D<T>();
+            foreach(var i in l) ll.Add(i);
+            return ll;
+
+        }
+
+        public static IEnumerable<T> GetFlags<T>(this T e, bool includeSelf=false) where T : Enum {
+            var flags = Enum.GetValues(e.GetType()).Cast<T>().Where((ee) => e.HasFlag(ee));
+            if(includeSelf) flags = flags.Append(e);
+
+            return flags;
 
         }
 
@@ -63,11 +177,23 @@ namespace CoDe_A.Lakbay.Utilities {
         }
 
         public static Vector3 GetSize(this GameObject gameObject) {
-            var cs = gameObject.GetComponentsInChildren<Renderer>();
+            var rcs = gameObject.GetComponentsInChildren<Renderer>();
+            var tcs = gameObject.GetComponentsInChildren<Terrain>();
+            var sizes = new List<Vector3>();
 
-            if(cs != null && cs.Length > 0) {
+            if(rcs != null) {
+                foreach(var r in rcs) sizes.Add(r.bounds.size);
+
+            }
+
+            if(tcs != null) {
+                foreach(var t in tcs) sizes.Add(t.terrainData.bounds.size);
+
+            }
+
+            if(sizes.Count > 0) {
                 var m = Enumerable.Range(0, 3).Select<int, float>((i) => {
-                    return cs.Max((r) => r.bounds.size[i]);
+                    return sizes.Max((s) => s[i]);
                 });
                 
                 return m.AsVector3();
@@ -113,7 +239,7 @@ namespace CoDe_A.Lakbay.Utilities {
 
         public static string AsYaml<T>(this T obj) {
             try {
-                var s = new SerializerBuilder().Build();
+                var s = Helper.YamlSerializer;
                 return s.Serialize(obj);
 
             } catch { return null; }
