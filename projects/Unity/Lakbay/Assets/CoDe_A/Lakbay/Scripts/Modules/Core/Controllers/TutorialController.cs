@@ -48,6 +48,7 @@ namespace CoDe_A.Lakbay.Modules.Core.Controllers {
             contentController?.Hide();
 
         }
+        
     }
 
 }

@@ -27,14 +27,39 @@ namespace CoDe_A.Lakbay.Modules.Core.Controllers {
 
 
     public interface IContentController {
+        EntryController textEntryController { get; set; }
+        EntryController imageEntryController { get; set; }
+
         void Show(List<Entry> content);
         void Hide();
         
     }
 
     public class ContentController : Controller, IContentController {
+        [SerializeField]
+        protected EntryController _textEntryController;
+        public virtual EntryController textEntryController { get => _textEntryController; set => _textEntryController = value; }
+        [SerializeField]
+        protected EntryController _imageEntryController;
+        public virtual EntryController imageEntryController { get => _imageEntryController; set => _imageEntryController = value; }
+
+
         public virtual void Show(List<Entry> content) {
-        
+            gameObject.DestroyChildren();
+
+            foreach(var entry in content) {
+                EntryController entryController = null;
+                if(entry.type == Entry.Type.Text) {
+                    entryController = Instantiate(textEntryController, transform);
+
+                } else if(entry.type == Entry.Type.Image) {
+                    entryController = Instantiate(imageEntryController, transform);
+
+                }
+
+                entryController.Show(entry);
+
+            }
 
         }
         
