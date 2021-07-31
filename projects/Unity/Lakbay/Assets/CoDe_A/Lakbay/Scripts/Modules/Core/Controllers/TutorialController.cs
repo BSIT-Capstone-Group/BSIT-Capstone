@@ -30,7 +30,7 @@ namespace CoDe_A.Lakbay.Modules.Core.Controllers {
         ContentController contentController { get; set; }
 
         void Show(ITutorial tutorial);
-        void Hide();
+        void Hide(ITutorial tutorial);
         
     }
 
@@ -39,12 +39,14 @@ namespace CoDe_A.Lakbay.Modules.Core.Controllers {
         protected ContentController _contentController;
         public virtual ContentController contentController { get => _contentController; set => _contentController = value; }
 
+
         public virtual void Show(ITutorial tutorial) {
-            contentController?.Show(tutorial.ViewTutorialContent());
+            contentController?.Show(tutorial.OnTutorialShow());
 
         }
 
-        public virtual void Hide() {
+        public virtual void Hide(ITutorial tutorial) {
+            tutorial.OnTutorialHide();
             contentController?.Hide();
 
         }

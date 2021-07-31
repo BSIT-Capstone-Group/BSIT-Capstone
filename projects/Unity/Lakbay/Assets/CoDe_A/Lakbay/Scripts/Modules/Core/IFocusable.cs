@@ -28,8 +28,8 @@ namespace CoDe_A.Lakbay.Modules.Core {
 
     /// <summary>Provides functions for highlighting.</summary>>
     public interface IFocusable {
-        void Focus();
-        void Unfocus();
+        Tuple<GameObject, Focus> OnFocus();
+        GameObject OnUnfocus();
         
     }
 

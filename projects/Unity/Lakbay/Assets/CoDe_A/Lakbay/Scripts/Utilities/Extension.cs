@@ -20,6 +20,71 @@ using CoDe_A.Lakbay.Utilities;
 
 namespace CoDe_A.Lakbay.Utilities {
     public static class Extension {
+        public static Vector3 GetProgress(this float value, Vector3 from, Vector3 to) {
+            return (to - from) * value + from;
+
+        }
+
+        public static Vector3 GetProgress(this int value, Vector3 from, Vector3 to) {
+            return ((float) value).GetProgress(from, to);
+
+        }
+
+        public static float GetProgress(this float value, float from, float to) {
+            return (to - from) * value + from;
+
+        }
+
+        public static int GetProgress(this int value, int from, int to) {
+            return (int) ((float) value).GetProgress(from, to);
+
+        }
+
+        public static bool TryDestroyComponent<T>(this GameObject gameObject) {
+            return gameObject.TryDestroyComponent(typeof(T));
+
+        }
+
+        public static bool TryDestroyComponent(this GameObject gameObject, Type type) {
+            if(gameObject.HasComponent(type)) {
+                gameObject.DestroyComponent(type);
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static bool HasComponent(this GameObject gameObject, Type type) {
+            return gameObject.GetComponent(type) != null;
+
+        }
+
+        public static bool HasComponent<T>(this GameObject gameObject) => gameObject.HasComponent(typeof(T));
+
+        public static void DestroyComponent(this GameObject gameObject, Type type) {
+            var co = gameObject.GetComponent(type);
+            GameObject.Destroy(co);
+
+        }
+
+        public static void DestroyComponent<T>(this GameObject gameObject) {
+            gameObject.DestroyComponent(typeof(T));
+
+        }
+
+        public static bool IsTwoDimensional(this GameObject gameObject) {
+            return gameObject.HasComponent<RectTransform>();
+
+        }
+
+        public static Color AsColor(this string str) {
+            ColorUtility.TryParseHtmlString(str, out var c);
+            return c;
+        
+        }
+
         public static string ToString<T>(this IEnumerable<T> enumerable, bool pretty) {
             if(!pretty) return enumerable.ToString();
             return "[" + string.Join(", ", enumerable) + "]";
@@ -214,7 +279,7 @@ namespace CoDe_A.Lakbay.Utilities {
         public static T Parse<T>(this string str) => Helper.Parse<T>(str);
 
 
-        public static T[] Shuffle<T>(this T[] array) => Helper.Shuffle<T>(array);
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> enumerable) => Helper.Shuffle<T>(enumerable.ToArray());
 
         public static T PickRandomly<T>(this T[] array) => Helper.PickRandomly<T>(array);
 

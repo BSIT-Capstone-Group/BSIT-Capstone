@@ -122,9 +122,9 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Road.Spawn {
 
         public Data() => Create(instance: this);
 
-        public float chance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public AxisInfo column { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public AxisInfo row { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float chance { get; set; }
+        public AxisInfo column { get; set; }
+        public AxisInfo row { get; set; }
 
         public static Data Create(
             float chance=1.0f,

@@ -26,12 +26,12 @@ namespace CoDe_A.Lakbay.Modules.Core {
     using Input = Utilities.Input;
 
 
-    /// <summary>Provides controls at certain points.</summary>>
+    /// <summary>Provides controls at certain points of the game.</summary>>
     public interface IPlayable {
-        void Play();
-        void Pause();
-        void Resume();
-        void Stop();
+        void OnPlay();
+        void OnPause();
+        void OnResume();
+        void OnStop();
         
     }
 

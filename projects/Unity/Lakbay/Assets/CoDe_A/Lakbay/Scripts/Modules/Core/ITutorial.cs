@@ -28,7 +28,8 @@ namespace CoDe_A.Lakbay.Modules.Core {
 
     /// <summary>Allows to be used in Tutorials.</summary>>
     public interface ITutorial {
-        List<Entry> ViewTutorialContent();
+        List<Entry> OnTutorialShow();
+        void OnTutorialHide();
         
     }
 

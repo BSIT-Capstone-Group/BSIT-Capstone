@@ -29,7 +29,7 @@ namespace CoDe_A.Lakbay.Utilities {
 
         public static readonly Serializer YamlSerializer = new SerializerBuilder()
             .EmitDefaults()
-            .EnsureRoundtrip()
+            // .EnsureRoundtrip()
             .Build();
         public static readonly Deserializer YamlDeserializer = new Deserializer();
 

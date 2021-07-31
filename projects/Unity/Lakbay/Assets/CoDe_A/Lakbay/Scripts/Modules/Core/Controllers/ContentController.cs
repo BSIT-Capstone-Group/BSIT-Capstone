@@ -64,7 +64,10 @@ namespace CoDe_A.Lakbay.Modules.Core.Controllers {
         }
         
         public virtual void Hide() {
-            
+            foreach(var c in gameObject.GetChildren()) {
+                c.SetActive(false);
+
+            }
 
         }
 

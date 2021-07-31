@@ -54,6 +54,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
         }
         public int totalCount => count.x * count.y;
         
+        [SerializeField]
         private List<List<T>> _xs;
         public List<List<T>> xs { get => _xs; set => _xs = value; }
 

@@ -1,5 +1,5 @@
 /*
- * Date Created: Tuesday, July 20, 2021 8:29 PM
+ * Date Created: Friday, July 23, 2021 7:41 AM
  * Author: Nommel Isanar Lavapie Amolat (NI.L.A)
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -24,16 +24,21 @@ using CoDe_A.Lakbay.Utilities;
 namespace CoDe_A.Lakbay.Modules.Core {
     using Event = Utilities.Event;
     using Input = Utilities.Input;
-    using Asset = Sprite;
 
 
     [Serializable]
-    public struct Image : IAsset<Asset> {
+    public struct Focus {
         [SerializeField]
-        private string _path;
-        public string path { get => _path; set => _path = value; }
-        
-        public Asset asset => default;
+        private Outline.Mode _mode;
+        public Outline.Mode mode { get => _mode; set => _mode = value; }
+        [SerializeField]
+        private float _width;
+        public float width { get => _width; set => _width = value; }
+        [SerializeField]
+        private string _hexColor;
+        public string hexColor { get => _hexColor; set => _hexColor = value; }
+
+        public Color color => hexColor != null ? hexColor.AsColor() : Color.white;
 
     }
 
