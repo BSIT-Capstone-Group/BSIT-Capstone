@@ -29,13 +29,13 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay {
     /// <summary>Anything that can be spawned must inherit from this.</summary>
     public interface ISpawnable {
         string key { get; set; }
-        string notKey { get; set; }
+        List<string> notKeys { get; set; }
         float chance { get; set; }
         AxisInfo column { get; set; }
         AxisInfo row { get; set; }
         
         string OnPlot(in List<List2D<List2D<string>>> rows, in Vector2Int location, float chance);
-        GameObject OnSpawn(in List<List2D<List2D<string>>> rows, in Vector2Int location);
+        GameObject OnSpawn(in List<List<GameObject>> root, in Vector2Int location);
         
     }
 

@@ -29,20 +29,34 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay {
     [Serializable]
     public struct AxisInfo {
         [SerializeField]
-        int _max;
-        public int max { get => _max; set => _max = value; }
+        int _maxCount;
+        public int maxCount { get => _maxCount; set => _maxCount = value; }
         [SerializeField]
-        int _interval;
-        public int interval { get => _interval; set => _interval = value; }
+        int _indexInterval;
+        public int indexInterval { get => _indexInterval; set => _indexInterval = value; }
         [SerializeField]
-        List<int> _range;
-        public List<int> range { get => _range; set => _range = value; }
+        int _startIndex;
+        public int startIndex { get => _startIndex; set => _startIndex = value; }
+        [SerializeField]
+        int _endIndex;
+        public int endIndex { get => _endIndex; set => _endIndex = value; }
+        [SerializeField]
+        List<int> _indexRange;
+        public List<int> indexRange { get => _indexRange; set => _indexRange = value; }
 
         
-        public AxisInfo(int max=-1, int interval=-1, List<int> range=null) {
-            this._max = max;
-            this._interval = interval;
-            this._range = range;
+        public AxisInfo(
+            int maxCount=-1,
+            int indexInterval=-1,
+            int startIndex=-1,
+            int endIndex=-1,
+            List<int> indexRange=null
+        ) {
+            this._maxCount = maxCount;
+            this._indexInterval = indexInterval;
+            this._startIndex = startIndex;
+            this._endIndex = endIndex;
+            this._indexRange = indexRange;
 
         }
 

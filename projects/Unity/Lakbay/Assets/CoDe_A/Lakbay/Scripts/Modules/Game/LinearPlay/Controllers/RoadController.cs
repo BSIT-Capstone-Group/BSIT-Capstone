@@ -114,7 +114,7 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
         }
         
         [ContextMenu("Plot")]
-        public virtual RowList Plot() => Plot(new Vector2Int(3, 100));
+        public virtual RowList Plot() => Plot(new Vector2Int(5, 210));
 
         [ContextMenu("Spawn")]
         public virtual void Spawn() => Spawn(Plot());
@@ -131,62 +131,69 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
 
             for(int i = 0; i < rowCount; i++) {
                 rows.Add(new List2D<List2D<string>>(
-                    from ii in Enumerable.Range(0, columnCount) select new List2D<string>()
-
+                    from ii in Enumerable.Range(0, columnCount)
+                    select new List2D<string>()
                 ));
 
             }
-            
-            var ris = Enumerable.Range(0, rows.GetCount()).Shuffle();
 
-            foreach(var ri in ris) {
-                var cis = Enumerable.Range(0, rows[ri].GetCount()).Shuffle();
+            foreach(var row in rows.Enumerate()) {
+                var cis = Enumerable.Range(0, row.Value.GetCount()).ToList();
 
-                foreach(var ci in cis) {
-                    var col = rows[ri][ci];
+                while(!cis.IsEmpty()) {
+                    int colKey = cis.PickRandomly();
+                    cis.Remove(colKey);
+                    var colValue = row.Value[colKey];
+
+                    var location = new Vector2Int(colKey, row.Key);
                     float chance = UnityEngine.Random.value;
 
-                    foreach(var sc in scs) {
-                        var colRange = sc.column.range.AsEnumerable();
-                        colRange = colRange == null || colRange.GetCount() == 0 ?
-                            Enumerable.Range(0, columnCount) : colRange;
-                        var rowRange = sc.row.range.AsEnumerable();
-                        rowRange = rowRange == null || rowRange.GetCount() == 0 ?
-                            Enumerable.Range(0, rowCount) : rowRange;
+                    foreach(var spawnController in spawnControllers) {
+                        var spawnable = spawnController as ISpawnable;
+                        int colInterval = spawnable.column.indexInterval <= 0 ? 1 :
+                            spawnable.column.indexInterval;
+                        int rowInterval = spawnable.row.indexInterval <= 0 ? 1 :
+                            spawnable.row.indexInterval;
+                        int colMax = spawnable.column.maxCount <= -1 ? rows.GetCount() :
+                            spawnable.column.maxCount;
+                        int rowMax = spawnable.row.maxCount <= -1 ? row.Value.GetCount() :
+                            spawnable.row.maxCount;
+                        var colRange = spawnable.column.indexRange == null || spawnable.column.indexRange.GetCount() == 0 ?
+                            Enumerable.Range(0, row.Value.GetCount()) : spawnable.column.indexRange;
+                        var rowRange = spawnable.row.indexRange == null || spawnable.row.indexRange.GetCount() == 0 ?
+                            Enumerable.Range(0, rows.GetCount()) : spawnable.row.indexRange;
+                        int colStartIndex = spawnable.column.startIndex <= -1 ? 0 :
+                            spawnable.column.startIndex;
+                        int colEndIndex = spawnable.column.endIndex <= -1 ? row.Value.GetCount() - 1 :
+                            spawnable.column.endIndex;
+                        int rowStartIndex = spawnable.row.startIndex <= -1 ? 0 :
+                            spawnable.row.startIndex;
+                        int rowEndIndex = spawnable.row.endIndex <= -1 ? rows.GetCount() - 1 :
+                            spawnable.row.endIndex;
+                        colRange = colRange.Where((i) => i.Within(colStartIndex, colEndIndex));
+                        rowRange = rowRange.Where((i) => i.Within(rowStartIndex, rowEndIndex));
 
-                        int ccount = rows.Select(
-                            (r) => r[ci].Count((l) => l == sc.key)
-                        ).Sum();
-                        int rcount = rows[ri].Select((l) => l.Count((s) => s == sc.key)).Sum();
+                        var currentRowCounts = row.Value.Select((c) => c.Count((s) => s == spawnable.key));
+                        int currentRowCount = currentRowCounts.Sum();
+                        var currentColCounts = rows.Select((r) => r[colKey].Count((s) => s == spawnable.key));
+                        int currentColCount = currentColCounts.Sum();
 
-                        int cinterval = sc.column.interval <= 0 ? 1 : sc.column.interval;
-                        int rinterval = sc.row.interval <= 0 ? 1 : sc.row.interval;
+                        if(
+                            !rowRange.Contains(row.Key) ||
+                            !colRange.Contains(colKey) ||
+                            currentRowCount >= rowMax ||
+                            currentColCount >= colMax ||
+                            row.Key % rowInterval != 0 ||
+                            colKey % colInterval != 0 ||
+                            chance > spawnable.chance
+                        ) continue;
 
-                        int cmax = sc.column.max <= -1 ? cis.Max() : sc.column.max;
-                        int rmax = sc.row.max <= -1 ? ris.Max() : sc.row.max;
+                        foreach(var notKey in spawnable.notKeys) {
+                            while(colValue.Contains(notKey)) colValue.Remove(notKey);
 
-                        print(sc.key);
-
-                        if(colRange.Contains(ci) && rowRange.Contains(ri)) {
-                            if(ccount >= cmax || rcount >= rmax)
-                                continue;
-
-                            print("1");
-
-                            if(chance > sc.chance) continue;
-
-                            print("2");
-
-                            if(ri % rinterval != 0 || ci % cinterval != 0) continue;
-
-                            print("3");
-
-                            // while(col.Contains(sc.notKey)) col.Remove(sc.notKey);
-                            var k = sc.OnPlot(rows, new Vector2Int(ci, ri), chance);
-                            
-                            col.Add(k ?? "");
-
-                        } else continue;
+                        }
+                        
+                        colValue.Add(spawnable.OnPlot(rows, location, chance));
 
                     }
 
@@ -194,7 +201,7 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
 
             }
 
-            var str = AsPrettyString(rows);
+            string str = AsPrettyString(rows);
             print(str);
             str.CopyToClipboard();
 
@@ -203,43 +210,56 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
         }
 
         public virtual void Spawn(RowList rows) {
-            gameObject.DestroyChildren();
+            gameObject.DestroyChildren(true);
 
             var scs = spawnControllers.Select((sc) => sc as ISpawnable);
 
             foreach(var row in rows.Enumerate()) {
+                var gorow = new GameObject($"Row ({row.Key})");
+                gorow.transform.SetParent(transform);
+
+                foreach(var col in row.Value.Enumerate()) {
+                    var gocol = new GameObject($"Column ({col.Key})");
+                    gocol.transform.SetParent(gorow.transform);
+                    
+                }
+
+            }
+
+            var rows_ = gameObject.GetChildren().Select((g) => g.GetChildren().ToList()).ToList();
+
+            foreach(var row in gameObject.GetChildren().Enumerate()) {
+                var gorow = row.Value;
                 var gorows = gameObject.GetChildren();
                 float zpos = 0.0f;
                 if(gorows != null && gorows.GetCount() > 0) {
                     zpos = gorows.Sum((g) => g.GetSize().z);
 
                 }
-
-                var gorow = new GameObject($"Row ({row.Key})");
                 var gorowpos = gorow.transform.localPosition;
-                gorow.transform.SetParent(transform);
                 gorow.transform.localPosition = new Vector3(
                     0.0f, 0.0f, zpos
                 );
 
-                foreach(var col in row.Value.Enumerate()) {
+                foreach(var col in row.Value.GetChildren().Enumerate()) {
+                    var gocol = rows_[row.Key][col.Key];
                     var gocols = gorow.GetChildren();
                     float xpos = 0.0f;
                     if(gocols != null && gocols.GetCount() > 0) {
                         xpos = gocols.Sum((g) => g.GetSize().x);
 
                     }
-
-                    var gocol = new GameObject($"Column ({col.Key})");
                     var gocolpos = gocol.transform.localPosition;
-                    gocol.transform.SetParent(gorow.transform);
                     gocol.transform.localPosition = new Vector3(
                         xpos, 0.0f, 0.0f
                     );
 
-                    foreach(var spawnKey in col.Value) {
+                    foreach(var spawnKey in rows[row.Key][col.Key]) {
                         if(scs.TryFind((sc) => sc.key == spawnKey, out var sc)) {
-                            var go = sc.OnSpawn(rows, new Vector2Int(col.Key, row.Key));
+                            var go = sc.OnSpawn(
+                                rows_,
+                                new Vector2Int(col.Key, row.Key)
+                            );
                             if(go) Instantiate(go, gocol.transform);
 
                         }

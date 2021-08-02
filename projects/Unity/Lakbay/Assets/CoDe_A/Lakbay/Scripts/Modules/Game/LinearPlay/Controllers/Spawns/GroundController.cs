@@ -41,10 +41,12 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers.Spawns {
         public virtual GameObject outer { get => _outer; set => _outer = value; }
 
 
-        public override GameObject OnSpawn(in List<List2D<List2D<string>>> rows, in Vector2Int location) {
+        public override GameObject OnSpawn(in List<List<GameObject>> rows, in Vector2Int location) {
             int colCount = rows.GetCount() != 0 ? rows[0].GetCount() : 0;
+            int startIndex = column.startIndex <= -1 ? 0 : column.startIndex;
+            int endIndex = column.endIndex <= -1 ? rows[0].GetCount() : column.endIndex;
             
-            if(location.x.Either(0, colCount - 1)) {
+            if(location.x.Either(startIndex, endIndex)) {
                 return outer;
 
             } else return inner;

@@ -33,8 +33,8 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers.Spawns {
 
     public class ExamItemController : SpawnController, IExamItemController {
         public override string OnPlot(in List<List2D<List2D<string>>> rows, in Vector2Int location, float chance) {
-            print("plotting");
             return base.OnPlot(rows, location, chance);
+            
         }
 
     }

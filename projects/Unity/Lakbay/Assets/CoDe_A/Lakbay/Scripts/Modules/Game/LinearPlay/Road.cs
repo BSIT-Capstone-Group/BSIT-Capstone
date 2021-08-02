@@ -40,7 +40,6 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay {
             for(int i = 0; i < rowCount; i++) {
                 rows.Add(new List2D<List2D<string>>(
                     from ii in Enumerable.Range(0, columnCount) select new List2D<string>()
-
                 ));
 
             }

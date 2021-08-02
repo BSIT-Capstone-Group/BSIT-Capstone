@@ -102,9 +102,11 @@ namespace CoDe_A.Lakbay.Utilities {
         }
 
         public static void DestroyChildren(Transform parent, bool immediate=false) {
-            for(int i = 0; i < parent.childCount; i++) {
-                if(!immediate) GameObject.Destroy(parent.GetChild(i).gameObject);
-                else GameObject.DestroyImmediate(parent.GetChild(i).gameObject);
+            var gos = new List<GameObject>(); 
+            for(int i = 0; i < parent.childCount; i++) gos.Add(parent.GetChild(i).gameObject);
+            while(!gos.IsEmpty()) {
+                if(!immediate) GameObject.Destroy(gos.Pop(0));
+                else GameObject.DestroyImmediate(gos.Pop(0));
 
             }
 

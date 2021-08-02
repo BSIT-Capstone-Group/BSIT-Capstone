@@ -37,8 +37,8 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
         private string _key = "";
         public string key { get => _key; set => _key = value; }
         [SerializeField]
-        private string _notKey = "";
-        public string notKey { get => _notKey; set => _notKey = value; }
+        private List<string> _notKeys = new List<string>();
+        public List<string> notKeys { get => _notKeys; set => _notKeys = value; }
         [SerializeField]
         private float _chance = 1.0f;
         public float chance { get => _chance; set => _chance = value; }
@@ -55,7 +55,7 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
 
         }
 
-        public virtual GameObject OnSpawn(in List<List2D<List2D<string>>> rows, in Vector2Int location) {
+        public virtual GameObject OnSpawn(in List<List<GameObject>> rows, in Vector2Int location) {
             // gameObject.TryDestroyComponent<SpawnController>();
             return gameObject;
 
