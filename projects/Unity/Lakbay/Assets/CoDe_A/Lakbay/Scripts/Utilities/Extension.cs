@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using UnityEngine;
@@ -305,7 +306,9 @@ namespace CoDe_A.Lakbay.Utilities {
         public static string AsYaml<T>(this T obj) {
             try {
                 var s = Helper.YamlSerializer;
-                return s.Serialize(obj);
+                var sw = new StringWriter();
+                s.Serialize(sw, obj, typeof(T));
+                return sw.ToString();
 
             } catch { return null; }
 

@@ -25,38 +25,47 @@ using CoDe_A.Lakbay.Modules.Core;
 namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
     using Event = Utilities.Event;
     using Input = Utilities.Input;
+    using RowList = List<List2D<List2D<string>>>;
 
 
-    public interface ISpawnController : Core.IFocusable, ISpawnable {
-
+    public interface ISpawnController :
+        Core.IController,
+        Core.IFocusable,
+        Core.ISaveable,
+        ISpawnable {
+        [YamlIgnore]
+        List<GameObject> gameObjects { get; set; }
 
     }
-
+    
     public class SpawnController : Controller, ISpawnController {
         [SerializeField]
-        private string _key = "";
-        public string key { get => _key; set => _key = value; }
+        protected string _key = "";
+        public virtual string key { get => _key; set => _key = value; }
         [SerializeField]
-        private List<string> _notKeys = new List<string>();
-        public List<string> notKeys { get => _notKeys; set => _notKeys = value; }
+        protected List<string> _notKeys = new List<string>();
+        public virtual List<string> notKeys { get => _notKeys; set => _notKeys = value; }
         [SerializeField]
-        private float _chance = 1.0f;
-        public float chance { get => _chance; set => _chance = value; }
+        protected float _chance = 1.0f;
+        public virtual float chance { get => _chance; set => _chance = value; }
         [SerializeField]
-        private AxisInfo _column = new AxisInfo(-1);
-        public AxisInfo column { get => _column; set => _column = value; }
+        protected AxisInfo _column = new AxisInfo(-1);
+        public virtual AxisInfo column { get => _column; set => _column = value; }
         [SerializeField]
-        private AxisInfo _row = new AxisInfo(-1);
-        public AxisInfo row { get => _row; set => _row = value; }
+        protected AxisInfo _row = new AxisInfo(-1);
+        public virtual AxisInfo row { get => _row; set => _row = value; }
+        [SerializeField]
+        protected List<GameObject> _gameObjects = new List<GameObject>();
+        public virtual List<GameObject> gameObjects { get => _gameObjects; set => _gameObjects = value; }
 
 
-        public virtual string OnPlot(in List<List2D<List2D<string>>> rows, in Vector2Int location, float chance) {
+        public virtual string OnPlot(in RowList rows, in Vector2Int location, float chance) {
             return key;
 
         }
 
         public virtual GameObject OnSpawn(in List<List<GameObject>> rows, in Vector2Int location) {
-            // gameObject.TryDestroyComponent<SpawnController>();
+            if(gameObjects != null && gameObjects.Count != 0) return gameObjects.PickRandomly();
             return gameObject;
 
         }
@@ -70,6 +79,31 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
             return default;
 
         }
+
+        public virtual TextAsset OnSave() {
+            var str = this.AsYaml<ISpawnController>();
+            var ta = new TextAsset(str);
+            print(str);
+            return ta;
+
+        }
+
+        public virtual void OnLoad(TextAsset textAsset) {
+            var s = textAsset.ParseYaml<SpawnController>();
+            key = s.key;
+            notKeys = s.notKeys;
+            chance = s.chance;
+            column = s.column;
+            row = s.row;
+
+        }
+
+        [ContextMenu("Save")]
+        public virtual void Save() => OnSave();
+
+        [ContextMenu("Load")]
+        public virtual void Load() => OnLoad(OnSave());
+
     }
 
 }

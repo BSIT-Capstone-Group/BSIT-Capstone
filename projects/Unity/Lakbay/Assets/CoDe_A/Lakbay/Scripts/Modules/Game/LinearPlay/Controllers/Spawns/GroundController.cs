@@ -27,29 +27,18 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers.Spawns {
 
 
     public interface IGroundController : ISpawnController {
-        GameObject inner { get; set; }
-        GameObject outer { get; set; }
         
     }
 
     public class GroundController : SpawnController, IGroundController {
-        [SerializeField]
-        private GameObject _inner;
-        public virtual GameObject inner { get => _inner; set => _inner = value; }
-        [SerializeField]
-        private GameObject _outer;
-        public virtual GameObject outer { get => _outer; set => _outer = value; }
-
-
         public override GameObject OnSpawn(in List<List<GameObject>> rows, in Vector2Int location) {
-            int colCount = rows.GetCount() != 0 ? rows[0].GetCount() : 0;
             int startIndex = column.startIndex <= -1 ? 0 : column.startIndex;
             int endIndex = column.endIndex <= -1 ? rows[0].GetCount() : column.endIndex;
             
             if(location.x.Either(startIndex, endIndex)) {
-                return outer;
+                return gameObjects[0];
 
-            } else return inner;
+            } else return gameObjects[1];
 
         }
 

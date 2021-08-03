@@ -32,6 +32,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
     }
 
     public class Controller : MonoBehaviour, IController {
+        public Controller() : base() {}
 
     }
 

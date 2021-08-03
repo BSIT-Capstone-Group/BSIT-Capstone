@@ -24,6 +24,7 @@ using CoDe_A.Lakbay.Utilities;
 namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers.Spawns {
     using Event = Utilities.Event;
     using Input = Utilities.Input;
+    using RowList = List<List2D<List2D<string>>>;
 
 
     public interface IExamItemController : ISpawnController {
@@ -32,7 +33,7 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers.Spawns {
     }
 
     public class ExamItemController : SpawnController, IExamItemController {
-        public override string OnPlot(in List<List2D<List2D<string>>> rows, in Vector2Int location, float chance) {
+        public override string OnPlot(in RowList rows, in Vector2Int location, float chance) {
             return base.OnPlot(rows, location, chance);
             
         }

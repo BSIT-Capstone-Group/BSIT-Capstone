@@ -28,7 +28,8 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
     using RowList = List<List2D<List2D<string>>>;
 
 
-    public interface IRoadController : Core.IInteractable {
+    public interface IRoadController : Core.IController, Core.IInteractable {
+        [YamlIgnore]
         List<Controller> spawnControllers { get; set; }
 
         RowList Plot(Vector2Int count);
@@ -47,9 +48,9 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
             throw new NotImplementedException();
         }
 
-        public void OnLoad(TextAsset textAsset)
-        {
-            throw new NotImplementedException();
+        public void OnLoad(TextAsset textAsset) {
+            var d = textAsset.ParseYaml<RoadController>();
+
         }
 
         public void OnPause()
@@ -67,9 +68,9 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
             throw new NotImplementedException();
         }
 
-        public TextAsset OnSave()
-        {
-            throw new NotImplementedException();
+        public TextAsset OnSave() {
+            return new TextAsset(this.AsYaml<IRoadController>());
+
         }
 
         public void OnStop()
