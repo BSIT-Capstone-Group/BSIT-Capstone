@@ -84,7 +84,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam {
             get => _items;
             set  {
                 var r = Helper.SetInvoke(controller, ref _items, value, onItemsChange);
-                if(r.Item1) controller?.OnItemsChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnItemsChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 

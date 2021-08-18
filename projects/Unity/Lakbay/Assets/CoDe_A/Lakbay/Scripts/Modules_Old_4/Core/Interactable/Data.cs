@@ -89,7 +89,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Interactable {
             get => base.maxCollisionCount;
             set {
                 var r = Helper.SetInvoke(controller, ref _maxCollisionCount, value);
-                // if(r.Item1) controller?.OnPlayingChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnPlayingChange(r.Item2.Item1, r.Item2.Item2);
                 
             }
             
@@ -99,7 +99,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Interactable {
             set {
                 if(maxCollisionCount >= 0) Mathf.Clamp(value, 0, maxCollisionCount);
                 var r = Helper.SetInvoke(controller, ref _collisionCount, value);
-                // if(r.Item1) controller?.OnPlayingChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnPlayingChange(r.Item2.Item1, r.Item2.Item2);
                 
             }
             
@@ -108,7 +108,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Interactable {
             get => base.playing;
             set {
                 var r = Helper.SetInvoke(controller, ref _playing, value, onPlayingChange);
-                if(r.Item1) controller?.OnPlayingChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnPlayingChange(r.Item2.Item1, r.Item2.Item2);
                 
             }
             
@@ -117,7 +117,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Interactable {
             get => base.handlingInputs;
             set {
                 var r = Helper.SetInvoke(controller, ref _handlingInputs, value, onHandlingInputsChange);
-                if(r.Item1) controller?.OnHandlingInputsChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnHandlingInputsChange(r.Item2.Item1, r.Item2.Item2);
                 
             }
 

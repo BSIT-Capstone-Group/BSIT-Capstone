@@ -68,7 +68,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item {
             get => _minTime;
             set  {
                 var r = Helper.SetInvoke(controller, ref _minTime, value);
-                // if(r.Item1) controller?.OnMissedChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnMissedChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 
@@ -79,7 +79,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item {
             get => _maxTime;
             set  {
                 var r = Helper.SetInvoke(controller, ref _maxTime, value);
-                // if(r.Item1) controller?.OnMissedChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnMissedChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 
@@ -90,7 +90,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item {
             get => _missed;
             set  {
                 var r = Helper.SetInvoke(controller, ref _missed, value, onMissedChange);
-                if(r.Item1) controller?.OnMissedChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnMissedChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 
@@ -101,7 +101,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item {
             get => _correct;
             set  {
                 var r = Helper.SetInvoke(controller, ref _correct, value, onCorrectChange);
-                if(r.Item1) controller?.OnCorrectChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnCorrectChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 
@@ -112,7 +112,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item {
             get => _question;
             set  {
                 var r = Helper.SetInvoke(controller, ref _question, value, onQuestionChange);
-                if(r.Item1) controller?.OnQuestionChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnQuestionChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 
@@ -123,7 +123,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item {
             get => _choices;
             set  {
                 var r = Helper.SetInvoke(controller, ref _choices, value, onChoicesChange);
-                if(r.Item1) controller?.OnChoicesChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnChoicesChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 

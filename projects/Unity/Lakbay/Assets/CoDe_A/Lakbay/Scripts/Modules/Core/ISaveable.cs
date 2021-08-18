@@ -26,11 +26,17 @@ namespace CoDe_A.Lakbay.Modules.Core {
     using Input = Utilities.Input;
 
 
-    /// <summary>Provides Serialization and Deserialization Functionalities.</summary>>
+    /// <summary>Provides Serialization and Deserialization Functionalities.</summary>
     public interface ISaveable {
         TextAsset OnSave();
         void OnLoad(TextAsset textAsset);
         
+    }
+
+    /// <summary>Provides Serialization and Deserialization Functionalities.</summary>
+    public interface ISaveable<T> : ISaveable {
+        void OnLoad(T data);
+
     }
 
 }

@@ -46,7 +46,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Content {
             get => _entries;
             set  {
                 var r = Helper.SetInvoke(controller, ref _entries, value, onEntriesChange);
-                if(r.Item1) controller?.OnEntriesChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnEntriesChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 

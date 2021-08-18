@@ -32,7 +32,8 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
         Core.IController,
         Core.IFocusable,
         Core.ISaveable,
-        ISpawnable {
+        Core.ISaveable<ISpawn>,
+        ISpawn {
         [YamlIgnore]
         List<GameObject> gameObjects { get; set; }
 
@@ -41,22 +42,22 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
     public class SpawnController : Controller, ISpawnController {
         [SerializeField]
         protected string _key = "";
-        public virtual string key { get => _key; set => _key = value; }
+        public virtual string key { get => _key; set => Helper.Set(ref _key, value); }
         [SerializeField]
         protected List<string> _notKeys = new List<string>();
-        public virtual List<string> notKeys { get => _notKeys; set => _notKeys = value; }
+        public virtual List<string> notKeys { get => _notKeys; set => Helper.Set(ref _notKeys, value); }
         [SerializeField]
         protected float _chance = 1.0f;
-        public virtual float chance { get => _chance; set => _chance = value; }
+        public virtual float chance { get => _chance; set => Helper.Set(ref _chance, value); }
         [SerializeField]
         protected AxisInfo _column = new AxisInfo(-1);
-        public virtual AxisInfo column { get => _column; set => _column = value; }
+        public virtual AxisInfo column { get => _column; set => Helper.Set(ref _column, value); }
         [SerializeField]
         protected AxisInfo _row = new AxisInfo(-1);
-        public virtual AxisInfo row { get => _row; set => _row = value; }
+        public virtual AxisInfo row { get => _row; set => Helper.Set(ref _row, value); }
         [SerializeField]
         protected List<GameObject> _gameObjects = new List<GameObject>();
-        public virtual List<GameObject> gameObjects { get => _gameObjects; set => _gameObjects = value; }
+        public virtual List<GameObject> gameObjects { get => _gameObjects; set => Helper.Set(ref _gameObjects, value); }
 
 
         public virtual string OnPlot(in RowList rows, in Vector2Int location, float chance) {
@@ -95,6 +96,15 @@ namespace CoDe_A.Lakbay.Modules.Game.LinearPlay.Controllers {
             chance = s.chance;
             column = s.column;
             row = s.row;
+
+        }
+
+        public virtual void OnLoad(ISpawn data) {
+            key = data.key;
+            notKeys = data.notKeys;
+            chance = data.chance;
+            column = data.column;
+            row = data.row;
 
         }
 

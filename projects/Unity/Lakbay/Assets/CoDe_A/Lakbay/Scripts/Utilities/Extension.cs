@@ -306,11 +306,21 @@ namespace CoDe_A.Lakbay.Utilities {
         public static string AsYaml<T>(this T obj) {
             try {
                 var s = Helper.YamlSerializer;
-                var sw = new StringWriter();
-                s.Serialize(sw, obj, typeof(T));
-                return sw.ToString();
+                return s.Serialize(obj, typeof(T));
 
             } catch { return null; }
+
+        }
+
+        public static string Serialize<T>(this Serializer serializer, T obj) {
+            return serializer.Serialize(obj, typeof(T));
+
+        }
+
+        public static string Serialize(this Serializer serializer, object obj, Type type) {
+            var sw = new StringWriter();
+            serializer.Serialize(sw, obj, type);
+            return sw.ToString();
 
         }
 

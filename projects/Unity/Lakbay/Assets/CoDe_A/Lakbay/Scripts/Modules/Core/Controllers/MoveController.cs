@@ -33,6 +33,10 @@ namespace CoDe_A.Lakbay.Modules.Core.Controllers {
     }
 
     public class MoveController : Controller, IMoveController {
+        public static MoveController[] instances => GameObject.FindObjectsOfType
+            <MoveController>();
+        public static MoveController instance => !instances.IsEmpty() ? instances[0] : null;
+
         public virtual void Move(IMoveable moveable) {
             var rv = moveable.OnMove();
             var go = rv.Item1;
@@ -41,13 +45,16 @@ namespace CoDe_A.Lakbay.Modules.Core.Controllers {
             Helper.DoOver(
                 this,
                 move.duration,
+                null,
                 (t, e, d) => {
                     moveable.OnMoving(go, move);
                     go.transform.localPosition = move.current;
                     move.progress = e / d;
                     return t * move.speed;
 
-                }
+                },
+                () => go.transform.localPosition = move.to,
+                true
             );
 
         }

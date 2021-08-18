@@ -26,7 +26,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
     using Input = Utilities.Input;
 
 
-    /// <summary>Represents objects that can be interacted within the game.</summary>>
+    /// <summary>Represents objects that can be interacted within the game.</summary>
     public interface IInteractable : IFocusable, IPlayable, ISaveable, ITutorial {
         
     }

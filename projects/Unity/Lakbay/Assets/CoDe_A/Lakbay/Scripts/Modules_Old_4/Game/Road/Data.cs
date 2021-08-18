@@ -53,7 +53,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Road {
             get => _rows;
             set {
                 var r = Helper.SetInvoke(controller, ref _rows, value, onRowsChange);
-                // if(r.Item1) controller?.OnRowsChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnRowsChange(r.Item2.Item1, r.Item2.Item2);
 
             }
 

@@ -26,7 +26,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
     using Input = Utilities.Input;
 
 
-    /// <summary>Interface for Assets that can be used in Serialization.</summary>>
+    /// <summary>Interface for Assets that can be used in Serialization.</summary>
     public interface IAsset<T> {
         T asset { get; }
         string path { get; set; }

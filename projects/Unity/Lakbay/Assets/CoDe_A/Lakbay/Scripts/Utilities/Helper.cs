@@ -593,13 +593,14 @@ namespace CoDe_A.Lakbay.Utilities {
         }
 
         
-        public static T[] Set<T>(ref T old, T @new) {
-            T[] values = null;
-            if(EqualityComparer<T>.Default.Equals(old, @new)) return values;
-            values = new T[] { old, @new };
-            old = @new;
+        public static Tuple<bool, Tuple<T, T>> Set<T>(ref T old, T @new) {
+            var values = new Tuple<T, T>(old, @new);
+            var rv = new Tuple<bool, Tuple<T, T>>(false, values);
 
-            return values;
+            if(object.Equals(old, @new)) return rv;
+            else rv = new Tuple<bool, Tuple<T, T>>(true, values);
+            old = @new;
+            return rv;
 
         }
 
@@ -609,23 +610,21 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static Tuple<bool, T1[]> SetInvoke<T0, T1>(
+        public static Tuple<bool, Tuple<T1, T1>> SetInvoke<T0, T1>(
             T0 self, ref T1 old, T1 @new,
             Action<T0, T1, T1> @event=null, Action<T1, T1> eventMethod=null
         ) {
-            T1[] values = Set(ref old, @new);
-            bool res = false;
-            if(values != null) {
+            var rv = Set(ref old, @new);
+            if(rv.Item1) {
                 Invoke<T0, T1>(self, old, @new, @event, eventMethod);
-                res = true;
 
             }
 
-            return new Tuple<bool, T1[]>(res, new T1[] {old, @new});
+            return rv;
 
         }
 
-        public static Tuple<bool, T1[]> SetInvoke<T0, T1>(
+        public static Tuple<bool, Tuple<T1, T1>> SetInvoke<T0, T1>(
             T0 self, ref T1 old, T1 @new,
             UnityEvent<T0, T1, T1> @event=null, Action<T1, T1> eventMethod=null
         ) {
@@ -633,9 +632,19 @@ namespace CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static Tuple<bool, T1[]> SetInvoke<T0, T1>(
+        public static Tuple<bool, Tuple<T1, T1>> SetInvoke<T0, T1>(
             T0 self, ref T1 old, T1 @new
         ) => SetInvoke(self, ref old, @new, default(Action<T0, T1, T1>), null);
+
+        public static List<T> AsList<T>(params T[] objs) {
+            return new List<T>(objs);
+
+        }
+
+        public static T[] AsArray<T>(params T[] objs) {
+            return objs;
+
+        }
 
     }
 

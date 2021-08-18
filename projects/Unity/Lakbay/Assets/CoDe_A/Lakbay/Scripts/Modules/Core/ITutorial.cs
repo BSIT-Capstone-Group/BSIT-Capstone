@@ -26,7 +26,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
     using Input = Utilities.Input;
 
 
-    /// <summary>Allows to be used in Tutorials.</summary>>
+    /// <summary>Allows to be used in Tutorials.</summary>
     public interface ITutorial {
         List<Entry> OnTutorialShow();
         void OnTutorialHide();

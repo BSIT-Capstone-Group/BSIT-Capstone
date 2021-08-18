@@ -26,7 +26,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
     using Input = Utilities.Input;
 
 
-    /// <summary>Provides functions for highlighting.</summary>>
+    /// <summary>Provides functions for highlighting.</summary>
     public interface IFocusable {
         Tuple<GameObject, Focus> OnFocus();
         GameObject OnUnfocus();

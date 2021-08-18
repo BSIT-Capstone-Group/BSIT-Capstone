@@ -26,7 +26,7 @@ namespace CoDe_A.Lakbay.Modules.Core {
     using Input = Utilities.Input;
 
 
-    /// <summary>Gives moving capabilities.</summary>>
+    /// <summary>Gives moving capabilities.</summary>
     public interface IMoveable {
         Tuple<GameObject, Move> OnMove();
         void OnMoving(GameObject gameObject, in Move move);

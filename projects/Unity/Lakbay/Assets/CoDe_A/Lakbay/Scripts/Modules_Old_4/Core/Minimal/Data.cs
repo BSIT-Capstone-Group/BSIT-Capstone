@@ -73,7 +73,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Minimal {
             get => base.label;
             set {
                 var r = Helper.SetInvoke(controller, ref _label, value, onLabelChange);
-                if(r.Item1) controller?.OnLabelChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnLabelChange(r.Item2.Item1, r.Item2.Item2);
                 
             }
 
@@ -82,7 +82,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Minimal {
             get => base.description;
             set {
                 var r = Helper.SetInvoke(controller, ref _description, value, onDescriptionChange);
-                if(r.Item1) controller?.OnDescriptionChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnDescriptionChange(r.Item2.Item1, r.Item2.Item2);
                 
             }
 

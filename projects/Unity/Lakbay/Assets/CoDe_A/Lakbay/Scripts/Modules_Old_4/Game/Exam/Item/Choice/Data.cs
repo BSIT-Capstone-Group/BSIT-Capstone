@@ -48,7 +48,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item.Choice {
             get => _correct;
             set  {
                 var r = Helper.SetInvoke(controller, ref _correct, value, onCorrectChange);
-                if(r.Item1) controller?.OnCorrectChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnCorrectChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 
@@ -59,7 +59,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Exam.Item.Choice {
             get => _entry;
             set  {
                 var r = Helper.SetInvoke(controller, ref _entry, value, onEntryChange);
-                if(r.Item1) controller?.OnEntryChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnEntryChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 

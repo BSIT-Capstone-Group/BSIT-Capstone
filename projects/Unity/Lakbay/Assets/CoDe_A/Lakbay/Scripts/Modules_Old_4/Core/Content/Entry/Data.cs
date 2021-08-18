@@ -59,7 +59,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Core.Content.Entry {
             get => _text;
             set  {
                 var r = Helper.SetInvoke(controller, ref _text, value, onTextChange);
-                if(r.Item1) controller?.OnTextChange(r.Item2[0], r.Item2[1]);
+                if(r.Item1) controller?.OnTextChange(r.Item2.Item1, r.Item2.Item2);
             
             }
 

@@ -64,7 +64,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Road.Spawn {
             get => _chance;
             set {
                 // var r = Helper.SetInvoke(controller, ref _chance, value);
-                // if(r.Item1) controller?.OnRowsChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnRowsChange(r.Item2.Item1, r.Item2.Item2);
 
             }
 
@@ -75,7 +75,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Road.Spawn {
             get => _column;
             set {
                 // var r = Helper.SetInvoke(controller, ref _column, value);
-                // if(r.Item1) controller?.OnRowsChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnRowsChange(r.Item2.Item1, r.Item2.Item2);
 
             }
 
@@ -86,7 +86,7 @@ namespace CoDe_A.Lakbay.ModulesOld4.Game.Road.Spawn {
             get => _row;
             set {
                 // var r = Helper.SetInvoke(controller, ref _row, value);
-                // if(r.Item1) controller?.OnRowsChange(r.Item2[0], r.Item2[1]);
+                // if(r.Item1) controller?.OnRowsChange(r.Item2.Item1, r.Item2.Item2);
 
             }
 
