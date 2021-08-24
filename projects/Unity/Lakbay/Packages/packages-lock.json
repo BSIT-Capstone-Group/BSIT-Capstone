@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "com.coffee.ui-particle": {
-      "version": "file:C:/Users/NI.L.A/Downloads/Compressed/ParticleEffectForUGUI-3.3.8/ParticleEffectForUGUI-3.3.8",
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "2e4d80bc1cbbfe5400fb052778c65bcccc505abd"
     },
     "com.unity.2d.common": {
       "version": "4.0.3",
@@ -17,7 +18,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.path": {
-      "version": "4.0.1",
+      "version": "4.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -30,13 +31,13 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "5.1.3",
+      "version": "5.1.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
         "com.unity.2d.common": "4.0.3",
-        "com.unity.2d.path": "4.0.1",
+        "com.unity.2d.path": "4.0.2",
         "com.unity.modules.physics2d": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -56,10 +57,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ads": {
-      "version": "2.0.8",
+      "version": "3.7.1",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ai.navigation.components": {
@@ -72,14 +75,16 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.analytics": {
-      "version": "3.2.3",
+      "version": "3.5.3",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "1.5.7",
+      "version": "1.7.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -104,7 +109,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.9",
+      "version": "2.0.11",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -168,11 +173,15 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.purchasing": {
-      "version": "2.2.1",
+      "version": "3.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.ugui": "1.0.0"
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.unityanalytics": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.androidjni": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -193,7 +202,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "10.5.0",
+      "version": "10.5.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -202,13 +211,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.universal": {
-      "version": "10.5.0",
+      "version": "10.5.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
-        "com.unity.render-pipelines.core": "10.5.0",
-        "com.unity.shadergraph": "10.5.0"
+        "com.unity.render-pipelines.core": "10.5.1",
+        "com.unity.shadergraph": "10.5.1"
       },
       "url": "https://packages.unity.com"
     },
@@ -234,11 +243,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
-      "version": "10.5.0",
+      "version": "10.5.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.render-pipelines.core": "10.5.0",
+        "com.unity.render-pipelines.core": "10.5.1",
         "com.unity.searcher": "4.3.2"
       },
       "url": "https://packages.unity.com"
@@ -260,7 +269,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.24",
+      "version": "1.1.27",
       "depth": 0,
       "source": "registry",
       "dependencies": {
