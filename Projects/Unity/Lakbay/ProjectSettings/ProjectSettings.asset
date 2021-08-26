@@ -146,6 +146,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: Ph.CoDe_A.Lakbay
     Standalone: Com.CoDeA.Lakbay
   buildNumber:
     Standalone: 0
@@ -679,7 +680,7 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 1
-  cloudProjectId: 
+  cloudProjectId: 5b6029f9-1ed6-4575-999b-e625eff1d4e7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: 
