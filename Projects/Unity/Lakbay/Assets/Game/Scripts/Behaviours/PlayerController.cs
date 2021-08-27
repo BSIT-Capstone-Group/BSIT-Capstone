@@ -20,7 +20,11 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class PlayerController : Controller, IPlayable {
-        public float speed = 2.0f;
+
+        public bool canTravel = false;
+        public float travelSpeed = 2.0f;
+        public float slideDistance = 4.0f;
+        protected Vector3 _slideTargetPosition = Vector3.zero;
 
         public virtual Controller OnPause() {
             return this;
@@ -31,9 +35,40 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         }
 
+        public override void Update() {
+            base.Update();
+
+            if(IInput.keyboard.spaceKey.wasPressedThisFrame) {
+                canTravel = !canTravel;
+
+            }
+
+            if(IInput.keyboard.leftArrowKey.wasPressedThisFrame) {
+                _slideTargetPosition = rigidbody.position;
+                Slide(-1);
+
+            }
+
+            if(IInput.keyboard.rightArrowKey.wasPressedThisFrame) {
+                Slide(1);
+
+            }
+
+        }
+
         public override void FixedUpdate() {
             base.Update();
-            rigidbody.transform.Translate(Vector3.forward * deltaTime * speed);
+            if(canTravel) Travel();
+
+        }
+
+        public virtual void Travel() {
+            rigidbody.MovePosition(rigidbody.position + Vector3.forward * deltaTime * travelSpeed);
+
+        }
+
+        public virtual void Slide(int amount) {
+            rigidbody.MovePosition(rigidbody.position + (Vector3.right * slideDistance * amount) * deltaTime * travelSpeed);
 
         }
 

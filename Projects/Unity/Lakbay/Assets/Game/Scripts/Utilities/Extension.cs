@@ -149,6 +149,16 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static bool Between(this float value, float min, float max) {
+            return value > min && value < max;
+
+        }
+
+        public static bool Between(this int value, int min, int max) {
+            return ((float) value).Between(min, max);
+
+        }
+
         public static bool Either<T>(this T obj, params T[] values) {
             foreach(var value in values) {
                 if(obj.Equals(value)) return true;
@@ -331,6 +341,62 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
             params Type[] components
         ) {
             return parent.CreateChild(new GameObject(), components);
+
+        }
+
+        public static Vector3 GetSize(this GameObject gameObject) {
+            var sizes = gameObject.GetComponentsInChildren<Renderer>()
+                .Select((r) => r.bounds.size).ToList();
+            foreach(var t in gameObject.GetComponentsInChildren<Terrain>()) {
+                sizes.Add(t.terrainData.bounds.size);
+
+            }
+
+            if(sizes.Count > 0) {
+                var maxes = Enumerable.Range(0, 3).Select(
+                    (i) => sizes.Max((s) => s[i])
+                );
+
+                return maxes.ToVector3();
+
+            }
+
+            return Vector3.zero;
+
+        }
+
+        public static Bounds GetBounds(this GameObject gameObject) {
+            return new Bounds(gameObject.transform.position, gameObject.GetSize());
+
+        }
+
+        // Source: http://wiki.unity3d.com/index.php?title=IsVisibleFrom#UnityScript_-_RendererHelpers.js
+        public static bool IsVisibleFrom(
+            this Bounds bounds, UnityEngine.Camera camera
+        ) {
+            var planes = GeometryUtility.CalculateFrustumPlanes(camera);
+            return GeometryUtility.TestPlanesAABB(planes, bounds);
+
+        }
+
+        // Source: http://answers.unity.com/answers/1031557/view.html
+        public static bool IsVisibleFrom(
+            this Vector3 position, UnityEngine.Camera camera
+        ) {
+            var screenPoint = camera.WorldToViewportPoint(position);
+            return screenPoint.z > 0 &&
+                screenPoint.x.Between(0, 1) &&
+                screenPoint.y.Between(0, 1);
+
+        }
+
+        public static bool IsBoundsVisible(this GameObject gameObject) {
+            return gameObject.GetBounds().IsVisibleFrom(UnityEngine.Camera.main);
+
+        }
+
+        public static void FillWith<T>(this IList<T> list, T obj, int count) {
+            for(int i = 0; i < count; i++) list.Add(obj);
 
         }
 

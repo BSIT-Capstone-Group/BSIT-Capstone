@@ -38,6 +38,7 @@ namespace Ph.CoDe_A.Lakbay {
 
         }
         public virtual new Rigidbody rigidbody => GetComponent<Rigidbody>();
+        protected bool _isBoundsVisible = false;
 
         public Controller() : base() {
 
@@ -45,6 +46,7 @@ namespace Ph.CoDe_A.Lakbay {
 
         public virtual void Awake() {
             _instances.AddUnique(this);
+            _isBoundsVisible = false;
 
         }
 
@@ -53,6 +55,23 @@ namespace Ph.CoDe_A.Lakbay {
         }
 
         public virtual void Update() {
+            var cam = UnityEngine.Camera.main;
+            bool visible = gameObject.IsBoundsVisible();
+            if(visible) {
+                if(!_isBoundsVisible) {
+                    _isBoundsVisible = true;
+                    OnBoundsVisible();
+
+                }
+
+            } else {
+                if(_isBoundsVisible) {
+                    _isBoundsVisible = false;
+                    OnBoundsInvisible();
+                    
+                }
+
+            }
 
         }
 
@@ -100,6 +119,22 @@ namespace Ph.CoDe_A.Lakbay {
 
         public virtual void OnCollisionStay(Collision collision) {
 
+
+        }
+
+        public virtual void OnBecameVisible() {
+            
+        }
+
+        public virtual void OnBecameInvisible() {
+
+        }
+
+        public virtual void OnBoundsVisible() {
+
+        }
+
+        public virtual void OnBoundsInvisible() {
 
         }
 

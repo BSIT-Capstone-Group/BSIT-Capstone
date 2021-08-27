@@ -20,6 +20,10 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class SpawnController : Controller {
+        public int everyIndexDivisibleBy = 1;
+        public float chance = 0.25f;
+        public int maxCount = 2;
+
         public override void OnCollisionEnter(Collision collision) {
             base.OnCollisionEnter(collision);
             print("hehehehz");
