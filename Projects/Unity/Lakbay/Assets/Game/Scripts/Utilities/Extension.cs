@@ -400,6 +400,27 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
+        
+        public static void Move(this Rigidbody rigidbody, Vector3 position) {
+            rigidbody.MovePosition(position);
+
+        }
+
+        public static void Move(this Transform transform, Vector3 position) {
+            transform.Translate(position - transform.position);
+
+        }
+
+        public static void OffsetPosition(this Rigidbody rigidbody, Vector3 position) {
+            rigidbody.Move(rigidbody.position + position);
+
+        }
+
+        public static void OffsetPosition(this Transform transform, Vector3 position) {
+            transform.Move(transform.position + position);
+
+        }
+
     } 
 
 }

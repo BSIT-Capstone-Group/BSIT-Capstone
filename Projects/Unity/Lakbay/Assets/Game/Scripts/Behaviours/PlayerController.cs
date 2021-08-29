@@ -22,7 +22,8 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class PlayerController : Controller, IPlayable {
 
         public bool canTravel = false;
-        public float travelSpeed = 2.0f;
+        public float travelSpeed = 20.0f;
+        public float slideSpeed = 30.0f;
         public float slideDistance = 4.0f;
         protected Vector3 _slideTargetPosition = Vector3.zero;
 
@@ -39,38 +40,53 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
             base.Update();
 
             if(IInput.keyboard.spaceKey.wasPressedThisFrame) {
-                canTravel = !canTravel;
+                ToggleCoroutine(Travel(), "travel");
 
             }
 
             if(IInput.keyboard.leftArrowKey.wasPressedThisFrame) {
-                _slideTargetPosition = rigidbody.position;
-                Slide(-1);
+                StartCoroutine(Slide(-1), "slide", true);
 
             }
 
             if(IInput.keyboard.rightArrowKey.wasPressedThisFrame) {
-                Slide(1);
+                StartCoroutine(Slide(1), "slide", true);
 
             }
 
         }
 
         public override void FixedUpdate() {
-            base.Update();
-            if(canTravel) Travel();
+            base.FixedUpdate();
 
         }
 
-        public virtual void Travel() {
-            rigidbody.MovePosition(rigidbody.position + Vector3.forward * deltaTime * travelSpeed);
+        public virtual IEnumerator Travel() {
+            while(true) {
+                rigidbody.OffsetPosition(Vector3.forward * deltaTime * travelSpeed);
+                yield return new WaitForFixedUpdate();
+
+            }
 
         }
 
-        public virtual void Slide(int amount) {
-            rigidbody.MovePosition(rigidbody.position + (Vector3.right * slideDistance * amount) * deltaTime * travelSpeed);
+        protected virtual IEnumerator _Slide(int amount) {
+            var ixpos = rigidbody.position.x;
+            var txpos = ixpos + (slideDistance * amount);
+            var dir = amount < 0 ? Vector3.left : Vector3.right;
+            while(amount < 0 ? rigidbody.position.x > txpos : rigidbody.position.x < txpos) {
+                rigidbody.OffsetPosition(dir * deltaTime * slideSpeed);
+                yield return new WaitForFixedUpdate();
+
+            }
+
+            var pos = rigidbody.position;
+            pos.x = txpos;
+            rigidbody.position = pos;
 
         }
+
+        public virtual IEnumerator Slide(int amount) => MakeCoroutine("slide", _Slide(amount));
 
     }
 

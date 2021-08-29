@@ -30,7 +30,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
     }
 
     public class MoveController : Controller {
-        
+        // public IEnumerator 
 
     }
 

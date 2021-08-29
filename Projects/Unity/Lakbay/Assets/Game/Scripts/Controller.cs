@@ -183,22 +183,43 @@ namespace Ph.CoDe_A.Lakbay {
 
         }
 
-        public virtual Coroutine StartCoroutine(IEnumerator coroutine, string id) {
-            var cor = StartCoroutine(coroutine);
-            if(!_coroutines.ContainsKey(id)) _coroutines.Add(id, new List<Coroutine>());
+        public virtual Coroutine StartCoroutine(IEnumerator routine, string id, bool unique=false) {
+            if(unique && HasCoroutine(id)) return null;
+            var cor = StartCoroutine(routine);
+            if(!HasCoroutine(id)) _coroutines.Add(id, new List<Coroutine>());
             _coroutines[id].Add(cor);
             return cor;
 
         }
 
+        public virtual Coroutine ToggleCoroutine(IEnumerator routine, string id) {
+            Coroutine cor = null;
+            if(!HasCoroutine(id)) cor = StartCoroutine(routine, id);
+            else StopCoroutineWithId(id);
+            return cor;
+
+        }
+        public virtual IEnumerator MakeCoroutine(string id, IEnumerator routine) {
+            var e = routine;
+
+            while(e.MoveNext()) yield return e.Current;
+
+            yield return new WaitForEndOfFrame();
+
+            StopCoroutineWithId(id);
+
+        }
+
         public virtual void StopCoroutineWithId(string id) {
-            if(_coroutines.Keys.Contains(id)) {
-                foreach(var cor in _coroutines[id]) StopCoroutine(cor);
-                _coroutines[id].Clear();
+            if(HasCoroutine(id)) {
+                foreach(var cor in _coroutines.Pop(id)) StopCoroutine(cor);
 
             }
 
         }
+
+        public virtual bool HasCoroutine(string id) => _coroutines.ContainsKey(id);
+
 
         public static IEnumerable<object> GetInstances(Type type) {
             return _instances.Where((i) => i.GetType().IsSubclassOf(type));

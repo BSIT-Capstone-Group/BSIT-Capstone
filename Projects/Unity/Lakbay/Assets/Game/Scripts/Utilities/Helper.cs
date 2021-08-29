@@ -79,6 +79,11 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
+        public static WaitForSecondsRealtime FixedUpdate() {
+            return new WaitForSecondsRealtime(Time.fixedDeltaTime);
+
+        }
+
     }
 
 }
