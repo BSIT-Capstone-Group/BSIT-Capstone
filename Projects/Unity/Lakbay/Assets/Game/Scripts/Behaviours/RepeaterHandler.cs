@@ -31,6 +31,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public RepeatDirection direction;
         public bool infinite = true;
         public int limit = 15;
+        public List<Repeater> repeaters = new List<Repeater>();
         public readonly Queue<Repeater> freeRepeaters = new Queue<Repeater>();
         public virtual bool canRepeat {
             get => infinite ? true : freeRepeaters.Count != 0;
@@ -47,10 +48,12 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
             if(!_initialized) {
                 var osec = gameObject.GetComponentInChildren<Repeater>();
                 if(!osec) return;
+                repeaters.Add(osec);
                 _initialized = true;
 
                 for(int i = 0; i < limit - 1; i++) {
-                    var sec = Instantiate(osec, transform);
+                    var rsec = repeaters.PickRandomly();
+                    var sec = Instantiate(rsec, transform);
                     sec.name = $"{osec.name} ({i + 1})";
                     freeRepeaters.Enqueue(sec);
 

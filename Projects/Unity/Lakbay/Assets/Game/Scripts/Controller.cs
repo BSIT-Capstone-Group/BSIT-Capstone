@@ -24,21 +24,16 @@ namespace Ph.CoDe_A.Lakbay {
 
         protected Dictionary<string, List<Coroutine>> _coroutines = new Dictionary<string, List<Coroutine>>();
         [SerializeField]
-        protected float _deltaTime = 1.0f;
-        public virtual float deltaTime {
-            get => Time.deltaTime * _deltaTime;
-            set => _deltaTime = value;
-
-        }
-        [SerializeField]
-        protected float _fixedDeltaTime = 1.0f;
-        public virtual float fixedDeltaTime {
-            get => Time.fixedDeltaTime * _fixedDeltaTime;
-            set => _fixedDeltaTime = value;
+        protected float _timeScale = 1.0f;
+        public virtual float timeScale {
+            get => Time.timeScale * _timeScale;
+            set => _timeScale = value;
 
         }
         public virtual new Rigidbody rigidbody => GetComponent<Rigidbody>();
         protected bool _isBoundsVisible = false;
+        protected List<Action> _updateCallbacks = new List<Action>();
+        protected List<Action> _fixedUpdateCallbacks = new List<Action>();
 
         public Controller() : base() {
 
@@ -73,9 +68,12 @@ namespace Ph.CoDe_A.Lakbay {
 
             }
 
+            foreach(var c in _updateCallbacks) c();
+
         }
 
         public virtual void FixedUpdate() {
+            foreach(var c in _fixedUpdateCallbacks) c();
 
         }
 
@@ -148,7 +146,7 @@ namespace Ph.CoDe_A.Lakbay {
         ) {
             var cor = this.DoFor(
                 duration, onRun, onStart, onStop, fixedUpdate,
-                () => deltaTime, () => fixedDeltaTime
+                () => Time.deltaTime, () => Time.fixedDeltaTime
             );
 
             if(id != null) {
@@ -170,7 +168,7 @@ namespace Ph.CoDe_A.Lakbay {
         ) {
             var cor = this.DoAfter(
                 duration, onRun, onStart, fixedUpdate,
-                () => deltaTime, () => fixedDeltaTime
+                () => Time.deltaTime, () => Time.fixedDeltaTime
             );
 
             if(id != null) {
@@ -248,13 +246,8 @@ namespace Ph.CoDe_A.Lakbay {
 
         }
 
-        public static void SetDeltaTime<T>(float time) where T : Controller {
-            DoWithInstances<T>((i) => i.deltaTime = time);
-
-        }
-
-        public static void SetFixedDeltaTime<T>(float time) where T : Controller {
-            DoWithInstances<T>((i) => i.fixedDeltaTime = time);
+        public static void SetTimeScale<T>(float time) where T : Controller {
+            DoWithInstances<T>((i) => i.timeScale = time);
 
         }
 

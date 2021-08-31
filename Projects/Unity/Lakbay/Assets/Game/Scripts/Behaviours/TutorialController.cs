@@ -23,24 +23,24 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public override void OnTriggerEnter(Collider collider) {
             base.OnTriggerEnter(collider);
             var go = collider.gameObject;
-            var pc = go.GetComponent<PlayerController>();
-            if(pc) {
-                pc.deltaTime = 0.05f;
-                DoAfter(10.0f, () => pc.deltaTime = 1.0f);
+            var pc = go.GetComponent<Player>();
+            // if(pc) {
+            //     pc.timeScale = 0.05f;
+            //     DoAfter(10.0f, () => pc.timeScale = 1.0f);
 
-            }
+            // }
 
         }
 
         public override void OnTriggerExit(Collider collider) {
             base.OnTriggerExit(collider);
             var go = collider.gameObject;
-            var pc = go.GetComponent<PlayerController>();
-            if(pc) {
-                // PlayController.instance.Pause(pc);
-                // pc.deltaTime = 1.0f;
+            var pc = go.GetComponent<Player>();
+            // if(pc) {
+            //     // PlayController.instance.Pause(pc);
+            //     // pc.deltaTime = 1.0f;
 
-            }
+            // }
 
         }
 

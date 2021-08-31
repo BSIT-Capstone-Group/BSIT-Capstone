@@ -22,6 +22,9 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class Repeater : Controller {
         protected bool _repeated = false;
         protected bool _freed = false;
+        protected Repeater _next;
+        
+        public virtual Repeater next => _next;
         
         public RepeaterHandler handler;
 
@@ -66,7 +69,14 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
             transform.SetAsLastSibling();
             _repeated = false;
             _freed = true;
+
+            OnFree();
             
+        }
+
+        public virtual void OnFree() {
+
+
         }
 
         public virtual void Repeat() {
@@ -74,8 +84,8 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
             if(_repeated) return;
 
             try {
-                var sec = handler.freeRepeaters.Dequeue();
-                sec.transform.position = transform.position;
+                _next = handler.freeRepeaters.Dequeue();
+                _next.transform.position = transform.position;
                 var pos = Vector3.zero;
                 var size = gameObject.GetSize();
 
@@ -109,16 +119,17 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
                 }
                 
-                sec.transform.Translate(pos);
+                _next.transform.Translate(pos);
                 _repeated = true;
                 _freed = false;
+
+                OnRepeat();
 
             } catch {}
 
         }
 
-        public virtual void PopulateSpawns() {
-
+        public virtual void OnRepeat() {
 
         }
 

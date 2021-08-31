@@ -192,7 +192,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
         public static void DestroyChild(
             this GameObject gameObject, int index, float time=0.0f
         ) {
-            GameObject.Destroy(gameObject.transform.GetChild(index), time);
+            GameObject.Destroy(gameObject.transform.GetChild(index).gameObject, time);
 
         }
 
@@ -418,6 +418,13 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         public static void OffsetPosition(this Transform transform, Vector3 position) {
             transform.Move(transform.position + position);
+
+        }
+
+        public static Vector3 GetAxes(this Vector3 vector3, bool x=true, bool y=true, bool z=true) {
+            var vec = Vector3.zero;
+            for(int i = 0; i < 3; i++) vec[i] = x ? vector3.x : vec[i];
+            return vec;
 
         }
 
