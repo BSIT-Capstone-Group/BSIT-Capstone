@@ -12,6 +12,7 @@ using System.Linq;
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 using TMPro;
@@ -50,6 +51,10 @@ namespace Ph.CoDe_A.Lakbay {
         }
 
         public virtual void Update() {
+            OnInput(IInput.keyboard);
+            OnInput(IInput.mouse);
+            OnInput(IInput.touchscreen);
+
             var cam = UnityEngine.Camera.main;
             bool visible = gameObject.IsBoundsVisible();
             if(visible) {
@@ -133,6 +138,18 @@ namespace Ph.CoDe_A.Lakbay {
         }
 
         public virtual void OnBoundsInvisible() {
+
+        }
+
+        public virtual void OnInput(Keyboard keyboard) {
+            
+        }
+
+        public virtual void OnInput(Mouse mouse) {
+
+        }
+
+        public virtual void OnInput(Touchscreen touchscreen) {
 
         }
 

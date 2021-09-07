@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -19,13 +20,15 @@ using TMPro;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
-    public class Player : Controller, IPlayable {
-        public float travelSpeed = 20.0f;
+    public class Player : Controller, IPlayable, IBuffable {
+        public readonly List<Buff> buffs = new List<Buff>();
+
+        public float travelSpeed = 30.0f;
         public float slideSpeed = 30.0f;
         public float slideDistance = 4.0f;
-        public Animator vehicleAnimator;
-        public List<Light> headLights = new List<Light>();
-        public List<Light> brakeLights = new List<Light>();
+        public GameObject buffHolder;
+        public Vehicle vehicle;
+        public virtual Animator vehicleAnimator => vehicle.GetComponent<Animator>();
 
         public virtual Controller OnPause() {
             return this;
@@ -39,109 +42,146 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         public override void Awake() {
             base.Awake();
-            SetBrakeLights(!HasCoroutine("travel"));
 
         }
 
         public override void Update() {
             base.Update();
 
-            if(IInput.keyboard.spaceKey.wasPressedThisFrame) {
-                Travel();
-                SetBrakeLights();
+            foreach(var buff in buffs) buff.OnLinger(this);
 
-            }
-
-            if(IInput.keyboard.leftArrowKey.wasPressedThisFrame) Slide(-1);
-            if(IInput.keyboard.rightArrowKey.wasPressedThisFrame) Slide(1);
+            vehicle.SetBrakeLights(!_fixedUpdateCallbacks.Contains(_Travel));
 
         }
-
-        public float dir = 1;
 
         public override void FixedUpdate() {
             base.FixedUpdate();
-            rigidbody.AddRelativeForce(
-                rigidbody.mass * Vector3.forward * travelSpeed * timeScale
-            );
-            // // rigidbody.AddRelativeForce(
-            // //     rigidbody.mass * (Vector3.right * dir) * slideSpeed * timeScale
-            // // );
-            // // var wc = gameObject.GetComponentInChildren<WheelCollider>();
-            // // wc.transform.Rotate(new Vector3(90.0f, wc.transform.rotation.x, wc.transform.rotation.y));
-            // // wc.GetWorldPose(out var pos, out var quat);
-            // // print(pos, quat.eulerAngles);
-            foreach(var wc in gameObject.GetComponentsInChildren<WheelCollider>()) {
-                wc.GetWorldPose(out var pos, out var quat);
-                wc.gameObject.transform.position = pos;
-                wc.gameObject.transform.rotation = quat * Quaternion.Euler(0.0f, -90.0f, 0.0f);
+
+        }
+
+        public override void OnInput(Keyboard keyboard) {
+            base.OnInput(keyboard);
+
+            if(keyboard.spaceKey.wasPressedThisFrame) {
+                ToggleTravel();
+
+            }
+
+            if(keyboard.leftArrowKey.wasPressedThisFrame) SlideLeft();
+            if(keyboard.rightArrowKey.wasPressedThisFrame) SlideRight();
+
+        }
+
+        protected virtual void _Travel() {
+            rigidbody.OffsetPosition(Vector3.forward * travelSpeed * Time.deltaTime * timeScale);
+
+        }
+
+        public virtual void StartTravel() {
+            if(!_fixedUpdateCallbacks.Contains(_Travel)) {
+                _fixedUpdateCallbacks.Add(_Travel);
 
             }
 
         }
 
-        // public Animation wheelAnimation;
+        public virtual void StopTravel() {
+            if(_fixedUpdateCallbacks.Contains(_Travel)) {
+                _fixedUpdateCallbacks.Remove(_Travel);
 
-        protected virtual void _Travel() {
-            rigidbody.AddRelativeForce(
-                rigidbody.mass * Vector3.forward * travelSpeed * timeScale
-            );
-            foreach(var wc in gameObject.GetComponentsInChildren<WheelCollider>()) {
-                wc.GetWorldPose(out var pos, out var quat);
-                wc.gameObject.transform.position = pos;
-                wc.gameObject.transform.rotation = quat * Quaternion.Euler(0.0f, -90.0f, 0.0f);
-
-            };
+            }
 
         }
 
-        public virtual void Travel() {}
+        public virtual void ToggleTravel() {
+            if(_fixedUpdateCallbacks.Contains(_Travel)) StopTravel();
+            else StartTravel();
 
-        protected virtual IEnumerator _Slide(int amount) {
-            if(amount < 0) vehicleAnimator.SetTrigger("slidLeft");
-            else if(amount > 0) vehicleAnimator.SetTrigger("slidRight");
-            // vehicleAnimator.speed += Mathf.Abs(amount) * Time.deltaTime * slideSpeed * timeScale;
+        }
 
+        protected virtual IEnumerator _Slide(float startXPosition, float endXPosition) {
+            rigidbody.constraints |= RigidbodyConstraints.FreezePositionY;
             rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionX;
-            var ixpos = rigidbody.position.x;
-            var txpos = ixpos + (slideDistance * amount);
-            var dir = amount < 0 ? Vector3.left : Vector3.right;
-            while(amount < 0 ? rigidbody.position.x > txpos : rigidbody.position.x < txpos) {
-                rigidbody.OffsetPosition(dir * Time.deltaTime * slideSpeed * timeScale);
-                // rigidbody.AddForce(
-                //     rigidbody.mass * dir * slideSpeed * timeScale
-                // );
-                // // rigidbody.WakeUp();
-                // print("sliding");
+            var dir = startXPosition > endXPosition ? Vector3.left : Vector3.right;
+            while(
+                dir.x == -1 ?
+                transform.position.x > endXPosition :
+                transform.position.x < endXPosition
+            ) {
+                rigidbody.OffsetPosition(dir * slideSpeed * Time.deltaTime * timeScale);
                 yield return new WaitForFixedUpdate();
 
             }
 
-            // var vel = rigidbody.velocity;
-            // rigidbody.velocity = new Vector3(0.0f, vel.y, vel.z);
             var pos = transform.position;
-            pos.x = txpos;
-            transform.Move(pos);
+            pos.x  = endXPosition;
+            transform.position = pos;
             rigidbody.constraints |= RigidbodyConstraints.FreezePositionX;
-            vehicleAnimator.SetInteger("slideAmount", 0);
+            rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
 
         }
 
-        public virtual void Slide(int amount) => StartCoroutine(
-            MakeCoroutine("slide", _Slide(amount)), "slide", true
-        );
+        public virtual void Slide(float startXPosition, float endXPosition) {
+            if(!HasCoroutine("slide")) {
+                if(startXPosition < endXPosition) vehicleAnimator.SetTrigger("slidRight");
+                else vehicleAnimator.SetTrigger("slidLeft");
+                StartCoroutine(
+                    MakeCoroutine("slide", _Slide(startXPosition, endXPosition)),
+                    "slide"
+                );
 
-        public virtual void SetHeadLights(bool on) {
-            foreach(var l in headLights) l.gameObject.SetActive(on);
+            }
 
         }
 
-        public virtual void SetBrakeLights(bool on) {
-            foreach(var l in brakeLights) l.gameObject.SetActive(on);
+        public virtual void SlideLeft() {
+            var startXPosition = transform.position.x;
+            var endXPosition = startXPosition - slideDistance;
+            Slide(startXPosition, endXPosition);
 
         }
 
-        public virtual void SetBrakeLights() => SetBrakeLights(!HasCoroutine("travel"));
+        public virtual void SlideRight() {
+            var startXPosition = transform.position.x;
+            var endXPosition = startXPosition + slideDistance;
+            Slide(startXPosition, endXPosition);
+
+        }
+
+        public virtual void AddBuff(params Buff[] buffs) {
+            foreach(var buff in buffs) {
+                if(!buff.STACKABLE) {
+                    var existingBuff = this.buffs.Find(
+                        (b) => b.IsInstance(buff.GetType())
+                    );
+                    if(existingBuff) RemoveBuff(existingBuff);
+
+                }
+
+                var newBuff = Instantiate(buff, !buffHolder ? transform : buffHolder.transform);
+                var type = typeof(Buff);
+
+                this.buffs.Add(newBuff);
+                newBuff.OnAdd(this);
+
+                if(!newBuff.permanent) DoAfter(newBuff.duration, () => RemoveBuff(newBuff));
+
+            }
+            
+        }
+
+        public virtual void RemoveBuff(params Buff[] buffs) {
+            foreach(var buff in buffs) {
+                while(this.buffs.Contains(buff)) {
+                    this.buffs.Remove(buff);
+                    Destroy(buff.gameObject);
+                    buff.OnRemove(this);
+
+                }
+
+            }
+
+        }
 
     }
 

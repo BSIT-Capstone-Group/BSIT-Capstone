@@ -40,14 +40,24 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         }
 
         public virtual void PopulateSpawns() {
-            foreach(var spawnArea in spawnAreas) {
-                spawnArea.DestroyChildren();
-                float chance = UnityEngine.Random.value;
+            var spawns = (from a in spawnAreas select new List<Spawn>()).ToArray();
+            foreach(var spawnArea in spawnAreas.Enumerate()) {
+                spawnArea.Value.DestroyChildren();
                 foreach(var spawn in spawnerHandler.spawns) {
+                    float chance = UnityEngine.Random.value;
                     if(chance < spawn.chance) {
-                        var nspawn = Instantiate(spawn, spawnArea.transform);
+                        var sp = spawn.OnSpawn(spawns, spawnArea.Key);
+                        if(sp) spawns[spawnArea.Key].Add(sp);
 
                     }
+
+                }
+
+            }
+
+            foreach(var spawnList in spawns.Enumerate()) {
+                foreach(var spawn in spawnList.Value) {
+                    Instantiate(spawn, spawnAreas[spawnList.Key].transform);
 
                 }
 

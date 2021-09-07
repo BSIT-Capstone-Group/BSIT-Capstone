@@ -93,7 +93,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         public static bool IsInstance<T>(this T obj, params Type[] types) {
             foreach(var type in types) {
-                if(obj.GetType().IsSubclassOf(type)) return true;
+                if(obj.GetType().IsSubclassOf(type) || obj.GetType() == type) return true;
 
             }
 
@@ -425,6 +425,63 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
             var vec = Vector3.zero;
             for(int i = 0; i < 3; i++) vec[i] = x ? vector3.x : vec[i];
             return vec;
+
+        }
+
+        public static void Pose(
+            this Transform transform,
+            WheelCollider wheelCollider,
+            Vector3 offsetPosition,
+            Quaternion offsetRotation
+        ) {
+            wheelCollider.GetWorldPose(out var pos, out var quat);
+            transform.position = pos + offsetPosition;
+            transform.rotation = quat * offsetRotation;
+
+        }
+
+        public static void Pose(
+            this Transform transform,
+            WheelCollider wheelCollider,
+            Vector3 offsetPosition
+        ) {
+            transform.Pose(wheelCollider, offsetPosition, Quaternion.identity);
+
+        }
+
+        public static void Pose(
+            this Transform transform,
+            WheelCollider wheelCollider,
+            Quaternion offsetRotation
+        ) {
+            transform.Pose(wheelCollider, Vector3.zero, offsetRotation);
+
+        }
+
+        public static void Pose(
+            this Transform transform,
+            WheelCollider wheelCollider
+        ) {
+            transform.Pose(wheelCollider, Vector3.zero, Quaternion.identity);
+
+        }
+
+        public static void Break(this Rigidbody rigidbody, Action<Rigidbody> action=null) {
+            var cols = rigidbody.GetComponentsInChildren<Collider>();
+            if(cols.Length > 0) {
+                float mass = rigidbody.mass / cols.Length;
+                float drag = rigidbody.drag / cols.Length;
+                foreach(var c in cols) {
+                    var r = c.gameObject.GetComponent<Rigidbody>();
+                    if(!r) r = c.gameObject.AddComponent<Rigidbody>();
+                    r.mass = mass;
+                    r.drag = drag;
+
+                    if(action != null) action(r);
+
+                }
+
+            }
 
         }
 

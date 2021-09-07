@@ -24,35 +24,8 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public int interval = 3;
         public int maxCount = 2;
 
-        public override void OnCollisionEnter(Collision collision) {
-            base.OnCollisionEnter(collision);
-            var p = collision.gameObject.GetComponent<Player>();
-            if(p) {
-                var cols = gameObject.GetComponentsInChildren<Collider>();
-                if(cols.Length > 0) {
-                    float mass = rigidbody.mass / cols.Length;
-                    float drag = rigidbody.drag / cols.Length;
-                    foreach(var c in cols) {
-                        var r = c.gameObject.GetComponent<Rigidbody>();
-                        if(!r) r = c.gameObject.AddComponent<Rigidbody>();
-                        r.mass = mass;
-                        r.drag = drag;
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        public override void OnCollisionExit(Collision collision) {
-            base.OnCollisionExit(collision);
-            // print("exit");
-            var p = collision.gameObject.GetComponent<Player>();
-            if(p) {
-
-            }
+        public virtual Spawn OnSpawn(List<Spawn>[] spawns, int index) {
+            return this;
 
         }
 
