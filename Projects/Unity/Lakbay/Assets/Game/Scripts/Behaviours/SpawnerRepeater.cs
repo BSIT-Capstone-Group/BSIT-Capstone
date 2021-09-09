@@ -25,6 +25,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public virtual SpawnerRepeaterHandler spawnerHandler => handler as SpawnerRepeaterHandler;
 
         public override void OnRepeat() {
+            base.OnRepeat();
             var snext = next as SpawnerRepeater;
             if(!snext._spawned) {
                 snext.PopulateSpawns();
@@ -35,17 +36,27 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         }
 
         public override void OnFree() {
+            base.OnFree();
             _spawned = false;
 
         }
 
         public virtual void PopulateSpawns() {
             var spawns = (from a in spawnAreas select new List<Spawn>()).ToArray();
+            int index = spawnerHandler.spawnerRepeaters.ToList().IndexOf(this);
+
             foreach(var spawnArea in spawnAreas.Enumerate()) {
                 spawnArea.Value.DestroyChildren();
+                float chance = UnityEngine.Random.value;
                 foreach(var spawn in spawnerHandler.spawns) {
-                    float chance = UnityEngine.Random.value;
-                    if(chance < spawn.chance) {
+                    if(
+                        chance < spawn.chance &&
+                        index % spawn.rowInterval == 0 &&
+                        spawnArea.Key % spawn.columnInterval == 0 &&
+                        spawns.Select(
+                            (sl) => sl.Count((s) => s.IsInstance(spawn.GetType()))
+                        ).Sum() != spawn.maxCount
+                    ) {
                         var sp = spawn.OnSpawn(spawns, spawnArea.Key);
                         if(sp) spawns[spawnArea.Key].Add(sp);
 

@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeScale: 1
-  chance: 0.15
-  interval: 3
+  chance: 0.5
+  rowInterval: 3
+  columnInterval: 1
   maxCount: 2
+  damaging: 1
+  broken: 0
 --- !u!1001 &4374146270770991752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,7 +28,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4402016209192577888, guid: 61fedbf2ef4e46a4e88062c2be5b5eae, type: 3}
       propertyPath: m_Name
-      value: Barricade with Taffic Cones
+      value: Barricade Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 4402016209192577889, guid: 61fedbf2ef4e46a4e88062c2be5b5eae, type: 3}
       propertyPath: m_RootOrder

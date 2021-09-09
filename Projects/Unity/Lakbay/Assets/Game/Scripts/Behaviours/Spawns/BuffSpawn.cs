@@ -23,9 +23,9 @@ namespace Ph.CoDe_A.Lakbay.Behaviours.Spawns {
     public class BuffSpawn : Spawn {
         public Buff buff;
 
-        public override void OnCollisionEnter(Collision collision) {
-            base.OnCollisionEnter(collision);
-            var player = collision.gameObject.GetComponent<Player>();
+        public override void OnTriggerEnter(Collider collider) {
+            base.OnTriggerEnter(collider);
+            var player = collider.gameObject.GetComponentInParent<Player>();
             if(player) {
                 player.AddBuff(buff);
                 Destroy(gameObject);
@@ -34,18 +34,16 @@ namespace Ph.CoDe_A.Lakbay.Behaviours.Spawns {
 
         }
 
-        public override void OnCollisionExit(Collision collision) {
-            base.OnCollisionExit(collision);
-            var p = collision.gameObject.GetComponent<Player>();
-            if(p) {
+        public override void OnTriggerExit(Collider collider) {
+            base.OnTriggerExit(collider);
+            var player = collider.gameObject.GetComponent<Player>();
+            if(player) {
 
             }
 
         }
 
         public override Spawn OnSpawn(List<Spawn>[] spawns, int index) {
-            var cur = spawns[index];
-            cur.Clear();
             return this;
 
         }

@@ -21,15 +21,20 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours.Buffs {
     public class BombBuff : Buff {
+        public float explosionForce = 500.0f;
+
         public override void OnAdd(IBuffable buffable) {
+            base.OnAdd(buffable);
             
         }
 
         public override void OnLinger(IBuffable buffable) {
+            base.OnLinger(buffable);
 
         }
 
         public override void OnRemove(IBuffable buffable) {
+            base.OnRemove(buffable);
 
         }
 
@@ -40,7 +45,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours.Buffs {
                 barricade.damaging = false;
                 barricade.Break((r) => {
                     r.AddExplosionForce(
-                        500.0f, r.transform.position, 100.0f
+                        explosionForce, r.transform.position, 100.0f
                     );
 
                 });

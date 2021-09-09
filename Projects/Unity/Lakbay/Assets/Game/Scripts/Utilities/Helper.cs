@@ -11,9 +11,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 using TMPro;
 using YamlDotNet.Serialization;
@@ -23,6 +26,7 @@ using Ph.CoDe_A.Lakbay.Utilities;
 namespace Ph.CoDe_A.Lakbay.Utilities {
     public static class Helper {
         public static readonly ISerializer YamlSerializer = new SerializerBuilder()
+            .EmitDefaults()
             .Build();
 
         public static readonly IDeserializer YamlDeserializer = new DeserializerBuilder()

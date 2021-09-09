@@ -22,14 +22,17 @@ using Ph.CoDe_A.Lakbay.Utilities;
 namespace Ph.CoDe_A.Lakbay.Behaviours.Buffs {
     public class ShieldBuff : Buff {
         public override void OnAdd(IBuffable buffable) {
+            base.OnAdd(buffable);
             
         }
 
         public override void OnLinger(IBuffable buffable) {
+            base.OnLinger(buffable);
 
         }
 
         public override void OnRemove(IBuffable buffable) {
+            base.OnRemove(buffable);
 
         }
 

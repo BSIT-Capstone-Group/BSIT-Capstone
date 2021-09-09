@@ -21,7 +21,8 @@ using Ph.CoDe_A.Lakbay.Utilities;
 namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class Spawn : Controller {
         public float chance = 0.25f;
-        public int interval = 3;
+        public int rowInterval = 3;
+        public int columnInterval = 1;
         public int maxCount = 2;
 
         public virtual Spawn OnSpawn(List<Spawn>[] spawns, int index) {

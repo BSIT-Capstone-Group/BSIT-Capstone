@@ -41,7 +41,7 @@ namespace Ph.CoDe_A.Lakbay {
         }
 
         public virtual void Awake() {
-            _instances.AddUnique(this);
+            _instances.Add(this);
             _isBoundsVisible = false;
 
         }
@@ -247,7 +247,7 @@ namespace Ph.CoDe_A.Lakbay {
         }
 
         public static IEnumerable<T> GetInstances<T>() where T : Controller {
-            return _instances.Where((i) => i.GetType().IsSubclassOf(typeof(T)))
+            return _instances.Where((i) => i.IsInstance(typeof(T)))
                 .Cast<T>();
 
         }
@@ -259,7 +259,7 @@ namespace Ph.CoDe_A.Lakbay {
 
         public static void DoWithInstances<T>(Action<T> callback) where T : Controller {
             var instances = GetInstances<T>();
-            foreach(var instance in instances) callback(instance as T);
+            foreach(var instance in instances) callback(instance);
 
         }
 

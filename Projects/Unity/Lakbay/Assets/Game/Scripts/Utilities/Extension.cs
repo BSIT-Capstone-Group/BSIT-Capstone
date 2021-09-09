@@ -9,6 +9,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -169,7 +170,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static string SerializeAsJson<T>(this T obj) {
+        public static string ToJson<T>(this T obj) {
             return JsonConvert.SerializeObject(obj);
 
         }
@@ -179,7 +180,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static string SerializeAsYaml<T>(this T obj) {
+        public static string ToYaml<T>(this T obj) {
             return Helper.YamlSerializer.Serialize(obj);
 
         }
@@ -483,6 +484,39 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
             }
 
+        }
+
+        public static T Find<T>(this T[] array, Predicate<T> predicate) {
+            return Array.Find(array, predicate);
+
+        }
+
+        public static T[] FindAll<T>(this T[] array, Predicate<T> predicate) {
+            return Array.FindAll(array, predicate);
+
+        }
+
+        public static bool Have<T>(this IEnumerable<T> enumerable, int index) {
+            return index.Within(0, enumerable.Count());
+
+        }
+
+        // Source: https://stackoverflow.com/a/2107864/14733693
+        public static MethodInfo GetGenericMethod<T>(
+            this T obj, string name,
+            Type[] parameterTypes
+        ) {
+            var method = obj.GetType().GetMethod(name);
+            return method.MakeGenericMethod(parameterTypes);
+
+        }
+        
+        public static object InvokeGenericMethod<T>(
+            this T obj, string name,
+            Type[] parameterTypes,
+            params object[] parameters
+        ) {
+            return obj.GetGenericMethod(name, parameterTypes).Invoke(obj, parameters);
         }
 
     } 

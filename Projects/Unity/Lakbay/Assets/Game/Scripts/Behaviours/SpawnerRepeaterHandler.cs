@@ -21,7 +21,17 @@ using Ph.CoDe_A.Lakbay.Utilities;
 namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class SpawnerRepeaterHandler : RepeaterHandler {
         public List<Spawn> spawns = new List<Spawn>();
+        protected SpawnerRepeater[] _spawnerRepeaters;
+        public virtual SpawnerRepeater[] spawnerRepeaters {
+            get => _spawnerRepeaters;
 
+        }
+
+        public override void Awake() {
+            base.Awake();
+            _spawnerRepeaters = GetComponentsInChildren<SpawnerRepeater>();
+            
+        }
 
     }
 

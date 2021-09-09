@@ -39,6 +39,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b7abd072ca3d7af4a9aec484122c3fa5, type: 2}
   - {fileID: 11400000, guid: 5ebd7b36f141cc2469fd404feb022dab, type: 2}
   - {fileID: 11400000, guid: 536a6643585b7f5489591f609ef0b48b, type: 2}
+  - {fileID: 11400000, guid: c9560cd01535b1544a80fa2028adf78f, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -81,6 +82,9 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Locale
+    - TextAsset
+    - AudioClip
+    - Sprite
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: f864cd9f3ac962742b3806ceb0035864, type: 2}

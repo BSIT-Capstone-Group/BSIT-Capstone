@@ -21,7 +21,7 @@ using Ph.CoDe_A.Lakbay.Utilities;
 namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class Vehicle : Controller {
         public virtual Wheel[] wheels {
-            get => gameObject.GetComponentsInChildren<Wheel>();
+            get => gameObject.GetComponentsInChildren<Wheel>().Where((w) => w.enabled).ToArray();
 
         }
 

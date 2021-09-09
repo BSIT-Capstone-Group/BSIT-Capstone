@@ -11,9 +11,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 using TMPro;
 
@@ -24,6 +27,10 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public readonly List<Buff> buffs = new List<Buff>();
 
         public float travelSpeed = 30.0f;
+        public int slideMinIndex = -1;
+        public int slideMaxIndex = 1;
+        protected int _slideIndex = 0;
+        public virtual int slideIndex => _slideIndex;
         public float slideSpeed = 30.0f;
         public float slideDistance = 4.0f;
         public GameObject buffHolder;
@@ -123,8 +130,18 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         public virtual void Slide(float startXPosition, float endXPosition) {
             if(!HasCoroutine("slide")) {
-                if(startXPosition < endXPosition) vehicleAnimator.SetTrigger("slidRight");
-                else vehicleAnimator.SetTrigger("slidLeft");
+                if(startXPosition < endXPosition) {
+                    if(slideIndex >= slideMaxIndex) return;
+                    vehicleAnimator.SetTrigger("slidRight");
+                    _slideIndex++;
+
+                } else {
+                    if(slideIndex <= slideMinIndex) return;
+                    vehicleAnimator.SetTrigger("slidLeft");
+                    _slideIndex--;
+
+                }
+
                 StartCoroutine(
                     MakeCoroutine("slide", _Slide(startXPosition, endXPosition)),
                     "slide"
@@ -152,7 +169,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
             foreach(var buff in buffs) {
                 if(!buff.STACKABLE) {
                     var existingBuff = this.buffs.Find(
-                        (b) => b.IsInstance(buff.GetType())
+                        (b) => b.GetType() == buff.GetType()
                     );
                     if(existingBuff) RemoveBuff(existingBuff);
 
