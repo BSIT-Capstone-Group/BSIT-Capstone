@@ -31,15 +31,6 @@ namespace Ph.CoDe_A.Lakbay.Behaviours.Spawns {
 
         }
 
-        public override void OnCollisionExit(Collision collision) {
-            base.OnCollisionExit(collision);
-            var player = collision.gameObject.GetComponent<Player>();
-            if(player) {
-
-            }
-
-        }
-
         public virtual void Break(Action<Rigidbody> action=null) {
             if(!broken) {
                 rigidbody.Break(action);

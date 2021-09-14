@@ -21,7 +21,8 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class LoadingScreen : Controller {
-        public TextMeshProUGUI asset;
+        public int sceneBuildIndex = 1;
+        public TextMeshProUGUI information;
         public TextMeshProUGUI progress;
         public Slider slider;
 
@@ -36,8 +37,8 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         }
 
-        public void SetAsset(string text) {
-            asset?.SetText(text);
+        public void SetInformation(string text) {
+            information?.SetText(text);
 
         }
 

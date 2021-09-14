@@ -22,22 +22,19 @@ using Ph.CoDe_A.Lakbay.Utilities;
 namespace Ph.CoDe_A.Lakbay.Behaviours.Spawns {
     public class BuffSpawn : Spawn {
         public Buff buff;
+        public Trigger trigger;
 
         public override void OnTriggerEnter(Collider collider) {
             base.OnTriggerEnter(collider);
-            var player = collider.gameObject.GetComponentInParent<Player>();
-            if(player) {
-                player.AddBuff(buff);
-                Destroy(gameObject);
+            if(trigger && trigger.source) {
+                var ts = trigger.source;
+                var player = (ts as PlayerTriggerSource)
+                    ?.player;
+                if(player) {
+                    player.AddBuff(buff);
+                    Destroy(gameObject);
 
-            }
-
-        }
-
-        public override void OnTriggerExit(Collider collider) {
-            base.OnTriggerExit(collider);
-            var player = collider.gameObject.GetComponent<Player>();
-            if(player) {
+                }
 
             }
 

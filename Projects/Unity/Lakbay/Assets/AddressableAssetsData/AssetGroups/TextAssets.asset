@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 59f7c9d961099b044b51ca8665ed3cd8
   m_SerializeEntries:
-  - m_GUID: 49df7a24c9a24ea4788ed569f06b0a8c
-    m_Address: Assets/Game/Assets/Documents/sample.yaml
+  - m_GUID: 5b721d6f6a5413f459f14888fa737646
+    m_Address: Assets/Game/Assets/Documents/sample_question.yaml
     m_ReadOnly: 0
     m_SerializedLabels:
     - TextAsset

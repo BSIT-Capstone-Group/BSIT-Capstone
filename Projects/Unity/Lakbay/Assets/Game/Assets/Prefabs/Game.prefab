@@ -46,4 +46,5 @@ MonoBehaviour:
   _timeScale: 1
   _eventAndInput: {fileID: -8208299023559206825, guid: 826bd8e53e282a546a86cc7276364e79, type: 3}
   _repository: {fileID: 7649246339772836167, guid: de07b5411839fd247ab9acc66fb17403, type: 3}
-  _loadingScreen: {fileID: 4083846433941976649, guid: d0840572df33f16418d920fc86fe42fa, type: 3}
+  _loadingScreen: {fileID: 8285081167473337686, guid: c3ac06938030e514699c7c6a5c45e51a, type: 3}
+  _sceneChanger: {fileID: 418605033852766202, guid: b259bbdcb4f2b8148a01e14c8768f2db, type: 3}

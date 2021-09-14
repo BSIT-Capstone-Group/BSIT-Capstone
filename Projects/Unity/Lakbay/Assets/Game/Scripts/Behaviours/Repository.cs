@@ -48,6 +48,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
             PerAssetCallback<T> perAssetOnComplete=null
         ) {
             if(!HasAsset(path)) {
+                onStart?.Invoke();
                 IList<IResourceLocation> locations = new List<IResourceLocation>();
 
                 var resourceHandle = Addressables.LoadResourceLocationsAsync(path);
@@ -58,7 +59,6 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
                 }
 
                 Addressables.Release(resourceHandle);
-                onStart?.Invoke();
 
                 IList<T> assets = new List<T>();
 
@@ -91,16 +91,16 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         public IEnumerator LoadAssetsEnumerator<T>(
             OnStart onStart=null,
-            OnLoad onLoad=null,
+            OnLoad onProgress=null,
             OnComplete<T> onComplete=null,
             PerAssetCallback<T> perAssetOnStart=null,
-            PerAssetCallback<T> perAssetOnLoad=null,
+            PerAssetCallback<T> perAssetOnProgress=null,
             PerAssetCallback<T> perAssetOnComplete=null
         ) {
             return LoadAssetsEnumerator(
                 typeof(T).Name,
-                onStart, onLoad, onComplete,
-                perAssetOnStart, perAssetOnLoad, perAssetOnComplete
+                onStart, onProgress, onComplete,
+                perAssetOnStart, perAssetOnProgress, perAssetOnComplete
             );
 
         }

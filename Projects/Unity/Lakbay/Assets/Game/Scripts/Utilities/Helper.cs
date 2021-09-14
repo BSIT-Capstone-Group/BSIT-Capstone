@@ -17,6 +17,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using UnityEngine.SceneManagement;
 
 using TMPro;
 using YamlDotNet.Serialization;
@@ -85,6 +86,18 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         public static WaitForSecondsRealtime FixedUpdate() {
             return new WaitForSecondsRealtime(Time.fixedDeltaTime);
+
+        }
+
+        public static Scene[] GetAllScenes() {
+            int count = SceneManager.sceneCountInBuildSettings;
+            List<Scene> scenes = new List<Scene>();
+            for(int i = 0; i < count; i++) {
+                scenes.Add(SceneManager.GetSceneByBuildIndex(i));
+
+            }
+
+            return scenes.ToArray();
 
         }
 

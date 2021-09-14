@@ -1,0 +1,29 @@
+content:
+    -
+        type: "Image"
+        items:
+            - "Assets/Game/Assets/Images/imagename1.png"
+            - "Assets/Game/Assets/Images/imagename2.png"
+            - "Assets/Game/Assets/Images/imagename3.png"
+    -
+        items:
+            - 'At this junction there is a stop sign with a solid white line on the road surface. Why is there a stop sign here?'
+choices:
+    -
+        correct: false
+        content:
+            -
+                items:
+                    - 'Speed on the major road is derestricted'
+    -
+        correct: false
+        content:
+            -
+                items:
+                    - 'It is a busy junction'
+    -
+        correct: true
+        content:
+            -
+                items:
+                    - 'Visibility along the major road is restricted'

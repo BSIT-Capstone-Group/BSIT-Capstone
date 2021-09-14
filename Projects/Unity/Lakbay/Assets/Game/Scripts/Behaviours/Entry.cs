@@ -23,7 +23,12 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
     [Serializable]
     public struct Entry {
         public enum Type {
-            String, Asset 
+            Text = 1,
+            Asset = 2,
+            Image = Asset | 4,
+            Audio = Asset | 8,
+            Video = Asset | 16,
+            Document = Asset | 32
 
         }
 

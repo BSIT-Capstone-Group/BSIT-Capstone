@@ -1,5 +1,5 @@
 /*
- * Date Created: Friday, August 27, 2021 9:37 AM
+ * Date Created: Sunday, August 29, 2021 2:42 AM
  * Author: NI.L.A
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -13,6 +13,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 using TMPro;
 
@@ -20,116 +21,63 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
     public class Repeater : Controller {
-        protected bool _repeated = false;
-        protected bool _freed = false;
-        protected Repeater _next;
-        
-        public virtual Repeater next => _next;
-        
-        public RepeaterHandler handler;
+        public int limit = 15;
+        public float repeatSpeed = 1 / 20.0f;
+        protected bool _initialized = false;
+        [SerializeField]
+        protected List<Repeatable> _repeatables = new List<Repeatable>();
+        protected readonly List<Repeatable> _originalRepeatables = new List<Repeatable>();
+        public Queue<Repeatable> repeatables = new Queue<Repeatable>();
 
         public override void Awake() {
             base.Awake();
+            Initialize();
+
+        }
+
+        public virtual void Initialize() {
+            if(_initialized) return;
+
+            gameObject.DestroyChildren();
+            Repeatable previous = null;
+
+            for(int i = 0; i < limit; i++) {
+                var _repeatable = _repeatables.PickRandomly();
+                var repeatable = Instantiate(_repeatable, transform);
+                repeatable.name = _repeatable.name + $" ({i})";
+                Repeat(repeatable, previous);
+                _originalRepeatables.Add(repeatable);
+                previous = repeatable;
+
+            }
+
+            _initialized = true;
 
         }
 
         public override void Update() {
             base.Update();
-            if(gameObject.IsBoundsVisible()) {
-                Repeat();
+            if(_initialized) {
+                if(repeatables.Count > 0) {
+                    var repeatable = repeatables.Peek();
+                    if(!repeatable.occupied) {
+                        repeatable = repeatables.Dequeue();
+                        Repeat(repeatable, repeatables.Last());
 
-            } else {
-                Free();
-
-            }
-
-        }
-
-        public override void OnBoundsInvisible() {
-            base.OnBoundsInvisible();
-            Free();
-
-        }
-
-        public override void OnEnable() {
-            base.OnEnable();
-            if(!handler) {
-                var rh = transform.parent.GetComponent<RepeaterHandler>();
-                handler = rh;
-
-            }
-
-        }
-
-        public virtual void Free() {
-            if(!handler.infinite) return;
-            if(_freed) return;
-
-            handler.freeRepeaters.Enqueue(this);
-            transform.SetAsLastSibling();
-            _repeated = false;
-            _freed = true;
-
-            OnFree();
-            
-        }
-
-        public virtual void OnFree() {
-
-
-        }
-
-        public virtual void Repeat() {
-            if(!handler.canRepeat) return;
-            if(_repeated) return;
-
-            try {
-                _next = handler.freeRepeaters.Dequeue();
-                _next.transform.position = transform.position;
-                var pos = Vector3.zero;
-                var size = gameObject.GetSize();
-
-                switch(handler.direction) {
-                    case RepeatDirection.Front:
-                        pos = Vector3.forward * size.z;
-                        break;
-
-                    case RepeatDirection.Back:
-                        pos = Vector3.back * size.z;
-                        break;
-
-                    case RepeatDirection.Top:
-                        pos = Vector3.up * size.y;
-                        break;
-
-                    case RepeatDirection.Bottom:
-                        pos = Vector3.down * size.y;
-                        break;
-
-                    case RepeatDirection.Left:
-                        pos = Vector3.left * size.x;
-                        break;
-
-                    case RepeatDirection.Right:
-                        pos = Vector3.right * size.x;
-                        break;
-
-                    default:
-                        break;
+                    }
 
                 }
-                
-                _next.transform.Translate(pos);
-                _repeated = true;
-                _freed = false;
 
-                OnRepeat();
-
-            } catch {}
+            }
 
         }
 
-        public virtual void OnRepeat() {
+        protected virtual void Repeat(Repeatable repeatable, Repeatable previousRepeatable=null) {
+            var pos = previousRepeatable ? previousRepeatable.transform.position : Vector3.zero;
+            var size = previousRepeatable ? previousRepeatable.gameObject.GetSize() : Vector3.zero;
+            repeatable.transform.position = pos + (Vector3.forward * size.z);
+            repeatables.Enqueue(repeatable);
+            repeatable.OnRepeat(this, _originalRepeatables.IndexOf(repeatable));
 
         }
 

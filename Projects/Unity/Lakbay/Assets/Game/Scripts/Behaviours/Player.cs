@@ -35,6 +35,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public float slideDistance = 4.0f;
         public GameObject buffHolder;
         public Vehicle vehicle;
+        public SpawnerRepeater spawnerRepeater;
         public virtual Animator vehicleAnimator => vehicle.GetComponent<Animator>();
 
         public virtual Controller OnPause() {
@@ -58,6 +59,13 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
             foreach(var buff in buffs) buff.OnLinger(this);
 
             vehicle.SetBrakeLights(!_fixedUpdateCallbacks.Contains(_Travel));
+            if(spawnerRepeater) {
+                // float speed = 1.0f / travelSpeed * 8.5f;
+                // if(!_fixedUpdateCallbacks.Contains(_Travel)) speed = 0.0f;
+                // print(speed);
+                // spawnerRepeater.repeatSpeed = speed;
+
+            }
 
         }
 

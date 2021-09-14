@@ -39,7 +39,6 @@ namespace Ph.CoDe_A.Lakbay.Behaviours.Buffs {
         public override void OnTriggerEnter(Collider collider) {
             base.OnTriggerEnter(collider);
             var barricade = collider.GetComponentInParent<Spawns.BarricadeSpawn>();
-            // print(collider.name);
             if(barricade) {
                 barricade.damaging = false;
 

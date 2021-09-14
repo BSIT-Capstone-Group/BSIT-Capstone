@@ -170,7 +170,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static string ToJson<T>(this T obj) {
+        public static string SerializeAsJson<T>(this T obj) {
             return JsonConvert.SerializeObject(obj);
 
         }
@@ -180,7 +180,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static string ToYaml<T>(this T obj) {
+        public static string SerializeAsYaml<T>(this T obj) {
             return Helper.YamlSerializer.Serialize(obj);
 
         }
@@ -375,6 +375,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
         public static bool IsVisibleFrom(
             this Bounds bounds, UnityEngine.Camera camera
         ) {
+            // if(!camera) return false;
             var planes = GeometryUtility.CalculateFrustumPlanes(camera);
             return GeometryUtility.TestPlanesAABB(planes, bounds);
 
@@ -384,6 +385,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
         public static bool IsVisibleFrom(
             this Vector3 position, UnityEngine.Camera camera
         ) {
+            // if(!camera) return false;
             var screenPoint = camera.WorldToViewportPoint(position);
             return screenPoint.z > 0 &&
                 screenPoint.x.Between(0, 1) &&
@@ -496,7 +498,7 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static bool Have<T>(this IEnumerable<T> enumerable, int index) {
+        public static bool Has<T>(this IEnumerable<T> enumerable, int index) {
             return index.Within(0, enumerable.Count());
 
         }
@@ -517,6 +519,11 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
             params object[] parameters
         ) {
             return obj.GetGenericMethod(name, parameterTypes).Invoke(obj, parameters);
+        }
+
+        public static float GetSpeed(this Rigidbody rigidbody) {
+            return rigidbody.velocity.magnitude;
+
         }
 
     } 
