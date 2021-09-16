@@ -30,10 +30,10 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         public override void Update() {
             base.Update();
-            string newEntries = section.Join("\n");
-            if(_recentSection != newEntries) {
+            string newSection = section.Join("\n");
+            if(_recentSection != newSection) {
                 Display(section);
-                _recentSection = newEntries;
+                _recentSection = newSection;
 
             }
 

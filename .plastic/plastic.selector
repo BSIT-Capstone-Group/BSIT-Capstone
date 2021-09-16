@@ -1,4 +1,0 @@
-repository "BSIT-Capstone@NILA@cloud"
-  path "/"
-    smartbranch "/main" changeset "2"           
-     
