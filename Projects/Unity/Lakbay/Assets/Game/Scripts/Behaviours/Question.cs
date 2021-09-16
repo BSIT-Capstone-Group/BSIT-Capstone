@@ -21,7 +21,7 @@ using YamlDotNet.Serialization;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
-    using Content = List<Entry>;
+    using Content = List<string>;
 
     [Serializable]
     public struct Question {

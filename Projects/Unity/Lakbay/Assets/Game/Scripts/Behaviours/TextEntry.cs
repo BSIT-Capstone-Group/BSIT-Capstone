@@ -1,5 +1,5 @@
 /*
- * Date Created: Thursday, September 16, 2021 4:37 AM
+ * Date Created: Thursday, September 16, 2021 9:17 PM
  * Author: NI.L.A
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -21,7 +21,7 @@ using YamlDotNet.Serialization;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
-    public class TextPresentable : Presentable<TextMeshProUGUI> {
+    public class TextEntry : Entry<TextMeshProUGUI> {
         
 
     }

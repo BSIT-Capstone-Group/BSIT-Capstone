@@ -1,12 +1,30 @@
-content:
-    - "A text..."
-    - "Text:A text also, just explicitly defined."
-    - "Image:Path/to/your/singleImageInALine.jpg"
-    - ""
-    - "Image:Path/to/your/image1.jpg"
-    - "Image:Path/to/your/image2.jpg"
-    - "Image:Path/to/your/image3.jpg"
-    - "Image:Path/to/your/image4.jpg"
-    - "Image:Path/to/your/image5.jpg"
-    - "Image:Path/to/your/image6.jpg"
-    - "Audio:Path/to/your/audiofile.mp3"
+# content:
+#     - "A text..."
+#     - "Text:A text also, just explicitly defined."
+#     - "Image:Path/to/your/singleImageInALine.jpg"
+#     - ""
+#     - "Image:Path/to/your/image1.jpg"
+#     - "Image:Path/to/your/image2.jpg"
+#     - "Image:Path/to/your/image3.jpg"
+#     - "Image:Path/to/your/image4.jpg"
+#     - "Image:Path/to/your/image5.jpg"
+#     - "Image:Path/to/your/image6.jpg"
+#     - "Audio:Path/to/your/audiofile.mp3"
+
+-
+    content:
+        - "Image:Path/to/your/image1.jpg"
+        - 'At this junction there is a stop sign with a solid white line on the road surface. Why is there a stop sign here?'
+    choices:
+        -
+            correct: false
+            content:
+                - 'Speed on the major road is derestricted'
+        -
+            correct: false
+            content:
+                - 'It is a busy junction'
+        -
+            correct: true
+            content:
+                - 'Visibility along the major road is restricted'

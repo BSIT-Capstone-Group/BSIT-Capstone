@@ -1,5 +1,5 @@
 /*
- * Date Created: Thursday, September 16, 2021 3:40 AM
+ * Date Created: Thursday, September 16, 2021 9:58 PM
  * Author: NI.L.A
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -21,22 +21,15 @@ using YamlDotNet.Serialization;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
-    using Content = List<Entry>;
-
     [RequireComponent(typeof(RectTransform))]
     public class ContentPresenter : Presenter {
         protected string _recentContent = "";
-        public List<EntryPresenter> entryPresenters; 
-        public Content content = new Content();
-
-        protected string _ToString(IEnumerable<Entry> content) {
-            return content.Join("\n");
-
-        }
+        public List<SectionPresenter> sectionPresenters = new List<SectionPresenter>();
+        public List<string> content = new List<string>();
 
         public override void Update() {
             base.Update();
-            string newContent = _ToString(content);
+            string newContent = content.Join("\n");
             if(_recentContent != newContent) {
                 Display(content);
                 _recentContent = newContent;
@@ -45,14 +38,34 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         }
 
-        public virtual void Display(IEnumerable<Entry> content) {
+        public virtual void Display(IEnumerable<string> content) {
             Clear();
-            foreach(var entry in content) {
-                var entryPresenter = entryPresenters.Find((e) => e.entryType.HasFlag(entry.type));
-                if(!entryPresenter) entryPresenter = entryPresenters.First();
-                Display(Instantiate(entryPresenter), (e) => e.entry = entry);
+            var sections = Parse(content);
+            foreach(var section in sections) {
+                var section_ = this.sectionPresenters.Find((s) => s.entryType == section.Key);
+                Display(Instantiate(section_), (s) => s.section = section.Value);
 
             }
+
+        }
+
+        public static List<KeyValuePair<Entry.Type, List<string>>> Parse(IEnumerable<string> content) {
+            var sections = new List<KeyValuePair<Entry.Type, List<string>>>();
+            foreach(var entry in content) {
+                Entry.Parse(entry, out var type, out var value);
+                if(sections.Count == 0 || (sections.Count > 0 && sections.Last().Key != type)) {
+                    sections.Add(new KeyValuePair<Entry.Type, List<string>>(
+                        type, new List<string>()
+                    ));
+
+                }
+
+                var section = sections.Last();
+                section.Value.Add(value);
+
+            }
+
+            return sections;
 
         }
 

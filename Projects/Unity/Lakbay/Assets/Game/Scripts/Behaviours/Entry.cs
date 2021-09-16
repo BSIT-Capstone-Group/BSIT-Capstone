@@ -1,5 +1,5 @@
 /*
- * Date Created: Thursday, September 9, 2021 7:33 AM
+ * Date Created: Thursday, September 16, 2021 8:19 PM
  * Author: NI.L.A
  * 
  * Copyright © 2021 CoDe_A. All Rights Reserved.
@@ -16,12 +16,12 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 using TMPro;
+using YamlDotNet.Serialization;
 
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Behaviours {
-    [Serializable]
-    public struct Entry {
+    public class Entry : Controller {
         public enum Type {
             Text = 0,
             Asset = 1,
@@ -32,23 +32,26 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         }
 
-        [SerializeField]
-        private Type _type;
-        public Type type { get => _type; set => _type = value; }
-        [SerializeField]
-        private List<string> _items;
-        public List<string> items { get => _items; set => _items = value; }
+        public static KeyValuePair<Type, string> Parse(string entry) {
+            var parts = entry.Split(':').ToList();
+            Type type = default;
 
-        public Entry(Type type=default, List<string> items=null) {
-            _type = type;
-            _items = items ?? new List<string>();
+            if(parts.Count > 1) Enum.TryParse(parts.Pop(0).Trim(), out type);
+            return new KeyValuePair<Type, string>(type, parts.Join(":"));
 
         }
 
-        public override string ToString() {
-            return items.Join("\n");
+        public static void Parse(string entry, out Type type, out string value) {
+            var kvp = Parse(entry);
+            type = kvp.Key;
+            value = kvp.Value;
 
         }
+
+    }
+
+    public class Entry<T> : Entry {
+        public T component;
 
     }
 
