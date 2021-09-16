@@ -175,8 +175,8 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
 
-        public static T DeserializeAsJson<T>(this string json) {
-            return JsonConvert.DeserializeObject<T>(json);
+        public static T DeserializeAsJson<T>(this object obj) {
+            return JsonConvert.DeserializeObject<T>(obj.ToString());
 
         }
 
@@ -185,8 +185,8 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         }
         
-        public static T DeserializeAsYaml<T>(this string yaml) {
-            return Helper.YamlDeserializer.Deserialize<T>(yaml);
+        public static T DeserializeAsYaml<T>(this object obj) {
+            return Helper.YamlDeserializer.Deserialize<T>(obj.ToString());
 
         }
 
@@ -523,6 +523,21 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
 
         public static float GetSpeed(this Rigidbody rigidbody) {
             return rigidbody.velocity.magnitude;
+
+        }
+
+        public static bool IsEmpty<T>(this IEnumerable<T> enumerable) {
+            return enumerable.Count() == 0;
+
+        }
+
+        public static bool Any(this IEnumerable<bool> enumerable) {
+            return enumerable.Any((b) => b);
+
+        }
+
+        public static bool All(this IEnumerable<bool> enumerable) {
+            return enumerable.All((b) => b);
 
         }
 

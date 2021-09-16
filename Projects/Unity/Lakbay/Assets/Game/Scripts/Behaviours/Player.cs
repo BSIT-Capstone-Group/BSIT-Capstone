@@ -33,7 +33,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public virtual int slideIndex => _slideIndex;
         public float slideSpeed = 30.0f;
         public float slideDistance = 4.0f;
-        public GameObject buffHolder;
+        public GameObject buffContainer;
         public Vehicle vehicle;
         public SpawnerRepeater spawnerRepeater;
         public virtual Animator vehicleAnimator => vehicle.GetComponent<Animator>();
@@ -175,7 +175,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
         public virtual void AddBuff(params Buff[] buffs) {
             foreach(var buff in buffs) {
-                if(!buff.STACKABLE) {
+                if(!buff.Stackable) {
                     var existingBuff = this.buffs.Find(
                         (b) => b.GetType() == buff.GetType()
                     );
@@ -183,7 +183,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
 
                 }
 
-                var newBuff = Instantiate(buff, !buffHolder ? transform : buffHolder.transform);
+                var newBuff = Instantiate(buff, !buffContainer ? transform : buffContainer.transform);
                 var type = typeof(Buff);
 
                 this.buffs.Add(newBuff);

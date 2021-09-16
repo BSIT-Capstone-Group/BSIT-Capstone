@@ -27,7 +27,7 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
     }
 
     public class Buff : Controller {
-        public readonly bool STACKABLE = false;
+        public readonly bool Stackable = false;
 
         public float _duration = -1.0f;
         public virtual float duration { get => _duration; set => _duration = value; }

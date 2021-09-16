@@ -23,12 +23,12 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
     [Serializable]
     public struct Entry {
         public enum Type {
-            Text = 1,
-            Asset = 2,
-            Image = Asset | 4,
-            Audio = Asset | 8,
-            Video = Asset | 16,
-            Document = Asset | 32
+            Text = 0,
+            Asset = 1,
+            Image = Asset | 2,
+            Audio = Asset | 4,
+            Video = Asset | 8,
+            Document = Asset | 16
 
         }
 
@@ -42,6 +42,11 @@ namespace Ph.CoDe_A.Lakbay.Behaviours {
         public Entry(Type type=default, List<string> items=null) {
             _type = type;
             _items = items ?? new List<string>();
+
+        }
+
+        public override string ToString() {
+            return items.Join("\n");
 
         }
 

@@ -1,29 +1,12 @@
 content:
-    -
-        type: "Image"
-        items:
-            - "Assets/Game/Assets/Images/imagename1.png"
-            - "Assets/Game/Assets/Images/imagename2.png"
-            - "Assets/Game/Assets/Images/imagename3.png"
-    -
-        items:
-            - 'At this junction there is a stop sign with a solid white line on the road surface. Why is there a stop sign here?'
-choices:
-    -
-        correct: false
-        content:
-            -
-                items:
-                    - 'Speed on the major road is derestricted'
-    -
-        correct: false
-        content:
-            -
-                items:
-                    - 'It is a busy junction'
-    -
-        correct: true
-        content:
-            -
-                items:
-                    - 'Visibility along the major road is restricted'
+    - "A text..."
+    - "Text:A text also, just explicitly defined."
+    - "Image:Path/to/your/singleImageInALine.jpg"
+    - ""
+    - "Image:Path/to/your/image1.jpg"
+    - "Image:Path/to/your/image2.jpg"
+    - "Image:Path/to/your/image3.jpg"
+    - "Image:Path/to/your/image4.jpg"
+    - "Image:Path/to/your/image5.jpg"
+    - "Image:Path/to/your/image6.jpg"
+    - "Audio:Path/to/your/audiofile.mp3"
