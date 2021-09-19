@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 114364570387524256}
   - {fileID: 11400000, guid: 16548dc3f7325d4408f3bdb7beaf7e8f, type: 2}
   - {fileID: 11400000, guid: e648567ca55bc1e4e84f3a96c6ee055b, type: 2}
+  - {fileID: 11400000, guid: e006450ca9000ad4e897a149fa2e9246, type: 2}
   - {fileID: 11400000, guid: 3c8432be3776cf04fb76e1996885094f, type: 2}
   processedFiles:
   - .cs

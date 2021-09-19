@@ -23,6 +23,7 @@ using TMPro;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
+    using Core;
     using Core.Automotive;
 
     public class Player : Controller, IBuffable {

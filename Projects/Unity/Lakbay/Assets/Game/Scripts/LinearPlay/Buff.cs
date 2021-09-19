@@ -20,6 +20,8 @@ using TMPro;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
+    using Core;
+
     public interface IBuffable {
         void AddBuff(params Buff[] buffs);
         void RemoveBuff(params Buff[] buffs);

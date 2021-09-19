@@ -20,6 +20,8 @@ using TMPro;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay.Buffs {
+    using Core;
+
     public class SpeedBoosterBuffTrigger : Controller {
         protected bool _triggered = false;
         protected Collider _triggeringCollider;

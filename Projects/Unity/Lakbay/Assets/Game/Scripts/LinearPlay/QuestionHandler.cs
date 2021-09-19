@@ -21,11 +21,12 @@ using YamlDotNet.Serialization;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
+    using Core;
     using Core.UI;
 
     public class QuestionHandler : Controller {
-        public ContentPresenter questionContentPresenter;
-        public ContentPresenter choiceContentPresenter;
+        public ContentContainer questionContentContainer;
+        public ContentContainer choiceContentContainer;
         public GameObject choiceContainer;
         public bool answerOnPick = true;
         public Question question;
@@ -40,9 +41,9 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
 
         public virtual void Show() {
             Hide();
-            questionContentPresenter.Display(question.content);
+            questionContentContainer.Display(question.content);
             foreach(var choice in question.choices) {
-                var choicePresenter = Instantiate(choiceContentPresenter, choiceContainer.transform);
+                var choicePresenter = Instantiate(choiceContentContainer, choiceContainer.transform);
                 choicePresenter.Display(choice.content);
 
                 var button = choicePresenter.GetComponentInChildren<Button>();
@@ -67,7 +68,7 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
         }
 
         public virtual void Hide() {
-            questionContentPresenter.Clear();
+            questionContentContainer.Clear();
             choiceContainer.DestroyChildren();
 
         }

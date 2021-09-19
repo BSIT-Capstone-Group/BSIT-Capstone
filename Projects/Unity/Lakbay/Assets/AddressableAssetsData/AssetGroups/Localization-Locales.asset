@@ -18,12 +18,12 @@ MonoBehaviour:
   m_GUID: 630a43b543e20ff428a22439243a5d50
   m_SerializeEntries:
   - m_GUID: 192435cbd6b793f4b810dcaab9c10374
-    m_Address: English (en)
+    m_Address: English_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
   - m_GUID: 782b91bed1766af4a8cab0156947a49c
-    m_Address: Filipino (fil)
+    m_Address: Filipino_fil
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale

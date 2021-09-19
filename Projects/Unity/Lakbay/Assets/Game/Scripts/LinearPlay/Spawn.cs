@@ -19,6 +19,8 @@ using TMPro;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
+    using Core;
+
     public class Spawn : Controller {
         public float chance = 0.25f;
         public int rowInterval = 3;

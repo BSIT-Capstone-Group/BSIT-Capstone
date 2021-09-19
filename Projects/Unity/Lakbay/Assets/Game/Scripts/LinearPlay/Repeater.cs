@@ -20,6 +20,8 @@ using TMPro;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
+    using Core;
+
     public class Repeater : Controller {
         public int limit = 15;
         public float repeatSpeed = 1 / 20.0f;

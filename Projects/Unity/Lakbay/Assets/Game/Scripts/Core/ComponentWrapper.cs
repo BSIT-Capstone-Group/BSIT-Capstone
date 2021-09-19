@@ -21,7 +21,7 @@ using YamlDotNet.Serialization;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Core {
-    public class ComponentWrapper<T> : Controller {
+    public class ComponentWrapper<T> : Widget {
         public T component;
 
     }

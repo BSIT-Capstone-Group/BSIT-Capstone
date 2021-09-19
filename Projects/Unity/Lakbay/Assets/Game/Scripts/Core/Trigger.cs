@@ -21,17 +21,30 @@ using YamlDotNet.Serialization;
 using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.Core {
-    [RequireComponent(typeof(Collider))]
     public class Trigger : Controller {
         protected Collider _sourceCollider;
         public virtual Collider sourceCollider => _sourceCollider;
         protected TriggerSource _source;
         public virtual TriggerSource source => _source;
 
+        public override void Awake() {
+            base.Awake();
+            if(!GetComponent<Rigidbody>()) {
+                var rigidbody = gameObject.AddComponent<Rigidbody>();
+                rigidbody.isKinematic = true;
+
+            }
+            
+            var colliders = GetComponentsInChildren<Collider>();
+            if(colliders.Length > 0) {
+                if(!colliders.Find((c) => c.isTrigger)) colliders.First().isTrigger = true;
+
+            }
+
+        }
+
         public override void Update() {
             base.Update();
-            var collider = GetComponent<Collider>();
-            if(collider) collider.isTrigger = true;
 
         }
 
