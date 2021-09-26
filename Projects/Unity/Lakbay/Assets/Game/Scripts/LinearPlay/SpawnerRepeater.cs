@@ -20,11 +20,11 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
     public class SpawnerRepeater : Repeater {
+        public int spawnStartIndex = 1;
         public List<Spawn> spawns = new List<Spawn>();
 
         public override void Awake() {
             base.Awake();
-            repeatSpeed = 0.0f;
             
         }
 

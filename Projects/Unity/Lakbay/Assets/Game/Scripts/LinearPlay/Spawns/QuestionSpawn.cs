@@ -21,11 +21,15 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay.Spawns {
     public class QuestionSpawn : Spawn {
+        public Question question;
+
         public override void OnTriggerEnter(Collider collider) {
             base.OnTriggerEnter(collider);
             var player = collider.gameObject.GetComponentInParent<Player>();
             if(player) {
-                // player.AddBuff(buff);
+                // float oldTimeScale = player.timeScale;
+                // player.timeScale = 0.0f;
+                // player.questionHandler.Show(question);
                 Destroy(gameObject);
 
             }
@@ -42,6 +46,7 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay.Spawns {
         }
 
         public override Spawn OnSpawn(List<Spawn>[] spawns, int index) {
+            spawns[index].Clear();
             return this;
 
         }

@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Texture
+  m_EditorClassIdentifier: 
+  m_GroupName: Texture
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2e663d1f785c38b4684379dd62b895db
+  m_SerializeEntries:
+  - m_GUID: 24c08f7b33ae5da4f9c24ff7b3439567
+    m_Address: Assets/Game/Assets/Images/130_asphalt texture-seamless.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 1e71f0ab09808c4449716c010cb6e0aa
+    m_Address: Assets/Game/Assets/Images/asphalt_with_strips.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 96092a714b103df49bc47ca3d8558dfe
+    m_Address: Assets/Game/Assets/RenderTextures/Camera.renderTexture
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: e68c703419cbf334c9bc19fdd7e3e76f
+    m_Address: Assets/Game/Assets/Scenes/Start/ReflectionProbe-0.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 86bf7a6ad569baa43b718ce5a93a44a3
+    m_Address: Assets/Game/Assets/Scenes/Test/ReflectionProbe-0.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: cf9457cc4ccac72428fe7d3cb1e33619
+    m_Address: Assets/Game/Assets/Terrains/Terrain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 058e1b8e07630c148b8fb6f7976005c7
+    m_Address: Assets/Game/Assets/Terrains/Terrain_1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 43d0282d7a20842408c10aa369a4e90e
+    m_Address: Assets/Game/Assets/Terrains/Terrain_2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: a8fcf33133dae2044830d70faa2ec489
+    m_Address: Assets/Game/Assets/Terrains/Terrain_3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 60a8fc32d12ab2145842766c95239c96
+    m_Address: Assets/Game/Assets/Terrains/Terrain_4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: d99fad6db08f8d941844677d1108d62a
+    m_Address: Assets/Game/Assets/Terrains/Terrain_5.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: dd0476c2be4e9ab4d903e7d243c06e99
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/155.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: dd0df23640014124da6c95b5df977d40
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/1143.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 9db80071eabea3643a3634e8fe361e5c
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/double-bubble.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 6dfb220ae043db842a03aed0936790f9
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/Terrain.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: ced3057baf15b364494b03ad17560faa
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/TexturesCom_Gravel0128_1_seamless_S.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: ac2889fb439ce6045be7c212e1a1ee0c
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/TexturesCom_Gravel0160_1_seamless_S.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: a72def02ce5a8e940a1f6f46475b8d2d
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/TrafficBarricade_Panel_Base.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  - m_GUID: 8ea532abaebabe341b4a7ca1692502dd
+    m_Address: Assets/Game/Assets/Textures/LinearPlay/White.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Texture
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b3386664faaa12f47aa9034387bc35f7, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 715fb4bf685b48b44bebf0f2d12fad76, type: 2}

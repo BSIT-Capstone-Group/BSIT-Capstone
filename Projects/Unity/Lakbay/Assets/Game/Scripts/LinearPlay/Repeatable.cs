@@ -21,7 +21,6 @@ using Ph.CoDe_A.Lakbay.Utilities;
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
     using Core;
 
-    [RequireComponent(typeof(Collider))]
     public class Repeatable : Controller {
         protected bool _occupied = false;
         public virtual bool occupied => _occupied;
@@ -41,8 +40,8 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
 
         public override void Update() {
             base.Update();
-            var collider = GetComponent<Collider>();
-            collider.isTrigger = true;
+            // var collider = GetComponent<Collider>();
+            // collider.isTrigger = true;
 
         }
 

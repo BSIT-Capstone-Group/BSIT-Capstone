@@ -20,6 +20,30 @@ using Ph.CoDe_A.Lakbay.Utilities;
 
 namespace Ph.CoDe_A.Lakbay.LinearPlay {
     public class SpawnerRepeatable : Repeatable {
+        protected virtual GameObject[][] _spawnAreas {
+            get {
+                int i = 0;
+                List<List<GameObject>> sas = new List<List<GameObject>>();
+                sas.Add(new List<GameObject>());
+                var sa = sas.Last();
+                foreach(var spawnArea in spawnAreas) {
+                    sa.Add(spawnArea);
+
+                    if(i == columnCount - 1) {
+                        i = 0;
+                        sas.Add(new List<GameObject>());
+                        sa = sas.Last();
+
+                    } else i++;
+
+                }
+
+                return (from s in sas select s.ToArray()).ToArray();
+
+            }
+
+        }
+        public int columnCount = 3;
         public List<GameObject> spawnAreas = new List<GameObject>();
 
         public override void OnRepeat(Repeater repeater, int index) {
@@ -29,9 +53,28 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
         }
 
         public virtual void PopulateSpawns(SpawnerRepeater repeater, int index) {
-            var spawns = (from a in spawnAreas select new List<Spawn>()).ToArray();
+            foreach(var spawnAreas in _spawnAreas.Enumerate()) {
+                // int nindex = index + _spawnAreas.Where(
+                //     (s, i) => i < spawnAreas.Key
+                // ).Select((s) => s.Length).Count();
+                // print(index, spawnAreas.Key, nindex);
+                _PopulateSpawns(repeater, spawnAreas.Key + (index * _spawnAreas.Length), spawnAreas.Value);
 
-            foreach(var spawnArea in spawnAreas.Enumerate()) {
+            }
+
+        }
+
+        protected virtual void _PopulateSpawns(
+            SpawnerRepeater repeater,
+            int index,
+            GameObject[] spawnAreas
+        ) {
+            if(repeater.index < repeater.spawnStartIndex) return;
+            var spawns = (from a in spawnAreas select new List<Spawn>()).ToArray();
+            var sas = spawnAreas.Enumerate().ToList();
+
+            while(sas.Count != 0) {
+                var spawnArea = sas.PopRandomly(); 
                 spawnArea.Value.DestroyChildren();
                 float chance = UnityEngine.Random.value;
                 foreach(var spawn in repeater.spawns) {
@@ -43,6 +86,7 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
                             (sl) => sl.Count((s) => s.IsInstance(spawn.GetType()))
                         ).Sum() != spawn.maxCount
                     ) {
+                        // print(spawn.name, index);
                         var sp = spawn.OnSpawn(spawns, spawnArea.Key);
                         if(sp) spawns[spawnArea.Key].Add(sp);
 

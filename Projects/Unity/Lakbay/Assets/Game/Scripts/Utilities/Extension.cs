@@ -15,6 +15,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
 
 using Newtonsoft.Json;
 using TMPro;
@@ -540,6 +541,131 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
             return enumerable.All((b) => b);
 
         }
+
+        public static T EnsureComponent<T>(this GameObject gameObject, bool includeChildren=true) where T : Component {
+            var component = includeChildren ?
+                gameObject.GetComponentInChildren<T>() :
+                gameObject.GetComponent<T>();
+            if(!component) component = gameObject.AddComponent<T>();
+            return component;
+
+        }
+
+        public static T Find<T>(this IEnumerable<T> enumerable, Predicate<T> predicate) {
+            foreach(var item in enumerable) {
+                if(predicate(item)) return item;
+
+            }
+
+            return default;
+
+        }
+
+        public static T FindAndPop<T>(this IList<T> list, T item) {
+            if(!list.Contains(item)) return default;
+            return list.Pop(list.IndexOf(item));
+
+        }
+
+        public static T FindAndPop<T>(this IList<T> list, params T[] items) {
+            foreach(var item in items) {
+                if(!list.Contains(item)) continue;
+                return list.FindAndPop(item);
+
+            }
+
+            return default;
+
+        }
+
+        public static bool Contains(this string str, string substring, char delimiter='_') {
+            return str.Split(delimiter).Contains(substring);
+
+        }
+
+        public static bool Contains(this string str, string[] substrings, char delimiter='_') {
+            foreach(var substring in substrings) {
+                if(str.Contains(substring, delimiter)) return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static MethodInfo GetGetter(this object obj, string name) {
+            var pi = obj.GetType().GetProperty(name);
+            return pi.GetMethod;
+
+        }
+
+        public static MethodInfo GetSetter(this object obj, string name) {
+            var pi = obj.GetType().GetProperty(name);
+            return pi.SetMethod;
+
+        }
+
+        public static T CreateDelegate<T>(this MethodInfo methodInfo, object obj)
+            where T : Delegate {
+            return (T) Delegate.CreateDelegate(
+                typeof(T), obj, methodInfo
+            );
+
+        }
+
+        public static LocalizedAsset<T> GetAssetReference<T>(this T asset, char delimiter='_')
+            where T : UnityEngine.Object {
+            LocalizedAsset<T> la = default;
+            if(asset.TrimLocaleCode(out string name, out string code, delimiter)) {
+                la = new LocalizedAsset<T>();
+                la.SetReference(asset.GetType().Name, name);
+
+            }
+
+            return la;
+
+        }
+
+        public static bool TrimLocaleCode<T>(this T asset, out string name, out string code, char delimiter='_')
+            where T : UnityEngine.Object {
+            var names = asset.name.Split(delimiter).ToList();
+            name = asset.name;
+            code = default;
+            if(Helper.GetLocaleCodes().Contains(names.Last())) {
+                code = names.Pop(names.Count - 1);
+                name = names.Join(delimiter.ToString());
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static bool StartsWith(this string str, string[] substrings, bool ignoreCase=true) {
+            foreach(var ss in substrings) {
+                if(
+                    ignoreCase ? str.ToLower().StartsWith(ss.ToLower()) :
+                    str.StartsWith(ss)) return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static bool EndsWith(this string str, string[] substrings, bool ignoreCase=true) {
+            foreach(var ss in substrings) {
+                if(
+                    ignoreCase ? str.ToLower().EndsWith(ss.ToLower()) :
+                    str.EndsWith(ss)) return true;
+
+            }
+
+            return false;
+
+        }
+
 
     } 
 

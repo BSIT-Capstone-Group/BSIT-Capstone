@@ -15,6 +15,8 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.SceneManagement;
@@ -98,6 +100,68 @@ namespace Ph.CoDe_A.Lakbay.Utilities {
             }
 
             return scenes.ToArray();
+
+        }
+
+        public static T ToDelegate<T>(object obj, string propertyName, bool getter) where T : Delegate {
+            var pi = obj.GetType().GetProperty(propertyName);
+            var mi = getter ? pi.GetMethod : pi.SetMethod;
+            return (T) Delegate.CreateDelegate(
+                typeof(T), obj, mi
+            );
+
+        }
+
+        public static T ToDelegate<T>(object obj, string propertyName) where T : Delegate {
+            return ToDelegate<T>(obj, propertyName, false);
+
+        }
+
+        public static Locale[] GetLocales() {
+            Locale[] locales;
+            locales = LocalizationSettings.AvailableLocales.Locales.ToArray();
+
+            return locales;
+
+        }
+
+        public static string[] GetLocaleCodes() {
+            return GetLocaleCodes(GetLocales());
+
+        }
+
+        public static string[] GetLocaleCodes(params Locale[] locales) {
+            return locales.Select((l) => l.Identifier.Code).ToArray();
+
+        }
+
+        public static LocalizedAsset<T> GetAssetReference<T>(T asset, Locale[] locales, char delimiter='_')
+            where T : UnityEngine.Object {
+            LocalizedAsset<T> la = default;
+            if(TrimLocaleCode(asset, locales, out string name, out string code, delimiter)) {
+                la = new LocalizedAsset<T>();
+                la.SetReference(asset.GetType().Name, name);
+
+            }
+
+            return la;
+
+        }
+
+        public static bool TrimLocaleCode<T>(T asset, Locale[] locales, out string name, out string code, char delimiter='_')
+            where T : UnityEngine.Object {
+            var names = asset.name.Split(delimiter).ToList();
+            name = asset.name;
+            code = default;
+            var localeCodes = GetLocaleCodes(locales);
+            if(localeCodes.Contains(names.Last())) {
+                code = names.Pop(names.Count - 1);
+                name = names.Join(delimiter.ToString());
+                return true;
+
+            }
+
+            return false;
 
         }
 

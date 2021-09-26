@@ -26,13 +26,14 @@ namespace Ph.CoDe_A.Lakbay.Core {
         public TextMeshProUGUI progress;
         public Slider slider;
 
-        public virtual CanvasGroup canvasGroup => GetComponent<CanvasGroup>();
+        protected CanvasGroup _canvasGroup;
+        public virtual CanvasGroup canvasGroup => _canvasGroup;
 
         public override void Awake() {
             base.Awake();
             if(!Game.initialized) DontDestroyOnLoad(gameObject);
 
-            if(!GetComponent<CanvasGroup>()) gameObject.AddComponent<CanvasGroup>();
+            _canvasGroup = gameObject.EnsureComponent<CanvasGroup>();
             Hide();
 
         }

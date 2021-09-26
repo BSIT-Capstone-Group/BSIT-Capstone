@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Filipino (fil)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Filipino (fil)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5e1e3e1a511baff40a1c5e3bcb24b6c7
+  m_SerializeEntries: []
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: b3386664faaa12f47aa9034387bc35f7, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bc04ce96e56e8d446adad86a00c8ee55, type: 2}
+    - {fileID: 11400000, guid: 8d888c1b3a2fe0b4989ee138389f419e, type: 2}

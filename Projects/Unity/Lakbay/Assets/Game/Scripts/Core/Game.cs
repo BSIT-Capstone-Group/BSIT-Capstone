@@ -39,6 +39,9 @@ namespace Ph.CoDe_A.Lakbay.Core {
         protected LoadingScreen _loadingScreen;
         public static LoadingScreen loadingScreen;
         [SerializeField]
+        protected Store _store;
+        public static Store store;
+        [SerializeField]
         protected SceneChanger _sceneChanger;
 
         public override void Awake() {
@@ -91,6 +94,12 @@ namespace Ph.CoDe_A.Lakbay.Core {
             if(!FindObjectOfType<LoadingScreen>() && _loadingScreen) {
                 var go = Instantiate(_loadingScreen);
                 loadingScreen = go.GetComponent<LoadingScreen>();
+                
+            }
+
+            if(!FindObjectOfType<Store>() && _store) {
+                var go = Instantiate(_store);
+                store = go.GetComponent<Store>();
                 
             }
 

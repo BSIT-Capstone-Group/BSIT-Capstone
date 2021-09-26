@@ -40,7 +40,7 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay.Buffs {
 
         public override void OnTriggerEnter(Collider collider) {
             base.OnTriggerEnter(collider);
-            var barricade = collider.GetComponentInParent<Spawns.BarricadeSpawn>();
+            var barricade = collider.GetComponentInParent<Spawns.ObstacleSpawn>();
             if(barricade) {
                 barricade.damaging = false;
                 barricade.Break((r) => {

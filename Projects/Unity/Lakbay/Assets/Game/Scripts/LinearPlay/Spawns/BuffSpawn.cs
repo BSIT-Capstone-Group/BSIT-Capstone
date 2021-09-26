@@ -26,6 +26,12 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay.Spawns {
         public Buff buff;
         public Trigger trigger;
 
+        public override void Awake() {
+            base.Awake();
+            trigger = gameObject.EnsureComponent<Trigger>();
+
+        }
+
         public override void OnTriggerEnter(Collider collider) {
             base.OnTriggerEnter(collider);
             if(trigger && trigger.source) {

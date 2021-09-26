@@ -19,6 +19,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
 using TMPro;
+using YamlDotNet.Serialization;
 
 using Ph.CoDe_A.Lakbay.Utilities;
 

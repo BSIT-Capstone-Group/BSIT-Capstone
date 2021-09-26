@@ -15,21 +15,21 @@ MonoBehaviour:
   m_GroupName: Localization-Locales
   m_Data:
     m_SerializedData: []
-  m_GUID: 630a43b543e20ff428a22439243a5d50
+  m_GUID: e07d76a69418bdf4190974ee0c8485cb
   m_SerializeEntries:
-  - m_GUID: 192435cbd6b793f4b810dcaab9c10374
-    m_Address: English_en
+  - m_GUID: f5623ec07f997e147822187b165dc997
+    m_Address: Assets/Game/Assets/Localization/Locales/English (en).asset
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-  - m_GUID: 782b91bed1766af4a8cab0156947a49c
-    m_Address: Filipino_fil
+  - m_GUID: c2e111d98e1376d42a77122a97e36514
+    m_Address: Assets/Game/Assets/Localization/Locales/Filipino (fil).asset
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
   m_ReadOnly: 1
-  m_Settings: {fileID: 11400000, guid: cf620e076272c7640ae54a11e5623a40, type: 2}
+  m_Settings: {fileID: 11400000, guid: b3386664faaa12f47aa9034387bc35f7, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 04b71c48962071a40982ca19407869a3, type: 2}
-    - {fileID: 11400000, guid: 0c409ebcf60c9314c82d6fed97c2105d, type: 2}
+    - {fileID: 11400000, guid: f1312dca4d317bc47b5bffc085cc5779, type: 2}
+    - {fileID: 11400000, guid: da06d91e4762949439e3a9bd9de68b1e, type: 2}

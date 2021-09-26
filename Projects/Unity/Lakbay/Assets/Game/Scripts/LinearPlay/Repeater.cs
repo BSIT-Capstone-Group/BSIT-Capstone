@@ -24,8 +24,9 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
 
     public class Repeater : Controller {
         public int limit = 15;
-        public float repeatSpeed = 1 / 20.0f;
         protected bool _initialized = false;
+        protected int _index = 0;
+        public virtual int index => _index;
         [SerializeField]
         protected List<Repeatable> _repeatables = new List<Repeatable>();
         protected readonly List<Repeatable> _originalRepeatables = new List<Repeatable>();
@@ -46,9 +47,9 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
             for(int i = 0; i < limit; i++) {
                 var _repeatable = _repeatables.PickRandomly();
                 var repeatable = Instantiate(_repeatable, transform);
+                _originalRepeatables.Add(repeatable);
                 repeatable.name = _repeatable.name + $" ({i})";
                 Repeat(repeatable, previous);
-                _originalRepeatables.Add(repeatable);
                 previous = repeatable;
 
             }
@@ -79,7 +80,8 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
             var size = previousRepeatable ? previousRepeatable.gameObject.GetSize() : Vector3.zero;
             repeatable.transform.position = pos + (Vector3.forward * size.z);
             repeatables.Enqueue(repeatable);
-            repeatable.OnRepeat(this, _originalRepeatables.IndexOf(repeatable));
+            repeatable.OnRepeat(this, index);
+            _index++;
 
         }
 

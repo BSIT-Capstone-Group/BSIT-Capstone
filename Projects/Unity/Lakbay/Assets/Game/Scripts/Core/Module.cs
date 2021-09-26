@@ -14,6 +14,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Localization;
 
 using TMPro;
 using YamlDotNet.Serialization;
@@ -25,7 +26,16 @@ namespace Ph.CoDe_A.Lakbay.Core {
     /// <summary>A <see cref="Component">Component</see> that can be attached to
     /// a <see cref="Component">GameObject</see>.</summary>
     public class Module : MonoBehaviour {
-        
+        [ContextMenu("Localize")]
+        protected virtual void _Localize() {
+            Localize();
+            
+        }
+
+        public virtual void Localize() {
+
+
+        }
 
     }
 

@@ -29,7 +29,8 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
         public ContentContainer choiceContentContainer;
         public GameObject choiceContainer;
         public bool answerOnPick = true;
-        public Question question;
+        protected Question _question;
+        public Question question => _question;
         public UnityEvent<QuestionHandler> onAnswer = new UnityEvent<QuestionHandler>();
 
         public override void Awake() {
@@ -39,8 +40,9 @@ namespace Ph.CoDe_A.Lakbay.LinearPlay {
 
         }
 
-        public virtual void Show() {
+        public virtual void Show(Question question) {
             Hide();
+            _question = question;
             questionContentContainer.Display(question.content);
             foreach(var choice in question.choices) {
                 var choicePresenter = Instantiate(choiceContentContainer, choiceContainer.transform);

@@ -134,10 +134,11 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2021.08.24
+  bundleVersion: 2021.09.26
   preloadedAssets:
-  - {fileID: 11400000, guid: 658cbfaa9b10c104e83073756e621bef, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 0f79bb45fa9d34045b770c5dc4e3a536, type: 2}
+  - {fileID: 11400000, guid: d16090184792d3040a60d60d3dcae533, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

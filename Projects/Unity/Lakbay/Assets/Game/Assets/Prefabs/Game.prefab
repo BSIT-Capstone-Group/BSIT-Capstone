@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4270237124435158935}
   - component: {fileID: 4270237124435158932}
+  - component: {fileID: -4205043949643913593}
+  - component: {fileID: 3659881442033314636}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -47,4 +49,33 @@ MonoBehaviour:
   _eventAndInput: {fileID: -8208299023559206825, guid: 826bd8e53e282a546a86cc7276364e79, type: 3}
   _repository: {fileID: 7649246339772836167, guid: de07b5411839fd247ab9acc66fb17403, type: 3}
   _loadingScreen: {fileID: 8285081167473337686, guid: c3ac06938030e514699c7c6a5c45e51a, type: 3}
+  _store: {fileID: 4227638724611153540, guid: a3f991110b7113b4ba783dd3dcc8a7b8, type: 3}
   _sceneChanger: {fileID: 418605033852766202, guid: b259bbdcb4f2b8148a01e14c8768f2db, type: 3}
+--- !u!114 &-4205043949643913593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270237124435158934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a09e3599c694f840b1571819a16e498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeScale: 1
+  _levels:
+  - {fileID: 4900000, guid: 0b6e2c90fbdebbd459cb557ca006e670, type: 3}
+  levels: []
+--- !u!114 &3659881442033314636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270237124435158934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c99728c35e3324488a11fcc3ed24854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
